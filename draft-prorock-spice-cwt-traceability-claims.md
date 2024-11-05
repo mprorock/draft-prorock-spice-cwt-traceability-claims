@@ -8,18 +8,18 @@ stream: IETF
 number:
 date:
 consensus: true
-area: "Security"
+area: ""
 workgroup: "Secure Patterns for Internet CrEdentials"
 keyword:
  - cose
  - cwt
 venue:
   group: "Secure Patterns for Internet CrEdentials"
-  type: "Working Group"
+  type: ""
   mail: "spice@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spice/"
   github: "mprorock/draft-prorock-spice-cwt-traceability-claims"
-  latest: "https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims-00/draft-prorock-spice-cwt-traceability-claims.html"
+  latest: "https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html"
 
 author:
  -
