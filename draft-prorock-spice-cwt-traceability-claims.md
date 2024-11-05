@@ -58,12 +58,15 @@ These claims are designed to enhance transparency in supply chain tracking but s
 
 ## 4. IANA Considerations
 
-## CWT Claims
+## CBOR Web Token (CWT) Claims
 
-IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cose/cose.xhtml#header-parameters).
+IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cwt/cwt.xhtml).
 
 
 ### Goods Identifier
+
+The following completed registration template per RFC8392 is provided:
+
 Name: product_id
 Label: TBD
 Value Type: text string
@@ -72,6 +75,9 @@ Description: A unique identifier for the physical product(s) or shipment being t
 Reference: RFC XXXX
 
 ### Shipment ID
+
+The following completed registration template per RFC8392 is provided:
+
 Name: shipment_id
 Label: TBD
 Value Type: text string
@@ -80,6 +86,9 @@ Description: Unique identifier assigned to a specific shipment.
 Reference: RFC XXXX
 
 ### Bill of Lading Number
+
+The following completed registration template per RFC8392 is provided:
+
 Name: bill_of_lading_number
 Label: TBD
 Value Type: text string
@@ -88,6 +97,9 @@ Description: Identifier for the bill of lading associated with the goods.
 Reference: RFC XXXX
 
 ### Transport Mode
+
+The following completed registration template per RFC8392 is provided:
+
 Name: transport_mode
 Label: TBD
 Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
@@ -96,6 +108,9 @@ Description: Mode of transport used for the shipment.
 Reference: RFC XXXX
 
 ### Container ID
+
+The following completed registration template per RFC8392 is provided:
+
 Name: container_id
 Label: TBD
 Value Type: text string
@@ -104,6 +119,9 @@ Description: Unique identifier for the container used in the shipment.
 Reference: RFC XXXX
 
 ### Origin Location
+
+The following completed registration template per RFC8392 is provided:
+
 Name: origin_location
 Label: TBD
 Value Type: text string
@@ -112,6 +130,9 @@ Description: Geographical origin of the goods, represented as a location code (e
 Reference: RFC XXXX
 
 ### Destination Location
+
+The following completed registration template per RFC8392 is provided:
+
 Name: destination_location
 Label: TBD
 Value Type: text string
@@ -120,6 +141,9 @@ Description: Final destination of the goods in the shipment.
 Reference: RFC XXXX
 
 ### Carrier ID
+
+The following completed registration template per RFC8392 is provided:
+
 Name: carrier_id
 Label: TBD
 Value Type: text string
@@ -128,6 +152,9 @@ Description: Identifier for the carrier or logistics provider responsible for th
 Reference: RFC XXXX
 
 ### Estimated Delivery Date
+
+The following completed registration template per RFC8392 is provided:
+
 Name: estimated_delivery_date
 Label: TBD
 Value Type: text string (ISO8601 format)
@@ -136,6 +163,9 @@ Description: Expected delivery date for the shipment.
 Reference: RFC XXXX
 
 ### Customs Declaration Number
+
+The following completed registration template per RFC8392 is provided:
+
 Name: customs_declaration_number
 Label: TBD
 Value Type: text string
@@ -144,6 +174,9 @@ Description: Identifier for the customs declaration associated with the shipment
 Reference: RFC XXXX
 
 ### Commodity Description
+
+The following completed registration template per RFC8392 is provided:
+
 Name: commodity_description
 Label: TBD
 Value Type: text string
@@ -152,6 +185,9 @@ Description: Description of the commodity or goods being transported.
 Reference: RFC XXXX
 
 ### HS Code
+
+The following completed registration template per RFC8392 is provided:
+
 Name: hs_code
 Label: TBD
 Value Type: text string
@@ -160,6 +196,9 @@ Description: Harmonized System (HS) code for the goods.
 Reference: RFC XXXX
 
 ### Gross Weight
+
+The following completed registration template per RFC8392 is provided:
+
 Name: gross_weight
 Label: TBD
 Value Type: integer
@@ -168,6 +207,9 @@ Description: Gross weight of the shipment, in kilograms.
 Reference: RFC XXXX
 
 ### Temperature Min Requirement
+
+The following completed registration template per RFC8392 is provided:
+
 Name: temperature_requirement_min
 Label: TBD
 Value Type: float
@@ -176,6 +218,9 @@ Description: Minimum temperature (in Celsius) required for transport or storage 
 Reference: RFC XXXX
 
 ### Temperature Max Requirement
+
+The following completed registration template per RFC8392 is provided:
+
 Name: temperature_requirement_max
 Label: TBD
 Value Type: float
@@ -184,6 +229,9 @@ Description: Maximum temperature (in Celsius) required for transport or storage 
 Reference: RFC XXXX
 
 ### Last Known Location
+
+The following completed registration template per RFC8392 is provided:
+
 Name: last_known_location
 Label: TBD
 Value Type: text string
@@ -192,6 +240,9 @@ Description: Most recent location update for the goods.
 Reference: RFC XXXX
 
 ### Tariff Code
+
+The following completed registration template per RFC8392 is provided:
+
 Name: tariff_code
 Label: TBD
 Value Type: text string
@@ -200,6 +251,9 @@ Description: Tariff code applicable to the goods, including national tariff clas
 Reference: RFC XXXX
 
 ### Country of Origin
+
+The following completed registration template per RFC8392 is provided:
+
 Name: country_of_origin
 Label: TBD
 Value Type: text string (ISO 3166-1 alpha-2 country code)
@@ -208,6 +262,9 @@ Description: The country where the goods were produced or manufactured.
 Reference: RFC XXXX
 
 ### Customs Value
+
+The following completed registration template per RFC8392 is provided:
+
 Name: customs_value
 Label: TBD
 Value Type: float
@@ -216,6 +273,9 @@ Description: Declared value of the goods for customs purposes, typically in the 
 Reference: RFC XXXX
 
 ### Currency Code
+
+The following completed registration template per RFC8392 is provided:
+
 Name: currency_code
 Label: TBD
 Value Type: text string (ISO 4217 currency code)
@@ -224,6 +284,9 @@ Description: Currency code for the customs value and other monetary amounts, as 
 Reference: RFC XXXX
 
 ### Import/Export License Number
+
+The following completed registration template per RFC8392 is provided:
+
 Name: license_number
 Label: TBD
 Value Type: text string
@@ -232,6 +295,9 @@ Description: License or permit number required for the import or export of the g
 Reference: RFC XXXX
 
 ### Sanctions Reference
+
+The following completed registration template per RFC8392 is provided:
+
 Name: sanctions_reference
 Label: TBD
 Value Type: text string
@@ -240,6 +306,9 @@ Description: Reference to applicable sanctions lists or regulations affecting th
 Reference: RFC XXXX
 
 ### Legal Jurisdiction
+
+The following completed registration template per RFC8392 is provided:
+
 Name: legal_jurisdiction
 Label: TBD
 Value Type: text string
@@ -248,6 +317,9 @@ Description: Legal jurisdiction(s) governing the transaction, represented as cou
 Reference: RFC XXXX
 
 ### Importer Code
+
+The following completed registration template per RFC8392 is provided:
+
 Name: importer_code
 Label: TBD
 Value Type: text string
@@ -256,6 +328,9 @@ Description: Code identifying the importer, such as a VAT number or EORI number.
 Reference: RFC XXXX
 
 ### Exporter Code
+
+The following completed registration template per RFC8392 is provided:
+
 Name: exporter_code
 Label: TBD
 Value Type: text string
@@ -264,6 +339,9 @@ Description: Code identifying the exporter, such as a VAT number or EORI number.
 Reference: RFC XXXX
 
 ### Incoterms
+
+The following completed registration template per RFC8392 is provided:
+
 Name: incoterms
 Label: TBD
 Value Type: text string
@@ -272,6 +350,9 @@ Description: International commercial terms defining responsibilities between bu
 Reference: RFC XXXX
 
 ### Regulatory Compliance Codes
+
+The following completed registration template per RFC8392 is provided:
+
 Name: regulatory_compliance_codes
 Label: TBD
 Value Type: array of text strings
@@ -280,6 +361,9 @@ Description: Codes indicating compliance with specific regulations or standards 
 Reference: RFC XXXX
 
 ### Additional Documents Required
+
+The following completed registration template per RFC8392 is provided:
+
 Name: additional_documents_required
 Label: TBD
 Value Type: array of text strings
@@ -288,6 +372,9 @@ Description: List of additional documents required for customs clearance, such a
 Reference: RFC XXXX
 
 ### Freight Charges
+
+The following completed registration template per RFC8392 is provided:
+
 Name: freight_charges
 Label: TBD
 Value Type: float
@@ -296,6 +383,9 @@ Description: Transportation costs associated with the shipment, used for customs
 Reference: RFC XXXX
 
 ### Insurance Charges
+
+The following completed registration template per RFC8392 is provided:
+
 Name: insurance_charges
 Label: TBD
 Value Type: float
@@ -304,6 +394,9 @@ Description: Insurance costs for the shipment, used in determining customs value
 Reference: RFC XXXX
 
 ### Packing Costs
+
+The following completed registration template per RFC8392 is provided:
+
 Name: packing_costs
 Label: TBD
 Value Type: float
@@ -312,6 +405,9 @@ Description: Costs associated with packing the goods, relevant for customs valua
 Reference: RFC XXXX
 
 ### Place of Loading
+
+The following completed registration template per RFC8392 is provided:
+
 Name: place_of_loading
 Label: TBD
 Value Type: text string
@@ -320,6 +416,9 @@ Description: Location where the goods were loaded for shipment, often a port or 
 Reference: RFC XXXX
 
 ### Place of Discharge
+
+The following completed registration template per RFC8392 is provided:
+
 Name: place_of_discharge
 Label: TBD
 Value Type: text string
@@ -328,6 +427,9 @@ Description: Location where the goods are scheduled to be unloaded.
 Reference: RFC XXXX
 
 ### Consignee Information
+
+The following completed registration template per RFC8392 is provided:
+
 Name: consignee_information
 Label: TBD
 Value Type: map
@@ -336,6 +438,9 @@ Description: Information about the consignee, including name, address, and conta
 Reference: RFC XXXX
 
 ### Consignor Information
+
+The following completed registration template per RFC8392 is provided:
+
 Name: consignor_information
 Label: TBD
 Value Type: map
@@ -344,12 +449,16 @@ Description: Information about the consignor, including name, address, and conta
 Reference: RFC XXXX
 
 ### Customs Declaration Date
+
+The following completed registration template per RFC8392 is provided:
+
 Name: customs_declaration_date
 Label: TBD
 Value Type: text string (ISO8601 date format)
 Value Registry: (empty)
 Description: Date when the customs declaration was made.
 Reference: RFC XXXX
+
 
 --- back
 
