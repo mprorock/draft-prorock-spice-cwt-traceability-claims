@@ -1,3 +1,4 @@
+---
 title: "SPICE Traceability CWT Claims"
 abbrev: "stcc"
 category: info
@@ -31,7 +32,7 @@ normative:
   BCP205:
 
 informative:
-
+---
 
 --- abstract
 
