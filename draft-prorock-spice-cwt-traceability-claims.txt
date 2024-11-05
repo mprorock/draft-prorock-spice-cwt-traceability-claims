@@ -69,7 +69,7 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Security Considerations
      3.1.  4.  IANA Considerations
-     3.2.  CWT Claims
+     3.2.  CBOR Web Token (CWT) Claims
        3.2.1.  Goods Identifier
        3.2.2.  Shipment ID
        3.2.3.  Bill of Lading Number
@@ -139,13 +139,15 @@ Table of Contents
 
 3.1.  4.  IANA Considerations
 
-3.2.  CWT Claims
+3.2.  CBOR Web Token (CWT) Claims
 
    IANA is requested to add the following entries to the CWT claims
-   registry (https://www.iana.org/assignments/cose/cose.xhtml#header-
-   parameters).
+   registry (https://www.iana.org/assignments/cwt/cwt.xhtml).
 
 3.2.1.  Goods Identifier
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: product_id Label: TBD Value Type: text string Value Registry:
    (empty) Description: A unique identifier for the physical product(s)
@@ -154,17 +156,26 @@ Table of Contents
 
 3.2.2.  Shipment ID
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: shipment_id Label: TBD Value Type: text string Value Registry:
    (empty) Description: Unique identifier assigned to a specific
    shipment.  Reference: RFC XXXX
 
 3.2.3.  Bill of Lading Number
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: bill_of_lading_number Label: TBD Value Type: text string Value
    Registry: (empty) Description: Identifier for the bill of lading
    associated with the goods.  Reference: RFC XXXX
 
 3.2.4.  Transport Mode
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: transport_mode Label: TBD Value Type: text string (recommended
    values: “air,” “sea,” “rail,” “truck”) Value Registry: (empty)
@@ -173,11 +184,17 @@ Table of Contents
 
 3.2.5.  Container ID
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: container_id Label: TBD Value Type: text string Value Registry:
    (empty) Description: Unique identifier for the container used in the
    shipment.  Reference: RFC XXXX
 
 3.2.6.  Origin Location
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: origin_location Label: TBD Value Type: text string Value
    Registry: (empty) Description: Geographical origin of the goods,
@@ -186,11 +203,17 @@ Table of Contents
 
 3.2.7.  Destination Location
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: destination_location Label: TBD Value Type: text string Value
    Registry: (empty) Description: Final destination of the goods in the
    shipment.  Reference: RFC XXXX
 
 3.2.8.  Carrier ID
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: carrier_id Label: TBD Value Type: text string Value Registry:
    (empty) Description: Identifier for the carrier or logistics provider
@@ -198,11 +221,17 @@ Table of Contents
 
 3.2.9.  Estimated Delivery Date
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: estimated_delivery_date Label: TBD Value Type: text string
    (ISO8601 format) Value Registry: (empty) Description: Expected
    delivery date for the shipment.  Reference: RFC XXXX
 
 3.2.10.  Customs Declaration Number
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: customs_declaration_number Label: TBD Value Type: text string
    Value Registry: (empty) Description: Identifier for the customs
@@ -210,11 +239,17 @@ Table of Contents
 
 3.2.11.  Commodity Description
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: commodity_description Label: TBD Value Type: text string Value
    Registry: (empty) Description: Description of the commodity or goods
    being transported.  Reference: RFC XXXX
 
 3.2.12.  HS Code
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: hs_code Label: TBD Value Type: text string Value Registry:
    (empty) Description: Harmonized System (HS) code for the goods.
@@ -222,11 +257,17 @@ Table of Contents
 
 3.2.13.  Gross Weight
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: gross_weight Label: TBD Value Type: integer Value Registry:
    (empty) Description: Gross weight of the shipment, in kilograms.
    Reference: RFC XXXX
 
 3.2.14.  Temperature Min Requirement
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: temperature_requirement_min Label: TBD Value Type: float Value
    Registry: (empty) Description: Minimum temperature (in Celsius)
@@ -234,17 +275,26 @@ Table of Contents
 
 3.2.15.  Temperature Max Requirement
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: temperature_requirement_max Label: TBD Value Type: float Value
    Registry: (empty) Description: Maximum temperature (in Celsius)
    required for transport or storage of the goods.  Reference: RFC XXXX
 
 3.2.16.  Last Known Location
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: last_known_location Label: TBD Value Type: text string Value
    Registry: (empty) Description: Most recent location update for the
    goods.  Reference: RFC XXXX
 
 3.2.17.  Tariff Code
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: tariff_code Label: TBD Value Type: text string Value Registry:
    (empty) Description: Tariff code applicable to the goods, including
@@ -253,6 +303,9 @@ Table of Contents
 
 3.2.18.  Country of Origin
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: country_of_origin Label: TBD Value Type: text string (ISO
    3166-1 alpha-2 country code) Value Registry: (empty) Description: The
    country where the goods were produced or manufactured.  Reference:
@@ -260,11 +313,17 @@ Table of Contents
 
 3.2.19.  Customs Value
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: customs_value Label: TBD Value Type: float Value Registry:
    (empty) Description: Declared value of the goods for customs
    purposes, typically in the transaction currency.  Reference: RFC XXXX
 
 3.2.20.  Currency Code
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: currency_code Label: TBD Value Type: text string (ISO 4217
    currency code) Value Registry: (empty) Description: Currency code for
@@ -273,11 +332,17 @@ Table of Contents
 
 3.2.21.  Import/Export License Number
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: license_number Label: TBD Value Type: text string Value
    Registry: (empty) Description: License or permit number required for
    the import or export of the goods.  Reference: RFC XXXX
 
 3.2.22.  Sanctions Reference
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: sanctions_reference Label: TBD Value Type: text string Value
    Registry: (empty) Description: Reference to applicable sanctions
@@ -286,6 +351,9 @@ Table of Contents
 
 3.2.23.  Legal Jurisdiction
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: legal_jurisdiction Label: TBD Value Type: text string Value
    Registry: (empty) Description: Legal jurisdiction(s) governing the
    transaction, represented as country codes or specific legal
@@ -293,17 +361,26 @@ Table of Contents
 
 3.2.24.  Importer Code
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: importer_code Label: TBD Value Type: text string Value
    Registry: (empty) Description: Code identifying the importer, such as
    a VAT number or EORI number.  Reference: RFC XXXX
 
 3.2.25.  Exporter Code
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: exporter_code Label: TBD Value Type: text string Value
    Registry: (empty) Description: Code identifying the exporter, such as
    a VAT number or EORI number.  Reference: RFC XXXX
 
 3.2.26.  Incoterms
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: incoterms Label: TBD Value Type: text string Value Registry:
    (empty) Description: International commercial terms defining
@@ -312,12 +389,18 @@ Table of Contents
 
 3.2.27.  Regulatory Compliance Codes
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: regulatory_compliance_codes Label: TBD Value Type: array of
    text strings Value Registry: (empty) Description: Codes indicating
    compliance with specific regulations or standards (e.g., safety
    certifications, environmental standards).  Reference: RFC XXXX
 
 3.2.28.  Additional Documents Required
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: additional_documents_required Label: TBD Value Type: array of
    text strings Value Registry: (empty) Description: List of additional
@@ -326,11 +409,17 @@ Table of Contents
 
 3.2.29.  Freight Charges
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: freight_charges Label: TBD Value Type: float Value Registry:
    (empty) Description: Transportation costs associated with the
    shipment, used for customs valuation.  Reference: RFC XXXX
 
 3.2.30.  Insurance Charges
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: insurance_charges Label: TBD Value Type: float Value Registry:
    (empty) Description: Insurance costs for the shipment, used in
@@ -338,11 +427,17 @@ Table of Contents
 
 3.2.31.  Packing Costs
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: packing_costs Label: TBD Value Type: float Value Registry:
    (empty) Description: Costs associated with packing the goods,
    relevant for customs valuation.  Reference: RFC XXXX
 
 3.2.32.  Place of Loading
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: place_of_loading Label: TBD Value Type: text string Value
    Registry: (empty) Description: Location where the goods were loaded
@@ -350,11 +445,17 @@ Table of Contents
 
 3.2.33.  Place of Discharge
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: place_of_discharge Label: TBD Value Type: text string Value
    Registry: (empty) Description: Location where the goods are scheduled
    to be unloaded.  Reference: RFC XXXX
 
 3.2.34.  Consignee Information
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: consignee_information Label: TBD Value Type: map Value
    Registry: (empty) Description: Information about the consignee,
@@ -362,11 +463,17 @@ Table of Contents
 
 3.2.35.  Consignor Information
 
+   The following completed registration template per RFC8392 is
+   provided:
+
    Name: consignor_information Label: TBD Value Type: map Value
    Registry: (empty) Description: Information about the consignor,
    including name, address, and contact details.  Reference: RFC XXXX
 
 3.2.36.  Customs Declaration Date
+
+   The following completed registration template per RFC8392 is
+   provided:
 
    Name: customs_declaration_date Label: TBD Value Type: text string
    (ISO8601 date format) Value Registry: (empty) Description: Date when

@@ -1187,7 +1187,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-4-iana-considerations" class="internal xref">4. IANA Considerations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-cwt-claims" class="internal xref">CWT Claims</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-cbor-web-token-cwt-claims" class="internal xref">CBOR Web Token (CWT) Claims</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-goods-identifier" class="internal xref">Goods Identifier</a></p>
@@ -1346,23 +1346,24 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       </h3>
 </section>
 </div>
-<div id="cwt-claims">
+<div id="cbor-web-token-cwt-claims">
 <section id="section-3.2">
-        <h3 id="name-cwt-claims">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-cwt-claims" class="section-name selfRef">CWT Claims</a>
+        <h3 id="name-cbor-web-token-cwt-claims">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-cbor-web-token-cwt-claims" class="section-name selfRef">CBOR Web Token (CWT) Claims</a>
         </h3>
-<p id="section-3.2-1">IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cose/cose.xhtml#header-parameters).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cwt/cwt.xhtml).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <div id="goods-identifier">
 <section id="section-3.2.1">
           <h4 id="name-goods-identifier">
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-goods-identifier" class="section-name selfRef">Goods Identifier</a>
           </h4>
-<p id="section-3.2.1-1">Name: product_id
+<p id="section-3.2.1-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-2">Name: product_id
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
-Reference: RFC XXXX<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="shipment-id">
@@ -1370,12 +1371,13 @@ Reference: RFC XXXX<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
           <h4 id="name-shipment-id">
 <a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-shipment-id" class="section-name selfRef">Shipment ID</a>
           </h4>
-<p id="section-3.2.2-1">Name: shipment_id
+<p id="section-3.2.2-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">Name: shipment_id
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Unique identifier assigned to a specific shipment.
-Reference: RFC XXXX<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="bill-of-lading-number">
@@ -1383,12 +1385,13 @@ Reference: RFC XXXX<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
           <h4 id="name-bill-of-lading-number">
 <a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-bill-of-lading-number" class="section-name selfRef">Bill of Lading Number</a>
           </h4>
-<p id="section-3.2.3-1">Name: bill_of_lading_number
+<p id="section-3.2.3-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-2">Name: bill_of_lading_number
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Identifier for the bill of lading associated with the goods.
-Reference: RFC XXXX<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="transport-mode">
@@ -1396,12 +1399,13 @@ Reference: RFC XXXX<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
           <h4 id="name-transport-mode">
 <a href="#section-3.2.4" class="section-number selfRef">3.2.4. </a><a href="#name-transport-mode" class="section-name selfRef">Transport Mode</a>
           </h4>
-<p id="section-3.2.4-1">Name: transport_mode
+<p id="section-3.2.4-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-2">Name: transport_mode
 Label: TBD
 Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
 Value Registry: (empty)
 Description: Mode of transport used for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="container-id">
@@ -1409,12 +1413,13 @@ Reference: RFC XXXX<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
           <h4 id="name-container-id">
 <a href="#section-3.2.5" class="section-number selfRef">3.2.5. </a><a href="#name-container-id" class="section-name selfRef">Container ID</a>
           </h4>
-<p id="section-3.2.5-1">Name: container_id
+<p id="section-3.2.5-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.5-2">Name: container_id
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Unique identifier for the container used in the shipment.
-Reference: RFC XXXX<a href="#section-3.2.5-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="origin-location">
@@ -1422,12 +1427,13 @@ Reference: RFC XXXX<a href="#section-3.2.5-1" class="pilcrow">¶</a></p>
           <h4 id="name-origin-location">
 <a href="#section-3.2.6" class="section-number selfRef">3.2.6. </a><a href="#name-origin-location" class="section-name selfRef">Origin Location</a>
           </h4>
-<p id="section-3.2.6-1">Name: origin_location
+<p id="section-3.2.6-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.6-2">Name: origin_location
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
-Reference: RFC XXXX<a href="#section-3.2.6-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="destination-location">
@@ -1435,12 +1441,13 @@ Reference: RFC XXXX<a href="#section-3.2.6-1" class="pilcrow">¶</a></p>
           <h4 id="name-destination-location">
 <a href="#section-3.2.7" class="section-number selfRef">3.2.7. </a><a href="#name-destination-location" class="section-name selfRef">Destination Location</a>
           </h4>
-<p id="section-3.2.7-1">Name: destination_location
+<p id="section-3.2.7-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.7-2">Name: destination_location
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Final destination of the goods in the shipment.
-Reference: RFC XXXX<a href="#section-3.2.7-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="carrier-id">
@@ -1448,12 +1455,13 @@ Reference: RFC XXXX<a href="#section-3.2.7-1" class="pilcrow">¶</a></p>
           <h4 id="name-carrier-id">
 <a href="#section-3.2.8" class="section-number selfRef">3.2.8. </a><a href="#name-carrier-id" class="section-name selfRef">Carrier ID</a>
           </h4>
-<p id="section-3.2.8-1">Name: carrier_id
+<p id="section-3.2.8-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.8-2">Name: carrier_id
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Identifier for the carrier or logistics provider responsible for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.8-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="estimated-delivery-date">
@@ -1461,12 +1469,13 @@ Reference: RFC XXXX<a href="#section-3.2.8-1" class="pilcrow">¶</a></p>
           <h4 id="name-estimated-delivery-date">
 <a href="#section-3.2.9" class="section-number selfRef">3.2.9. </a><a href="#name-estimated-delivery-date" class="section-name selfRef">Estimated Delivery Date</a>
           </h4>
-<p id="section-3.2.9-1">Name: estimated_delivery_date
+<p id="section-3.2.9-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.9-2">Name: estimated_delivery_date
 Label: TBD
 Value Type: text string (ISO8601 format)
 Value Registry: (empty)
 Description: Expected delivery date for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.9-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-declaration-number">
@@ -1474,12 +1483,13 @@ Reference: RFC XXXX<a href="#section-3.2.9-1" class="pilcrow">¶</a></p>
           <h4 id="name-customs-declaration-number">
 <a href="#section-3.2.10" class="section-number selfRef">3.2.10. </a><a href="#name-customs-declaration-number" class="section-name selfRef">Customs Declaration Number</a>
           </h4>
-<p id="section-3.2.10-1">Name: customs_declaration_number
+<p id="section-3.2.10-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.10-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.10-2">Name: customs_declaration_number
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Identifier for the customs declaration associated with the shipment.
-Reference: RFC XXXX<a href="#section-3.2.10-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="commodity-description">
@@ -1487,12 +1497,13 @@ Reference: RFC XXXX<a href="#section-3.2.10-1" class="pilcrow">¶</a></p>
           <h4 id="name-commodity-description">
 <a href="#section-3.2.11" class="section-number selfRef">3.2.11. </a><a href="#name-commodity-description" class="section-name selfRef">Commodity Description</a>
           </h4>
-<p id="section-3.2.11-1">Name: commodity_description
+<p id="section-3.2.11-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.11-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.11-2">Name: commodity_description
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Description of the commodity or goods being transported.
-Reference: RFC XXXX<a href="#section-3.2.11-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="hs-code">
@@ -1500,12 +1511,13 @@ Reference: RFC XXXX<a href="#section-3.2.11-1" class="pilcrow">¶</a></p>
           <h4 id="name-hs-code">
 <a href="#section-3.2.12" class="section-number selfRef">3.2.12. </a><a href="#name-hs-code" class="section-name selfRef">HS Code</a>
           </h4>
-<p id="section-3.2.12-1">Name: hs_code
+<p id="section-3.2.12-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.12-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.12-2">Name: hs_code
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Harmonized System (HS) code for the goods.
-Reference: RFC XXXX<a href="#section-3.2.12-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.12-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="gross-weight">
@@ -1513,12 +1525,13 @@ Reference: RFC XXXX<a href="#section-3.2.12-1" class="pilcrow">¶</a></p>
           <h4 id="name-gross-weight">
 <a href="#section-3.2.13" class="section-number selfRef">3.2.13. </a><a href="#name-gross-weight" class="section-name selfRef">Gross Weight</a>
           </h4>
-<p id="section-3.2.13-1">Name: gross_weight
+<p id="section-3.2.13-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.13-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.13-2">Name: gross_weight
 Label: TBD
 Value Type: integer
 Value Registry: (empty)
 Description: Gross weight of the shipment, in kilograms.
-Reference: RFC XXXX<a href="#section-3.2.13-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.13-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="temperature-min-requirement">
@@ -1526,12 +1539,13 @@ Reference: RFC XXXX<a href="#section-3.2.13-1" class="pilcrow">¶</a></p>
           <h4 id="name-temperature-min-requirement">
 <a href="#section-3.2.14" class="section-number selfRef">3.2.14. </a><a href="#name-temperature-min-requirement" class="section-name selfRef">Temperature Min Requirement</a>
           </h4>
-<p id="section-3.2.14-1">Name: temperature_requirement_min
+<p id="section-3.2.14-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.14-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.14-2">Name: temperature_requirement_min
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX<a href="#section-3.2.14-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.14-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="temperature-max-requirement">
@@ -1539,12 +1553,13 @@ Reference: RFC XXXX<a href="#section-3.2.14-1" class="pilcrow">¶</a></p>
           <h4 id="name-temperature-max-requirement">
 <a href="#section-3.2.15" class="section-number selfRef">3.2.15. </a><a href="#name-temperature-max-requirement" class="section-name selfRef">Temperature Max Requirement</a>
           </h4>
-<p id="section-3.2.15-1">Name: temperature_requirement_max
+<p id="section-3.2.15-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.15-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.15-2">Name: temperature_requirement_max
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX<a href="#section-3.2.15-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.15-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="last-known-location">
@@ -1552,12 +1567,13 @@ Reference: RFC XXXX<a href="#section-3.2.15-1" class="pilcrow">¶</a></p>
           <h4 id="name-last-known-location">
 <a href="#section-3.2.16" class="section-number selfRef">3.2.16. </a><a href="#name-last-known-location" class="section-name selfRef">Last Known Location</a>
           </h4>
-<p id="section-3.2.16-1">Name: last_known_location
+<p id="section-3.2.16-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.16-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.16-2">Name: last_known_location
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Most recent location update for the goods.
-Reference: RFC XXXX<a href="#section-3.2.16-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.16-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tariff-code">
@@ -1565,12 +1581,13 @@ Reference: RFC XXXX<a href="#section-3.2.16-1" class="pilcrow">¶</a></p>
           <h4 id="name-tariff-code">
 <a href="#section-3.2.17" class="section-number selfRef">3.2.17. </a><a href="#name-tariff-code" class="section-name selfRef">Tariff Code</a>
           </h4>
-<p id="section-3.2.17-1">Name: tariff_code
+<p id="section-3.2.17-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.17-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.17-2">Name: tariff_code
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
-Reference: RFC XXXX<a href="#section-3.2.17-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.17-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="country-of-origin">
@@ -1578,12 +1595,13 @@ Reference: RFC XXXX<a href="#section-3.2.17-1" class="pilcrow">¶</a></p>
           <h4 id="name-country-of-origin">
 <a href="#section-3.2.18" class="section-number selfRef">3.2.18. </a><a href="#name-country-of-origin" class="section-name selfRef">Country of Origin</a>
           </h4>
-<p id="section-3.2.18-1">Name: country_of_origin
+<p id="section-3.2.18-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.18-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.18-2">Name: country_of_origin
 Label: TBD
 Value Type: text string (ISO 3166-1 alpha-2 country code)
 Value Registry: (empty)
 Description: The country where the goods were produced or manufactured.
-Reference: RFC XXXX<a href="#section-3.2.18-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.18-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-value">
@@ -1591,12 +1609,13 @@ Reference: RFC XXXX<a href="#section-3.2.18-1" class="pilcrow">¶</a></p>
           <h4 id="name-customs-value">
 <a href="#section-3.2.19" class="section-number selfRef">3.2.19. </a><a href="#name-customs-value" class="section-name selfRef">Customs Value</a>
           </h4>
-<p id="section-3.2.19-1">Name: customs_value
+<p id="section-3.2.19-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.19-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.19-2">Name: customs_value
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Declared value of the goods for customs purposes, typically in the transaction currency.
-Reference: RFC XXXX<a href="#section-3.2.19-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.19-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="currency-code">
@@ -1604,12 +1623,13 @@ Reference: RFC XXXX<a href="#section-3.2.19-1" class="pilcrow">¶</a></p>
           <h4 id="name-currency-code">
 <a href="#section-3.2.20" class="section-number selfRef">3.2.20. </a><a href="#name-currency-code" class="section-name selfRef">Currency Code</a>
           </h4>
-<p id="section-3.2.20-1">Name: currency_code
+<p id="section-3.2.20-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.20-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.20-2">Name: currency_code
 Label: TBD
 Value Type: text string (ISO 4217 currency code)
 Value Registry: (empty)
 Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
-Reference: RFC XXXX<a href="#section-3.2.20-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.20-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="importexport-license-number">
@@ -1617,12 +1637,13 @@ Reference: RFC XXXX<a href="#section-3.2.20-1" class="pilcrow">¶</a></p>
           <h4 id="name-import-export-license-numbe">
 <a href="#section-3.2.21" class="section-number selfRef">3.2.21. </a><a href="#name-import-export-license-numbe" class="section-name selfRef">Import/Export License Number</a>
           </h4>
-<p id="section-3.2.21-1">Name: license_number
+<p id="section-3.2.21-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.21-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.21-2">Name: license_number
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: License or permit number required for the import or export of the goods.
-Reference: RFC XXXX<a href="#section-3.2.21-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.21-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sanctions-reference">
@@ -1630,12 +1651,13 @@ Reference: RFC XXXX<a href="#section-3.2.21-1" class="pilcrow">¶</a></p>
           <h4 id="name-sanctions-reference">
 <a href="#section-3.2.22" class="section-number selfRef">3.2.22. </a><a href="#name-sanctions-reference" class="section-name selfRef">Sanctions Reference</a>
           </h4>
-<p id="section-3.2.22-1">Name: sanctions_reference
+<p id="section-3.2.22-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.22-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.22-2">Name: sanctions_reference
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
-Reference: RFC XXXX<a href="#section-3.2.22-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.22-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="legal-jurisdiction">
@@ -1643,12 +1665,13 @@ Reference: RFC XXXX<a href="#section-3.2.22-1" class="pilcrow">¶</a></p>
           <h4 id="name-legal-jurisdiction">
 <a href="#section-3.2.23" class="section-number selfRef">3.2.23. </a><a href="#name-legal-jurisdiction" class="section-name selfRef">Legal Jurisdiction</a>
           </h4>
-<p id="section-3.2.23-1">Name: legal_jurisdiction
+<p id="section-3.2.23-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.23-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.23-2">Name: legal_jurisdiction
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
-Reference: RFC XXXX<a href="#section-3.2.23-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.23-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="importer-code">
@@ -1656,12 +1679,13 @@ Reference: RFC XXXX<a href="#section-3.2.23-1" class="pilcrow">¶</a></p>
           <h4 id="name-importer-code">
 <a href="#section-3.2.24" class="section-number selfRef">3.2.24. </a><a href="#name-importer-code" class="section-name selfRef">Importer Code</a>
           </h4>
-<p id="section-3.2.24-1">Name: importer_code
+<p id="section-3.2.24-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.24-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.24-2">Name: importer_code
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Code identifying the importer, such as a VAT number or EORI number.
-Reference: RFC XXXX<a href="#section-3.2.24-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.24-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="exporter-code">
@@ -1669,12 +1693,13 @@ Reference: RFC XXXX<a href="#section-3.2.24-1" class="pilcrow">¶</a></p>
           <h4 id="name-exporter-code">
 <a href="#section-3.2.25" class="section-number selfRef">3.2.25. </a><a href="#name-exporter-code" class="section-name selfRef">Exporter Code</a>
           </h4>
-<p id="section-3.2.25-1">Name: exporter_code
+<p id="section-3.2.25-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.25-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.25-2">Name: exporter_code
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Code identifying the exporter, such as a VAT number or EORI number.
-Reference: RFC XXXX<a href="#section-3.2.25-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.25-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="incoterms">
@@ -1682,12 +1707,13 @@ Reference: RFC XXXX<a href="#section-3.2.25-1" class="pilcrow">¶</a></p>
           <h4 id="name-incoterms">
 <a href="#section-3.2.26" class="section-number selfRef">3.2.26. </a><a href="#name-incoterms" class="section-name selfRef">Incoterms</a>
           </h4>
-<p id="section-3.2.26-1">Name: incoterms
+<p id="section-3.2.26-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.26-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.26-2">Name: incoterms
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
-Reference: RFC XXXX<a href="#section-3.2.26-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.26-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="regulatory-compliance-codes">
@@ -1695,12 +1721,13 @@ Reference: RFC XXXX<a href="#section-3.2.26-1" class="pilcrow">¶</a></p>
           <h4 id="name-regulatory-compliance-codes">
 <a href="#section-3.2.27" class="section-number selfRef">3.2.27. </a><a href="#name-regulatory-compliance-codes" class="section-name selfRef">Regulatory Compliance Codes</a>
           </h4>
-<p id="section-3.2.27-1">Name: regulatory_compliance_codes
+<p id="section-3.2.27-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.27-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.27-2">Name: regulatory_compliance_codes
 Label: TBD
 Value Type: array of text strings
 Value Registry: (empty)
 Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
-Reference: RFC XXXX<a href="#section-3.2.27-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.27-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="additional-documents-required">
@@ -1708,12 +1735,13 @@ Reference: RFC XXXX<a href="#section-3.2.27-1" class="pilcrow">¶</a></p>
           <h4 id="name-additional-documents-requir">
 <a href="#section-3.2.28" class="section-number selfRef">3.2.28. </a><a href="#name-additional-documents-requir" class="section-name selfRef">Additional Documents Required</a>
           </h4>
-<p id="section-3.2.28-1">Name: additional_documents_required
+<p id="section-3.2.28-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.28-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.28-2">Name: additional_documents_required
 Label: TBD
 Value Type: array of text strings
 Value Registry: (empty)
 Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
-Reference: RFC XXXX<a href="#section-3.2.28-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.28-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="freight-charges">
@@ -1721,12 +1749,13 @@ Reference: RFC XXXX<a href="#section-3.2.28-1" class="pilcrow">¶</a></p>
           <h4 id="name-freight-charges">
 <a href="#section-3.2.29" class="section-number selfRef">3.2.29. </a><a href="#name-freight-charges" class="section-name selfRef">Freight Charges</a>
           </h4>
-<p id="section-3.2.29-1">Name: freight_charges
+<p id="section-3.2.29-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.29-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.29-2">Name: freight_charges
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Transportation costs associated with the shipment, used for customs valuation.
-Reference: RFC XXXX<a href="#section-3.2.29-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.29-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="insurance-charges">
@@ -1734,12 +1763,13 @@ Reference: RFC XXXX<a href="#section-3.2.29-1" class="pilcrow">¶</a></p>
           <h4 id="name-insurance-charges">
 <a href="#section-3.2.30" class="section-number selfRef">3.2.30. </a><a href="#name-insurance-charges" class="section-name selfRef">Insurance Charges</a>
           </h4>
-<p id="section-3.2.30-1">Name: insurance_charges
+<p id="section-3.2.30-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.30-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.30-2">Name: insurance_charges
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Insurance costs for the shipment, used in determining customs value.
-Reference: RFC XXXX<a href="#section-3.2.30-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.30-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="packing-costs">
@@ -1747,12 +1777,13 @@ Reference: RFC XXXX<a href="#section-3.2.30-1" class="pilcrow">¶</a></p>
           <h4 id="name-packing-costs">
 <a href="#section-3.2.31" class="section-number selfRef">3.2.31. </a><a href="#name-packing-costs" class="section-name selfRef">Packing Costs</a>
           </h4>
-<p id="section-3.2.31-1">Name: packing_costs
+<p id="section-3.2.31-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.31-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.31-2">Name: packing_costs
 Label: TBD
 Value Type: float
 Value Registry: (empty)
 Description: Costs associated with packing the goods, relevant for customs valuation.
-Reference: RFC XXXX<a href="#section-3.2.31-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.31-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="place-of-loading">
@@ -1760,12 +1791,13 @@ Reference: RFC XXXX<a href="#section-3.2.31-1" class="pilcrow">¶</a></p>
           <h4 id="name-place-of-loading">
 <a href="#section-3.2.32" class="section-number selfRef">3.2.32. </a><a href="#name-place-of-loading" class="section-name selfRef">Place of Loading</a>
           </h4>
-<p id="section-3.2.32-1">Name: place_of_loading
+<p id="section-3.2.32-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.32-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.32-2">Name: place_of_loading
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Location where the goods were loaded for shipment, often a port or warehouse.
-Reference: RFC XXXX<a href="#section-3.2.32-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.32-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="place-of-discharge">
@@ -1773,12 +1805,13 @@ Reference: RFC XXXX<a href="#section-3.2.32-1" class="pilcrow">¶</a></p>
           <h4 id="name-place-of-discharge">
 <a href="#section-3.2.33" class="section-number selfRef">3.2.33. </a><a href="#name-place-of-discharge" class="section-name selfRef">Place of Discharge</a>
           </h4>
-<p id="section-3.2.33-1">Name: place_of_discharge
+<p id="section-3.2.33-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.33-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.33-2">Name: place_of_discharge
 Label: TBD
 Value Type: text string
 Value Registry: (empty)
 Description: Location where the goods are scheduled to be unloaded.
-Reference: RFC XXXX<a href="#section-3.2.33-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.33-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="consignee-information">
@@ -1786,12 +1819,13 @@ Reference: RFC XXXX<a href="#section-3.2.33-1" class="pilcrow">¶</a></p>
           <h4 id="name-consignee-information">
 <a href="#section-3.2.34" class="section-number selfRef">3.2.34. </a><a href="#name-consignee-information" class="section-name selfRef">Consignee Information</a>
           </h4>
-<p id="section-3.2.34-1">Name: consignee_information
+<p id="section-3.2.34-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.34-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.34-2">Name: consignee_information
 Label: TBD
 Value Type: map
 Value Registry: (empty)
 Description: Information about the consignee, including name, address, and contact details.
-Reference: RFC XXXX<a href="#section-3.2.34-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.34-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="consignor-information">
@@ -1799,12 +1833,13 @@ Reference: RFC XXXX<a href="#section-3.2.34-1" class="pilcrow">¶</a></p>
           <h4 id="name-consignor-information">
 <a href="#section-3.2.35" class="section-number selfRef">3.2.35. </a><a href="#name-consignor-information" class="section-name selfRef">Consignor Information</a>
           </h4>
-<p id="section-3.2.35-1">Name: consignor_information
+<p id="section-3.2.35-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.35-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.35-2">Name: consignor_information
 Label: TBD
 Value Type: map
 Value Registry: (empty)
 Description: Information about the consignor, including name, address, and contact details.
-Reference: RFC XXXX<a href="#section-3.2.35-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.35-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-declaration-date">
@@ -1812,12 +1847,13 @@ Reference: RFC XXXX<a href="#section-3.2.35-1" class="pilcrow">¶</a></p>
           <h4 id="name-customs-declaration-date">
 <a href="#section-3.2.36" class="section-number selfRef">3.2.36. </a><a href="#name-customs-declaration-date" class="section-name selfRef">Customs Declaration Date</a>
           </h4>
-<p id="section-3.2.36-1">Name: customs_declaration_date
+<p id="section-3.2.36-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.36-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.36-2">Name: customs_declaration_date
 Label: TBD
 Value Type: text string (ISO8601 date format)
 Value Registry: (empty)
 Description: Date when the customs declaration was made.
-Reference: RFC XXXX<a href="#section-3.2.36-1" class="pilcrow">¶</a></p>
+Reference: RFC XXXX<a href="#section-3.2.36-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
