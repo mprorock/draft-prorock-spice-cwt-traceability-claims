@@ -1,6 +1,5 @@
 ---
 title: "SPICE Traceability CWT Claims"
-abbrev: "stcc"
 category: info
 v: 3
 docname: draft-prorock-spice-cwt-traceability-claims-latest
