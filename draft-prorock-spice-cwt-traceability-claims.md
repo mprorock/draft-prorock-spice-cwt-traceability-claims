@@ -13,13 +13,13 @@ workgroup: "Secure Patterns for Internet CrEdentials"
 keyword:
  - cose
  - cwt
-<!-- venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST -->
+venue:
+  group: "Secure Patterns for Internet CrEdentials"
+  type: "Working Group"
+  mail: "spice@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/spice/"
+  github: "mprorock/draft-prorock-spice-cwt-traceability-claims"
+  latest: "https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims-00/draft-prorock-spice-cwt-traceability-claims.html"
 
 author:
  -
