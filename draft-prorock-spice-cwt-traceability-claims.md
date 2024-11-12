@@ -55,7 +55,7 @@ This document defines a set of claims for CBOR Web Tokens (CWT) intended to enab
 These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements SHOULD be considered when using these claims.
 
 
-## 4. IANA Considerations
+# IANA Considerations
 
 ## CBOR Web Token (CWT) Claims
 
