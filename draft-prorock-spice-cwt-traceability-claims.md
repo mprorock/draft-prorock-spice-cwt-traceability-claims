@@ -29,6 +29,12 @@ author:
 normative:
   RFC8392:
   BCP205:
+  ISO.3166.2020:
+    target: https://www.iso.org/standard/72482.html
+  ISO.4217.2015:
+    target: https://www.iso.org/standard/64758.html
+  ISO.8601.2019:
+    target: https://www.iso.org/standard/70907.html
 
 informative:
 ---
