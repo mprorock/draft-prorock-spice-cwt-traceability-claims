@@ -347,7 +347,7 @@ Claim Value Type: text string
 Change Controller: IETF
 Reference: {{exporter_code}} of this specification
 
-### Incoterms {#incoterms}
+### Incoterms {#in-co-terms}
 
 Claim Name: incoterms
 Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
@@ -355,7 +355,7 @@ JWT Claim Name: incoterms
 Claim Key: TBD (requested assignment 345)
 Claim Value Type: text string
 Change Controller: IETF
-Reference: {{incoterms}} of this specification
+Reference: {{in-co-terms}} of this specification
 
 ### Regulatory Compliance Codes {#regulatory_compliance_codes}
 
@@ -642,7 +642,7 @@ Reference: {{exporter_code}} of this specification
 Claim Name: incoterms
 Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
 Change Controller: IETF
-Reference: {{incoterms}} of this specification
+Reference: {{in-co-terms}} of this specification
 
 ### Regulatory Compliance Codes
 
