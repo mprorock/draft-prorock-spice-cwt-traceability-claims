@@ -4,26 +4,36 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>SPICE Traceability CWT Claims</title>
+<title>Traceability Claims</title>
 <meta content="Michael Prorock" name="author">
+<meta content="Michael B. Jones" name="author">
 <meta content="
-       This document proposes additional claims for CBOR Web Tokens (CWT) to support traceability of physical goods across supply chains, focusing on items such as bills of lading, transport modes, and container manifests. These claims aim to standardize the encoding of essential logistics and transport metadata, facilitating enhanced transparency and accountability in global supply chains. 
+       This document defines claims to support
+traceability of physical goods across supply chains,
+focusing on items such as bills of lading, transport modes, and container manifests.
+These claims standardize the encoding of essential logistics and transport metadata,
+facilitating enhanced transparency and accountability in global supply chains.
+These claims are registered for use in both CBOR Web Tokens (CWTs)
+and JSON Web Tokens (JWTs). 
     " name="description">
-<meta content="xml2rfc 3.24.0" name="generator">
-<meta content="cose" name="keyword">
-<meta content="cwt" name="keyword">
+<meta content="xml2rfc 3.28.0" name="generator">
+<meta content="COSE" name="keyword">
+<meta content="CBOR Object Signing and Encryption" name="keyword">
+<meta content="CWT" name="keyword">
+<meta content="CBOR Web Token" name="keyword">
+<meta content="Claims" name="keyword">
 <meta content="draft-prorock-spice-cwt-traceability-claims-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.24.0
-    Python 3.12.7
+  xml2rfc 3.28.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.4
+    Jinja2 3.1.6
     lxml 5.3.0
     platformdirs 4.3.6
-    pycountry 22.3.5
-    PyYAML 6.0.1
+    pycountry 24.6.1
+    PyYAML 6.0.2
     requests 2.32.3
     setuptools 70.3.0
     wcwidth 0.2.13
@@ -279,6 +289,12 @@ body {
 }
 
 /* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title);
   font-weight: 680;
@@ -310,6 +326,7 @@ h4, h5, h6 {
 /* general structure */
 .author {
   padding-bottom: 0.3em;
+  vertical-align: top;
 }
 #abstract+p {
   font-size: 18px;
@@ -387,25 +404,26 @@ svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
 ol, ul {
   padding: 0;
   margin: 0 0 0.5em 2em;
-}
-:is(ol, ul) :is(ol, ul) {
-  margin-left: 1em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
 }
 li {
   margin: 0 0 0.25em 0;
 }
-.ulCompact li {
-  margin: 0;
-}
 ul.empty, .ulEmpty {
   list-style-type: none;
-}
-ul.empty li, .ulEmpty li {
-  margin-top: 0.5em;
+  & li {
+    margin-top: 0.5em;
+  }
 }
 :is(ul, ol).compact, .ulCompact, .olCompact {
-  line-height: 1;
   margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
 }
 
 /* definition lists */
@@ -413,38 +431,39 @@ dl {
   clear: left;
   --indent: 3ch;
   /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
 }
-dl.olPercent {
-  --indent: 5ch;
-}
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
-}
-dl.dlNewline > dt {
-  float: none;
 }
 dl > dd {
   margin-bottom: .8em;
   margin-left: var(--indent) !important; /* stupid element overrides */
   min-height: 2ex;
 }
-dl.olPercent > dt {
-  min-width: calc(var(--indent) - 2ch);
-}
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:first-child, .break:first-child + *) {
-  margin-top: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:last-child) {
-  margin-bottom: 0;
-}
-dl > dd > dl {
-  margin-top: 0.5em;
-  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
 }
 :is(dd, span).break {
   display: none;
@@ -508,6 +527,7 @@ figcaption, caption {
   font-style: italic;
   margin: 0.5em 1.5em;
   text-align: left;
+  caption-side: bottom;
 }
 @media screen {
   /* Auto-collapse boilerplate. */
@@ -525,7 +545,11 @@ figcaption, caption {
   }
   pre, svg {
     display: inline-block;
-    overflow-x: auto;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
   }
   pre {
     max-width: 100%;
@@ -562,6 +586,7 @@ cite {
 
 /* tables */
 table {
+  width: auto;
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
@@ -576,6 +601,16 @@ table.center {
 table.left {
   margin-right: auto;
 }
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
 thead, tbody {
   border: 1px solid var(--line-color);
 }
@@ -606,9 +641,11 @@ a.pilcrow {
   margin-left: 3px;
   opacity: 0.2;
   user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
 }
-a.pilcrow[href] { color: var(--pilcrow-weak); }
-a.pilcrow[href]:hover { text-decoration: none; }
 @media not print {
   :hover > a.pilcrow {
     opacity: 1;
@@ -648,26 +685,28 @@ sub, sup {
   font-size: var(--small-font-size);
   line-height: 18px;
   --identifier-width: 15ch;
-}
-#identifiers dt {
-  width: var(--identifier-width);
-  min-width: var(--identifier-width);
-  clear: left;
-  float: left;
-  text-align: right;
-  margin-right: 1ch;
-}
-#identifiers dd {
-  margin: 0;
-  margin-left: calc(1em + var(--identifier-width)) !important;
-  min-width: 5em;
-}
-#identifiers .authors .author {
-  display: inline-block;
-  margin-right: 1.5em;
-}
-#identifiers .authors .org {
-  font-style: italic;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
 }
 
 /* The prepared/rendered info at the very bottom of the page */
@@ -678,9 +717,6 @@ sub, sup {
   margin-top: 2em;
 }
 .docInfo .prepared {
-  float: left;
-}
-.docInfo .prepared {
   float: right;
 }
 
@@ -688,53 +724,48 @@ sub, sup {
 #toc {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
-}
-@media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
   }
 }
-#toc nav ul {
-  margin: 0 0.5em 0 0;
-  padding: 0;
-  list-style: none;
-}
-#toc nav li {
-  line-height: 1.3em;
-  margin: 2px 0;
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-}
-#toc a.xref {
-  white-space: normal;
-}
-/* references */
-.references dt {
-  text-align: right;
-  font-weight: bold;
-  min-width: 10ch;
-  margin-right: 1.5ch;
-}
-.references dt:target::before {
-  content: "⇒";
-  width: 15px;
-  margin: 0 10px 0 -25px;
-}
-.references dd {
-  margin-left: 12ch !important;
-  overflow: auto;
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
 }
 
-.refInstance {
-  margin-bottom: 1.25em;
-}
-
-.references .ascii {
-  margin-bottom: 0.25em;
-}
-
-/* index */
 #rfc\.index\.index + ul {
   margin-left: 0;
 }
@@ -742,21 +773,33 @@ sub, sup {
 /* authors */
 address.vcard {
   font-style: normal;
-  margin: 1em 0;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
 }
-address.vcard .nameRole {
-  font-weight: 700;
-  margin-left: 0;
-}
-address.vcard .label {
-  margin: 0.5em 0;
-}
-address.vcard .type {
-  display: none;
-}
-.alternative-contact {
-  margin: 1.5em 0 1em;
-}
+
 hr.addr {
   border-top: 1px dashed;
   margin: 0;
@@ -778,6 +821,7 @@ hr.addr {
   }
 }
 
+/* Comments */
 .rfcEditorRemove p:first-of-type {
   font-style: italic;
 }
@@ -788,7 +832,31 @@ hr.addr {
 .crefSource {
   font-style: italic;
 }
-/* alternative layout for smaller screens */
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
 @media screen and (max-width: 929px) {
   #toc {
     position: fixed;
@@ -799,9 +867,6 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc.active {
-      opacity: 1;
   }
   #toc h2 {
     margin: 0;
@@ -814,17 +879,17 @@ hr.addr {
     background-color: #444;
     color: white;
     cursor: pointer;
-  }
-  #toc h2::before { /* css hamburger */
-    float: right;
-    position: relative;
-    width: 1em;
-    height: 1px;
-    left: -164px;
-    margin: 8px 0 0 0;
-    background: white none repeat scroll 0 0;
-    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-    content: "";
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
   }
   #toc nav {
     display: none;
@@ -835,14 +900,13 @@ hr.addr {
     height: calc(100vh - 48px);
     border-left: 1px solid #ddd;
   }
-  #toc.active nav {
-    display: block;
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
   }
   /* Make the collapsed ToC header render white on gray also when it's a link */
   #toc h2 a,
-  #toc h2 a:link,
-  #toc h2 a:focus,
-  #toc h2 a:hover,
+  #toc h2 a:is(:link, :focus, :hover),
   #toc a.toplink,
   #toc a.toplink:hover {
     color: white;
@@ -850,11 +914,11 @@ hr.addr {
     text-decoration: none;
   }
   #toc a.toplink {
-    margin-top: 2px;
+    margin: 2px 0.5em 0;
   }
 }
 
-/* alternative layout for wide screens */
+/* TOC layout for wide screens */
 @media screen and (min-width: 930px) {
   body {
     padding-right: 360px;
@@ -883,20 +947,12 @@ hr.addr {
     overscroll-behavior: contain;
     scrollbar-width: thin;
   }
-  #toc nav > ul  {
-    margin-bottom: 2em;
-  }
-  #toc ul {
-    margin: 0 0 0 4px;
-    font-size: var(--small-font-size);
-  }
-  #toc ul :is(p, li) {
-    margin: 2px 0;
-    line-height: 22px;
-  }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
   }
 }
 
@@ -939,9 +995,6 @@ hr.addr {
   td {
     border-top: 1px solid #ddd;
   }
-  .toplink {
-    display: none;
-  }
 }
 
 @page :first {
@@ -964,82 +1017,6 @@ hr.addr {
   size: A4;
   margin-bottom: 45mm;
   padding-top: 20px;
-}
-
-/* Changes introduced to fix issues found during implementation */
-
-/* Separate body from document info even without intervening H1 */
-section {
-  clear: both;
-}
-
-/* Top align author divs, to avoid names without organization dropping level with org names */
-.author {
-  vertical-align: top;
-}
-
-/* Style section numbers with more space between number and title */
-.section-number {
-  padding-right: 0.5em;
-}
-
-/* Add styling for a link in the ToC that points to the top of the document */
-a.toplink {
-  float: right;
-  margin: 8px 0.5em 0;
-}
-
-/* Provide styling for table cell text alignment */
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
-}
-
-/* Make the alternative author contact information look less like just another
-   author, and group it closer with the primary author contact information */
-.alternative-contact {
-  margin: 0.5em 0 0.25em 0;
-}
-address .non-ascii {
-  margin: 0 0 0 2em;
-}
-
-/* With it being possible to set tables with alignment
-  left, center, and right, { width: 100%; } does not make sense */
-table {
-  width: auto;
-}
-
-/* Avoid reference text that sits in a block with very wide left margin,
-   because of a long floating dt label.*/
-.references dd {
-  overflow: visible;
-}
-
-/* Control caption placement */
-caption {
-  caption-side: bottom;
-}
-
-/* Limit the width of the author address vcard, so names in right-to-left
-   script don't end up on the other side of the page. */
-
-address.vcard {
-  max-width: 20em;
-  margin-right: auto;
-}
-
-/* For address alignment dependent on LTR or RTL scripts */
-address div.left {
-  text-align: left;
-}
-address div.right {
-  text-align: right;
 }
 
 /* Dark mode. */
@@ -1077,12 +1054,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">SPICE Traceability CWT Claims</td>
-<td class="right">November 2024</td>
+<td class="center">Traceability Claims</td>
+<td class="right">March 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Prorock</td>
-<td class="center">Expires 9 May 2025</td>
+<td class="left">Prorock &amp; Jones</td>
+<td class="center">Expires 30 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1095,25 +1072,35 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-prorock-spice-cwt-traceability-claims-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-05" class="published">5 November 2024</time>
+<time datetime="2025-03-29" class="published">29 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Informational</dd>
+<dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-09">9 May 2025</time></dd>
-<dt class="label-authors">Author:</dt>
+<dd class="expires"><time datetime="2025-09-30">30 September 2025</time></dd>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">M. Prorock</div>
 <div class="org">mesur.io</div>
 </div>
+<div class="author">
+      <div class="author-name">M. B. Jones</div>
+<div class="org">Self-Issued Consulting</div>
+</div>
 </dd>
 </dl>
 </div>
-<h1 id="title">SPICE Traceability CWT Claims</h1>
+<h1 id="title">Traceability Claims</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document proposes additional claims for CBOR Web Tokens (CWT) to support traceability of physical goods across supply chains, focusing on items such as bills of lading, transport modes, and container manifests. These claims aim to standardize the encoding of essential logistics and transport metadata, facilitating enhanced transparency and accountability in global supply chains.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document defines claims to support
+traceability of physical goods across supply chains,
+focusing on items such as bills of lading, transport modes, and container manifests.
+These claims standardize the encoding of essential logistics and transport metadata,
+facilitating enhanced transparency and accountability in global supply chains.
+These claims are registered for use in both CBOR Web Tokens (CWTs)
+and JSON Web Tokens (JWTs).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1125,7 +1112,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-prorock-spice-cwt-traceability-claims/">https://datatracker.ietf.org/doc/draft-prorock-spice-cwt-traceability-claims/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
-        Secure Patterns for Internet CrEdentials  mailing list (<span><a href="mailto:spice@ietf.org">mailto:spice@ietf.org</a></span>),
+        Secure Patterns for Internet CrEdentials Working Group mailing list (<span><a href="mailto:spice@ietf.org">mailto:spice@ietf.org</a></span>),
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spice/">https://mailarchive.ietf.org/arch/browse/spice/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/spice/">https://www.ietf.org/mailman/listinfo/spice/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
@@ -1150,7 +1137,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1159,7 +1146,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1186,134 +1173,258 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-4-iana-considerations" class="internal xref">4. IANA Considerations</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-cbor-web-token-cwt-claims" class="internal xref">CBOR Web Token (CWT) Claims</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cbor-web-token-cwt-claims" class="internal xref">CBOR Web Token (CWT) Claims</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-goods-identifier" class="internal xref">Goods Identifier</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-goods-identifier" class="internal xref">Goods Identifier</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-shipment-id" class="internal xref">Shipment ID</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-shipment-id" class="internal xref">Shipment ID</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-bill-of-lading-number" class="internal xref">Bill of Lading Number</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
+                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-bill-of-lading-number" class="internal xref">Bill of Lading Number</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.4">
-                    <p id="section-toc.1-1.3.2.2.2.4.1"><a href="#section-3.2.4" class="auto internal xref">3.2.4</a>.  <a href="#name-transport-mode" class="internal xref">Transport Mode</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
+                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-transport-mode" class="internal xref">Transport Mode</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.5">
-                    <p id="section-toc.1-1.3.2.2.2.5.1"><a href="#section-3.2.5" class="auto internal xref">3.2.5</a>.  <a href="#name-container-id" class="internal xref">Container ID</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.5">
+                    <p id="section-toc.1-1.4.2.1.2.5.1"><a href="#section-4.1.5" class="auto internal xref">4.1.5</a>.  <a href="#name-container-id" class="internal xref">Container ID</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.6">
-                    <p id="section-toc.1-1.3.2.2.2.6.1"><a href="#section-3.2.6" class="auto internal xref">3.2.6</a>.  <a href="#name-origin-location" class="internal xref">Origin Location</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.6">
+                    <p id="section-toc.1-1.4.2.1.2.6.1"><a href="#section-4.1.6" class="auto internal xref">4.1.6</a>.  <a href="#name-origin-location" class="internal xref">Origin Location</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.7">
-                    <p id="section-toc.1-1.3.2.2.2.7.1"><a href="#section-3.2.7" class="auto internal xref">3.2.7</a>.  <a href="#name-destination-location" class="internal xref">Destination Location</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.7">
+                    <p id="section-toc.1-1.4.2.1.2.7.1"><a href="#section-4.1.7" class="auto internal xref">4.1.7</a>.  <a href="#name-destination-location" class="internal xref">Destination Location</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.8">
-                    <p id="section-toc.1-1.3.2.2.2.8.1"><a href="#section-3.2.8" class="auto internal xref">3.2.8</a>.  <a href="#name-carrier-id" class="internal xref">Carrier ID</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.8">
+                    <p id="section-toc.1-1.4.2.1.2.8.1"><a href="#section-4.1.8" class="auto internal xref">4.1.8</a>.  <a href="#name-carrier-id" class="internal xref">Carrier ID</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.9">
-                    <p id="section-toc.1-1.3.2.2.2.9.1"><a href="#section-3.2.9" class="auto internal xref">3.2.9</a>.  <a href="#name-estimated-delivery-date" class="internal xref">Estimated Delivery Date</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.9">
+                    <p id="section-toc.1-1.4.2.1.2.9.1"><a href="#section-4.1.9" class="auto internal xref">4.1.9</a>.  <a href="#name-estimated-delivery-date" class="internal xref">Estimated Delivery Date</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.10">
-                    <p id="section-toc.1-1.3.2.2.2.10.1"><a href="#section-3.2.10" class="auto internal xref">3.2.10</a>. <a href="#name-customs-declaration-number" class="internal xref">Customs Declaration Number</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.10">
+                    <p id="section-toc.1-1.4.2.1.2.10.1"><a href="#section-4.1.10" class="auto internal xref">4.1.10</a>. <a href="#name-customs-declaration-number" class="internal xref">Customs Declaration Number</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.11">
-                    <p id="section-toc.1-1.3.2.2.2.11.1"><a href="#section-3.2.11" class="auto internal xref">3.2.11</a>. <a href="#name-commodity-description" class="internal xref">Commodity Description</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.11">
+                    <p id="section-toc.1-1.4.2.1.2.11.1"><a href="#section-4.1.11" class="auto internal xref">4.1.11</a>. <a href="#name-commodity-description" class="internal xref">Commodity Description</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.12">
-                    <p id="section-toc.1-1.3.2.2.2.12.1"><a href="#section-3.2.12" class="auto internal xref">3.2.12</a>. <a href="#name-hs-code" class="internal xref">HS Code</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.12">
+                    <p id="section-toc.1-1.4.2.1.2.12.1"><a href="#section-4.1.12" class="auto internal xref">4.1.12</a>. <a href="#name-hs-code" class="internal xref">HS Code</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.13">
-                    <p id="section-toc.1-1.3.2.2.2.13.1"><a href="#section-3.2.13" class="auto internal xref">3.2.13</a>. <a href="#name-gross-weight" class="internal xref">Gross Weight</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.13">
+                    <p id="section-toc.1-1.4.2.1.2.13.1"><a href="#section-4.1.13" class="auto internal xref">4.1.13</a>. <a href="#name-gross-weight" class="internal xref">Gross Weight</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.14">
-                    <p id="section-toc.1-1.3.2.2.2.14.1"><a href="#section-3.2.14" class="auto internal xref">3.2.14</a>. <a href="#name-temperature-min-requirement" class="internal xref">Temperature Min Requirement</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.14">
+                    <p id="section-toc.1-1.4.2.1.2.14.1"><a href="#section-4.1.14" class="auto internal xref">4.1.14</a>. <a href="#name-temperature-min-requirement" class="internal xref">Temperature Min Requirement</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.15">
-                    <p id="section-toc.1-1.3.2.2.2.15.1"><a href="#section-3.2.15" class="auto internal xref">3.2.15</a>. <a href="#name-temperature-max-requirement" class="internal xref">Temperature Max Requirement</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.15">
+                    <p id="section-toc.1-1.4.2.1.2.15.1"><a href="#section-4.1.15" class="auto internal xref">4.1.15</a>. <a href="#name-temperature-max-requirement" class="internal xref">Temperature Max Requirement</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.16">
-                    <p id="section-toc.1-1.3.2.2.2.16.1"><a href="#section-3.2.16" class="auto internal xref">3.2.16</a>. <a href="#name-last-known-location" class="internal xref">Last Known Location</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.16">
+                    <p id="section-toc.1-1.4.2.1.2.16.1"><a href="#section-4.1.16" class="auto internal xref">4.1.16</a>. <a href="#name-last-known-location" class="internal xref">Last Known Location</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.17">
-                    <p id="section-toc.1-1.3.2.2.2.17.1"><a href="#section-3.2.17" class="auto internal xref">3.2.17</a>. <a href="#name-tariff-code" class="internal xref">Tariff Code</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.17">
+                    <p id="section-toc.1-1.4.2.1.2.17.1"><a href="#section-4.1.17" class="auto internal xref">4.1.17</a>. <a href="#name-tariff-code" class="internal xref">Tariff Code</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.18">
-                    <p id="section-toc.1-1.3.2.2.2.18.1"><a href="#section-3.2.18" class="auto internal xref">3.2.18</a>. <a href="#name-country-of-origin" class="internal xref">Country of Origin</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.18">
+                    <p id="section-toc.1-1.4.2.1.2.18.1"><a href="#section-4.1.18" class="auto internal xref">4.1.18</a>. <a href="#name-country-of-origin" class="internal xref">Country of Origin</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.19">
-                    <p id="section-toc.1-1.3.2.2.2.19.1"><a href="#section-3.2.19" class="auto internal xref">3.2.19</a>. <a href="#name-customs-value" class="internal xref">Customs Value</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.19">
+                    <p id="section-toc.1-1.4.2.1.2.19.1"><a href="#section-4.1.19" class="auto internal xref">4.1.19</a>. <a href="#name-customs-value" class="internal xref">Customs Value</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.20">
-                    <p id="section-toc.1-1.3.2.2.2.20.1"><a href="#section-3.2.20" class="auto internal xref">3.2.20</a>. <a href="#name-currency-code" class="internal xref">Currency Code</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.20">
+                    <p id="section-toc.1-1.4.2.1.2.20.1"><a href="#section-4.1.20" class="auto internal xref">4.1.20</a>. <a href="#name-currency-code" class="internal xref">Currency Code</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.21">
-                    <p id="section-toc.1-1.3.2.2.2.21.1"><a href="#section-3.2.21" class="auto internal xref">3.2.21</a>. <a href="#name-import-export-license-numbe" class="internal xref">Import/Export License Number</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.21">
+                    <p id="section-toc.1-1.4.2.1.2.21.1"><a href="#section-4.1.21" class="auto internal xref">4.1.21</a>. <a href="#name-import-export-license-numbe" class="internal xref">Import/Export License Number</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.22">
-                    <p id="section-toc.1-1.3.2.2.2.22.1"><a href="#section-3.2.22" class="auto internal xref">3.2.22</a>. <a href="#name-sanctions-reference" class="internal xref">Sanctions Reference</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.22">
+                    <p id="section-toc.1-1.4.2.1.2.22.1"><a href="#section-4.1.22" class="auto internal xref">4.1.22</a>. <a href="#name-sanctions-reference" class="internal xref">Sanctions Reference</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.23">
-                    <p id="section-toc.1-1.3.2.2.2.23.1"><a href="#section-3.2.23" class="auto internal xref">3.2.23</a>. <a href="#name-legal-jurisdiction" class="internal xref">Legal Jurisdiction</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.23">
+                    <p id="section-toc.1-1.4.2.1.2.23.1"><a href="#section-4.1.23" class="auto internal xref">4.1.23</a>. <a href="#name-legal-jurisdiction" class="internal xref">Legal Jurisdiction</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.24">
-                    <p id="section-toc.1-1.3.2.2.2.24.1"><a href="#section-3.2.24" class="auto internal xref">3.2.24</a>. <a href="#name-importer-code" class="internal xref">Importer Code</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.24">
+                    <p id="section-toc.1-1.4.2.1.2.24.1"><a href="#section-4.1.24" class="auto internal xref">4.1.24</a>. <a href="#name-importer-code" class="internal xref">Importer Code</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.25">
-                    <p id="section-toc.1-1.3.2.2.2.25.1"><a href="#section-3.2.25" class="auto internal xref">3.2.25</a>. <a href="#name-exporter-code" class="internal xref">Exporter Code</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.25">
+                    <p id="section-toc.1-1.4.2.1.2.25.1"><a href="#section-4.1.25" class="auto internal xref">4.1.25</a>. <a href="#name-exporter-code" class="internal xref">Exporter Code</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.26">
-                    <p id="section-toc.1-1.3.2.2.2.26.1"><a href="#section-3.2.26" class="auto internal xref">3.2.26</a>. <a href="#name-incoterms" class="internal xref">Incoterms</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.26">
+                    <p id="section-toc.1-1.4.2.1.2.26.1"><a href="#section-4.1.26" class="auto internal xref">4.1.26</a>. <a href="#name-incoterms" class="internal xref">Incoterms</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.27">
-                    <p id="section-toc.1-1.3.2.2.2.27.1"><a href="#section-3.2.27" class="auto internal xref">3.2.27</a>. <a href="#name-regulatory-compliance-codes" class="internal xref">Regulatory Compliance Codes</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.27">
+                    <p id="section-toc.1-1.4.2.1.2.27.1"><a href="#section-4.1.27" class="auto internal xref">4.1.27</a>. <a href="#name-regulatory-compliance-codes" class="internal xref">Regulatory Compliance Codes</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.28">
-                    <p id="section-toc.1-1.3.2.2.2.28.1"><a href="#section-3.2.28" class="auto internal xref">3.2.28</a>. <a href="#name-additional-documents-requir" class="internal xref">Additional Documents Required</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.28">
+                    <p id="section-toc.1-1.4.2.1.2.28.1"><a href="#section-4.1.28" class="auto internal xref">4.1.28</a>. <a href="#name-additional-documents-requir" class="internal xref">Additional Documents Required</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.29">
-                    <p id="section-toc.1-1.3.2.2.2.29.1"><a href="#section-3.2.29" class="auto internal xref">3.2.29</a>. <a href="#name-freight-charges" class="internal xref">Freight Charges</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.29">
+                    <p id="section-toc.1-1.4.2.1.2.29.1"><a href="#section-4.1.29" class="auto internal xref">4.1.29</a>. <a href="#name-freight-charges" class="internal xref">Freight Charges</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.30">
-                    <p id="section-toc.1-1.3.2.2.2.30.1"><a href="#section-3.2.30" class="auto internal xref">3.2.30</a>. <a href="#name-insurance-charges" class="internal xref">Insurance Charges</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.30">
+                    <p id="section-toc.1-1.4.2.1.2.30.1"><a href="#section-4.1.30" class="auto internal xref">4.1.30</a>. <a href="#name-insurance-charges" class="internal xref">Insurance Charges</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.31">
-                    <p id="section-toc.1-1.3.2.2.2.31.1"><a href="#section-3.2.31" class="auto internal xref">3.2.31</a>. <a href="#name-packing-costs" class="internal xref">Packing Costs</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.31">
+                    <p id="section-toc.1-1.4.2.1.2.31.1"><a href="#section-4.1.31" class="auto internal xref">4.1.31</a>. <a href="#name-packing-costs" class="internal xref">Packing Costs</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.32">
-                    <p id="section-toc.1-1.3.2.2.2.32.1"><a href="#section-3.2.32" class="auto internal xref">3.2.32</a>. <a href="#name-place-of-loading" class="internal xref">Place of Loading</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.32">
+                    <p id="section-toc.1-1.4.2.1.2.32.1"><a href="#section-4.1.32" class="auto internal xref">4.1.32</a>. <a href="#name-place-of-loading" class="internal xref">Place of Loading</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.33">
-                    <p id="section-toc.1-1.3.2.2.2.33.1"><a href="#section-3.2.33" class="auto internal xref">3.2.33</a>. <a href="#name-place-of-discharge" class="internal xref">Place of Discharge</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.33">
+                    <p id="section-toc.1-1.4.2.1.2.33.1"><a href="#section-4.1.33" class="auto internal xref">4.1.33</a>. <a href="#name-place-of-discharge" class="internal xref">Place of Discharge</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.34">
-                    <p id="section-toc.1-1.3.2.2.2.34.1"><a href="#section-3.2.34" class="auto internal xref">3.2.34</a>. <a href="#name-consignee-information" class="internal xref">Consignee Information</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.34">
+                    <p id="section-toc.1-1.4.2.1.2.34.1"><a href="#section-4.1.34" class="auto internal xref">4.1.34</a>. <a href="#name-consignee-information" class="internal xref">Consignee Information</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.35">
-                    <p id="section-toc.1-1.3.2.2.2.35.1"><a href="#section-3.2.35" class="auto internal xref">3.2.35</a>. <a href="#name-consignor-information" class="internal xref">Consignor Information</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.35">
+                    <p id="section-toc.1-1.4.2.1.2.35.1"><a href="#section-4.1.35" class="auto internal xref">4.1.35</a>. <a href="#name-consignor-information" class="internal xref">Consignor Information</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.36">
-                    <p id="section-toc.1-1.3.2.2.2.36.1"><a href="#section-3.2.36" class="auto internal xref">3.2.36</a>. <a href="#name-customs-declaration-date" class="internal xref">Customs Declaration Date</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.36">
+                    <p id="section-toc.1-1.4.2.1.2.36.1"><a href="#section-4.1.36" class="auto internal xref">4.1.36</a>. <a href="#name-customs-declaration-date" class="internal xref">Customs Declaration Date</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-json-web-token-jwt-claims" class="internal xref">JSON Web Token (JWT) Claims</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-goods-identifier-2" class="internal xref">Goods Identifier</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-shipment-id-2" class="internal xref">Shipment ID</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-bill-of-lading-number-2" class="internal xref">Bill of Lading Number</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.4">
+                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="auto internal xref">4.2.4</a>.  <a href="#name-transport-mode-2" class="internal xref">Transport Mode</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.5">
+                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="auto internal xref">4.2.5</a>.  <a href="#name-container-id-2" class="internal xref">Container ID</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.6">
+                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="auto internal xref">4.2.6</a>.  <a href="#name-origin-location-2" class="internal xref">Origin Location</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.7">
+                    <p id="section-toc.1-1.4.2.2.2.7.1"><a href="#section-4.2.7" class="auto internal xref">4.2.7</a>.  <a href="#name-destination-location-2" class="internal xref">Destination Location</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.8">
+                    <p id="section-toc.1-1.4.2.2.2.8.1"><a href="#section-4.2.8" class="auto internal xref">4.2.8</a>.  <a href="#name-carrier-id-2" class="internal xref">Carrier ID</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.9">
+                    <p id="section-toc.1-1.4.2.2.2.9.1"><a href="#section-4.2.9" class="auto internal xref">4.2.9</a>.  <a href="#name-estimated-delivery-date-2" class="internal xref">Estimated Delivery Date</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.10">
+                    <p id="section-toc.1-1.4.2.2.2.10.1"><a href="#section-4.2.10" class="auto internal xref">4.2.10</a>. <a href="#name-customs-declaration-number-2" class="internal xref">Customs Declaration Number</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.11">
+                    <p id="section-toc.1-1.4.2.2.2.11.1"><a href="#section-4.2.11" class="auto internal xref">4.2.11</a>. <a href="#name-commodity-description-2" class="internal xref">Commodity Description</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.12">
+                    <p id="section-toc.1-1.4.2.2.2.12.1"><a href="#section-4.2.12" class="auto internal xref">4.2.12</a>. <a href="#name-hs-code-2" class="internal xref">HS Code</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.13">
+                    <p id="section-toc.1-1.4.2.2.2.13.1"><a href="#section-4.2.13" class="auto internal xref">4.2.13</a>. <a href="#name-gross-weight-2" class="internal xref">Gross Weight</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.14">
+                    <p id="section-toc.1-1.4.2.2.2.14.1"><a href="#section-4.2.14" class="auto internal xref">4.2.14</a>. <a href="#name-temperature-min-requirement-2" class="internal xref">Temperature Min Requirement</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.15">
+                    <p id="section-toc.1-1.4.2.2.2.15.1"><a href="#section-4.2.15" class="auto internal xref">4.2.15</a>. <a href="#name-temperature-max-requirement-2" class="internal xref">Temperature Max Requirement</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.16">
+                    <p id="section-toc.1-1.4.2.2.2.16.1"><a href="#section-4.2.16" class="auto internal xref">4.2.16</a>. <a href="#name-last-known-location-2" class="internal xref">Last Known Location</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.17">
+                    <p id="section-toc.1-1.4.2.2.2.17.1"><a href="#section-4.2.17" class="auto internal xref">4.2.17</a>. <a href="#name-tariff-code-2" class="internal xref">Tariff Code</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.18">
+                    <p id="section-toc.1-1.4.2.2.2.18.1"><a href="#section-4.2.18" class="auto internal xref">4.2.18</a>. <a href="#name-country-of-origin-2" class="internal xref">Country of Origin</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.19">
+                    <p id="section-toc.1-1.4.2.2.2.19.1"><a href="#section-4.2.19" class="auto internal xref">4.2.19</a>. <a href="#name-customs-value-2" class="internal xref">Customs Value</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.20">
+                    <p id="section-toc.1-1.4.2.2.2.20.1"><a href="#section-4.2.20" class="auto internal xref">4.2.20</a>. <a href="#name-currency-code-2" class="internal xref">Currency Code</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.21">
+                    <p id="section-toc.1-1.4.2.2.2.21.1"><a href="#section-4.2.21" class="auto internal xref">4.2.21</a>. <a href="#name-import-export-license-number" class="internal xref">Import/Export License Number</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.22">
+                    <p id="section-toc.1-1.4.2.2.2.22.1"><a href="#section-4.2.22" class="auto internal xref">4.2.22</a>. <a href="#name-sanctions-reference-2" class="internal xref">Sanctions Reference</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.23">
+                    <p id="section-toc.1-1.4.2.2.2.23.1"><a href="#section-4.2.23" class="auto internal xref">4.2.23</a>. <a href="#name-legal-jurisdiction-2" class="internal xref">Legal Jurisdiction</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.24">
+                    <p id="section-toc.1-1.4.2.2.2.24.1"><a href="#section-4.2.24" class="auto internal xref">4.2.24</a>. <a href="#name-importer-code-2" class="internal xref">Importer Code</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.25">
+                    <p id="section-toc.1-1.4.2.2.2.25.1"><a href="#section-4.2.25" class="auto internal xref">4.2.25</a>. <a href="#name-exporter-code-2" class="internal xref">Exporter Code</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.26">
+                    <p id="section-toc.1-1.4.2.2.2.26.1"><a href="#section-4.2.26" class="auto internal xref">4.2.26</a>. <a href="#name-incoterms-2" class="internal xref">Incoterms</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.27">
+                    <p id="section-toc.1-1.4.2.2.2.27.1"><a href="#section-4.2.27" class="auto internal xref">4.2.27</a>. <a href="#name-regulatory-compliance-codes-2" class="internal xref">Regulatory Compliance Codes</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.28">
+                    <p id="section-toc.1-1.4.2.2.2.28.1"><a href="#section-4.2.28" class="auto internal xref">4.2.28</a>. <a href="#name-additional-documents-require" class="internal xref">Additional Documents Required</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.29">
+                    <p id="section-toc.1-1.4.2.2.2.29.1"><a href="#section-4.2.29" class="auto internal xref">4.2.29</a>. <a href="#name-freight-charges-2" class="internal xref">Freight Charges</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.30">
+                    <p id="section-toc.1-1.4.2.2.2.30.1"><a href="#section-4.2.30" class="auto internal xref">4.2.30</a>. <a href="#name-insurance-charges-2" class="internal xref">Insurance Charges</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.31">
+                    <p id="section-toc.1-1.4.2.2.2.31.1"><a href="#section-4.2.31" class="auto internal xref">4.2.31</a>. <a href="#name-packing-costs-2" class="internal xref">Packing Costs</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.32">
+                    <p id="section-toc.1-1.4.2.2.2.32.1"><a href="#section-4.2.32" class="auto internal xref">4.2.32</a>. <a href="#name-place-of-loading-2" class="internal xref">Place of Loading</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.33">
+                    <p id="section-toc.1-1.4.2.2.2.33.1"><a href="#section-4.2.33" class="auto internal xref">4.2.33</a>. <a href="#name-place-of-discharge-2" class="internal xref">Place of Discharge</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.34">
+                    <p id="section-toc.1-1.4.2.2.2.34.1"><a href="#section-4.2.34" class="auto internal xref">4.2.34</a>. <a href="#name-consignee-information-2" class="internal xref">Consignee Information</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.35">
+                    <p id="section-toc.1-1.4.2.2.2.35.1"><a href="#section-4.2.35" class="auto internal xref">4.2.35</a>. <a href="#name-consignor-information-2" class="internal xref">Consignor Information</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.36">
+                    <p id="section-toc.1-1.4.2.2.2.36.1"><a href="#section-4.2.36" class="auto internal xref">4.2.36</a>. <a href="#name-customs-declaration-date-2" class="internal xref">Customs Declaration Date</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-document-history" class="internal xref">Document History</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1324,7 +1435,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document defines a set of claims for CBOR Web Tokens (CWT) intended to enable the traceability of physical goods across various stages of transportation and storage. These claims capture critical information necessary for documenting the movement of goods in supply chains, thereby supporting regulatory compliance and operational efficiency.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This document defines a set of claims intended to enable the
+traceability of physical goods across various stages of transportation and storage.
+These claims capture critical information necessary for documenting
+the movement of goods in supply chains,
+thereby supporting regulatory compliance and operational efficiency.
+These claims are defined for both CBOR Web Tokens (CWTs) <span>[<a href="#RFC8392" class="cite xref">RFC8392</a>]</span>
+and JSON Web Tokens (JWTs) <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1344,554 +1461,980 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-3-1">These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements <span class="bcp14">SHOULD</span> be considered when using these claims.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="iana-considerations">
-<section id="section-3.1">
-        <h3 id="name-4-iana-considerations">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-4-iana-considerations" class="section-name selfRef">4. IANA Considerations</a>
-      </h3>
 </section>
 </div>
+<div id="iana-considerations">
+<section id="section-4">
+      <h2 id="name-iana-considerations">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
 <div id="cbor-web-token-cwt-claims">
-<section id="section-3.2">
+<section id="section-4.1">
         <h3 id="name-cbor-web-token-cwt-claims">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-cbor-web-token-cwt-claims" class="section-name selfRef">CBOR Web Token (CWT) Claims</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cbor-web-token-cwt-claims" class="section-name selfRef">CBOR Web Token (CWT) Claims</a>
         </h3>
-<p id="section-3.2-1">IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cwt/cwt.xhtml).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<div id="goods-identifier">
-<section id="section-3.2.1">
+<p id="section-4.1-1">This specification registers the following claims in the
+IANA "CBOR Web Token (CWT) Claims" registry <span>[<a href="#IANA.CWT" class="cite xref">IANA.CWT</a>]</span> established by <span>[<a href="#RFC8392" class="cite xref">RFC8392</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<div id="product_id">
+<section id="section-4.1.1">
           <h4 id="name-goods-identifier">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-goods-identifier" class="section-name selfRef">Goods Identifier</a>
+<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-goods-identifier" class="section-name selfRef">Goods Identifier</a>
           </h4>
-<p id="section-3.2.1-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.1-2">Name: product_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
-Reference: RFC XXXX<a href="#section-3.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-1">Claim Name: product_id
+Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
+JWT Claim Name: product_id
+Claim Key: TBD (requested assignment 320)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#product_id" class="auto internal xref">Section 4.1.1</a> of this specification<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="shipment_id">
+<section id="section-4.1.2">
+          <h4 id="name-shipment-id">
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-shipment-id" class="section-name selfRef">Shipment ID</a>
+          </h4>
+<p id="section-4.1.2-1">Claim Name: shipment_id
+Claim Description: Unique identifier assigned to a specific shipment.
+JWT Claim Name: shipment_id
+Claim Key: TBD (requested assignment 321)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#shipment_id" class="auto internal xref">Section 4.1.2</a> of this specification<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="bill_of_lading_number">
+<section id="section-4.1.3">
+          <h4 id="name-bill-of-lading-number">
+<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-bill-of-lading-number" class="section-name selfRef">Bill of Lading Number</a>
+          </h4>
+<p id="section-4.1.3-1">Claim Name: bill_of_lading_number
+Claim Description: Identifier for the bill of lading associated with the goods.
+JWT Claim Name: bill_of_lading_number
+Claim Key: TBD (requested assignment 322)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#bill_of_lading_number" class="auto internal xref">Section 4.1.3</a> of this specification<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="transport_mode">
+<section id="section-4.1.4">
+          <h4 id="name-transport-mode">
+<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-transport-mode" class="section-name selfRef">Transport Mode</a>
+          </h4>
+<p id="section-4.1.4-1">Claim Name: transport_mode
+Claim Description: Mode of transport used for the shipment.
+JWT Claim Name: transport_mode
+Claim Key: TBD (requested assignment 323)
+Claim Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
+Change Controller: IETF
+Reference: <a href="#transport_mode" class="auto internal xref">Section 4.1.4</a> of this specification<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="container_id">
+<section id="section-4.1.5">
+          <h4 id="name-container-id">
+<a href="#section-4.1.5" class="section-number selfRef">4.1.5. </a><a href="#name-container-id" class="section-name selfRef">Container ID</a>
+          </h4>
+<p id="section-4.1.5-1">Claim Name: container_id
+Claim Description: Unique identifier for the container used in the shipment.
+JWT Claim Name: container_id
+Claim Key: TBD (requested assignment 324)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#container_id" class="auto internal xref">Section 4.1.5</a> of this specification<a href="#section-4.1.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="origin_location">
+<section id="section-4.1.6">
+          <h4 id="name-origin-location">
+<a href="#section-4.1.6" class="section-number selfRef">4.1.6. </a><a href="#name-origin-location" class="section-name selfRef">Origin Location</a>
+          </h4>
+<p id="section-4.1.6-1">Claim Name: origin_location
+Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+JWT Claim Name: origin_location
+Claim Key: TBD (requested assignment 325)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#origin_location" class="auto internal xref">Section 4.1.6</a> of this specification<a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="destination_location">
+<section id="section-4.1.7">
+          <h4 id="name-destination-location">
+<a href="#section-4.1.7" class="section-number selfRef">4.1.7. </a><a href="#name-destination-location" class="section-name selfRef">Destination Location</a>
+          </h4>
+<p id="section-4.1.7-1">Claim Name: destination_location
+Claim Description: Final destination of the goods in the shipment.
+JWT Claim Name: destination_location
+Claim Key: TBD (requested assignment 326)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#destination_location" class="auto internal xref">Section 4.1.7</a> of this specification<a href="#section-4.1.7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="carrier_id">
+<section id="section-4.1.8">
+          <h4 id="name-carrier-id">
+<a href="#section-4.1.8" class="section-number selfRef">4.1.8. </a><a href="#name-carrier-id" class="section-name selfRef">Carrier ID</a>
+          </h4>
+<p id="section-4.1.8-1">Claim Name: carrier_id
+Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+JWT Claim Name: carrier_id
+Claim Key: TBD (requested assignment 327)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#carrier_id" class="auto internal xref">Section 4.1.8</a> of this specification<a href="#section-4.1.8-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="estimated_delivery_date">
+<section id="section-4.1.9">
+          <h4 id="name-estimated-delivery-date">
+<a href="#section-4.1.9" class="section-number selfRef">4.1.9. </a><a href="#name-estimated-delivery-date" class="section-name selfRef">Estimated Delivery Date</a>
+          </h4>
+<p id="section-4.1.9-1">Claim Name: estimated_delivery_date
+Claim Description: Expected delivery date for the shipment.
+JWT Claim Name: estimated_delivery_date
+Claim Key: TBD (requested assignment 328)
+Claim Value Type: text string (ISO8601 format)
+Change Controller: IETF
+Reference: <a href="#estimated_delivery_date" class="auto internal xref">Section 4.1.9</a> of this specification<a href="#section-4.1.9-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="customs_declaration_number">
+<section id="section-4.1.10">
+          <h4 id="name-customs-declaration-number">
+<a href="#section-4.1.10" class="section-number selfRef">4.1.10. </a><a href="#name-customs-declaration-number" class="section-name selfRef">Customs Declaration Number</a>
+          </h4>
+<p id="section-4.1.10-1">Claim Name: customs_declaration_number
+Claim Description: Identifier for the customs declaration associated with the shipment.
+JWT Claim Name: customs_declaration_number
+Claim Key: TBD (requested assignment 329)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#customs_declaration_number" class="auto internal xref">Section 4.1.10</a> of this specification<a href="#section-4.1.10-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="commodity_description">
+<section id="section-4.1.11">
+          <h4 id="name-commodity-description">
+<a href="#section-4.1.11" class="section-number selfRef">4.1.11. </a><a href="#name-commodity-description" class="section-name selfRef">Commodity Description</a>
+          </h4>
+<p id="section-4.1.11-1">Claim Name: commodity_description
+Claim Description: Description of the commodity or goods being transported.
+JWT Claim Name: commodity_description
+Claim Key: TBD (requested assignment 330)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#commodity_description" class="auto internal xref">Section 4.1.11</a> of this specification<a href="#section-4.1.11-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="hs_code">
+<section id="section-4.1.12">
+          <h4 id="name-hs-code">
+<a href="#section-4.1.12" class="section-number selfRef">4.1.12. </a><a href="#name-hs-code" class="section-name selfRef">HS Code</a>
+          </h4>
+<p id="section-4.1.12-1">Claim Name: hs_code
+Claim Description: Harmonized System (HS) code for the goods.
+JWT Claim Name: hs_code
+Claim Key: TBD (requested assignment 331)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#hs_code" class="auto internal xref">Section 4.1.12</a> of this specification<a href="#section-4.1.12-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="gross_weight">
+<section id="section-4.1.13">
+          <h4 id="name-gross-weight">
+<a href="#section-4.1.13" class="section-number selfRef">4.1.13. </a><a href="#name-gross-weight" class="section-name selfRef">Gross Weight</a>
+          </h4>
+<p id="section-4.1.13-1">Claim Name: gross_weight
+Claim Description: Gross weight of the shipment, in kilograms.
+JWT Claim Name: gross_weight
+Claim Key: TBD (requested assignment 332)
+Claim Value Type: integer
+Change Controller: IETF
+Reference: <a href="#gross_weight" class="auto internal xref">Section 4.1.13</a> of this specification<a href="#section-4.1.13-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="temperature_requirement_min">
+<section id="section-4.1.14">
+          <h4 id="name-temperature-min-requirement">
+<a href="#section-4.1.14" class="section-number selfRef">4.1.14. </a><a href="#name-temperature-min-requirement" class="section-name selfRef">Temperature Min Requirement</a>
+          </h4>
+<p id="section-4.1.14-1">Claim Name: temperature_requirement_min
+Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
+JWT Claim Name: temperature_requirement_min
+Claim Key: TBD (requested assignment 333)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#temperature_requirement_min" class="auto internal xref">Section 4.1.14</a> of this specification<a href="#section-4.1.14-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="temperature_requirement_max">
+<section id="section-4.1.15">
+          <h4 id="name-temperature-max-requirement">
+<a href="#section-4.1.15" class="section-number selfRef">4.1.15. </a><a href="#name-temperature-max-requirement" class="section-name selfRef">Temperature Max Requirement</a>
+          </h4>
+<p id="section-4.1.15-1">Claim Name: temperature_requirement_max
+Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
+JWT Claim Name: temperature_requirement_max
+Claim Key: TBD (requested assignment 334)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#temperature_requirement_max" class="auto internal xref">Section 4.1.15</a> of this specification<a href="#section-4.1.15-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="last_known_location">
+<section id="section-4.1.16">
+          <h4 id="name-last-known-location">
+<a href="#section-4.1.16" class="section-number selfRef">4.1.16. </a><a href="#name-last-known-location" class="section-name selfRef">Last Known Location</a>
+          </h4>
+<p id="section-4.1.16-1">Claim Name: last_known_location
+Claim Description: Most recent location update for the goods.
+JWT Claim Name: last_known_location
+Claim Key: TBD (requested assignment 335)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#last_known_location" class="auto internal xref">Section 4.1.16</a> of this specification<a href="#section-4.1.16-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="tariff_code">
+<section id="section-4.1.17">
+          <h4 id="name-tariff-code">
+<a href="#section-4.1.17" class="section-number selfRef">4.1.17. </a><a href="#name-tariff-code" class="section-name selfRef">Tariff Code</a>
+          </h4>
+<p id="section-4.1.17-1">Claim Name: tariff_code
+Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
+JWT Claim Name: tariff_code
+Claim Key: TBD (requested assignment 336)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#tariff_code" class="auto internal xref">Section 4.1.17</a> of this specification<a href="#section-4.1.17-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="country_of_origin">
+<section id="section-4.1.18">
+          <h4 id="name-country-of-origin">
+<a href="#section-4.1.18" class="section-number selfRef">4.1.18. </a><a href="#name-country-of-origin" class="section-name selfRef">Country of Origin</a>
+          </h4>
+<p id="section-4.1.18-1">Claim Name: country_of_origin
+Claim Description: The country where the goods were produced or manufactured.
+JWT Claim Name: country_of_origin
+Claim Key: TBD (requested assignment 337)
+Claim Value Type: text string (ISO 3166-1 alpha-2 country code)
+Change Controller: IETF
+Reference: <a href="#country_of_origin" class="auto internal xref">Section 4.1.18</a> of this specification<a href="#section-4.1.18-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="customs_value">
+<section id="section-4.1.19">
+          <h4 id="name-customs-value">
+<a href="#section-4.1.19" class="section-number selfRef">4.1.19. </a><a href="#name-customs-value" class="section-name selfRef">Customs Value</a>
+          </h4>
+<p id="section-4.1.19-1">Claim Name: customs_value
+Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+JWT Claim Name: customs_value
+Claim Key: TBD (requested assignment 338)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#customs_value" class="auto internal xref">Section 4.1.19</a> of this specification<a href="#section-4.1.19-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="currency_code">
+<section id="section-4.1.20">
+          <h4 id="name-currency-code">
+<a href="#section-4.1.20" class="section-number selfRef">4.1.20. </a><a href="#name-currency-code" class="section-name selfRef">Currency Code</a>
+          </h4>
+<p id="section-4.1.20-1">Claim Name: currency_code
+Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+JWT Claim Name: currency_code
+Claim Key: TBD (requested assignment 339)
+Claim Value Type: text string (ISO 4217 currency code)
+Change Controller: IETF
+Reference: <a href="#currency_code" class="auto internal xref">Section 4.1.20</a> of this specification<a href="#section-4.1.20-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="license_number">
+<section id="section-4.1.21">
+          <h4 id="name-import-export-license-numbe">
+<a href="#section-4.1.21" class="section-number selfRef">4.1.21. </a><a href="#name-import-export-license-numbe" class="section-name selfRef">Import/Export License Number</a>
+          </h4>
+<p id="section-4.1.21-1">Claim Name: license_number
+Claim Description: License or permit number required for the import or export of the goods.
+JWT Claim Name: license_number
+Claim Key: TBD (requested assignment 340)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#license_number" class="auto internal xref">Section 4.1.21</a> of this specification<a href="#section-4.1.21-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sanctions_reference">
+<section id="section-4.1.22">
+          <h4 id="name-sanctions-reference">
+<a href="#section-4.1.22" class="section-number selfRef">4.1.22. </a><a href="#name-sanctions-reference" class="section-name selfRef">Sanctions Reference</a>
+          </h4>
+<p id="section-4.1.22-1">Claim Name: sanctions_reference
+Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
+JWT Claim Name: sanctions_reference
+Claim Key: TBD (requested assignment 341)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#sanctions_reference" class="auto internal xref">Section 4.1.22</a> of this specification<a href="#section-4.1.22-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="legal_jurisdiction">
+<section id="section-4.1.23">
+          <h4 id="name-legal-jurisdiction">
+<a href="#section-4.1.23" class="section-number selfRef">4.1.23. </a><a href="#name-legal-jurisdiction" class="section-name selfRef">Legal Jurisdiction</a>
+          </h4>
+<p id="section-4.1.23-1">Claim Name: legal_jurisdiction
+Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+JWT Claim Name: legal_jurisdiction
+Claim Key: TBD (requested assignment 342)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#legal_jurisdiction" class="auto internal xref">Section 4.1.23</a> of this specification<a href="#section-4.1.23-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="importer_code">
+<section id="section-4.1.24">
+          <h4 id="name-importer-code">
+<a href="#section-4.1.24" class="section-number selfRef">4.1.24. </a><a href="#name-importer-code" class="section-name selfRef">Importer Code</a>
+          </h4>
+<p id="section-4.1.24-1">Claim Name: importer_code
+Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+JWT Claim Name: importer_code
+Claim Key: TBD (requested assignment 343)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#importer_code" class="auto internal xref">Section 4.1.24</a> of this specification<a href="#section-4.1.24-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="exporter_code">
+<section id="section-4.1.25">
+          <h4 id="name-exporter-code">
+<a href="#section-4.1.25" class="section-number selfRef">4.1.25. </a><a href="#name-exporter-code" class="section-name selfRef">Exporter Code</a>
+          </h4>
+<p id="section-4.1.25-1">Claim Name: exporter_code
+Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+JWT Claim Name: exporter_code
+Claim Key: TBD (requested assignment 344)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#exporter_code" class="auto internal xref">Section 4.1.25</a> of this specification<a href="#section-4.1.25-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="in-co-terms">
+<section id="section-4.1.26">
+          <h4 id="name-incoterms">
+<a href="#section-4.1.26" class="section-number selfRef">4.1.26. </a><a href="#name-incoterms" class="section-name selfRef">Incoterms</a>
+          </h4>
+<p id="section-4.1.26-1">Claim Name: incoterms
+Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+JWT Claim Name: incoterms
+Claim Key: TBD (requested assignment 345)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#in-co-terms" class="auto internal xref">Section 4.1.26</a> of this specification<a href="#section-4.1.26-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="regulatory_compliance_codes">
+<section id="section-4.1.27">
+          <h4 id="name-regulatory-compliance-codes">
+<a href="#section-4.1.27" class="section-number selfRef">4.1.27. </a><a href="#name-regulatory-compliance-codes" class="section-name selfRef">Regulatory Compliance Codes</a>
+          </h4>
+<p id="section-4.1.27-1">Claim Name: regulatory_compliance_codes
+Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
+JWT Claim Name: regulatory_compliance_codes
+Claim Key: TBD (requested assignment 346)
+Claim Value Type: array of text strings
+Change Controller: IETF
+Reference: <a href="#regulatory_compliance_codes" class="auto internal xref">Section 4.1.27</a> of this specification<a href="#section-4.1.27-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="additional_documents_required">
+<section id="section-4.1.28">
+          <h4 id="name-additional-documents-requir">
+<a href="#section-4.1.28" class="section-number selfRef">4.1.28. </a><a href="#name-additional-documents-requir" class="section-name selfRef">Additional Documents Required</a>
+          </h4>
+<p id="section-4.1.28-1">Claim Name: additional_documents_required
+Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
+JWT Claim Name: additional_documents_required
+Claim Key: TBD (requested assignment 347)
+Claim Value Type: array of text strings
+Change Controller: IETF
+Reference: <a href="#additional_documents_required" class="auto internal xref">Section 4.1.28</a> of this specification<a href="#section-4.1.28-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="freight_charges">
+<section id="section-4.1.29">
+          <h4 id="name-freight-charges">
+<a href="#section-4.1.29" class="section-number selfRef">4.1.29. </a><a href="#name-freight-charges" class="section-name selfRef">Freight Charges</a>
+          </h4>
+<p id="section-4.1.29-1">Claim Name: freight_charges
+Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+JWT Claim Name: freight_charges
+Claim Key: TBD (requested assignment 348)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#freight_charges" class="auto internal xref">Section 4.1.29</a> of this specification<a href="#section-4.1.29-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="insurance_charges">
+<section id="section-4.1.30">
+          <h4 id="name-insurance-charges">
+<a href="#section-4.1.30" class="section-number selfRef">4.1.30. </a><a href="#name-insurance-charges" class="section-name selfRef">Insurance Charges</a>
+          </h4>
+<p id="section-4.1.30-1">Claim Name: insurance_charges
+Claim Description: Insurance costs for the shipment, used in determining customs value.
+JWT Claim Name: insurance_charges
+Claim Key: TBD (requested assignment 349)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#insurance_charges" class="auto internal xref">Section 4.1.30</a> of this specification<a href="#section-4.1.30-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="packing_costs">
+<section id="section-4.1.31">
+          <h4 id="name-packing-costs">
+<a href="#section-4.1.31" class="section-number selfRef">4.1.31. </a><a href="#name-packing-costs" class="section-name selfRef">Packing Costs</a>
+          </h4>
+<p id="section-4.1.31-1">Claim Name: packing_costs
+Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+JWT Claim Name: packing_costs
+Claim Key: TBD (requested assignment 350)
+Claim Value Type: float
+Change Controller: IETF
+Reference: <a href="#packing_costs" class="auto internal xref">Section 4.1.31</a> of this specification<a href="#section-4.1.31-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="place_of_loading">
+<section id="section-4.1.32">
+          <h4 id="name-place-of-loading">
+<a href="#section-4.1.32" class="section-number selfRef">4.1.32. </a><a href="#name-place-of-loading" class="section-name selfRef">Place of Loading</a>
+          </h4>
+<p id="section-4.1.32-1">Claim Name: place_of_loading
+Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
+JWT Claim Name: place_of_loading
+Claim Key: TBD (requested assignment 351)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#place_of_loading" class="auto internal xref">Section 4.1.32</a> of this specification<a href="#section-4.1.32-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="place_of_discharge">
+<section id="section-4.1.33">
+          <h4 id="name-place-of-discharge">
+<a href="#section-4.1.33" class="section-number selfRef">4.1.33. </a><a href="#name-place-of-discharge" class="section-name selfRef">Place of Discharge</a>
+          </h4>
+<p id="section-4.1.33-1">Claim Name: place_of_discharge
+Claim Description: Location where the goods are scheduled to be unloaded.
+JWT Claim Name: place_of_discharge
+Claim Key: TBD (requested assignment 352)
+Claim Value Type: text string
+Change Controller: IETF
+Reference: <a href="#place_of_discharge" class="auto internal xref">Section 4.1.33</a> of this specification<a href="#section-4.1.33-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="consignee_information">
+<section id="section-4.1.34">
+          <h4 id="name-consignee-information">
+<a href="#section-4.1.34" class="section-number selfRef">4.1.34. </a><a href="#name-consignee-information" class="section-name selfRef">Consignee Information</a>
+          </h4>
+<p id="section-4.1.34-1">Claim Name: consignee_information
+Claim Description: Information about the consignee, including name, address, and contact details.
+JWT Claim Name: consignee_information
+Claim Key: TBD (requested assignment 353)
+Claim Value Type: map
+Change Controller: IETF
+Reference: <a href="#consignee_information" class="auto internal xref">Section 4.1.34</a> of this specification<a href="#section-4.1.34-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="consignor_information">
+<section id="section-4.1.35">
+          <h4 id="name-consignor-information">
+<a href="#section-4.1.35" class="section-number selfRef">4.1.35. </a><a href="#name-consignor-information" class="section-name selfRef">Consignor Information</a>
+          </h4>
+<p id="section-4.1.35-1">Claim Name: consignor_information
+Claim Description: Information about the consignor, including name, address, and contact details.
+JWT Claim Name: consignor_information
+Claim Key: TBD (requested assignment 354)
+Claim Value Type: map
+Change Controller: IETF
+Reference: <a href="#consignor_information" class="auto internal xref">Section 4.1.35</a> of this specification<a href="#section-4.1.35-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="customs_declaration_date">
+<section id="section-4.1.36">
+          <h4 id="name-customs-declaration-date">
+<a href="#section-4.1.36" class="section-number selfRef">4.1.36. </a><a href="#name-customs-declaration-date" class="section-name selfRef">Customs Declaration Date</a>
+          </h4>
+<p id="section-4.1.36-1">Claim Name: customs_declaration_date
+Claim Description: Date when the customs declaration was made.
+JWT Claim Name: customs_declaration_date
+Claim Key: TBD (requested assignment 355)
+Claim Value Type: text string (ISO8601 date format)
+Change Controller: IETF
+Reference: <a href="#customs_declaration_date" class="auto internal xref">Section 4.1.36</a> of this specification<a href="#section-4.1.36-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="json-web-token-jwt-claims">
+<section id="section-4.2">
+        <h3 id="name-json-web-token-jwt-claims">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-json-web-token-jwt-claims" class="section-name selfRef">JSON Web Token (JWT) Claims</a>
+        </h3>
+<p id="section-4.2-1">This specification registers the following claims in the
+IANA "JSON Web Token Claims" registry <span>[<a href="#IANA.JWT" class="cite xref">IANA.JWT</a>]</span> established by <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<div id="goods-identifier">
+<section id="section-4.2.1">
+          <h4 id="name-goods-identifier-2">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-goods-identifier-2" class="section-name selfRef">Goods Identifier</a>
+          </h4>
+<p id="section-4.2.1-1">Claim Name: product_id
+Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
+Change Controller: IETF
+Reference: <a href="#product_id" class="auto internal xref">Section 4.1.1</a> of this specification<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="shipment-id">
-<section id="section-3.2.2">
-          <h4 id="name-shipment-id">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-shipment-id" class="section-name selfRef">Shipment ID</a>
+<section id="section-4.2.2">
+          <h4 id="name-shipment-id-2">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-shipment-id-2" class="section-name selfRef">Shipment ID</a>
           </h4>
-<p id="section-3.2.2-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.2-2">Name: shipment_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Unique identifier assigned to a specific shipment.
-Reference: RFC XXXX<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">Claim Name: shipment_id
+Claim Description: Unique identifier assigned to a specific shipment.
+Change Controller: IETF
+Reference: <a href="#shipment_id" class="auto internal xref">Section 4.1.2</a> of this specification<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="bill-of-lading-number">
-<section id="section-3.2.3">
-          <h4 id="name-bill-of-lading-number">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-bill-of-lading-number" class="section-name selfRef">Bill of Lading Number</a>
+<section id="section-4.2.3">
+          <h4 id="name-bill-of-lading-number-2">
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-bill-of-lading-number-2" class="section-name selfRef">Bill of Lading Number</a>
           </h4>
-<p id="section-3.2.3-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.3-2">Name: bill_of_lading_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the bill of lading associated with the goods.
-Reference: RFC XXXX<a href="#section-3.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-1">Claim Name: bill_of_lading_number
+Claim Description: Identifier for the bill of lading associated with the goods.
+Change Controller: IETF
+Reference: <a href="#bill_of_lading_number" class="auto internal xref">Section 4.1.3</a> of this specification<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="transport-mode">
-<section id="section-3.2.4">
-          <h4 id="name-transport-mode">
-<a href="#section-3.2.4" class="section-number selfRef">3.2.4. </a><a href="#name-transport-mode" class="section-name selfRef">Transport Mode</a>
+<section id="section-4.2.4">
+          <h4 id="name-transport-mode-2">
+<a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-transport-mode-2" class="section-name selfRef">Transport Mode</a>
           </h4>
-<p id="section-3.2.4-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.4-2">Name: transport_mode
-Label: TBD
-Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
-Value Registry: (empty)
-Description: Mode of transport used for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.4-1">Claim Name: transport_mode
+Claim Description: Mode of transport used for the shipment.
+Change Controller: IETF
+Reference: <a href="#transport_mode" class="auto internal xref">Section 4.1.4</a> of this specification<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="container-id">
-<section id="section-3.2.5">
-          <h4 id="name-container-id">
-<a href="#section-3.2.5" class="section-number selfRef">3.2.5. </a><a href="#name-container-id" class="section-name selfRef">Container ID</a>
+<section id="section-4.2.5">
+          <h4 id="name-container-id-2">
+<a href="#section-4.2.5" class="section-number selfRef">4.2.5. </a><a href="#name-container-id-2" class="section-name selfRef">Container ID</a>
           </h4>
-<p id="section-3.2.5-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.5-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.5-2">Name: container_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Unique identifier for the container used in the shipment.
-Reference: RFC XXXX<a href="#section-3.2.5-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.5-1">Claim Name: container_id
+Claim Description: Unique identifier for the container used in the shipment.
+Change Controller: IETF
+Reference: <a href="#container_id" class="auto internal xref">Section 4.1.5</a> of this specification<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="origin-location">
-<section id="section-3.2.6">
-          <h4 id="name-origin-location">
-<a href="#section-3.2.6" class="section-number selfRef">3.2.6. </a><a href="#name-origin-location" class="section-name selfRef">Origin Location</a>
+<section id="section-4.2.6">
+          <h4 id="name-origin-location-2">
+<a href="#section-4.2.6" class="section-number selfRef">4.2.6. </a><a href="#name-origin-location-2" class="section-name selfRef">Origin Location</a>
           </h4>
-<p id="section-3.2.6-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.6-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.6-2">Name: origin_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
-Reference: RFC XXXX<a href="#section-3.2.6-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.6-1">Claim Name: origin_location
+Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+Change Controller: IETF
+Reference: <a href="#origin_location" class="auto internal xref">Section 4.1.6</a> of this specification<a href="#section-4.2.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="destination-location">
-<section id="section-3.2.7">
-          <h4 id="name-destination-location">
-<a href="#section-3.2.7" class="section-number selfRef">3.2.7. </a><a href="#name-destination-location" class="section-name selfRef">Destination Location</a>
+<section id="section-4.2.7">
+          <h4 id="name-destination-location-2">
+<a href="#section-4.2.7" class="section-number selfRef">4.2.7. </a><a href="#name-destination-location-2" class="section-name selfRef">Destination Location</a>
           </h4>
-<p id="section-3.2.7-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.7-2">Name: destination_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Final destination of the goods in the shipment.
-Reference: RFC XXXX<a href="#section-3.2.7-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.7-1">Claim Name: destination_location
+Claim Description: Final destination of the goods in the shipment.
+Change Controller: IETF
+Reference: <a href="#destination_location" class="auto internal xref">Section 4.1.7</a> of this specification<a href="#section-4.2.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="carrier-id">
-<section id="section-3.2.8">
-          <h4 id="name-carrier-id">
-<a href="#section-3.2.8" class="section-number selfRef">3.2.8. </a><a href="#name-carrier-id" class="section-name selfRef">Carrier ID</a>
+<section id="section-4.2.8">
+          <h4 id="name-carrier-id-2">
+<a href="#section-4.2.8" class="section-number selfRef">4.2.8. </a><a href="#name-carrier-id-2" class="section-name selfRef">Carrier ID</a>
           </h4>
-<p id="section-3.2.8-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.8-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.8-2">Name: carrier_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the carrier or logistics provider responsible for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.8-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.8-1">Claim Name: carrier_id
+Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+Change Controller: IETF
+Reference: <a href="#carrier_id" class="auto internal xref">Section 4.1.8</a> of this specification<a href="#section-4.2.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="estimated-delivery-date">
-<section id="section-3.2.9">
-          <h4 id="name-estimated-delivery-date">
-<a href="#section-3.2.9" class="section-number selfRef">3.2.9. </a><a href="#name-estimated-delivery-date" class="section-name selfRef">Estimated Delivery Date</a>
+<section id="section-4.2.9">
+          <h4 id="name-estimated-delivery-date-2">
+<a href="#section-4.2.9" class="section-number selfRef">4.2.9. </a><a href="#name-estimated-delivery-date-2" class="section-name selfRef">Estimated Delivery Date</a>
           </h4>
-<p id="section-3.2.9-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.9-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.9-2">Name: estimated_delivery_date
-Label: TBD
-Value Type: text string (ISO8601 format)
-Value Registry: (empty)
-Description: Expected delivery date for the shipment.
-Reference: RFC XXXX<a href="#section-3.2.9-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.9-1">Claim Name: estimated_delivery_date
+Claim Description: Expected delivery date for the shipment.
+Change Controller: IETF
+Reference: <a href="#estimated_delivery_date" class="auto internal xref">Section 4.1.9</a> of this specification<a href="#section-4.2.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-declaration-number">
-<section id="section-3.2.10">
-          <h4 id="name-customs-declaration-number">
-<a href="#section-3.2.10" class="section-number selfRef">3.2.10. </a><a href="#name-customs-declaration-number" class="section-name selfRef">Customs Declaration Number</a>
+<section id="section-4.2.10">
+          <h4 id="name-customs-declaration-number-2">
+<a href="#section-4.2.10" class="section-number selfRef">4.2.10. </a><a href="#name-customs-declaration-number-2" class="section-name selfRef">Customs Declaration Number</a>
           </h4>
-<p id="section-3.2.10-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.10-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.10-2">Name: customs_declaration_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the customs declaration associated with the shipment.
-Reference: RFC XXXX<a href="#section-3.2.10-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.10-1">Claim Name: customs_declaration_number
+Claim Description: Identifier for the customs declaration associated with the shipment.
+Change Controller: IETF
+Reference: <a href="#customs_declaration_number" class="auto internal xref">Section 4.1.10</a> of this specification<a href="#section-4.2.10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="commodity-description">
-<section id="section-3.2.11">
-          <h4 id="name-commodity-description">
-<a href="#section-3.2.11" class="section-number selfRef">3.2.11. </a><a href="#name-commodity-description" class="section-name selfRef">Commodity Description</a>
+<section id="section-4.2.11">
+          <h4 id="name-commodity-description-2">
+<a href="#section-4.2.11" class="section-number selfRef">4.2.11. </a><a href="#name-commodity-description-2" class="section-name selfRef">Commodity Description</a>
           </h4>
-<p id="section-3.2.11-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.11-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.11-2">Name: commodity_description
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Description of the commodity or goods being transported.
-Reference: RFC XXXX<a href="#section-3.2.11-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.11-1">Claim Name: commodity_description
+Claim Description: Description of the commodity or goods being transported.
+Change Controller: IETF
+Reference: <a href="#commodity_description" class="auto internal xref">Section 4.1.11</a> of this specification<a href="#section-4.2.11-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="hs-code">
-<section id="section-3.2.12">
-          <h4 id="name-hs-code">
-<a href="#section-3.2.12" class="section-number selfRef">3.2.12. </a><a href="#name-hs-code" class="section-name selfRef">HS Code</a>
+<section id="section-4.2.12">
+          <h4 id="name-hs-code-2">
+<a href="#section-4.2.12" class="section-number selfRef">4.2.12. </a><a href="#name-hs-code-2" class="section-name selfRef">HS Code</a>
           </h4>
-<p id="section-3.2.12-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.12-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.12-2">Name: hs_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Harmonized System (HS) code for the goods.
-Reference: RFC XXXX<a href="#section-3.2.12-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.12-1">Claim Name: hs_code
+Claim Description: Harmonized System (HS) code for the goods.
+Change Controller: IETF
+Reference: <a href="#hs_code" class="auto internal xref">Section 4.1.12</a> of this specification<a href="#section-4.2.12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="gross-weight">
-<section id="section-3.2.13">
-          <h4 id="name-gross-weight">
-<a href="#section-3.2.13" class="section-number selfRef">3.2.13. </a><a href="#name-gross-weight" class="section-name selfRef">Gross Weight</a>
+<section id="section-4.2.13">
+          <h4 id="name-gross-weight-2">
+<a href="#section-4.2.13" class="section-number selfRef">4.2.13. </a><a href="#name-gross-weight-2" class="section-name selfRef">Gross Weight</a>
           </h4>
-<p id="section-3.2.13-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.13-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.13-2">Name: gross_weight
-Label: TBD
-Value Type: integer
-Value Registry: (empty)
-Description: Gross weight of the shipment, in kilograms.
-Reference: RFC XXXX<a href="#section-3.2.13-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.13-1">Claim Name: gross_weight
+Claim Description: Gross weight of the shipment, in kilograms.
+Change Controller: IETF
+Reference: <a href="#gross_weight" class="auto internal xref">Section 4.1.13</a> of this specification<a href="#section-4.2.13-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="temperature-min-requirement">
-<section id="section-3.2.14">
-          <h4 id="name-temperature-min-requirement">
-<a href="#section-3.2.14" class="section-number selfRef">3.2.14. </a><a href="#name-temperature-min-requirement" class="section-name selfRef">Temperature Min Requirement</a>
+<section id="section-4.2.14">
+          <h4 id="name-temperature-min-requirement-2">
+<a href="#section-4.2.14" class="section-number selfRef">4.2.14. </a><a href="#name-temperature-min-requirement-2" class="section-name selfRef">Temperature Min Requirement</a>
           </h4>
-<p id="section-3.2.14-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.14-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.14-2">Name: temperature_requirement_min
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX<a href="#section-3.2.14-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.14-1">Claim Name: temperature_requirement_min
+Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
+Change Controller: IETF
+Reference: <a href="#temperature_requirement_min" class="auto internal xref">Section 4.1.14</a> of this specification<a href="#section-4.2.14-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="temperature-max-requirement">
-<section id="section-3.2.15">
-          <h4 id="name-temperature-max-requirement">
-<a href="#section-3.2.15" class="section-number selfRef">3.2.15. </a><a href="#name-temperature-max-requirement" class="section-name selfRef">Temperature Max Requirement</a>
+<section id="section-4.2.15">
+          <h4 id="name-temperature-max-requirement-2">
+<a href="#section-4.2.15" class="section-number selfRef">4.2.15. </a><a href="#name-temperature-max-requirement-2" class="section-name selfRef">Temperature Max Requirement</a>
           </h4>
-<p id="section-3.2.15-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.15-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.15-2">Name: temperature_requirement_max
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX<a href="#section-3.2.15-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.15-1">Claim Name: temperature_requirement_max
+Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
+Change Controller: IETF
+Reference: <a href="#temperature_requirement_max" class="auto internal xref">Section 4.1.15</a> of this specification<a href="#section-4.2.15-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="last-known-location">
-<section id="section-3.2.16">
-          <h4 id="name-last-known-location">
-<a href="#section-3.2.16" class="section-number selfRef">3.2.16. </a><a href="#name-last-known-location" class="section-name selfRef">Last Known Location</a>
+<section id="section-4.2.16">
+          <h4 id="name-last-known-location-2">
+<a href="#section-4.2.16" class="section-number selfRef">4.2.16. </a><a href="#name-last-known-location-2" class="section-name selfRef">Last Known Location</a>
           </h4>
-<p id="section-3.2.16-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.16-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.16-2">Name: last_known_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Most recent location update for the goods.
-Reference: RFC XXXX<a href="#section-3.2.16-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.16-1">Claim Name: last_known_location
+Claim Description: Most recent location update for the goods.
+Change Controller: IETF
+Reference: <a href="#last_known_location" class="auto internal xref">Section 4.1.16</a> of this specification<a href="#section-4.2.16-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tariff-code">
-<section id="section-3.2.17">
-          <h4 id="name-tariff-code">
-<a href="#section-3.2.17" class="section-number selfRef">3.2.17. </a><a href="#name-tariff-code" class="section-name selfRef">Tariff Code</a>
+<section id="section-4.2.17">
+          <h4 id="name-tariff-code-2">
+<a href="#section-4.2.17" class="section-number selfRef">4.2.17. </a><a href="#name-tariff-code-2" class="section-name selfRef">Tariff Code</a>
           </h4>
-<p id="section-3.2.17-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.17-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.17-2">Name: tariff_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
-Reference: RFC XXXX<a href="#section-3.2.17-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.17-1">Claim Name: tariff_code
+Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
+Change Controller: IETF
+Reference: <a href="#tariff_code" class="auto internal xref">Section 4.1.17</a> of this specification<a href="#section-4.2.17-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="country-of-origin">
-<section id="section-3.2.18">
-          <h4 id="name-country-of-origin">
-<a href="#section-3.2.18" class="section-number selfRef">3.2.18. </a><a href="#name-country-of-origin" class="section-name selfRef">Country of Origin</a>
+<section id="section-4.2.18">
+          <h4 id="name-country-of-origin-2">
+<a href="#section-4.2.18" class="section-number selfRef">4.2.18. </a><a href="#name-country-of-origin-2" class="section-name selfRef">Country of Origin</a>
           </h4>
-<p id="section-3.2.18-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.18-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.18-2">Name: country_of_origin
-Label: TBD
-Value Type: text string (ISO 3166-1 alpha-2 country code)
-Value Registry: (empty)
-Description: The country where the goods were produced or manufactured.
-Reference: RFC XXXX<a href="#section-3.2.18-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.18-1">Claim Name: country_of_origin
+Claim Description: The country where the goods were produced or manufactured.
+Change Controller: IETF
+Reference: <a href="#country_of_origin" class="auto internal xref">Section 4.1.18</a> of this specification<a href="#section-4.2.18-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-value">
-<section id="section-3.2.19">
-          <h4 id="name-customs-value">
-<a href="#section-3.2.19" class="section-number selfRef">3.2.19. </a><a href="#name-customs-value" class="section-name selfRef">Customs Value</a>
+<section id="section-4.2.19">
+          <h4 id="name-customs-value-2">
+<a href="#section-4.2.19" class="section-number selfRef">4.2.19. </a><a href="#name-customs-value-2" class="section-name selfRef">Customs Value</a>
           </h4>
-<p id="section-3.2.19-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.19-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.19-2">Name: customs_value
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Declared value of the goods for customs purposes, typically in the transaction currency.
-Reference: RFC XXXX<a href="#section-3.2.19-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.19-1">Claim Name: customs_value
+Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+Change Controller: IETF
+Reference: <a href="#customs_value" class="auto internal xref">Section 4.1.19</a> of this specification<a href="#section-4.2.19-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="currency-code">
-<section id="section-3.2.20">
-          <h4 id="name-currency-code">
-<a href="#section-3.2.20" class="section-number selfRef">3.2.20. </a><a href="#name-currency-code" class="section-name selfRef">Currency Code</a>
+<section id="section-4.2.20">
+          <h4 id="name-currency-code-2">
+<a href="#section-4.2.20" class="section-number selfRef">4.2.20. </a><a href="#name-currency-code-2" class="section-name selfRef">Currency Code</a>
           </h4>
-<p id="section-3.2.20-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.20-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.20-2">Name: currency_code
-Label: TBD
-Value Type: text string (ISO 4217 currency code)
-Value Registry: (empty)
-Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
-Reference: RFC XXXX<a href="#section-3.2.20-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.20-1">Claim Name: currency_code
+Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+Change Controller: IETF
+Reference: <a href="#currency_code" class="auto internal xref">Section 4.1.20</a> of this specification<a href="#section-4.2.20-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="importexport-license-number">
-<section id="section-3.2.21">
-          <h4 id="name-import-export-license-numbe">
-<a href="#section-3.2.21" class="section-number selfRef">3.2.21. </a><a href="#name-import-export-license-numbe" class="section-name selfRef">Import/Export License Number</a>
+<section id="section-4.2.21">
+          <h4 id="name-import-export-license-number">
+<a href="#section-4.2.21" class="section-number selfRef">4.2.21. </a><a href="#name-import-export-license-number" class="section-name selfRef">Import/Export License Number</a>
           </h4>
-<p id="section-3.2.21-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.21-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.21-2">Name: license_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: License or permit number required for the import or export of the goods.
-Reference: RFC XXXX<a href="#section-3.2.21-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.21-1">Claim Name: license_number
+Claim Description: License or permit number required for the import or export of the goods.
+Change Controller: IETF
+Reference: <a href="#license_number" class="auto internal xref">Section 4.1.21</a> of this specification<a href="#section-4.2.21-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sanctions-reference">
-<section id="section-3.2.22">
-          <h4 id="name-sanctions-reference">
-<a href="#section-3.2.22" class="section-number selfRef">3.2.22. </a><a href="#name-sanctions-reference" class="section-name selfRef">Sanctions Reference</a>
+<section id="section-4.2.22">
+          <h4 id="name-sanctions-reference-2">
+<a href="#section-4.2.22" class="section-number selfRef">4.2.22. </a><a href="#name-sanctions-reference-2" class="section-name selfRef">Sanctions Reference</a>
           </h4>
-<p id="section-3.2.22-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.22-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.22-2">Name: sanctions_reference
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
-Reference: RFC XXXX<a href="#section-3.2.22-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.22-1">Claim Name: sanctions_reference
+Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
+Change Controller: IETF
+Reference: <a href="#sanctions_reference" class="auto internal xref">Section 4.1.22</a> of this specification<a href="#section-4.2.22-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="legal-jurisdiction">
-<section id="section-3.2.23">
-          <h4 id="name-legal-jurisdiction">
-<a href="#section-3.2.23" class="section-number selfRef">3.2.23. </a><a href="#name-legal-jurisdiction" class="section-name selfRef">Legal Jurisdiction</a>
+<section id="section-4.2.23">
+          <h4 id="name-legal-jurisdiction-2">
+<a href="#section-4.2.23" class="section-number selfRef">4.2.23. </a><a href="#name-legal-jurisdiction-2" class="section-name selfRef">Legal Jurisdiction</a>
           </h4>
-<p id="section-3.2.23-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.23-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.23-2">Name: legal_jurisdiction
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
-Reference: RFC XXXX<a href="#section-3.2.23-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.23-1">Claim Name: legal_jurisdiction
+Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+Change Controller: IETF
+Reference: <a href="#legal_jurisdiction" class="auto internal xref">Section 4.1.23</a> of this specification<a href="#section-4.2.23-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="importer-code">
-<section id="section-3.2.24">
-          <h4 id="name-importer-code">
-<a href="#section-3.2.24" class="section-number selfRef">3.2.24. </a><a href="#name-importer-code" class="section-name selfRef">Importer Code</a>
+<section id="section-4.2.24">
+          <h4 id="name-importer-code-2">
+<a href="#section-4.2.24" class="section-number selfRef">4.2.24. </a><a href="#name-importer-code-2" class="section-name selfRef">Importer Code</a>
           </h4>
-<p id="section-3.2.24-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.24-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.24-2">Name: importer_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Code identifying the importer, such as a VAT number or EORI number.
-Reference: RFC XXXX<a href="#section-3.2.24-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.24-1">Claim Name: importer_code
+Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+Change Controller: IETF
+Reference: <a href="#importer_code" class="auto internal xref">Section 4.1.24</a> of this specification<a href="#section-4.2.24-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="exporter-code">
-<section id="section-3.2.25">
-          <h4 id="name-exporter-code">
-<a href="#section-3.2.25" class="section-number selfRef">3.2.25. </a><a href="#name-exporter-code" class="section-name selfRef">Exporter Code</a>
+<section id="section-4.2.25">
+          <h4 id="name-exporter-code-2">
+<a href="#section-4.2.25" class="section-number selfRef">4.2.25. </a><a href="#name-exporter-code-2" class="section-name selfRef">Exporter Code</a>
           </h4>
-<p id="section-3.2.25-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.25-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.25-2">Name: exporter_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Code identifying the exporter, such as a VAT number or EORI number.
-Reference: RFC XXXX<a href="#section-3.2.25-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.25-1">Claim Name: exporter_code
+Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+Change Controller: IETF
+Reference: <a href="#exporter_code" class="auto internal xref">Section 4.1.25</a> of this specification<a href="#section-4.2.25-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="incoterms">
-<section id="section-3.2.26">
-          <h4 id="name-incoterms">
-<a href="#section-3.2.26" class="section-number selfRef">3.2.26. </a><a href="#name-incoterms" class="section-name selfRef">Incoterms</a>
+<section id="section-4.2.26">
+          <h4 id="name-incoterms-2">
+<a href="#section-4.2.26" class="section-number selfRef">4.2.26. </a><a href="#name-incoterms-2" class="section-name selfRef">Incoterms</a>
           </h4>
-<p id="section-3.2.26-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.26-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.26-2">Name: incoterms
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
-Reference: RFC XXXX<a href="#section-3.2.26-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.26-1">Claim Name: incoterms
+Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+Change Controller: IETF
+Reference: <a href="#in-co-terms" class="auto internal xref">Section 4.1.26</a> of this specification<a href="#section-4.2.26-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="regulatory-compliance-codes">
-<section id="section-3.2.27">
-          <h4 id="name-regulatory-compliance-codes">
-<a href="#section-3.2.27" class="section-number selfRef">3.2.27. </a><a href="#name-regulatory-compliance-codes" class="section-name selfRef">Regulatory Compliance Codes</a>
+<section id="section-4.2.27">
+          <h4 id="name-regulatory-compliance-codes-2">
+<a href="#section-4.2.27" class="section-number selfRef">4.2.27. </a><a href="#name-regulatory-compliance-codes-2" class="section-name selfRef">Regulatory Compliance Codes</a>
           </h4>
-<p id="section-3.2.27-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.27-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.27-2">Name: regulatory_compliance_codes
-Label: TBD
-Value Type: array of text strings
-Value Registry: (empty)
-Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
-Reference: RFC XXXX<a href="#section-3.2.27-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.27-1">Claim Name: regulatory_compliance_codes
+Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
+Change Controller: IETF
+Reference: <a href="#regulatory_compliance_codes" class="auto internal xref">Section 4.1.27</a> of this specification<a href="#section-4.2.27-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="additional-documents-required">
-<section id="section-3.2.28">
-          <h4 id="name-additional-documents-requir">
-<a href="#section-3.2.28" class="section-number selfRef">3.2.28. </a><a href="#name-additional-documents-requir" class="section-name selfRef">Additional Documents Required</a>
+<section id="section-4.2.28">
+          <h4 id="name-additional-documents-require">
+<a href="#section-4.2.28" class="section-number selfRef">4.2.28. </a><a href="#name-additional-documents-require" class="section-name selfRef">Additional Documents Required</a>
           </h4>
-<p id="section-3.2.28-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.28-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.28-2">Name: additional_documents_required
-Label: TBD
-Value Type: array of text strings
-Value Registry: (empty)
-Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
-Reference: RFC XXXX<a href="#section-3.2.28-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.28-1">Claim Name: additional_documents_required
+Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
+Change Controller: IETF
+Reference: <a href="#additional_documents_required" class="auto internal xref">Section 4.1.28</a> of this specification<a href="#section-4.2.28-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="freight-charges">
-<section id="section-3.2.29">
-          <h4 id="name-freight-charges">
-<a href="#section-3.2.29" class="section-number selfRef">3.2.29. </a><a href="#name-freight-charges" class="section-name selfRef">Freight Charges</a>
+<section id="section-4.2.29">
+          <h4 id="name-freight-charges-2">
+<a href="#section-4.2.29" class="section-number selfRef">4.2.29. </a><a href="#name-freight-charges-2" class="section-name selfRef">Freight Charges</a>
           </h4>
-<p id="section-3.2.29-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.29-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.29-2">Name: freight_charges
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Transportation costs associated with the shipment, used for customs valuation.
-Reference: RFC XXXX<a href="#section-3.2.29-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.29-1">Claim Name: freight_charges
+Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+Change Controller: IETF
+Reference: <a href="#freight_charges" class="auto internal xref">Section 4.1.29</a> of this specification<a href="#section-4.2.29-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="insurance-charges">
-<section id="section-3.2.30">
-          <h4 id="name-insurance-charges">
-<a href="#section-3.2.30" class="section-number selfRef">3.2.30. </a><a href="#name-insurance-charges" class="section-name selfRef">Insurance Charges</a>
+<section id="section-4.2.30">
+          <h4 id="name-insurance-charges-2">
+<a href="#section-4.2.30" class="section-number selfRef">4.2.30. </a><a href="#name-insurance-charges-2" class="section-name selfRef">Insurance Charges</a>
           </h4>
-<p id="section-3.2.30-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.30-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.30-2">Name: insurance_charges
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Insurance costs for the shipment, used in determining customs value.
-Reference: RFC XXXX<a href="#section-3.2.30-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.30-1">Claim Name: insurance_charges
+Claim Description: Insurance costs for the shipment, used in determining customs value.
+Change Controller: IETF
+Reference: <a href="#insurance_charges" class="auto internal xref">Section 4.1.30</a> of this specification<a href="#section-4.2.30-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="packing-costs">
-<section id="section-3.2.31">
-          <h4 id="name-packing-costs">
-<a href="#section-3.2.31" class="section-number selfRef">3.2.31. </a><a href="#name-packing-costs" class="section-name selfRef">Packing Costs</a>
+<section id="section-4.2.31">
+          <h4 id="name-packing-costs-2">
+<a href="#section-4.2.31" class="section-number selfRef">4.2.31. </a><a href="#name-packing-costs-2" class="section-name selfRef">Packing Costs</a>
           </h4>
-<p id="section-3.2.31-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.31-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.31-2">Name: packing_costs
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Costs associated with packing the goods, relevant for customs valuation.
-Reference: RFC XXXX<a href="#section-3.2.31-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.31-1">Claim Name: packing_costs
+Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+Change Controller: IETF
+Reference: <a href="#packing_costs" class="auto internal xref">Section 4.1.31</a> of this specification<a href="#section-4.2.31-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="place-of-loading">
-<section id="section-3.2.32">
-          <h4 id="name-place-of-loading">
-<a href="#section-3.2.32" class="section-number selfRef">3.2.32. </a><a href="#name-place-of-loading" class="section-name selfRef">Place of Loading</a>
+<section id="section-4.2.32">
+          <h4 id="name-place-of-loading-2">
+<a href="#section-4.2.32" class="section-number selfRef">4.2.32. </a><a href="#name-place-of-loading-2" class="section-name selfRef">Place of Loading</a>
           </h4>
-<p id="section-3.2.32-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.32-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.32-2">Name: place_of_loading
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Location where the goods were loaded for shipment, often a port or warehouse.
-Reference: RFC XXXX<a href="#section-3.2.32-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.32-1">Claim Name: place_of_loading
+Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
+Change Controller: IETF
+Reference: <a href="#place_of_loading" class="auto internal xref">Section 4.1.32</a> of this specification<a href="#section-4.2.32-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="place-of-discharge">
-<section id="section-3.2.33">
-          <h4 id="name-place-of-discharge">
-<a href="#section-3.2.33" class="section-number selfRef">3.2.33. </a><a href="#name-place-of-discharge" class="section-name selfRef">Place of Discharge</a>
+<section id="section-4.2.33">
+          <h4 id="name-place-of-discharge-2">
+<a href="#section-4.2.33" class="section-number selfRef">4.2.33. </a><a href="#name-place-of-discharge-2" class="section-name selfRef">Place of Discharge</a>
           </h4>
-<p id="section-3.2.33-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.33-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.33-2">Name: place_of_discharge
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Location where the goods are scheduled to be unloaded.
-Reference: RFC XXXX<a href="#section-3.2.33-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.33-1">Claim Name: place_of_discharge
+Claim Description: Location where the goods are scheduled to be unloaded.
+Change Controller: IETF
+Reference: <a href="#place_of_discharge" class="auto internal xref">Section 4.1.33</a> of this specification<a href="#section-4.2.33-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="consignee-information">
-<section id="section-3.2.34">
-          <h4 id="name-consignee-information">
-<a href="#section-3.2.34" class="section-number selfRef">3.2.34. </a><a href="#name-consignee-information" class="section-name selfRef">Consignee Information</a>
+<section id="section-4.2.34">
+          <h4 id="name-consignee-information-2">
+<a href="#section-4.2.34" class="section-number selfRef">4.2.34. </a><a href="#name-consignee-information-2" class="section-name selfRef">Consignee Information</a>
           </h4>
-<p id="section-3.2.34-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.34-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.34-2">Name: consignee_information
-Label: TBD
-Value Type: map
-Value Registry: (empty)
-Description: Information about the consignee, including name, address, and contact details.
-Reference: RFC XXXX<a href="#section-3.2.34-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.34-1">Claim Name: consignee_information
+Claim Description: Information about the consignee, including name, address, and contact details.
+Change Controller: IETF
+Reference: <a href="#consignee_information" class="auto internal xref">Section 4.1.34</a> of this specification<a href="#section-4.2.34-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="consignor-information">
-<section id="section-3.2.35">
-          <h4 id="name-consignor-information">
-<a href="#section-3.2.35" class="section-number selfRef">3.2.35. </a><a href="#name-consignor-information" class="section-name selfRef">Consignor Information</a>
+<section id="section-4.2.35">
+          <h4 id="name-consignor-information-2">
+<a href="#section-4.2.35" class="section-number selfRef">4.2.35. </a><a href="#name-consignor-information-2" class="section-name selfRef">Consignor Information</a>
           </h4>
-<p id="section-3.2.35-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.35-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.35-2">Name: consignor_information
-Label: TBD
-Value Type: map
-Value Registry: (empty)
-Description: Information about the consignor, including name, address, and contact details.
-Reference: RFC XXXX<a href="#section-3.2.35-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.35-1">Claim Name: consignor_information
+Claim Description: Information about the consignor, including name, address, and contact details.
+Change Controller: IETF
+Reference: <a href="#consignor_information" class="auto internal xref">Section 4.1.35</a> of this specification<a href="#section-4.2.35-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="customs-declaration-date">
-<section id="section-3.2.36">
-          <h4 id="name-customs-declaration-date">
-<a href="#section-3.2.36" class="section-number selfRef">3.2.36. </a><a href="#name-customs-declaration-date" class="section-name selfRef">Customs Declaration Date</a>
+<section id="section-4.2.36">
+          <h4 id="name-customs-declaration-date-2">
+<a href="#section-4.2.36" class="section-number selfRef">4.2.36. </a><a href="#name-customs-declaration-date-2" class="section-name selfRef">Customs Declaration Date</a>
           </h4>
-<p id="section-3.2.36-1">The following completed registration template per RFC8392 is provided:<a href="#section-3.2.36-1" class="pilcrow">¶</a></p>
-<p id="section-3.2.36-2">Name: customs_declaration_date
-Label: TBD
-Value Type: text string (ISO8601 date format)
-Value Registry: (empty)
-Description: Date when the customs declaration was made.
-Reference: RFC XXXX<a href="#section-3.2.36-2" class="pilcrow">¶</a></p>
+<p id="section-4.2.36-1">Claim Name: customs_declaration_date
+Claim Description: Date when the customs declaration was made.
+Change Controller: IETF
+Reference: <a href="#customs_declaration_date" class="auto internal xref">Section 4.1.36</a> of this specification<a href="#section-4.2.36-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 </section>
 </div>
-<div id="sec-normative-references">
-<section id="section-4">
-      <h2 id="name-normative-references">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<div id="sec-combined-references">
+<section id="section-5">
+      <h2 id="name-references">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
+<section id="section-5.1">
+        <h3 id="name-normative-references">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
-<dt id="BCP205">[BCP205]</dt>
-      <dd>
-<div class="refInstance">Best Current Practice 205, <span>&lt;<a href="https://www.rfc-editor.org/info/bcp205">https://www.rfc-editor.org/info/bcp205</a>&gt;</span>.<br><span>At the time of writing, this BCP comprises the following:</span>
-</div>
-<div class="refInstance" id="RFC7942">
-          <span class="refAuthor">Sheffer, Y.</span> and <span class="refAuthor">A. Farrel</span>, <span class="refTitle">"Improving Awareness of Running Code: The Implementation Status Section"</span>, <span class="seriesInfo">BCP 205</span>, <span class="seriesInfo">RFC 7942</span>, <span class="seriesInfo">DOI 10.17487/RFC7942</span>, <time datetime="2016-07" class="refDate">July 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7942">https://www.rfc-editor.org/info/rfc7942</a>&gt;</span>. </div>
-</dd>
-<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC7519">[RFC7519]</dt>
+        <dd>
+<span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Bradley, J.</span>, and <span class="refAuthor">N. Sakimura</span>, <span class="refTitle">"JSON Web Token (JWT)"</span>, <span class="seriesInfo">RFC 7519</span>, <span class="seriesInfo">DOI 10.17487/RFC7519</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7519">https://www.rfc-editor.org/rfc/rfc7519</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8392">[RFC8392]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Wahlstroem, E.</span>, <span class="refAuthor">Erdtman, S.</span>, and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"CBOR Web Token (CWT)"</span>, <span class="seriesInfo">RFC 8392</span>, <span class="seriesInfo">DOI 10.17487/RFC8392</span>, <time datetime="2018-05" class="refDate">May 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8392">https://www.rfc-editor.org/rfc/rfc8392</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-5.2">
+        <h3 id="name-informative-references">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="IANA.CWT">[IANA.CWT]</dt>
+        <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"CBOR Web Token (CWT) Claims"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/cwt/">https://www.iana.org/assignments/cwt/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IANA.JWT">[IANA.JWT]</dt>
+      <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"JSON Web Token Claims"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/jwt/">https://www.iana.org/assignments/jwt/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">
@@ -1899,20 +2442,60 @@ Reference: RFC XXXX<a href="#section-3.2.36-2" class="pilcrow">¶</a></p>
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">A.J. Stein
+contributed to this specification.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="document-history">
+<section id="appendix-B">
+      <h2 id="name-document-history">
+<a href="#name-document-history" class="section-name selfRef">Document History</a>
+      </h2>
+<p id="appendix-B-1">-01<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-2.1">
+          <p id="appendix-B-2.1.1">Updated CWT Claims registrations to supply all fields in the registration template.<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-2.2">
+          <p id="appendix-B-2.2.1">Fixed IANA Considerations header, as suggested by A.J. Stein.<a href="#appendix-B-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-2.3">
+          <p id="appendix-B-2.3.1">Added Michael B. Jones as an author.<a href="#appendix-B-2.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-3">-00<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-4.1">
+          <p id="appendix-B-4.1.1">Initial individual draft<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+<section id="appendix-C">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Michael Prorock</span></div>
 <div dir="auto" class="left"><span class="org">mesur.io</span></div>
+<div dir="auto" class="left"><span class="country-name">United States</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:mprorock@mesur.io" class="email">mprorock@mesur.io</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Michael B. Jones</span></div>
+<div dir="auto" class="left"><span class="org">Self-Issued Consulting</span></div>
+<div dir="auto" class="left"><span class="country-name">United States</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:michael_b_jones@hotmail.com" class="email">michael_b_jones@hotmail.com</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://self-issued.info/" class="url">https://self-issued.info/</a>
 </div>
 </address>
 </section>
