@@ -81,7 +81,7 @@ thereby supporting regulatory compliance and operational efficiency.
 These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements SHOULD be considered when using these claims.
 
 
-## 4. IANA Considerations
+# IANA Considerations
 
 ## CBOR Web Token (CWT) Claims
 
@@ -454,7 +454,8 @@ Reference: {{customs_declaration_date}} of this specification
 # Acknowledgments
 {:numbered="false"}
 
-TODO Acknowledge contributors.
+A.J. Stein
+contributed to this specification.
 
 # Document History
 {: numbered="false"}
@@ -462,6 +463,7 @@ TODO Acknowledge contributors.
 -01
 
 * Updated CWT Claims registrations to supply all fields in the registration template.
+* Fixed IANA Considerations header, as suggested by A.J. Stein.
 * Added Michael B. Jones as an author.
 
 -00
