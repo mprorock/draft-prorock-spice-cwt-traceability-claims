@@ -198,292 +198,613 @@ Table of Contents
 
 4.1.1.  Goods Identifier
 
-   Claim Name: product_id Claim Description: A unique identifier for the
-   physical product(s) or shipment being tracked.  May correspond to
-   SKU, product ID, or batch number.  JWT Claim Name: product_id Claim
-   Key: TBD (requested assignment 320) Claim Value Type: text string
-   Change Controller: IETF Reference: Section 4.1.1 of this
-   specification
+   *  Claim Name: product_id
+
+   *  Claim Description: A unique identifier for the physical product(s)
+      or shipment being tracked.  May correspond to SKU, product ID, or
+      batch number.
+
+   *  JWT Claim Name: product_id
+
+   *  Claim Key: TBD (requested assignment 320)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.1 of this specification
 
 4.1.2.  Shipment ID
 
-   Claim Name: shipment_id Claim Description: Unique identifier assigned
-   to a specific shipment.  JWT Claim Name: shipment_id Claim Key: TBD
-   (requested assignment 321) Claim Value Type: text string Change
-   Controller: IETF Reference: Section 4.1.2 of this specification
+   *  Claim Name: shipment_id
+
+   *  Claim Description: Unique identifier assigned to a specific
+      shipment.
+
+   *  JWT Claim Name: shipment_id
+
+   *  Claim Key: TBD (requested assignment 321)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.2 of this specification
 
 4.1.3.  Bill of Lading Number
 
-   Claim Name: bill_of_lading_number Claim Description: Identifier for
-   the bill of lading associated with the goods.  JWT Claim Name:
-   bill_of_lading_number Claim Key: TBD (requested assignment 322) Claim
-   Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.3 of this specification
+   *  Claim Name: bill_of_lading_number
+
+   *  Claim Description: Identifier for the bill of lading associated
+      with the goods.
+
+   *  JWT Claim Name: bill_of_lading_number
+
+   *  Claim Key: TBD (requested assignment 322)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.3 of this specification
 
 4.1.4.  Transport Mode
 
-   Claim Name: transport_mode Claim Description: Mode of transport used
-   for the shipment.  JWT Claim Name: transport_mode Claim Key: TBD
-   (requested assignment 323) Claim Value Type: text string (recommended
-   values: “air,” “sea,” “rail,” “truck”) Change Controller: IETF
-   Reference: Section 4.1.4 of this specification
+   *  Claim Name: transport_mode
+
+   *  Claim Description: Mode of transport used for the shipment.
+
+   *  JWT Claim Name: transport_mode
+
+   *  Claim Key: TBD (requested assignment 323)
+
+   *  Claim Value Type: text string (recommended values: “air,” “sea,”
+      “rail,” “truck”)
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.4 of this specification
 
 4.1.5.  Container ID
 
-   Claim Name: container_id Claim Description: Unique identifier for the
-   container used in the shipment.  JWT Claim Name: container_id Claim
-   Key: TBD (requested assignment 324) Claim Value Type: text string
-   Change Controller: IETF Reference: Section 4.1.5 of this
-   specification
+   *  Claim Name: container_id
+
+   *  Claim Description: Unique identifier for the container used in the
+      shipment.
+
+   *  JWT Claim Name: container_id
+
+   *  Claim Key: TBD (requested assignment 324)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.5 of this specification
 
 4.1.6.  Origin Location
 
-   Claim Name: origin_location Claim Description: Geographical origin of
-   the goods, represented as a location code (e.g., ISO country code) or
-   specific address.  JWT Claim Name: origin_location Claim Key: TBD
-   (requested assignment 325) Claim Value Type: text string Change
-   Controller: IETF Reference: Section 4.1.6 of this specification
+   *  Claim Name: origin_location
+
+   *  Claim Description: Geographical origin of the goods, represented
+      as a location code (e.g., ISO country code) or specific address.
+
+   *  JWT Claim Name: origin_location
+
+   *  Claim Key: TBD (requested assignment 325)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.6 of this specification
 
 4.1.7.  Destination Location
 
-   Claim Name: destination_location Claim Description: Final destination
-   of the goods in the shipment.  JWT Claim Name: destination_location
-   Claim Key: TBD (requested assignment 326) Claim Value Type: text
-   string Change Controller: IETF Reference: Section 4.1.7 of this
-   specification
+   *  Claim Name: destination_location
+
+   *  Claim Description: Final destination of the goods in the shipment.
+
+   *  JWT Claim Name: destination_location
+
+   *  Claim Key: TBD (requested assignment 326)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.7 of this specification
 
 4.1.8.  Carrier ID
 
-   Claim Name: carrier_id Claim Description: Identifier for the carrier
-   or logistics provider responsible for the shipment.  JWT Claim Name:
-   carrier_id Claim Key: TBD (requested assignment 327) Claim Value
-   Type: text string Change Controller: IETF Reference: Section 4.1.8 of
-   this specification
+   *  Claim Name: carrier_id
+
+   *  Claim Description: Identifier for the carrier or logistics
+      provider responsible for the shipment.
+
+   *  JWT Claim Name: carrier_id
+
+   *  Claim Key: TBD (requested assignment 327)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.8 of this specification
 
 4.1.9.  Estimated Delivery Date
 
-   Claim Name: estimated_delivery_date Claim Description: Expected
-   delivery date for the shipment.  JWT Claim Name:
-   estimated_delivery_date Claim Key: TBD (requested assignment 328)
-   Claim Value Type: text string (ISO8601 format) Change Controller:
-   IETF Reference: Section 4.1.9 of this specification
+   *  Claim Name: estimated_delivery_date
+
+   *  Claim Description: Expected delivery date for the shipment.
+
+   *  JWT Claim Name: estimated_delivery_date
+
+   *  Claim Key: TBD (requested assignment 328)
+
+   *  Claim Value Type: text string (ISO8601 format)
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.9 of this specification
 
 4.1.10.  Customs Declaration Number
 
-   Claim Name: customs_declaration_number Claim Description: Identifier
-   for the customs declaration associated with the shipment.  JWT Claim
-   Name: customs_declaration_number Claim Key: TBD (requested assignment
-   329) Claim Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.10 of this specification
+   *  Claim Name: customs_declaration_number
+
+   *  Claim Description: Identifier for the customs declaration
+      associated with the shipment.
+
+   *  JWT Claim Name: customs_declaration_number
+
+   *  Claim Key: TBD (requested assignment 329)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.10 of this specification
 
 4.1.11.  Commodity Description
 
-   Claim Name: commodity_description Claim Description: Description of
-   the commodity or goods being transported.  JWT Claim Name:
-   commodity_description Claim Key: TBD (requested assignment 330) Claim
-   Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.11 of this specification
+   *  Claim Name: commodity_description
+
+   *  Claim Description: Description of the commodity or goods being
+      transported.
+
+   *  JWT Claim Name: commodity_description
+
+   *  Claim Key: TBD (requested assignment 330)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.11 of this specification
 
 4.1.12.  HS Code
 
-   Claim Name: hs_code Claim Description: Harmonized System (HS) code
-   for the goods.  JWT Claim Name: hs_code Claim Key: TBD (requested
-   assignment 331) Claim Value Type: text string Change Controller: IETF
-   Reference: Section 4.1.12 of this specification
+   *  Claim Name: hs_code
+
+   *  Claim Description: Harmonized System (HS) code for the goods.
+
+   *  JWT Claim Name: hs_code
+
+   *  Claim Key: TBD (requested assignment 331)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.12 of this specification
 
 4.1.13.  Gross Weight
 
-   Claim Name: gross_weight Claim Description: Gross weight of the
-   shipment, in kilograms.  JWT Claim Name: gross_weight Claim Key: TBD
-   (requested assignment 332) Claim Value Type: integer Change
-   Controller: IETF Reference: Section 4.1.13 of this specification
+   *  Claim Name: gross_weight
+
+   *  Claim Description: Gross weight of the shipment, in kilograms.
+
+   *  JWT Claim Name: gross_weight
+
+   *  Claim Key: TBD (requested assignment 332)
+
+   *  Claim Value Type: integer
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.13 of this specification
 
 4.1.14.  Temperature Min Requirement
 
-   Claim Name: temperature_requirement_min Claim Description: Minimum
-   temperature (in Celsius) required for transport or storage of the
-   goods.  JWT Claim Name: temperature_requirement_min Claim Key: TBD
-   (requested assignment 333) Claim Value Type: float Change Controller:
-   IETF Reference: Section 4.1.14 of this specification
+   *  Claim Name: temperature_requirement_min
+
+   *  Claim Description: Minimum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  JWT Claim Name: temperature_requirement_min
+
+   *  Claim Key: TBD (requested assignment 333)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.14 of this specification
 
 4.1.15.  Temperature Max Requirement
 
-   Claim Name: temperature_requirement_max Claim Description: Maximum
-   temperature (in Celsius) required for transport or storage of the
-   goods.  JWT Claim Name: temperature_requirement_max Claim Key: TBD
-   (requested assignment 334) Claim Value Type: float Change Controller:
-   IETF Reference: Section 4.1.15 of this specification
+   *  Claim Name: temperature_requirement_max
+
+   *  Claim Description: Maximum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  JWT Claim Name: temperature_requirement_max
+
+   *  Claim Key: TBD (requested assignment 334)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.15 of this specification
 
 4.1.16.  Last Known Location
 
-   Claim Name: last_known_location Claim Description: Most recent
-   location update for the goods.  JWT Claim Name: last_known_location
-   Claim Key: TBD (requested assignment 335) Claim Value Type: text
-   string Change Controller: IETF Reference: Section 4.1.16 of this
-   specification
+   *  Claim Name: last_known_location
+
+   *  Claim Description: Most recent location update for the goods.
+
+   *  JWT Claim Name: last_known_location
+
+   *  Claim Key: TBD (requested assignment 335)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.16 of this specification
 
 4.1.17.  Tariff Code
 
-   Claim Name: tariff_code Claim Description: Tariff code applicable to
-   the goods, including national tariff classifications or specific duty
-   codes.  JWT Claim Name: tariff_code Claim Key: TBD (requested
-   assignment 336) Claim Value Type: text string Change Controller: IETF
-   Reference: Section 4.1.17 of this specification
+   *  Claim Name: tariff_code
+
+   *  Claim Description: Tariff code applicable to the goods, including
+      national tariff classifications or specific duty codes.
+
+   *  JWT Claim Name: tariff_code
+
+   *  Claim Key: TBD (requested assignment 336)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.17 of this specification
 
 4.1.18.  Country of Origin
 
-   Claim Name: country_of_origin Claim Description: The country where
-   the goods were produced or manufactured.  JWT Claim Name:
-   country_of_origin Claim Key: TBD (requested assignment 337) Claim
-   Value Type: text string (ISO 3166-1 alpha-2 country code) Change
-   Controller: IETF Reference: Section 4.1.18 of this specification
+   *  Claim Name: country_of_origin
+
+   *  Claim Description: The country where the goods were produced or
+      manufactured.
+
+   *  JWT Claim Name: country_of_origin
+
+   *  Claim Key: TBD (requested assignment 337)
+
+   *  Claim Value Type: text string (ISO 3166-1 alpha-2 country code)
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.18 of this specification
 
 4.1.19.  Customs Value
 
-   Claim Name: customs_value Claim Description: Declared value of the
-   goods for customs purposes, typically in the transaction currency.
-   JWT Claim Name: customs_value Claim Key: TBD (requested assignment
-   338) Claim Value Type: float Change Controller: IETF Reference:
-   Section 4.1.19 of this specification
+   *  Claim Name: customs_value
+
+   *  Claim Description: Declared value of the goods for customs
+      purposes, typically in the transaction currency.
+
+   *  JWT Claim Name: customs_value
+
+   *  Claim Key: TBD (requested assignment 338)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.19 of this specification
 
 4.1.20.  Currency Code
 
-   Claim Name: currency_code Claim Description: Currency code for the
-   customs value and other monetary amounts, as per ISO 4217.  JWT Claim
-   Name: currency_code Claim Key: TBD (requested assignment 339) Claim
-   Value Type: text string (ISO 4217 currency code) Change Controller:
-   IETF Reference: Section 4.1.20 of this specification
+   *  Claim Name: currency_code
+
+   *  Claim Description: Currency code for the customs value and other
+      monetary amounts, as per ISO 4217.
+
+   *  JWT Claim Name: currency_code
+
+   *  Claim Key: TBD (requested assignment 339)
+
+   *  Claim Value Type: text string (ISO 4217 currency code)
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.20 of this specification
 
 4.1.21.  Import/Export License Number
 
-   Claim Name: license_number Claim Description: License or permit
-   number required for the import or export of the goods.  JWT Claim
-   Name: license_number Claim Key: TBD (requested assignment 340) Claim
-   Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.21 of this specification
+   *  Claim Name: license_number
+
+   *  Claim Description: License or permit number required for the
+      import or export of the goods.
+
+   *  JWT Claim Name: license_number
+
+   *  Claim Key: TBD (requested assignment 340)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.21 of this specification
 
 4.1.22.  Sanctions Reference
 
-   Claim Name: sanctions_reference Claim Description: Reference to
-   applicable sanctions lists or regulations affecting the goods or
-   involved parties.  JWT Claim Name: sanctions_reference Claim Key: TBD
-   (requested assignment 341) Claim Value Type: text string Change
-   Controller: IETF Reference: Section 4.1.22 of this specification
+   *  Claim Name: sanctions_reference
+
+   *  Claim Description: Reference to applicable sanctions lists or
+      regulations affecting the goods or involved parties.
+
+   *  JWT Claim Name: sanctions_reference
+
+   *  Claim Key: TBD (requested assignment 341)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.22 of this specification
 
 4.1.23.  Legal Jurisdiction
 
-   Claim Name: legal_jurisdiction Claim Description: Legal
-   jurisdiction(s) governing the transaction, represented as country
-   codes or specific legal identifiers.  JWT Claim Name:
-   legal_jurisdiction Claim Key: TBD (requested assignment 342) Claim
-   Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.23 of this specification
+   *  Claim Name: legal_jurisdiction
+
+   *  Claim Description: Legal jurisdiction(s) governing the
+      transaction, represented as country codes or specific legal
+      identifiers.
+
+   *  JWT Claim Name: legal_jurisdiction
+
+   *  Claim Key: TBD (requested assignment 342)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.23 of this specification
 
 4.1.24.  Importer Code
 
-   Claim Name: importer_code Claim Description: Code identifying the
-   importer, such as a VAT number or EORI number.  JWT Claim Name:
-   importer_code Claim Key: TBD (requested assignment 343) Claim Value
-   Type: text string Change Controller: IETF Reference: Section 4.1.24
-   of this specification
+   *  Claim Name: importer_code
+
+   *  Claim Description: Code identifying the importer, such as a VAT
+      number or EORI number.
+
+   *  JWT Claim Name: importer_code
+
+   *  Claim Key: TBD (requested assignment 343)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.24 of this specification
 
 4.1.25.  Exporter Code
 
-   Claim Name: exporter_code Claim Description: Code identifying the
-   exporter, such as a VAT number or EORI number.  JWT Claim Name:
-   exporter_code Claim Key: TBD (requested assignment 344) Claim Value
-   Type: text string Change Controller: IETF Reference: Section 4.1.25
-   of this specification
+   *  Claim Name: exporter_code
+
+   *  Claim Description: Code identifying the exporter, such as a VAT
+      number or EORI number.
+
+   *  JWT Claim Name: exporter_code
+
+   *  Claim Key: TBD (requested assignment 344)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.25 of this specification
 
 4.1.26.  Incoterms
 
-   Claim Name: incoterms Claim Description: International commercial
-   terms defining responsibilities between buyer and seller, e.g.,
-   "FOB," "CIF."  JWT Claim Name: incoterms Claim Key: TBD (requested
-   assignment 345) Claim Value Type: text string Change Controller: IETF
-   Reference: Section 4.1.26 of this specification
+   *  Claim Name: incoterms
+
+   *  Claim Description: International commercial terms defining
+      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+
+   *  JWT Claim Name: incoterms
+
+   *  Claim Key: TBD (requested assignment 345)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.26 of this specification
 
 4.1.27.  Regulatory Compliance Codes
 
-   Claim Name: regulatory_compliance_codes Claim Description: Codes
-   indicating compliance with specific regulations or standards (e.g.,
-   safety certifications, environmental standards).  JWT Claim Name:
-   regulatory_compliance_codes Claim Key: TBD (requested assignment 346)
-   Claim Value Type: array of text strings Change Controller: IETF
-   Reference: Section 4.1.27 of this specification
+   *  Claim Name: regulatory_compliance_codes
+
+   *  Claim Description: Codes indicating compliance with specific
+      regulations or standards (e.g., safety certifications,
+      environmental standards).
+
+   *  JWT Claim Name: regulatory_compliance_codes
+
+   *  Claim Key: TBD (requested assignment 346)
+
+   *  Claim Value Type: array of text strings
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.27 of this specification
 
 4.1.28.  Additional Documents Required
 
-   Claim Name: additional_documents_required Claim Description: List of
-   additional documents required for customs clearance, such as
-   certificates of origin or inspection reports.  JWT Claim Name:
-   additional_documents_required Claim Key: TBD (requested assignment
-   347) Claim Value Type: array of text strings Change Controller: IETF
-   Reference: Section 4.1.28 of this specification
+   *  Claim Name: additional_documents_required
+
+   *  Claim Description: List of additional documents required for
+      customs clearance, such as certificates of origin or inspection
+      reports.
+
+   *  JWT Claim Name: additional_documents_required
+
+   *  Claim Key: TBD (requested assignment 347)
+
+   *  Claim Value Type: array of text strings
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.28 of this specification
 
 4.1.29.  Freight Charges
 
-   Claim Name: freight_charges Claim Description: Transportation costs
-   associated with the shipment, used for customs valuation.  JWT Claim
-   Name: freight_charges Claim Key: TBD (requested assignment 348) Claim
-   Value Type: float Change Controller: IETF Reference: Section 4.1.29
-   of this specification
+   *  Claim Name: freight_charges
+
+   *  Claim Description: Transportation costs associated with the
+      shipment, used for customs valuation.
+
+   *  JWT Claim Name: freight_charges
+
+   *  Claim Key: TBD (requested assignment 348)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.29 of this specification
 
 4.1.30.  Insurance Charges
 
-   Claim Name: insurance_charges Claim Description: Insurance costs for
-   the shipment, used in determining customs value.  JWT Claim Name:
-   insurance_charges Claim Key: TBD (requested assignment 349) Claim
-   Value Type: float Change Controller: IETF Reference: Section 4.1.30
-   of this specification
+   *  Claim Name: insurance_charges
+
+   *  Claim Description: Insurance costs for the shipment, used in
+      determining customs value.
+
+   *  JWT Claim Name: insurance_charges
+
+   *  Claim Key: TBD (requested assignment 349)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.30 of this specification
 
 4.1.31.  Packing Costs
 
-   Claim Name: packing_costs Claim Description: Costs associated with
-   packing the goods, relevant for customs valuation.  JWT Claim Name:
-   packing_costs Claim Key: TBD (requested assignment 350) Claim Value
-   Type: float Change Controller: IETF Reference: Section 4.1.31 of this
-   specification
+   *  Claim Name: packing_costs
+
+   *  Claim Description: Costs associated with packing the goods,
+      relevant for customs valuation.
+
+   *  JWT Claim Name: packing_costs
+
+   *  Claim Key: TBD (requested assignment 350)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.31 of this specification
 
 4.1.32.  Place of Loading
 
-   Claim Name: place_of_loading Claim Description: Location where the
-   goods were loaded for shipment, often a port or warehouse.  JWT Claim
-   Name: place_of_loading Claim Key: TBD (requested assignment 351)
-   Claim Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.32 of this specification
+   *  Claim Name: place_of_loading
+
+   *  Claim Description: Location where the goods were loaded for
+      shipment, often a port or warehouse.
+
+   *  JWT Claim Name: place_of_loading
+
+   *  Claim Key: TBD (requested assignment 351)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.32 of this specification
 
 4.1.33.  Place of Discharge
 
-   Claim Name: place_of_discharge Claim Description: Location where the
-   goods are scheduled to be unloaded.  JWT Claim Name:
-   place_of_discharge Claim Key: TBD (requested assignment 352) Claim
-   Value Type: text string Change Controller: IETF Reference:
-   Section 4.1.33 of this specification
+   *  Claim Name: place_of_discharge
+
+   *  Claim Description: Location where the goods are scheduled to be
+      unloaded.
+
+   *  JWT Claim Name: place_of_discharge
+
+   *  Claim Key: TBD (requested assignment 352)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.33 of this specification
 
 4.1.34.  Consignee Information
 
-   Claim Name: consignee_information Claim Description: Information
-   about the consignee, including name, address, and contact details.
-   JWT Claim Name: consignee_information Claim Key: TBD (requested
-   assignment 353) Claim Value Type: map Change Controller: IETF
-   Reference: Section 4.1.34 of this specification
+   *  Claim Name: consignee_information
+
+   *  Claim Description: Information about the consignee, including
+      name, address, and contact details.
+
+   *  JWT Claim Name: consignee_information
+
+   *  Claim Key: TBD (requested assignment 353)
+
+   *  Claim Value Type: map
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.34 of this specification
 
 4.1.35.  Consignor Information
 
-   Claim Name: consignor_information Claim Description: Information
-   about the consignor, including name, address, and contact details.
-   JWT Claim Name: consignor_information Claim Key: TBD (requested
-   assignment 354) Claim Value Type: map Change Controller: IETF
-   Reference: Section 4.1.35 of this specification
+   *  Claim Name: consignor_information
+
+   *  Claim Description: Information about the consignor, including
+      name, address, and contact details.
+
+   *  JWT Claim Name: consignor_information
+
+   *  Claim Key: TBD (requested assignment 354)
+
+   *  Claim Value Type: map
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.35 of this specification
 
 4.1.36.  Customs Declaration Date
 
-   Claim Name: customs_declaration_date Claim Description: Date when the
-   customs declaration was made.  JWT Claim Name:
-   customs_declaration_date Claim Key: TBD (requested assignment 355)
-   Claim Value Type: text string (ISO8601 date format) Change
-   Controller: IETF Reference: Section 4.1.36 of this specification
+   *  Claim Name: customs_declaration_date
+
+   *  Claim Description: Date when the customs declaration was made.
+
+   *  JWT Claim Name: customs_declaration_date
+
+   *  Claim Key: TBD (requested assignment 355)
+
+   *  Claim Value Type: text string (ISO8601 date format)
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.36 of this specification
 
 4.2.  JSON Web Token (JWT) Claims
 
@@ -492,232 +813,396 @@ Table of Contents
 
 4.2.1.  Goods Identifier
 
-   Claim Name: product_id Claim Description: A unique identifier for the
-   physical product(s) or shipment being tracked.  May correspond to
-   SKU, product ID, or batch number.  Change Controller: IETF Reference:
-   Section 4.1.1 of this specification
+   *  Claim Name: product_id
+
+   *  Claim Description: A unique identifier for the physical product(s)
+      or shipment being tracked.  May correspond to SKU, product ID, or
+      batch number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.1 of this specification
 
 4.2.2.  Shipment ID
 
-   Claim Name: shipment_id Claim Description: Unique identifier assigned
-   to a specific shipment.  Change Controller: IETF Reference:
-   Section 4.1.2 of this specification
+   *  Claim Name: shipment_id
+
+   *  Claim Description: Unique identifier assigned to a specific
+      shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.2 of this specification
 
 4.2.3.  Bill of Lading Number
 
-   Claim Name: bill_of_lading_number Claim Description: Identifier for
-   the bill of lading associated with the goods.  Change Controller:
-   IETF Reference: Section 4.1.3 of this specification
+   *  Claim Name: bill_of_lading_number
+
+   *  Claim Description: Identifier for the bill of lading associated
+      with the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.3 of this specification
 
 4.2.4.  Transport Mode
 
-   Claim Name: transport_mode Claim Description: Mode of transport used
-   for the shipment.  Change Controller: IETF Reference: Section 4.1.4
-   of this specification
+   *  Claim Name: transport_mode
+
+   *  Claim Description: Mode of transport used for the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.4 of this specification
 
 4.2.5.  Container ID
 
-   Claim Name: container_id Claim Description: Unique identifier for the
-   container used in the shipment.  Change Controller: IETF Reference:
-   Section 4.1.5 of this specification
+   *  Claim Name: container_id
+
+   *  Claim Description: Unique identifier for the container used in the
+      shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.5 of this specification
 
 4.2.6.  Origin Location
 
-   Claim Name: origin_location Claim Description: Geographical origin of
-   the goods, represented as a location code (e.g., ISO country code) or
-   specific address.  Change Controller: IETF Reference: Section 4.1.6
-   of this specification
+   *  Claim Name: origin_location
+
+   *  Claim Description: Geographical origin of the goods, represented
+      as a location code (e.g., ISO country code) or specific address.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.6 of this specification
 
 4.2.7.  Destination Location
 
-   Claim Name: destination_location Claim Description: Final destination
-   of the goods in the shipment.  Change Controller: IETF Reference:
-   Section 4.1.7 of this specification
+   *  Claim Name: destination_location
+
+   *  Claim Description: Final destination of the goods in the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.7 of this specification
 
 4.2.8.  Carrier ID
 
-   Claim Name: carrier_id Claim Description: Identifier for the carrier
-   or logistics provider responsible for the shipment.  Change
-   Controller: IETF Reference: Section 4.1.8 of this specification
+   *  Claim Name: carrier_id
+
+   *  Claim Description: Identifier for the carrier or logistics
+      provider responsible for the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.8 of this specification
 
 4.2.9.  Estimated Delivery Date
 
-   Claim Name: estimated_delivery_date Claim Description: Expected
-   delivery date for the shipment.  Change Controller: IETF Reference:
-   Section 4.1.9 of this specification
+   *  Claim Name: estimated_delivery_date
+
+   *  Claim Description: Expected delivery date for the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.9 of this specification
 
 4.2.10.  Customs Declaration Number
 
-   Claim Name: customs_declaration_number Claim Description: Identifier
-   for the customs declaration associated with the shipment.  Change
-   Controller: IETF Reference: Section 4.1.10 of this specification
+   *  Claim Name: customs_declaration_number
+
+   *  Claim Description: Identifier for the customs declaration
+      associated with the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.10 of this specification
 
 4.2.11.  Commodity Description
 
-   Claim Name: commodity_description Claim Description: Description of
-   the commodity or goods being transported.  Change Controller: IETF
-   Reference: Section 4.1.11 of this specification
+   *  Claim Name: commodity_description
+
+   *  Claim Description: Description of the commodity or goods being
+      transported.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.11 of this specification
 
 4.2.12.  HS Code
 
-   Claim Name: hs_code Claim Description: Harmonized System (HS) code
-   for the goods.  Change Controller: IETF Reference: Section 4.1.12 of
-   this specification
+   *  Claim Name: hs_code
+
+   *  Claim Description: Harmonized System (HS) code for the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.12 of this specification
 
 4.2.13.  Gross Weight
 
-   Claim Name: gross_weight Claim Description: Gross weight of the
-   shipment, in kilograms.  Change Controller: IETF Reference:
-   Section 4.1.13 of this specification
+   *  Claim Name: gross_weight
+
+   *  Claim Description: Gross weight of the shipment, in kilograms.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.13 of this specification
 
 4.2.14.  Temperature Min Requirement
 
-   Claim Name: temperature_requirement_min Claim Description: Minimum
-   temperature (in Celsius) required for transport or storage of the
-   goods.  Change Controller: IETF Reference: Section 4.1.14 of this
-   specification
+   *  Claim Name: temperature_requirement_min
+
+   *  Claim Description: Minimum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.14 of this specification
 
 4.2.15.  Temperature Max Requirement
 
-   Claim Name: temperature_requirement_max Claim Description: Maximum
-   temperature (in Celsius) required for transport or storage of the
-   goods.  Change Controller: IETF Reference: Section 4.1.15 of this
-   specification
+   *  Claim Name: temperature_requirement_max
+
+   *  Claim Description: Maximum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.15 of this specification
 
 4.2.16.  Last Known Location
 
-   Claim Name: last_known_location Claim Description: Most recent
-   location update for the goods.  Change Controller: IETF Reference:
-   Section 4.1.16 of this specification
+   *  Claim Name: last_known_location
+
+   *  Claim Description: Most recent location update for the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.16 of this specification
 
 4.2.17.  Tariff Code
 
-   Claim Name: tariff_code Claim Description: Tariff code applicable to
-   the goods, including national tariff classifications or specific duty
-   codes.  Change Controller: IETF Reference: Section 4.1.17 of this
-   specification
+   *  Claim Name: tariff_code
+
+   *  Claim Description: Tariff code applicable to the goods, including
+      national tariff classifications or specific duty codes.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.17 of this specification
 
 4.2.18.  Country of Origin
 
-   Claim Name: country_of_origin Claim Description: The country where
-   the goods were produced or manufactured.  Change Controller: IETF
-   Reference: Section 4.1.18 of this specification
+   *  Claim Name: country_of_origin
+
+   *  Claim Description: The country where the goods were produced or
+      manufactured.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.18 of this specification
 
 4.2.19.  Customs Value
 
-   Claim Name: customs_value Claim Description: Declared value of the
-   goods for customs purposes, typically in the transaction currency.
-   Change Controller: IETF Reference: Section 4.1.19 of this
-   specification
+   *  Claim Name: customs_value
+
+   *  Claim Description: Declared value of the goods for customs
+      purposes, typically in the transaction currency.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.19 of this specification
 
 4.2.20.  Currency Code
 
-   Claim Name: currency_code Claim Description: Currency code for the
-   customs value and other monetary amounts, as per ISO 4217.  Change
-   Controller: IETF Reference: Section 4.1.20 of this specification
+   *  Claim Name: currency_code
+
+   *  Claim Description: Currency code for the customs value and other
+      monetary amounts, as per ISO 4217.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.20 of this specification
 
 4.2.21.  Import/Export License Number
 
-   Claim Name: license_number Claim Description: License or permit
-   number required for the import or export of the goods.  Change
-   Controller: IETF Reference: Section 4.1.21 of this specification
+   *  Claim Name: license_number
+
+   *  Claim Description: License or permit number required for the
+      import or export of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.21 of this specification
 
 4.2.22.  Sanctions Reference
 
-   Claim Name: sanctions_reference Claim Description: Reference to
-   applicable sanctions lists or regulations affecting the goods or
-   involved parties.  Change Controller: IETF Reference: Section 4.1.22
-   of this specification
+   *  Claim Name: sanctions_reference
+
+   *  Claim Description: Reference to applicable sanctions lists or
+      regulations affecting the goods or involved parties.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.22 of this specification
 
 4.2.23.  Legal Jurisdiction
 
-   Claim Name: legal_jurisdiction Claim Description: Legal
-   jurisdiction(s) governing the transaction, represented as country
-   codes or specific legal identifiers.  Change Controller: IETF
-   Reference: Section 4.1.23 of this specification
+   *  Claim Name: legal_jurisdiction
+
+   *  Claim Description: Legal jurisdiction(s) governing the
+      transaction, represented as country codes or specific legal
+      identifiers.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.23 of this specification
 
 4.2.24.  Importer Code
 
-   Claim Name: importer_code Claim Description: Code identifying the
-   importer, such as a VAT number or EORI number.  Change Controller:
-   IETF Reference: Section 4.1.24 of this specification
+   *  Claim Name: importer_code
+
+   *  Claim Description: Code identifying the importer, such as a VAT
+      number or EORI number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.24 of this specification
 
 4.2.25.  Exporter Code
 
-   Claim Name: exporter_code Claim Description: Code identifying the
-   exporter, such as a VAT number or EORI number.  Change Controller:
-   IETF Reference: Section 4.1.25 of this specification
+   *  Claim Name: exporter_code
+
+   *  Claim Description: Code identifying the exporter, such as a VAT
+      number or EORI number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.25 of this specification
 
 4.2.26.  Incoterms
 
-   Claim Name: incoterms Claim Description: International commercial
-   terms defining responsibilities between buyer and seller, e.g.,
-   "FOB," "CIF."  Change Controller: IETF Reference: Section 4.1.26 of
-   this specification
+   *  Claim Name: incoterms
+
+   *  Claim Description: International commercial terms defining
+      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.26 of this specification
 
 4.2.27.  Regulatory Compliance Codes
 
-   Claim Name: regulatory_compliance_codes Claim Description: Codes
-   indicating compliance with specific regulations or standards (e.g.,
-   safety certifications, environmental standards).  Change Controller:
-   IETF Reference: Section 4.1.27 of this specification
+   *  Claim Name: regulatory_compliance_codes
+
+   *  Claim Description: Codes indicating compliance with specific
+      regulations or standards (e.g., safety certifications,
+      environmental standards).
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.27 of this specification
 
 4.2.28.  Additional Documents Required
 
-   Claim Name: additional_documents_required Claim Description: List of
-   additional documents required for customs clearance, such as
-   certificates of origin or inspection reports.  Change Controller:
-   IETF Reference: Section 4.1.28 of this specification
+   *  Claim Name: additional_documents_required
+
+   *  Claim Description: List of additional documents required for
+      customs clearance, such as certificates of origin or inspection
+      reports.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.28 of this specification
 
 4.2.29.  Freight Charges
 
-   Claim Name: freight_charges Claim Description: Transportation costs
-   associated with the shipment, used for customs valuation.  Change
-   Controller: IETF Reference: Section 4.1.29 of this specification
+   *  Claim Name: freight_charges
+
+   *  Claim Description: Transportation costs associated with the
+      shipment, used for customs valuation.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.29 of this specification
 
 4.2.30.  Insurance Charges
 
-   Claim Name: insurance_charges Claim Description: Insurance costs for
-   the shipment, used in determining customs value.  Change Controller:
-   IETF Reference: Section 4.1.30 of this specification
+   *  Claim Name: insurance_charges
+
+   *  Claim Description: Insurance costs for the shipment, used in
+      determining customs value.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.30 of this specification
 
 4.2.31.  Packing Costs
 
-   Claim Name: packing_costs Claim Description: Costs associated with
-   packing the goods, relevant for customs valuation.  Change
-   Controller: IETF Reference: Section 4.1.31 of this specification
+   *  Claim Name: packing_costs
+
+   *  Claim Description: Costs associated with packing the goods,
+      relevant for customs valuation.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.31 of this specification
 
 4.2.32.  Place of Loading
 
-   Claim Name: place_of_loading Claim Description: Location where the
-   goods were loaded for shipment, often a port or warehouse.  Change
-   Controller: IETF Reference: Section 4.1.32 of this specification
+   *  Claim Name: place_of_loading
+
+   *  Claim Description: Location where the goods were loaded for
+      shipment, often a port or warehouse.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.32 of this specification
 
 4.2.33.  Place of Discharge
 
-   Claim Name: place_of_discharge Claim Description: Location where the
-   goods are scheduled to be unloaded.  Change Controller: IETF
-   Reference: Section 4.1.33 of this specification
+   *  Claim Name: place_of_discharge
+
+   *  Claim Description: Location where the goods are scheduled to be
+      unloaded.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.33 of this specification
 
 4.2.34.  Consignee Information
 
-   Claim Name: consignee_information Claim Description: Information
-   about the consignee, including name, address, and contact details.
-   Change Controller: IETF Reference: Section 4.1.34 of this
-   specification
+   *  Claim Name: consignee_information
+
+   *  Claim Description: Information about the consignee, including
+      name, address, and contact details.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.34 of this specification
 
 4.2.35.  Consignor Information
 
-   Claim Name: consignor_information Claim Description: Information
-   about the consignor, including name, address, and contact details.
-   Change Controller: IETF Reference: Section 4.1.35 of this
-   specification
+   *  Claim Name: consignor_information
+
+   *  Claim Description: Information about the consignor, including
+      name, address, and contact details.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.35 of this specification
 
 4.2.36.  Customs Declaration Date
 
-   Claim Name: customs_declaration_date Claim Description: Date when the
-   customs declaration was made.  Change Controller: IETF Reference:
-   Section 4.1.36 of this specification
+   *  Claim Name: customs_declaration_date
+
+   *  Claim Description: Date when the customs declaration was made.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.36 of this specification
 
 5.  References
 
