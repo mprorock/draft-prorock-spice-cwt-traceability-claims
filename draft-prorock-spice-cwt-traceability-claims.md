@@ -40,6 +40,7 @@ author:
     country: United States
 
 normative:
+  RFC7515:
   RFC8392:
 
 informative:
@@ -49,27 +50,35 @@ informative:
     author:
     - org: IANA
 
+  IANA.JWT:
+    target: https://www.iana.org/assignments/jwt/
+    title: JSON Web Token Claims
+    author:
+    - org: IANA
+
 ---
 
 --- abstract
 
-This document defines CBOR Web Tokens (CWT) claims to support
+This document defines claims to support
 traceability of physical goods across supply chains,
 focusing on items such as bills of lading, transport modes, and container manifests.
 These claims standardize the encoding of essential logistics and transport metadata,
 facilitating enhanced transparency and accountability in global supply chains.
-
+These claims are registered for use in both CBOR Web Tokens (CWTs)
+and JSON Web Tokens (JWTs).
 
 --- middle
 
 # Introduction
 
-This document defines a set of CBOR Web Tokens (CWT) claims intended to enable the
+This document defines a set of claims intended to enable the
 traceability of physical goods across various stages of transportation and storage.
 These claims capture critical information necessary for documenting
 the movement of goods in supply chains,
 thereby supporting regulatory compliance and operational efficiency.
-
+These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
+and JSON Web Tokens (JWTs) [RFC7515].
 
 # Conventions and Definitions
 
@@ -448,6 +457,262 @@ Claim Value Type: text string (ISO8601 date format)
 Change Controller: IETF
 Reference: {{customs_declaration_date}} of this specification
 
+## JSON Web Token (JWT) Claims
+
+This specification registers the following claims in the
+IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7515].
+
+### Goods Identifier
+
+Claim Name: product_id
+Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
+Change Controller: IETF
+Reference: {{product_id}} of this specification
+
+### Shipment ID
+
+Claim Name: shipment_id
+Claim Description: Unique identifier assigned to a specific shipment.
+Change Controller: IETF
+Reference: {{shipment_id}} of this specification
+
+### Bill of Lading Number
+
+Claim Name: bill_of_lading_number
+Claim Description: Identifier for the bill of lading associated with the goods.
+Change Controller: IETF
+Reference: {{bill_of_lading_number}} of this specification
+
+### Transport Mode
+
+Claim Name: transport_mode
+Claim Description: Mode of transport used for the shipment.
+Change Controller: IETF
+Reference: {{transport_mode}} of this specification
+
+### Container ID
+
+Claim Name: container_id
+Claim Description: Unique identifier for the container used in the shipment.
+Change Controller: IETF
+Reference: {{container_id}} of this specification
+
+### Origin Location
+
+Claim Name: origin_location
+Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+Change Controller: IETF
+Reference: {{origin_location}} of this specification
+
+### Destination Location
+
+Claim Name: destination_location
+Claim Description: Final destination of the goods in the shipment.
+Change Controller: IETF
+Reference: {{destination_location}} of this specification
+
+### Carrier ID
+
+Claim Name: carrier_id
+Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+Change Controller: IETF
+Reference: {{carrier_id}} of this specification
+
+### Estimated Delivery Date
+
+Claim Name: estimated_delivery_date
+Claim Description: Expected delivery date for the shipment.
+Change Controller: IETF
+Reference: {{estimated_delivery_date}} of this specification
+
+### Customs Declaration Number
+
+Claim Name: customs_declaration_number
+Claim Description: Identifier for the customs declaration associated with the shipment.
+Change Controller: IETF
+Reference: {{customs_declaration_number}} of this specification
+
+### Commodity Description
+
+Claim Name: commodity_description
+Claim Description: Description of the commodity or goods being transported.
+Change Controller: IETF
+Reference: {{commodity_description}} of this specification
+
+### HS Code
+
+Claim Name: hs_code
+Claim Description: Harmonized System (HS) code for the goods.
+Change Controller: IETF
+Reference: {{hs_code}} of this specification
+
+### Gross Weight
+
+Claim Name: gross_weight
+Claim Description: Gross weight of the shipment, in kilograms.
+Change Controller: IETF
+Reference: {{gross_weight}} of this specification
+
+### Temperature Min Requirement
+
+Claim Name: temperature_requirement_min
+Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
+Change Controller: IETF
+Reference: {{temperature_requirement_min}} of this specification
+
+### Temperature Max Requirement
+
+Claim Name: temperature_requirement_max
+Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
+Change Controller: IETF
+Reference: {{temperature_requirement_max}} of this specification
+
+### Last Known Location
+
+Claim Name: last_known_location
+Claim Description: Most recent location update for the goods.
+Change Controller: IETF
+Reference: {{last_known_location}} of this specification
+
+### Tariff Code
+
+Claim Name: tariff_code
+Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
+Change Controller: IETF
+Reference: {{tariff_code}} of this specification
+
+### Country of Origin
+
+Claim Name: country_of_origin
+Claim Description: The country where the goods were produced or manufactured.
+Change Controller: IETF
+Reference: {{country_of_origin}} of this specification
+
+### Customs Value
+
+Claim Name: customs_value
+Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+Change Controller: IETF
+Reference: {{customs_value}} of this specification
+
+### Currency Code
+
+Claim Name: currency_code
+Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+Change Controller: IETF
+Reference: {{currency_code}} of this specification
+
+### Import/Export License Number
+
+Claim Name: license_number
+Claim Description: License or permit number required for the import or export of the goods.
+Change Controller: IETF
+Reference: {{license_number}} of this specification
+
+### Sanctions Reference
+
+Claim Name: sanctions_reference
+Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
+Change Controller: IETF
+Reference: {{sanctions_reference}} of this specification
+
+### Legal Jurisdiction
+
+Claim Name: legal_jurisdiction
+Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+Change Controller: IETF
+Reference: {{legal_jurisdiction}} of this specification
+
+### Importer Code
+
+Claim Name: importer_code
+Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+Change Controller: IETF
+Reference: {{importer_code}} of this specification
+
+### Exporter Code
+
+Claim Name: exporter_code
+Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+Change Controller: IETF
+Reference: {{exporter_code}} of this specification
+
+### Incoterms
+
+Claim Name: incoterms
+Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+Change Controller: IETF
+Reference: {{incoterms}} of this specification
+
+### Regulatory Compliance Codes
+
+Claim Name: regulatory_compliance_codes
+Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
+Change Controller: IETF
+Reference: {{regulatory_compliance_codes}} of this specification
+
+### Additional Documents Required
+
+Claim Name: additional_documents_required
+Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
+Change Controller: IETF
+Reference: {{additional_documents_required}} of this specification
+
+### Freight Charges
+
+Claim Name: freight_charges
+Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+Change Controller: IETF
+Reference: {{freight_charges}} of this specification
+
+### Insurance Charges
+
+Claim Name: insurance_charges
+Claim Description: Insurance costs for the shipment, used in determining customs value.
+Change Controller: IETF
+Reference: {{insurance_charges}} of this specification
+
+### Packing Costs
+
+Claim Name: packing_costs
+Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+Change Controller: IETF
+Reference: {{packing_costs}} of this specification
+
+### Place of Loading
+
+Claim Name: place_of_loading
+Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
+Change Controller: IETF
+Reference: {{place_of_loading}} of this specification
+
+### Place of Discharge
+
+Claim Name: place_of_discharge
+Claim Description: Location where the goods are scheduled to be unloaded.
+Change Controller: IETF
+Reference: {{place_of_discharge}} of this specification
+
+### Consignee Information
+
+Claim Name: consignee_information
+Claim Description: Information about the consignee, including name, address, and contact details.
+Change Controller: IETF
+Reference: {{consignee_information}} of this specification
+
+### Consignor Information
+
+Claim Name: consignor_information
+Claim Description: Information about the consignor, including name, address, and contact details.
+Change Controller: IETF
+Reference: {{consignor_information}} of this specification
+
+### Customs Declaration Date
+
+Claim Name: customs_declaration_date
+Claim Description: Date when the customs declaration was made.
+Change Controller: IETF
+Reference: {{customs_declaration_date}} of this specification
 
 --- back
 
