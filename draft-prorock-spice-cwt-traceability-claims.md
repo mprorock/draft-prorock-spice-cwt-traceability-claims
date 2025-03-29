@@ -40,7 +40,7 @@ author:
     country: United States
 
 normative:
-  RFC7515:
+  RFC7519:
   RFC8392:
 
 informative:
@@ -78,7 +78,7 @@ These claims capture critical information necessary for documenting
 the movement of goods in supply chains,
 thereby supporting regulatory compliance and operational efficiency.
 These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
-and JSON Web Tokens (JWTs) [RFC7515].
+and JSON Web Tokens (JWTs) [RFC7519].
 
 # Conventions and Definitions
 
@@ -460,7 +460,7 @@ Reference: {{customs_declaration_date}} of this specification
 ## JSON Web Token (JWT) Claims
 
 This specification registers the following claims in the
-IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7515].
+IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 
 ### Goods Identifier
 
