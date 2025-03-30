@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-27T00:29:20.678614+00:00",
+  "timestamp": "2025-03-30T00:32:46.360311+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -137,25 +137,33 @@
       "id": "PR_kwDONKsocc6Bk-0p",
       "title": "Fix IANA considerations heading for #3",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aj-stein",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "It is a minor distraction, but not what I was expecting and made reading the draft a little confusing at first.",
       "createdAt": "2024-11-12T03:20:23Z",
-      "updatedAt": "2024-11-12T03:20:24Z",
+      "updatedAt": "2025-03-29T04:47:59Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
       "baseRefOid": "202ec77cd4fdce215d81373710cec0e2f92474c1",
       "headRepository": "aj-stein/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "3-adjust-iana-heading",
       "headRefOid": "81292e6278c70979dda6ccd3cc227d84dfba30a9",
-      "closedAt": null,
+      "closedAt": "2025-03-29T04:47:59Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed in PR #8 (with an acknolwedgement)",
+          "createdAt": "2025-03-29T04:47:59Z",
+          "updatedAt": "2025-03-29T04:47:59Z"
+        }
+      ],
       "reviews": []
     },
     {
@@ -183,6 +191,48 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDONKsocc6Qoi7e",
+      "title": "Supply all claims registration fields",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/8",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-03-29T00:28:45Z",
+      "updatedAt": "2025-03-29T04:47:04Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "202ec77cd4fdce215d81373710cec0e2f92474c1",
+      "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-claims-registrations",
+      "headRefOid": "688ef7247303eecbcf98dc16cdeb07caae9df7da",
+      "closedAt": "2025-03-29T04:47:04Z",
+      "mergedAt": "2025-03-29T04:47:04Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "d151e0568e9d126607ea4d0046785708959b67c7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6ijmRA",
+          "commit": {
+            "abbreviatedOid": "a2b1f3b"
+          },
+          "author": "mprorock",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-29T04:10:45Z",
+          "updatedAt": "2025-03-29T04:10:45Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
