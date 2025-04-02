@@ -43,11 +43,8 @@ normative:
   RFC7519:
   RFC8392:
   ISO.3166:
-    target: https://www.iso.org/standard/72482.html
   ISO.4217:
-    target: https://www.iso.org/standard/64758.html
   ISO.8601:
-    target: https://www.iso.org/standard/70907.html
 
 informative:
   IANA.CWT:
