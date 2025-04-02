@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                             M. B. Jones
-Expires: 30 September 2025                        Self-Issued Consulting
-                                                           29 March 2025
+Expires: 4 October 2025                           Self-Issued Consulting
+                                                            2 April 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 September 2025.
+   This Internet-Draft will expire on 4 October 2025.
 
 Copyright Notice
 
@@ -1208,6 +1208,12 @@ Table of Contents
 
 5.1.  Normative References
 
+   [ISO.3166] "*** BROKEN REFERENCE ***".
+
+   [ISO.4217] "*** BROKEN REFERENCE ***".
+
+   [ISO.8601] "*** BROKEN REFERENCE ***".
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -1245,6 +1251,8 @@ Document History
       registration template.
 
    *  Fixed IANA Considerations header, as suggested by A.J.  Stein.
+
+   *  Added references for ISO specs.
 
    *  Added Michael B.  Jones as an author.
 
