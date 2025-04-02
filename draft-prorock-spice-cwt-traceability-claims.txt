@@ -1208,11 +1208,17 @@ Table of Contents
 
 5.1.  Normative References
 
-   [ISO.3166] "*** BROKEN REFERENCE ***".
+   [ISO.3166] ISO, "ISO 3166-1:2020: Codes for the representation of
+              names of countries and their subdivisions", 2020,
+              <https://www.iso.org/standard/72482.html>.
 
-   [ISO.4217] "*** BROKEN REFERENCE ***".
+   [ISO.4217] ISO, "ISO 4217:2015: Codes for the representation of
+              currencies", 2015,
+              <https://www.iso.org/standard/64758.html>.
 
-   [ISO.8601] "*** BROKEN REFERENCE ***".
+   [ISO.8601] ISO, "ISO 8601-1:2019: Date and time — Representations for
+              information interchange", 2019,
+              <https://www.iso.org/standard/70907.html>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
