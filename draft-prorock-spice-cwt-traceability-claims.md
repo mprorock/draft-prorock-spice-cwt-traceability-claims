@@ -1,20 +1,24 @@
 ---
-title: "SPICE Traceability CWT Claims"
-category: info
+title: "Traceability Claims"
+lang: en
+category: std
 v: 3
 docname: draft-prorock-spice-cwt-traceability-claims-latest
 stream: IETF
 number:
 date:
 consensus: true
-area: ""
+area: "Security"
 workgroup: "Secure Patterns for Internet CrEdentials"
 keyword:
- - cose
- - cwt
+ - COSE
+ - CBOR Object Signing and Encryption
+ - CWT
+ - CBOR Web Token
+ - Claims
 venue:
   group: "Secure Patterns for Internet CrEdentials"
-  type: ""
+  type: "Working Group"
   mail: "spice@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spice/"
   github: "mprorock/draft-prorock-spice-cwt-traceability-claims"
@@ -25,31 +29,62 @@ author:
     fullname: "Michael Prorock"
     organization: mesur.io
     email: "mprorock@mesur.io"
+    country: United States
+
+ -
+    fullname: Michael B. Jones
+    ins: M.B. Jones
+    organization: Self-Issued Consulting
+    email: michael_b_jones@hotmail.com
+    uri: https://self-issued.info/
+    country: United States
 
 normative:
+  RFC7519:
   RFC8392:
-  BCP205:
-  ISO.3166.2020:
+  ISO.3166:
     target: https://www.iso.org/standard/72482.html
-  ISO.4217.2015:
+  ISO.4217:
     target: https://www.iso.org/standard/64758.html
-  ISO.8601.2019:
+  ISO.8601:
     target: https://www.iso.org/standard/70907.html
 
 informative:
+  IANA.CWT:
+    target: https://www.iana.org/assignments/cwt/
+    title: CBOR Web Token (CWT) Claims
+    author:
+    - org: IANA
+
+  IANA.JWT:
+    target: https://www.iana.org/assignments/jwt/
+    title: JSON Web Token Claims
+    author:
+    - org: IANA
+
 ---
 
 --- abstract
 
-This document proposes additional claims for CBOR Web Tokens (CWT) to support traceability of physical goods across supply chains, focusing on items such as bills of lading, transport modes, and container manifests. These claims aim to standardize the encoding of essential logistics and transport metadata, facilitating enhanced transparency and accountability in global supply chains.
-
+This document defines claims to support
+traceability of physical goods across supply chains,
+focusing on items such as bills of lading, transport modes, and container manifests.
+These claims standardize the encoding of essential logistics and transport metadata,
+facilitating enhanced transparency and accountability in global supply chains.
+These claims are registered for use in both CBOR Web Tokens (CWTs)
+and JSON Web Tokens (JWTs).
 
 --- middle
 
 # Introduction
 
-This document defines a set of claims for CBOR Web Tokens (CWT) intended to enable the traceability of physical goods across various stages of transportation and storage. These claims capture critical information necessary for documenting the movement of goods in supply chains, thereby supporting regulatory compliance and operational efficiency.
-
+This document defines a set of claims intended to enable the
+traceability of physical goods across various stages of transportation and storage.
+These claims capture critical information necessary for documenting
+the movement of goods in supply chains,
+thereby supporting regulatory compliance and operational efficiency.
+These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
+and JSON Web Tokens (JWTs) [RFC7519].
 
 # Conventions and Definitions
 
@@ -61,413 +96,648 @@ This document defines a set of claims for CBOR Web Tokens (CWT) intended to enab
 These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements SHOULD be considered when using these claims.
 
 
-## 4. IANA Considerations
+# IANA Considerations
 
 ## CBOR Web Token (CWT) Claims
 
-IANA is requested to add the following entries to the CWT claims registry (https://www.iana.org/assignments/cwt/cwt.xhtml).
+This specification registers the following claims in the
+IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 
+### Goods Identifier {#product_id}
+
+* Claim Name: product_id
+* Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
+* JWT Claim Name: product_id
+* Claim Key: TBD (requested assignment 320)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{product_id}} of this specification
+
+### Shipment ID {#shipment_id}
+
+* Claim Name: shipment_id
+* Claim Description: Unique identifier assigned to a specific shipment.
+* JWT Claim Name: shipment_id
+* Claim Key: TBD (requested assignment 321)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{shipment_id}} of this specification
+
+### Bill of Lading Number {#bill_of_lading_number}
+
+* Claim Name: bill_of_lading_number
+* Claim Description: Identifier for the bill of lading associated with the goods.
+* JWT Claim Name: bill_of_lading_number
+* Claim Key: TBD (requested assignment 322)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{bill_of_lading_number}} of this specification
+
+### Transport Mode {#transport_mode}
+
+* Claim Name: transport_mode
+* Claim Description: Mode of transport used for the shipment.
+* JWT Claim Name: transport_mode
+* Claim Key: TBD (requested assignment 323)
+* Claim Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
+* Change Controller: IETF
+* Reference: {{transport_mode}} of this specification
+
+### Container ID {#container_id}
+
+* Claim Name: container_id
+* Claim Description: Unique identifier for the container used in the shipment.
+* JWT Claim Name: container_id
+* Claim Key: TBD (requested assignment 324)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{container_id}} of this specification
+
+### Origin Location {#origin_location}
+
+* Claim Name: origin_location
+* Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+* JWT Claim Name: origin_location
+* Claim Key: TBD (requested assignment 325)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{origin_location}} of this specification
+
+### Destination Location {#destination_location}
+
+* Claim Name: destination_location
+* Claim Description: Final destination of the goods in the shipment.
+* JWT Claim Name: destination_location
+* Claim Key: TBD (requested assignment 326)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{destination_location}} of this specification
+
+### Carrier ID {#carrier_id}
+
+* Claim Name: carrier_id
+* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+* JWT Claim Name: carrier_id
+* Claim Key: TBD (requested assignment 327)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{carrier_id}} of this specification
+
+### Estimated Delivery Date {#estimated_delivery_date}
+
+* Claim Name: estimated_delivery_date
+* Claim Description: Expected delivery date for the shipment.
+* JWT Claim Name: estimated_delivery_date
+* Claim Key: TBD (requested assignment 328)
+* Claim Value Type: text string (ISO8601 format)
+* Change Controller: IETF
+* Reference: {{estimated_delivery_date}} of this specification
+
+### Customs Declaration Number {#customs_declaration_number}
+
+* Claim Name: customs_declaration_number
+* Claim Description: Identifier for the customs declaration associated with the shipment.
+* JWT Claim Name: customs_declaration_number
+* Claim Key: TBD (requested assignment 329)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{customs_declaration_number}} of this specification
+
+### Commodity Description {#commodity_description}
+
+* Claim Name: commodity_description
+* Claim Description: Description of the commodity or goods being transported.
+* JWT Claim Name: commodity_description
+* Claim Key: TBD (requested assignment 330)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{commodity_description}} of this specification
+
+### HS Code {#hs_code}
+
+* Claim Name: hs_code
+* Claim Description: Harmonized System (HS) code for the goods.
+* JWT Claim Name: hs_code
+* Claim Key: TBD (requested assignment 331)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{hs_code}} of this specification
+
+### Gross Weight {#gross_weight}
+
+* Claim Name: gross_weight
+* Claim Description: Gross weight of the shipment, in kilograms.
+* JWT Claim Name: gross_weight
+* Claim Key: TBD (requested assignment 332)
+* Claim Value Type: integer
+* Change Controller: IETF
+* Reference: {{gross_weight}} of this specification
+
+### Temperature Min Requirement {#temperature_requirement_min}
+
+* Claim Name: temperature_requirement_min
+* Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
+* JWT Claim Name: temperature_requirement_min
+* Claim Key: TBD (requested assignment 333)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{temperature_requirement_min}} of this specification
+
+### Temperature Max Requirement {#temperature_requirement_max}
+
+* Claim Name: temperature_requirement_max
+* Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
+* JWT Claim Name: temperature_requirement_max
+* Claim Key: TBD (requested assignment 334)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{temperature_requirement_max}} of this specification
+
+### Last Known Location {#last_known_location}
+
+* Claim Name: last_known_location
+* Claim Description: Most recent location update for the goods.
+* JWT Claim Name: last_known_location
+* Claim Key: TBD (requested assignment 335)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{last_known_location}} of this specification
+
+### Tariff Code {#tariff_code}
+
+* Claim Name: tariff_code
+* Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
+* JWT Claim Name: tariff_code
+* Claim Key: TBD (requested assignment 336)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{tariff_code}} of this specification
+
+### Country of Origin {#country_of_origin}
+
+* Claim Name: country_of_origin
+* Claim Description: The country where the goods were produced or manufactured.
+* JWT Claim Name: country_of_origin
+* Claim Key: TBD (requested assignment 337)
+* Claim Value Type: text string (ISO 3166-1 alpha-2 country code)
+* Change Controller: IETF
+* Reference: {{country_of_origin}} of this specification
+
+### Customs Value {#customs_value}
+
+* Claim Name: customs_value
+* Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+* JWT Claim Name: customs_value
+* Claim Key: TBD (requested assignment 338)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{customs_value}} of this specification
+
+### Currency Code {#currency_code}
+
+* Claim Name: currency_code
+* Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+* JWT Claim Name: currency_code
+* Claim Key: TBD (requested assignment 339)
+* Claim Value Type: text string (ISO 4217 currency code)
+* Change Controller: IETF
+* Reference: {{currency_code}} of this specification
+
+### Import/Export License Number {#license_number}
+
+* Claim Name: license_number
+* Claim Description: License or permit number required for the import or export of the goods.
+* JWT Claim Name: license_number
+* Claim Key: TBD (requested assignment 340)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{license_number}} of this specification
+
+### Sanctions Reference {#sanctions_reference}
+
+* Claim Name: sanctions_reference
+* Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
+* JWT Claim Name: sanctions_reference
+* Claim Key: TBD (requested assignment 341)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{sanctions_reference}} of this specification
+
+### Legal Jurisdiction {#legal_jurisdiction}
+
+* Claim Name: legal_jurisdiction
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+* JWT Claim Name: legal_jurisdiction
+* Claim Key: TBD (requested assignment 342)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{legal_jurisdiction}} of this specification
+
+### Importer Code {#importer_code}
+
+* Claim Name: importer_code
+* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* JWT Claim Name: importer_code
+* Claim Key: TBD (requested assignment 343)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{importer_code}} of this specification
+
+### Exporter Code {#exporter_code}
+
+* Claim Name: exporter_code
+* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* JWT Claim Name: exporter_code
+* Claim Key: TBD (requested assignment 344)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{exporter_code}} of this specification
+
+### Incoterms {#in-co-terms}
+
+* Claim Name: incoterms
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* JWT Claim Name: incoterms
+* Claim Key: TBD (requested assignment 345)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{in-co-terms}} of this specification
+
+### Regulatory Compliance Codes {#regulatory_compliance_codes}
+
+* Claim Name: regulatory_compliance_codes
+* Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
+* JWT Claim Name: regulatory_compliance_codes
+* Claim Key: TBD (requested assignment 346)
+* Claim Value Type: array of text strings
+* Change Controller: IETF
+* Reference: {{regulatory_compliance_codes}} of this specification
+
+### Additional Documents Required {#additional_documents_required}
+
+* Claim Name: additional_documents_required
+* Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
+* JWT Claim Name: additional_documents_required
+* Claim Key: TBD (requested assignment 347)
+* Claim Value Type: array of text strings
+* Change Controller: IETF
+* Reference: {{additional_documents_required}} of this specification
+
+### Freight Charges {#freight_charges}
+
+* Claim Name: freight_charges
+* Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+* JWT Claim Name: freight_charges
+* Claim Key: TBD (requested assignment 348)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{freight_charges}} of this specification
+
+### Insurance Charges {#insurance_charges}
+
+* Claim Name: insurance_charges
+* Claim Description: Insurance costs for the shipment, used in determining customs value.
+* JWT Claim Name: insurance_charges
+* Claim Key: TBD (requested assignment 349)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{insurance_charges}} of this specification
+
+### Packing Costs {#packing_costs}
+
+* Claim Name: packing_costs
+* Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+* JWT Claim Name: packing_costs
+* Claim Key: TBD (requested assignment 350)
+* Claim Value Type: float
+* Change Controller: IETF
+* Reference: {{packing_costs}} of this specification
+
+### Place of Loading {#place_of_loading}
+
+* Claim Name: place_of_loading
+* Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
+* JWT Claim Name: place_of_loading
+* Claim Key: TBD (requested assignment 351)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{place_of_loading}} of this specification
+
+### Place of Discharge {#place_of_discharge}
+
+* Claim Name: place_of_discharge
+* Claim Description: Location where the goods are scheduled to be unloaded.
+* JWT Claim Name: place_of_discharge
+* Claim Key: TBD (requested assignment 352)
+* Claim Value Type: text string
+* Change Controller: IETF
+* Reference: {{place_of_discharge}} of this specification
+
+### Consignee Information {#consignee_information}
+
+* Claim Name: consignee_information
+* Claim Description: Information about the consignee, including name, address, and contact details.
+* JWT Claim Name: consignee_information
+* Claim Key: TBD (requested assignment 353)
+* Claim Value Type: map
+* Change Controller: IETF
+* Reference: {{consignee_information}} of this specification
+
+### Consignor Information {#consignor_information}
+
+* Claim Name: consignor_information
+* Claim Description: Information about the consignor, including name, address, and contact details.
+* JWT Claim Name: consignor_information
+* Claim Key: TBD (requested assignment 354)
+* Claim Value Type: map
+* Change Controller: IETF
+* Reference: {{consignor_information}} of this specification
+
+### Customs Declaration Date {#customs_declaration_date}
+
+* Claim Name: customs_declaration_date
+* Claim Description: Date when the customs declaration was made.
+* JWT Claim Name: customs_declaration_date
+* Claim Key: TBD (requested assignment 355)
+* Claim Value Type: text string (ISO8601 date format)
+* Change Controller: IETF
+* Reference: {{customs_declaration_date}} of this specification
+
+## JSON Web Token (JWT) Claims
+
+This specification registers the following claims in the
+IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 
 ### Goods Identifier
 
-The following completed registration template per RFC8392 is provided:
-
-Name: product_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
-Reference: RFC XXXX
+* Claim Name: product_id
+* Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
+* Change Controller: IETF
+* Reference: {{product_id}} of this specification
 
 ### Shipment ID
 
-The following completed registration template per RFC8392 is provided:
-
-Name: shipment_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Unique identifier assigned to a specific shipment.
-Reference: RFC XXXX
+* Claim Name: shipment_id
+* Claim Description: Unique identifier assigned to a specific shipment.
+* Change Controller: IETF
+* Reference: {{shipment_id}} of this specification
 
 ### Bill of Lading Number
 
-The following completed registration template per RFC8392 is provided:
-
-Name: bill_of_lading_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the bill of lading associated with the goods.
-Reference: RFC XXXX
+* Claim Name: bill_of_lading_number
+* Claim Description: Identifier for the bill of lading associated with the goods.
+* Change Controller: IETF
+* Reference: {{bill_of_lading_number}} of this specification
 
 ### Transport Mode
 
-The following completed registration template per RFC8392 is provided:
-
-Name: transport_mode
-Label: TBD
-Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
-Value Registry: (empty)
-Description: Mode of transport used for the shipment.
-Reference: RFC XXXX
+* Claim Name: transport_mode
+* Claim Description: Mode of transport used for the shipment.
+* Change Controller: IETF
+* Reference: {{transport_mode}} of this specification
 
 ### Container ID
 
-The following completed registration template per RFC8392 is provided:
-
-Name: container_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Unique identifier for the container used in the shipment.
-Reference: RFC XXXX
+* Claim Name: container_id
+* Claim Description: Unique identifier for the container used in the shipment.
+* Change Controller: IETF
+* Reference: {{container_id}} of this specification
 
 ### Origin Location
 
-The following completed registration template per RFC8392 is provided:
-
-Name: origin_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
-Reference: RFC XXXX
+* Claim Name: origin_location
+* Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+* Change Controller: IETF
+* Reference: {{origin_location}} of this specification
 
 ### Destination Location
 
-The following completed registration template per RFC8392 is provided:
-
-Name: destination_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Final destination of the goods in the shipment.
-Reference: RFC XXXX
+* Claim Name: destination_location
+* Claim Description: Final destination of the goods in the shipment.
+* Change Controller: IETF
+* Reference: {{destination_location}} of this specification
 
 ### Carrier ID
 
-The following completed registration template per RFC8392 is provided:
-
-Name: carrier_id
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the carrier or logistics provider responsible for the shipment.
-Reference: RFC XXXX
+* Claim Name: carrier_id
+* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+* Change Controller: IETF
+* Reference: {{carrier_id}} of this specification
 
 ### Estimated Delivery Date
 
-The following completed registration template per RFC8392 is provided:
-
-Name: estimated_delivery_date
-Label: TBD
-Value Type: text string (ISO8601 format)
-Value Registry: (empty)
-Description: Expected delivery date for the shipment.
-Reference: RFC XXXX
+* Claim Name: estimated_delivery_date
+* Claim Description: Expected delivery date for the shipment.
+* Change Controller: IETF
+* Reference: {{estimated_delivery_date}} of this specification
 
 ### Customs Declaration Number
 
-The following completed registration template per RFC8392 is provided:
-
-Name: customs_declaration_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Identifier for the customs declaration associated with the shipment.
-Reference: RFC XXXX
+* Claim Name: customs_declaration_number
+* Claim Description: Identifier for the customs declaration associated with the shipment.
+* Change Controller: IETF
+* Reference: {{customs_declaration_number}} of this specification
 
 ### Commodity Description
 
-The following completed registration template per RFC8392 is provided:
-
-Name: commodity_description
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Description of the commodity or goods being transported.
-Reference: RFC XXXX
+* Claim Name: commodity_description
+* Claim Description: Description of the commodity or goods being transported.
+* Change Controller: IETF
+* Reference: {{commodity_description}} of this specification
 
 ### HS Code
 
-The following completed registration template per RFC8392 is provided:
-
-Name: hs_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Harmonized System (HS) code for the goods.
-Reference: RFC XXXX
+* Claim Name: hs_code
+* Claim Description: Harmonized System (HS) code for the goods.
+* Change Controller: IETF
+* Reference: {{hs_code}} of this specification
 
 ### Gross Weight
 
-The following completed registration template per RFC8392 is provided:
-
-Name: gross_weight
-Label: TBD
-Value Type: integer
-Value Registry: (empty)
-Description: Gross weight of the shipment, in kilograms.
-Reference: RFC XXXX
+* Claim Name: gross_weight
+* Claim Description: Gross weight of the shipment, in kilograms.
+* Change Controller: IETF
+* Reference: {{gross_weight}} of this specification
 
 ### Temperature Min Requirement
 
-The following completed registration template per RFC8392 is provided:
-
-Name: temperature_requirement_min
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX
+* Claim Name: temperature_requirement_min
+* Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
+* Change Controller: IETF
+* Reference: {{temperature_requirement_min}} of this specification
 
 ### Temperature Max Requirement
 
-The following completed registration template per RFC8392 is provided:
-
-Name: temperature_requirement_max
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
-Reference: RFC XXXX
+* Claim Name: temperature_requirement_max
+* Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
+* Change Controller: IETF
+* Reference: {{temperature_requirement_max}} of this specification
 
 ### Last Known Location
 
-The following completed registration template per RFC8392 is provided:
-
-Name: last_known_location
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Most recent location update for the goods.
-Reference: RFC XXXX
+* Claim Name: last_known_location
+* Claim Description: Most recent location update for the goods.
+* Change Controller: IETF
+* Reference: {{last_known_location}} of this specification
 
 ### Tariff Code
 
-The following completed registration template per RFC8392 is provided:
-
-Name: tariff_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
-Reference: RFC XXXX
+* Claim Name: tariff_code
+* Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
+* Change Controller: IETF
+* Reference: {{tariff_code}} of this specification
 
 ### Country of Origin
 
-The following completed registration template per RFC8392 is provided:
-
-Name: country_of_origin
-Label: TBD
-Value Type: text string (ISO 3166-1 alpha-2 country code)
-Value Registry: (empty)
-Description: The country where the goods were produced or manufactured.
-Reference: RFC XXXX
+* Claim Name: country_of_origin
+* Claim Description: The country where the goods were produced or manufactured.
+* Change Controller: IETF
+* Reference: {{country_of_origin}} of this specification
 
 ### Customs Value
 
-The following completed registration template per RFC8392 is provided:
-
-Name: customs_value
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Declared value of the goods for customs purposes, typically in the transaction currency.
-Reference: RFC XXXX
+* Claim Name: customs_value
+* Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+* Change Controller: IETF
+* Reference: {{customs_value}} of this specification
 
 ### Currency Code
 
-The following completed registration template per RFC8392 is provided:
-
-Name: currency_code
-Label: TBD
-Value Type: text string (ISO 4217 currency code)
-Value Registry: (empty)
-Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
-Reference: RFC XXXX
+* Claim Name: currency_code
+* Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+* Change Controller: IETF
+* Reference: {{currency_code}} of this specification
 
 ### Import/Export License Number
 
-The following completed registration template per RFC8392 is provided:
-
-Name: license_number
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: License or permit number required for the import or export of the goods.
-Reference: RFC XXXX
+* Claim Name: license_number
+* Claim Description: License or permit number required for the import or export of the goods.
+* Change Controller: IETF
+* Reference: {{license_number}} of this specification
 
 ### Sanctions Reference
 
-The following completed registration template per RFC8392 is provided:
-
-Name: sanctions_reference
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
-Reference: RFC XXXX
+* Claim Name: sanctions_reference
+* Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
+* Change Controller: IETF
+* Reference: {{sanctions_reference}} of this specification
 
 ### Legal Jurisdiction
 
-The following completed registration template per RFC8392 is provided:
-
-Name: legal_jurisdiction
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
-Reference: RFC XXXX
+* Claim Name: legal_jurisdiction
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+* Change Controller: IETF
+* Reference: {{legal_jurisdiction}} of this specification
 
 ### Importer Code
 
-The following completed registration template per RFC8392 is provided:
-
-Name: importer_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Code identifying the importer, such as a VAT number or EORI number.
-Reference: RFC XXXX
+* Claim Name: importer_code
+* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* Change Controller: IETF
+* Reference: {{importer_code}} of this specification
 
 ### Exporter Code
 
-The following completed registration template per RFC8392 is provided:
-
-Name: exporter_code
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Code identifying the exporter, such as a VAT number or EORI number.
-Reference: RFC XXXX
+* Claim Name: exporter_code
+* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* Change Controller: IETF
+* Reference: {{exporter_code}} of this specification
 
 ### Incoterms
 
-The following completed registration template per RFC8392 is provided:
-
-Name: incoterms
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
-Reference: RFC XXXX
+* Claim Name: incoterms
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* Change Controller: IETF
+* Reference: {{in-co-terms}} of this specification
 
 ### Regulatory Compliance Codes
 
-The following completed registration template per RFC8392 is provided:
-
-Name: regulatory_compliance_codes
-Label: TBD
-Value Type: array of text strings
-Value Registry: (empty)
-Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
-Reference: RFC XXXX
+* Claim Name: regulatory_compliance_codes
+* Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
+* Change Controller: IETF
+* Reference: {{regulatory_compliance_codes}} of this specification
 
 ### Additional Documents Required
 
-The following completed registration template per RFC8392 is provided:
-
-Name: additional_documents_required
-Label: TBD
-Value Type: array of text strings
-Value Registry: (empty)
-Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
-Reference: RFC XXXX
+* Claim Name: additional_documents_required
+* Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
+* Change Controller: IETF
+* Reference: {{additional_documents_required}} of this specification
 
 ### Freight Charges
 
-The following completed registration template per RFC8392 is provided:
-
-Name: freight_charges
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Transportation costs associated with the shipment, used for customs valuation.
-Reference: RFC XXXX
+* Claim Name: freight_charges
+* Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+* Change Controller: IETF
+* Reference: {{freight_charges}} of this specification
 
 ### Insurance Charges
 
-The following completed registration template per RFC8392 is provided:
-
-Name: insurance_charges
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Insurance costs for the shipment, used in determining customs value.
-Reference: RFC XXXX
+* Claim Name: insurance_charges
+* Claim Description: Insurance costs for the shipment, used in determining customs value.
+* Change Controller: IETF
+* Reference: {{insurance_charges}} of this specification
 
 ### Packing Costs
 
-The following completed registration template per RFC8392 is provided:
-
-Name: packing_costs
-Label: TBD
-Value Type: float
-Value Registry: (empty)
-Description: Costs associated with packing the goods, relevant for customs valuation.
-Reference: RFC XXXX
+* Claim Name: packing_costs
+* Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+* Change Controller: IETF
+* Reference: {{packing_costs}} of this specification
 
 ### Place of Loading
 
-The following completed registration template per RFC8392 is provided:
-
-Name: place_of_loading
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Location where the goods were loaded for shipment, often a port or warehouse.
-Reference: RFC XXXX
+* Claim Name: place_of_loading
+* Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
+* Change Controller: IETF
+* Reference: {{place_of_loading}} of this specification
 
 ### Place of Discharge
 
-The following completed registration template per RFC8392 is provided:
-
-Name: place_of_discharge
-Label: TBD
-Value Type: text string
-Value Registry: (empty)
-Description: Location where the goods are scheduled to be unloaded.
-Reference: RFC XXXX
+* Claim Name: place_of_discharge
+* Claim Description: Location where the goods are scheduled to be unloaded.
+* Change Controller: IETF
+* Reference: {{place_of_discharge}} of this specification
 
 ### Consignee Information
 
-The following completed registration template per RFC8392 is provided:
-
-Name: consignee_information
-Label: TBD
-Value Type: map
-Value Registry: (empty)
-Description: Information about the consignee, including name, address, and contact details.
-Reference: RFC XXXX
+* Claim Name: consignee_information
+* Claim Description: Information about the consignee, including name, address, and contact details.
+* Change Controller: IETF
+* Reference: {{consignee_information}} of this specification
 
 ### Consignor Information
 
-The following completed registration template per RFC8392 is provided:
-
-Name: consignor_information
-Label: TBD
-Value Type: map
-Value Registry: (empty)
-Description: Information about the consignor, including name, address, and contact details.
-Reference: RFC XXXX
+* Claim Name: consignor_information
+* Claim Description: Information about the consignor, including name, address, and contact details.
+* Change Controller: IETF
+* Reference: {{consignor_information}} of this specification
 
 ### Customs Declaration Date
 
-The following completed registration template per RFC8392 is provided:
-
-Name: customs_declaration_date
-Label: TBD
-Value Type: text string (ISO8601 date format)
-Value Registry: (empty)
-Description: Date when the customs declaration was made.
-Reference: RFC XXXX
-
+* Claim Name: customs_declaration_date
+* Claim Description: Date when the customs declaration was made.
+* Change Controller: IETF
+* Reference: {{customs_declaration_date}} of this specification
 
 --- back
 
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+A.J. Stein
+contributed to this specification.
+
+# Document History
+{: numbered="false"}
+
+-01
+
+* Updated CWT Claims registrations to supply all fields in the registration template.
+* Fixed IANA Considerations header, as suggested by A.J. Stein.
+* Added references for ISO specs.
+* Added Michael B. Jones as an author.
+
+-00
+
+* Initial individual draft
