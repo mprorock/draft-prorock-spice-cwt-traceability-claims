@@ -42,6 +42,9 @@ author:
 normative:
   RFC7519:
   RFC8392:
+  ISO.3166:
+  ISO.4217:
+  ISO.8601:
 
 informative:
   IANA.CWT:
@@ -729,6 +732,7 @@ contributed to this specification.
 
 * Updated CWT Claims registrations to supply all fields in the registration template.
 * Fixed IANA Considerations header, as suggested by A.J. Stein.
+* Added references for ISO specs.
 * Added Michael B. Jones as an author.
 
 -00
