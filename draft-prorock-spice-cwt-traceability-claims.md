@@ -43,8 +43,23 @@ normative:
   RFC7519:
   RFC8392:
   ISO.3166:
+    target: https://www.iso.org/standard/72482.html
+    title: "ISO 3166-1:2020: Codes for the representation of names of countries and their subdivisions"
+    author:
+    - org: ISO
+    date: 2020
   ISO.4217:
+    target: https://www.iso.org/standard/64758.html
+    title: "ISO 4217:2015: Codes for the representation of currencies"
+    author:
+    - org: ISO
+    date: 2015
   ISO.8601:
+    target: https://www.iso.org/standard/70907.html
+    title: "ISO 8601-1:2019: Date and time — Representations for information interchange"
+    author:
+    - org: ISO
+    date: 2019
 
 informative:
   IANA.CWT:
