@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T00:34:15.056280+00:00",
+  "timestamp": "2025-04-03T00:29:23.950976+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -87,16 +87,24 @@
       "id": "I_kwDONKsocc6eAV9h",
       "title": "IANA considers as subheading of security considerations is confusing",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I know this is purely aesthetic and this I-D is early days, but it threw me off for a bit. Minor PR incoming.",
       "createdAt": "2024-11-12T03:17:57Z",
-      "updatedAt": "2024-11-12T03:17:57Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-04-02T07:46:32Z",
+      "closedAt": "2025-04-02T07:46:32Z",
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/commit/6db0ac4c6c0ae8b4e94c8e0e111bc17c8a250239",
+          "createdAt": "2025-04-02T07:46:32Z",
+          "updatedAt": "2025-04-02T07:46:32Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -105,14 +113,22 @@
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/5",
       "state": "OPEN",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "The current draft quickly touches on this and does not say much more. A current example is below.\r\n\r\n> ### Origin Location\r\n> \r\n> The following completed registration template per RFC8392 is provided:\r\n> \r\n> Name: origin_location\r\n> Label: TBD\r\n> Value Type: text string\r\n> Value Registry: (empty)\r\n> Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.\r\n> Reference: RFC XXXX\r\n\r\nI have only seen alpha-2 used in \"real world deployments\" (read: tools and software I work on at day job), but given this is CBOR and CWT perhaps there is an opportunity to consider the the latter because [it is adopted by the UN statistics division](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).\r\n\r\nI am more than happy to propose a change if you have a preference for any or all, but picking one is probably good.",
       "createdAt": "2024-11-12T03:24:45Z",
-      "updatedAt": "2024-11-12T03:24:45Z",
+      "updatedAt": "2025-04-02T07:42:28Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Two-character strings are not very long and given the size of the other fields likely to accompany them, I don't think that using the binary country code values is worth it.\n\nI do agree that the descriptive text could be more precise.",
+          "createdAt": "2025-04-02T07:42:27Z",
+          "updatedAt": "2025-04-02T07:42:27Z"
+        }
+      ]
     },
     {
       "number": 6,
@@ -121,14 +137,22 @@
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/6",
       "state": "OPEN",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Not that different from #5, we could probably afford to be more specific in this section regarding currency codes.\r\n\r\n> \r\n> ### Currency Code\r\n> \r\n> The following completed registration template per RFC8392 is provided:\r\n> \r\n> Name: currency_code\r\n> Label: TBD\r\n> Value Type: text string (ISO 4217 currency code)\r\n> Value Registry: (empty)\r\n> Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.\r\n> Reference: RFC XXXX\r\n\r\nTwo details are worth considering:\r\n\r\n- [ ] Like #5, there are alpha-2, alpha-3, and numeric variants of ISO-4217 it seems. The latter could be used for CBOR/CWT nature of this I-D, but I have less real world experience with that. That, or we complicate the data model for currency_code. Pick one?\r\n- [ ] We need normative references it would seem, I can add a minor PR for that. https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/7",
       "createdAt": "2024-11-12T03:28:10Z",
-      "updatedAt": "2024-11-12T04:03:06Z",
+      "updatedAt": "2025-04-02T07:44:37Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Per https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/5#issuecomment-2771609519, I don't think that the use of binary is worth it here.  Also, we're now registering JWT Claims, where the string values make more sense.",
+          "createdAt": "2025-04-02T07:44:36Z",
+          "updatedAt": "2025-04-02T07:44:36Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -171,26 +195,42 @@
       "id": "PR_kwDONKsocc6BlGzD",
       "title": "Add some normative ISO refs for #6",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/7",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This is pretty minor and not sure you intend to stick with them, but it makes sense to me.",
       "createdAt": "2024-11-12T04:02:45Z",
-      "updatedAt": "2024-11-12T04:02:45Z",
+      "updatedAt": "2025-04-02T07:37:56Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
-      "baseRefOid": "202ec77cd4fdce215d81373710cec0e2f92474c1",
+      "baseRefOid": "3e6be2b5fdf81b11fea2b238d89238f20fc51307",
       "headRepository": "aj-stein/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "6-iso-normative-refs",
-      "headRefOid": "497bb298516a2abdeb753a6be42b1e121c5c610f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "875bdd6c38c9dac0dd60d7ba5a6ddfad1effe616",
+      "closedAt": "2025-04-02T07:37:56Z",
+      "mergedAt": "2025-04-02T07:37:56Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "e41fa8bd31279de3b4e1815a8809d05c1f42bf8b"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6jAxbj",
+          "commit": {
+            "abbreviatedOid": "ee8e8d8"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-02T07:19:24Z",
+          "updatedAt": "2025-04-02T07:19:24Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 8,
