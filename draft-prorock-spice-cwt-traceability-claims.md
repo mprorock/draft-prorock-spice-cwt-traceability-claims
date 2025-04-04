@@ -168,7 +168,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Origin Location {#origin_location}
 
 * Claim Name: origin_location
-* Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+* Claim Description: Geographical origin of the goods, represented as an [ISO.3166] alpha-2 country code string or specific address
 * JWT Claim Name: origin_location
 * Claim Key: TBD (requested assignment 325)
 * Claim Value Type: text string
@@ -198,10 +198,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Estimated Delivery Date {#estimated_delivery_date}
 
 * Claim Name: estimated_delivery_date
-* Claim Description: Expected delivery date for the shipment.
+* Claim Description: Expected delivery date for the shipment, represented as an [ISO.8601] date and time string
 * JWT Claim Name: estimated_delivery_date
 * Claim Key: TBD (requested assignment 328)
-* Claim Value Type: text string (ISO8601 format)
+* Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{estimated_delivery_date}} of this specification
 
@@ -288,10 +288,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Country of Origin {#country_of_origin}
 
 * Claim Name: country_of_origin
-* Claim Description: The country where the goods were produced or manufactured.
+* Claim Description: The country where the goods were produced or manufactured, represented as an [ISO.3166] alpha-2 country code string
 * JWT Claim Name: country_of_origin
 * Claim Key: TBD (requested assignment 337)
-* Claim Value Type: text string (ISO 3166-1 alpha-2 country code)
+* Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{country_of_origin}} of this specification
 
@@ -308,10 +308,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Currency Code {#currency_code}
 
 * Claim Name: currency_code
-* Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+* Claim Description: Currency code for the customs value and other monetary amounts, represented as an [ISO.4217] alpha-3 currency code string
 * JWT Claim Name: currency_code
 * Claim Key: TBD (requested assignment 339)
-* Claim Value Type: text string (ISO 4217 currency code)
+* Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{currency_code}} of this specification
 
@@ -338,7 +338,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Legal Jurisdiction {#legal_jurisdiction}
 
 * Claim Name: legal_jurisdiction
-* Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or specific legal identifiers
 * JWT Claim Name: legal_jurisdiction
 * Claim Key: TBD (requested assignment 342)
 * Claim Value Type: text string
@@ -468,10 +468,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Customs Declaration Date {#customs_declaration_date}
 
 * Claim Name: customs_declaration_date
-* Claim Description: Date when the customs declaration was made.
+* Claim Description: Date when the customs declaration was made, represented as an [ISO.8601] date and time string
 * JWT Claim Name: customs_declaration_date
 * Claim Key: TBD (requested assignment 355)
-* Claim Value Type: text string (ISO8601 date format)
+* Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{customs_declaration_date}} of this specification
 
@@ -518,7 +518,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Origin Location
 
 * Claim Name: origin_location
-* Claim Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.
+* Claim Description: Geographical origin of the goods, represented as an [ISO.3166] alpha-2 country code string or specific address
 * Change Controller: IETF
 * Reference: {{origin_location}} of this specification
 
@@ -539,7 +539,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Estimated Delivery Date
 
 * Claim Name: estimated_delivery_date
-* Claim Description: Expected delivery date for the shipment.
+* Claim Description: Expected delivery date for the shipment, represented as an [ISO.8601] date and time string
 * Change Controller: IETF
 * Reference: {{estimated_delivery_date}} of this specification
 
@@ -602,7 +602,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Country of Origin
 
 * Claim Name: country_of_origin
-* Claim Description: The country where the goods were produced or manufactured.
+* Claim Description: The country where the goods were produced or manufactured, represented as an [ISO.3166] alpha-2 country code string
 * Change Controller: IETF
 * Reference: {{country_of_origin}} of this specification
 
@@ -616,7 +616,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Currency Code
 
 * Claim Name: currency_code
-* Claim Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.
+* Claim Description: Currency code for the customs value and other monetary amounts, represented as an [ISO.4217] alpha-3 currency code string
 * Change Controller: IETF
 * Reference: {{currency_code}} of this specification
 
@@ -637,7 +637,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Legal Jurisdiction
 
 * Claim Name: legal_jurisdiction
-* Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or specific legal identifiers
 * Change Controller: IETF
 * Reference: {{legal_jurisdiction}} of this specification
 
@@ -728,7 +728,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Customs Declaration Date
 
 * Claim Name: customs_declaration_date
-* Claim Description: Date when the customs declaration was made.
+* Claim Description: Date when the customs declaration was made, represented as an [ISO.8601] date and time string
 * Change Controller: IETF
 * Reference: {{customs_declaration_date}} of this specification
 
@@ -748,6 +748,7 @@ contributed to this specification.
 * Updated CWT Claims registrations to supply all fields in the registration template.
 * Fixed IANA Considerations header, as suggested by A.J. Stein.
 * Added references for ISO specs.
+* Specified the use of [ISO.3166] alpha-2 country code strings and [ISO.4217] alpha-3 currency code strings.
 * Added Michael B. Jones as an author.
 
 -00
