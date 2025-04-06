@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-03T00:29:23.950976+00:00",
+  "timestamp": "2025-04-06T00:32:15.083673+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -138,11 +138,13 @@
       "state": "OPEN",
       "author": "aj-stein",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "selfissued"
+      ],
       "labels": [],
       "body": "Not that different from #5, we could probably afford to be more specific in this section regarding currency codes.\r\n\r\n> \r\n> ### Currency Code\r\n> \r\n> The following completed registration template per RFC8392 is provided:\r\n> \r\n> Name: currency_code\r\n> Label: TBD\r\n> Value Type: text string (ISO 4217 currency code)\r\n> Value Registry: (empty)\r\n> Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.\r\n> Reference: RFC XXXX\r\n\r\nTwo details are worth considering:\r\n\r\n- [ ] Like #5, there are alpha-2, alpha-3, and numeric variants of ISO-4217 it seems. The latter could be used for CBOR/CWT nature of this I-D, but I have less real world experience with that. That, or we complicate the data model for currency_code. Pick one?\r\n- [ ] We need normative references it would seem, I can add a minor PR for that. https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/7",
       "createdAt": "2024-11-12T03:28:10Z",
-      "updatedAt": "2025-04-02T07:44:37Z",
+      "updatedAt": "2025-04-04T17:56:35Z",
       "closedAt": null,
       "comments": [
         {
@@ -151,8 +153,31 @@
           "body": "Per https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/5#issuecomment-2771609519, I don't think that the use of binary is worth it here.  Also, we're now registering JWT Claims, where the string values make more sense.",
           "createdAt": "2025-04-02T07:44:36Z",
           "updatedAt": "2025-04-02T07:44:36Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "From what I can tell from https://www.iso.org/standard/64758.html and https://en.wikipedia.org/wiki/ISO_4217, there are not two-letter currency codes.  I'm going to create a PR specifying the use of the three-letter ones.",
+          "createdAt": "2025-04-04T17:56:28Z",
+          "updatedAt": "2025-04-04T17:56:28Z"
         }
       ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDONKsocc6xNfLE",
+      "title": "Representation of legal jurisdictions",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/10",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The [Legal Jurisdiction](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#section-4.1.23) is currently defined as:\n\n> Claim Name: legal_jurisdiction\n> Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.\n> JWT Claim Name: legal_jurisdiction\n> Claim Key: TBD (requested assignment 342)\n> Claim Value Type: text string\n> Change Controller: IETF\n> Reference: [Section 4.1.23](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#legal_jurisdiction) of this specification\n\nIs it intended that claim may contain multiple values?  It's currently defined as a single text string.\n\nHow, for instance, would one represent that the jurisdiction is Delaware, United States or Ciudad de M\u00e9xico?\n\nA single [ISO.3166] alpha-2 country code string won't always work.",
+      "createdAt": "2025-04-04T18:28:42Z",
+      "updatedAt": "2025-04-04T18:28:42Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -270,6 +295,102 @@
           "body": "",
           "createdAt": "2025-03-29T04:10:45Z",
           "updatedAt": "2025-03-29T04:10:45Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDONKsocc6RcSkS",
+      "title": "Use section title \"International Commercial Terms\"",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/9",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-04T17:38:23Z",
+      "updatedAt": "2025-04-04T19:32:31Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "920006a79707f803bfb4bc8291c4b895290b05c4",
+      "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-incoterms-title",
+      "headRefOid": "53cb55d29bbe9807dd0d2d9b6df1e0283ea315fa",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Cc: @brentzundel",
+          "createdAt": "2025-04-04T18:52:52Z",
+          "updatedAt": "2025-04-04T18:52:52Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6jjRK9",
+          "commit": {
+            "abbreviatedOid": "53cb55d"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-04T19:32:31Z",
+          "updatedAt": "2025-04-04T19:32:31Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDONKsocc6RcsGA",
+      "title": "Specify use of country code and currency code strings",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/11",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Cc: @brentzundel",
+      "createdAt": "2025-04-04T18:49:05Z",
+      "updatedAt": "2025-04-04T19:34:43Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "920006a79707f803bfb4bc8291c4b895290b05c4",
+      "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-country-and-currency-codes",
+      "headRefOid": "dbf76fbdbf0d7337e6cc227fbabdcdbdee11ed5d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixes #5\r\nFixes #6",
+          "createdAt": "2025-04-04T18:53:44Z",
+          "updatedAt": "2025-04-04T18:53:44Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6jjSCn",
+          "commit": {
+            "abbreviatedOid": "dbf76fb"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-04T19:34:42Z",
+          "updatedAt": "2025-04-04T19:34:42Z",
           "comments": []
         }
       ]
