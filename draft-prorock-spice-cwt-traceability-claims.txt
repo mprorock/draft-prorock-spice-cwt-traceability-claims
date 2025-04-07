@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                             M. B. Jones
-Expires: 4 October 2025                           Self-Issued Consulting
-                                                            2 April 2025
+Expires: 9 October 2025                           Self-Issued Consulting
+                                                            7 April 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 October 2025.
+   This Internet-Draft will expire on 9 October 2025.
 
 Copyright Notice
 
@@ -287,7 +287,7 @@ Table of Contents
    *  Claim Name: origin_location
 
    *  Claim Description: Geographical origin of the goods, represented
-      as a location code (e.g., ISO country code) or specific address.
+      as an [ISO.3166] alpha-2 country code string or specific address
 
    *  JWT Claim Name: origin_location
 
@@ -336,13 +336,14 @@ Table of Contents
 
    *  Claim Name: estimated_delivery_date
 
-   *  Claim Description: Expected delivery date for the shipment.
+   *  Claim Description: Expected delivery date for the shipment,
+      represented as an [ISO.8601] date and time string
 
    *  JWT Claim Name: estimated_delivery_date
 
    *  Claim Key: TBD (requested assignment 328)
 
-   *  Claim Value Type: text string (ISO8601 format)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -486,13 +487,14 @@ Table of Contents
    *  Claim Name: country_of_origin
 
    *  Claim Description: The country where the goods were produced or
-      manufactured.
+      manufactured, represented as an [ISO.3166] alpha-2 country code
+      string
 
    *  JWT Claim Name: country_of_origin
 
    *  Claim Key: TBD (requested assignment 337)
 
-   *  Claim Value Type: text string (ISO 3166-1 alpha-2 country code)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -520,13 +522,14 @@ Table of Contents
    *  Claim Name: currency_code
 
    *  Claim Description: Currency code for the customs value and other
-      monetary amounts, as per ISO 4217.
+      monetary amounts, represented as an [ISO.4217] alpha-3 currency
+      code string
 
    *  JWT Claim Name: currency_code
 
    *  Claim Key: TBD (requested assignment 339)
 
-   *  Claim Value Type: text string (ISO 4217 currency code)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -571,8 +574,8 @@ Table of Contents
    *  Claim Name: legal_jurisdiction
 
    *  Claim Description: Legal jurisdiction(s) governing the
-      transaction, represented as country codes or specific legal
-      identifiers.
+      transaction, represented as an [ISO.3166] alpha-2 country code
+      string or specific legal identifiers
 
    *  JWT Claim Name: legal_jurisdiction
 
@@ -794,13 +797,14 @@ Table of Contents
 
    *  Claim Name: customs_declaration_date
 
-   *  Claim Description: Date when the customs declaration was made.
+   *  Claim Description: Date when the customs declaration was made,
+      represented as an [ISO.8601] date and time string
 
    *  JWT Claim Name: customs_declaration_date
 
    *  Claim Key: TBD (requested assignment 355)
 
-   *  Claim Value Type: text string (ISO8601 date format)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -871,7 +875,7 @@ Table of Contents
    *  Claim Name: origin_location
 
    *  Claim Description: Geographical origin of the goods, represented
-      as a location code (e.g., ISO country code) or specific address.
+      as an [ISO.3166] alpha-2 country code string or specific address
 
    *  Change Controller: IETF
 
@@ -902,7 +906,8 @@ Table of Contents
 
    *  Claim Name: estimated_delivery_date
 
-   *  Claim Description: Expected delivery date for the shipment.
+   *  Claim Description: Expected delivery date for the shipment,
+      represented as an [ISO.8601] date and time string
 
    *  Change Controller: IETF
 
@@ -998,7 +1003,8 @@ Table of Contents
    *  Claim Name: country_of_origin
 
    *  Claim Description: The country where the goods were produced or
-      manufactured.
+      manufactured, represented as an [ISO.3166] alpha-2 country code
+      string
 
    *  Change Controller: IETF
 
@@ -1020,7 +1026,8 @@ Table of Contents
    *  Claim Name: currency_code
 
    *  Claim Description: Currency code for the customs value and other
-      monetary amounts, as per ISO 4217.
+      monetary amounts, represented as an [ISO.4217] alpha-3 currency
+      code string
 
    *  Change Controller: IETF
 
@@ -1053,8 +1060,8 @@ Table of Contents
    *  Claim Name: legal_jurisdiction
 
    *  Claim Description: Legal jurisdiction(s) governing the
-      transaction, represented as country codes or specific legal
-      identifiers.
+      transaction, represented as an [ISO.3166] alpha-2 country code
+      string or specific legal identifiers
 
    *  Change Controller: IETF
 
@@ -1198,7 +1205,8 @@ Table of Contents
 
    *  Claim Name: customs_declaration_date
 
-   *  Claim Description: Date when the customs declaration was made.
+   *  Claim Description: Date when the customs declaration was made,
+      represented as an [ISO.8601] date and time string
 
    *  Change Controller: IETF
 
@@ -1259,6 +1267,9 @@ Document History
    *  Fixed IANA Considerations header, as suggested by A.J.  Stein.
 
    *  Added references for ISO specs.
+
+   *  Specified the use of [ISO.3166] alpha-2 country code strings and
+      [ISO.4217] alpha-3 currency code strings.
 
    *  Added Michael B.  Jones as an author.
 
