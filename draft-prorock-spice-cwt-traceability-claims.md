@@ -365,7 +365,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Change Controller: IETF
 * Reference: {{exporter_code}} of this specification
 
-### Incoterms {#in-co-terms}
+### International Commercial Terms {#incoterms}
 
 * Claim Name: incoterms
 * Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
@@ -373,7 +373,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Key: TBD (requested assignment 345)
 * Claim Value Type: text string
 * Change Controller: IETF
-* Reference: {{in-co-terms}} of this specification
+* Reference: {{incoterms}} of this specification
 
 ### Regulatory Compliance Codes {#regulatory_compliance_codes}
 
@@ -655,12 +655,12 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 * Change Controller: IETF
 * Reference: {{exporter_code}} of this specification
 
-### Incoterms
+### International Commercial Terms
 
 * Claim Name: incoterms
 * Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
 * Change Controller: IETF
-* Reference: {{in-co-terms}} of this specification
+* Reference: {{incoterms}} of this specification
 
 ### Regulatory Compliance Codes
 
