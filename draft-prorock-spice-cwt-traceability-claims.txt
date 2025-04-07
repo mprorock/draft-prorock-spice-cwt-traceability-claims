@@ -106,7 +106,7 @@ Table of Contents
        4.1.23. Legal Jurisdiction
        4.1.24. Importer Code
        4.1.25. Exporter Code
-       4.1.26. Incoterms
+       4.1.26. International Commercial Terms
        4.1.27. Regulatory Compliance Codes
        4.1.28. Additional Documents Required
        4.1.29. Freight Charges
@@ -143,7 +143,7 @@ Table of Contents
        4.2.23. Legal Jurisdiction
        4.2.24. Importer Code
        4.2.25. Exporter Code
-       4.2.26. Incoterms
+       4.2.26. International Commercial Terms
        4.2.27. Regulatory Compliance Codes
        4.2.28. Additional Documents Required
        4.2.29. Freight Charges
@@ -621,7 +621,7 @@ Table of Contents
 
    *  Reference: Section 4.1.25 of this specification
 
-4.1.26.  Incoterms
+4.1.26.  International Commercial Terms
 
    *  Claim Name: incoterms
 
@@ -1089,7 +1089,7 @@ Table of Contents
 
    *  Reference: Section 4.1.25 of this specification
 
-4.2.26.  Incoterms
+4.2.26.  International Commercial Terms
 
    *  Claim Name: incoterms
 
