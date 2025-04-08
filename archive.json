@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-06T00:32:15.083673+00:00",
+  "timestamp": "2025-04-08T00:29:32.467061+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -111,15 +111,15 @@
       "id": "I_kwDONKsocc6eAXep",
       "title": "Country codes: ISO 3601 alpha-1, alpha-2, or numeric?",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aj-stein",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "The current draft quickly touches on this and does not say much more. A current example is below.\r\n\r\n> ### Origin Location\r\n> \r\n> The following completed registration template per RFC8392 is provided:\r\n> \r\n> Name: origin_location\r\n> Label: TBD\r\n> Value Type: text string\r\n> Value Registry: (empty)\r\n> Description: Geographical origin of the goods, represented as a location code (e.g., ISO country code) or specific address.\r\n> Reference: RFC XXXX\r\n\r\nI have only seen alpha-2 used in \"real world deployments\" (read: tools and software I work on at day job), but given this is CBOR and CWT perhaps there is an opportunity to consider the the latter because [it is adopted by the UN statistics division](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).\r\n\r\nI am more than happy to propose a change if you have a preference for any or all, but picking one is probably good.",
       "createdAt": "2024-11-12T03:24:45Z",
-      "updatedAt": "2025-04-02T07:42:28Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-07T17:06:27Z",
+      "closedAt": "2025-04-07T17:06:26Z",
       "comments": [
         {
           "author": "selfissued",
@@ -127,6 +127,13 @@
           "body": "Two-character strings are not very long and given the size of the other fields likely to accompany them, I don't think that using the binary country code values is worth it.\n\nI do agree that the descriptive text could be more precise.",
           "createdAt": "2025-04-02T07:42:27Z",
           "updatedAt": "2025-04-02T07:42:27Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by #11 ",
+          "createdAt": "2025-04-07T17:06:26Z",
+          "updatedAt": "2025-04-07T17:06:26Z"
         }
       ]
     },
@@ -135,7 +142,7 @@
       "id": "I_kwDONKsocc6eAYNu",
       "title": "More specificy in currency codes",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aj-stein",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [
@@ -144,8 +151,8 @@
       "labels": [],
       "body": "Not that different from #5, we could probably afford to be more specific in this section regarding currency codes.\r\n\r\n> \r\n> ### Currency Code\r\n> \r\n> The following completed registration template per RFC8392 is provided:\r\n> \r\n> Name: currency_code\r\n> Label: TBD\r\n> Value Type: text string (ISO 4217 currency code)\r\n> Value Registry: (empty)\r\n> Description: Currency code for the customs value and other monetary amounts, as per ISO 4217.\r\n> Reference: RFC XXXX\r\n\r\nTwo details are worth considering:\r\n\r\n- [ ] Like #5, there are alpha-2, alpha-3, and numeric variants of ISO-4217 it seems. The latter could be used for CBOR/CWT nature of this I-D, but I have less real world experience with that. That, or we complicate the data model for currency_code. Pick one?\r\n- [ ] We need normative references it would seem, I can add a minor PR for that. https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/7",
       "createdAt": "2024-11-12T03:28:10Z",
-      "updatedAt": "2025-04-04T17:56:35Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-07T17:06:54Z",
+      "closedAt": "2025-04-07T17:06:53Z",
       "comments": [
         {
           "author": "selfissued",
@@ -160,6 +167,13 @@
           "body": "From what I can tell from https://www.iso.org/standard/64758.html and https://en.wikipedia.org/wiki/ISO_4217, there are not two-letter currency codes.  I'm going to create a PR specifying the use of the three-letter ones.",
           "createdAt": "2025-04-04T17:56:28Z",
           "updatedAt": "2025-04-04T17:56:28Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by #11 ",
+          "createdAt": "2025-04-07T17:06:53Z",
+          "updatedAt": "2025-04-07T17:06:53Z"
         }
       ]
     },
@@ -304,24 +318,26 @@
       "id": "PR_kwDONKsocc6RcSkS",
       "title": "Use section title \"International Commercial Terms\"",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/9",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-04-04T17:38:23Z",
-      "updatedAt": "2025-04-04T19:32:31Z",
+      "updatedAt": "2025-04-07T16:59:43Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
       "baseRefOid": "920006a79707f803bfb4bc8291c4b895290b05c4",
       "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "mbj-incoterms-title",
       "headRefOid": "53cb55d29bbe9807dd0d2d9b6df1e0283ea315fa",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-04-07T16:59:43Z",
+      "mergedAt": "2025-04-07T16:59:43Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "b7e86c00e364760488a3d90f31fce15c301f905c"
+      },
       "comments": [
         {
           "author": "selfissued",
@@ -352,24 +368,26 @@
       "id": "PR_kwDONKsocc6RcsGA",
       "title": "Specify use of country code and currency code strings",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/11",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Cc: @brentzundel",
       "createdAt": "2025-04-04T18:49:05Z",
-      "updatedAt": "2025-04-04T19:34:43Z",
+      "updatedAt": "2025-04-07T16:56:33Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
       "baseRefOid": "920006a79707f803bfb4bc8291c4b895290b05c4",
       "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "mbj-country-and-currency-codes",
       "headRefOid": "dbf76fbdbf0d7337e6cc227fbabdcdbdee11ed5d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-04-07T16:56:32Z",
+      "mergedAt": "2025-04-07T16:56:32Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "b92dc08ee1c74572a9fedfc0b91849d6158c6e5f"
+      },
       "comments": [
         {
           "author": "selfissued",
@@ -391,6 +409,19 @@
           "body": "",
           "createdAt": "2025-04-04T19:34:42Z",
           "updatedAt": "2025-04-04T19:34:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONKsocc6jwk_u",
+          "commit": {
+            "abbreviatedOid": "dbf76fb"
+          },
+          "author": "aj-stein",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-04-07T16:24:03Z",
+          "updatedAt": "2025-04-07T16:24:03Z",
           "comments": []
         }
       ]
