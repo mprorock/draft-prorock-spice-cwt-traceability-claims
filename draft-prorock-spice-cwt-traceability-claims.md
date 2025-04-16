@@ -27,8 +27,8 @@ venue:
 author:
  -
     fullname: "Michael Prorock"
-    organization: mesur.io
-    email: "mprorock@mesur.io"
+    organization: Tradeverifyd
+    email: "m.prorock@tradeverifyd.com"
     country: United States
 
  -
