@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                             M. B. Jones
-Expires: 9 October 2025                           Self-Issued Consulting
-                                                            7 April 2025
+Expires: 18 October 2025                          Self-Issued Consulting
+                                                           16 April 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 October 2025.
+   This Internet-Draft will expire on 18 October 2025.
 
 Copyright Notice
 
@@ -170,6 +170,13 @@ Table of Contents
    chains, thereby supporting regulatory compliance and operational
    efficiency.  These claims are defined for both CBOR Web Tokens (CWTs)
    [RFC8392] and JSON Web Tokens (JWTs) [RFC7519].
+
+   These claims are informed by the following documents, among others:
+   ACE Automated Broker Interface (ABI) CBP and Trade Automated
+   Interface Requirements (CATAIR) [CATAIR], Integrated Track and Trace
+   for Multi-Modal Transportation [TrackTrace], and Traceability
+   Vocabulary v1.0: A vocabulary for traceability in supply chains
+   [TraceabilityVocab].
 
 2.  Conventions and Definitions
 
@@ -1247,11 +1254,30 @@ Table of Contents
 
 5.2.  Informative References
 
+   [CATAIR]   U.S. Customs and Border Protection, "ACE Automated Broker
+              Interface (ABI) CBP and Trade Automated Interface
+              Requirements (CATAIR)", April 2025,
+              <https://www.cbp.gov/trade/ace/catair>.
+
    [IANA.CWT] IANA, "CBOR Web Token (CWT) Claims", n.d.,
               <https://www.iana.org/assignments/cwt/>.
 
    [IANA.JWT] IANA, "JSON Web Token Claims", n.d.,
               <https://www.iana.org/assignments/jwt/>.
+
+   [TraceabilityVocab]
+              Jespersen, N., Alkhraishi, M., and B. Zundel,
+              "Traceability Vocabulary v1.0: A vocabulary for
+              traceability in supply chains", December 2024,
+              <https://w3c-ccg.github.io/traceability-vocab/>.
+
+   [TrackTrace]
+              United Nations Centre for Trade Facilitation and
+              Electronic Business (UN/CEFACT), "Integrated Track and
+              Trace for Multi-Modal Transportation", September 2022,
+              <https://unece.org/sites/default/files/2025-01/BRS-
+              IntegratedTrackandTraceforMulti-
+              ModalTransportationv0.1-Final.pdf>.
 
 Acknowledgments
 
@@ -1270,6 +1296,8 @@ Document History
 
    *  Specified the use of [ISO.3166] alpha-2 country code strings and
       [ISO.4217] alpha-3 currency code strings.
+
+   *  Added references to sources of traceability claims.
 
    *  Added Michael B.  Jones as an author.
 
