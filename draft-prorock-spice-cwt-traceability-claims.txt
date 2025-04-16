@@ -3,7 +3,7 @@
 
 
 Secure Patterns for Internet CrEdentials                      M. Prorock
-Internet-Draft                                                  mesur.io
+Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
 Expires: 18 October 2025                          Self-Issued Consulting
                                                            16 April 2025
@@ -1308,9 +1308,9 @@ Document History
 Authors' Addresses
 
    Michael Prorock
-   mesur.io
+   Tradeverifyd
    United States
-   Email: mprorock@mesur.io
+   Email: m.prorock@tradeverifyd.com
 
 
    Michael B. Jones
