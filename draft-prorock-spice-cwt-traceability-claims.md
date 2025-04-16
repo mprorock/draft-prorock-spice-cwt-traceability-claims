@@ -74,6 +74,34 @@ informative:
     author:
     - org: IANA
 
+  CATAIR:
+    target: https://www.cbp.gov/trade/ace/catair
+    title: ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR)
+    author:
+    - org: U.S. Customs and Border Protection
+    date: April 2025
+
+  TrackTrace:
+    target: https://unece.org/sites/default/files/2025-01/BRS-IntegratedTrackandTraceforMulti-ModalTransportationv0.1-Final.pdf
+    title: Integrated Track and Trace for Multi-Modal Transportation
+    author:
+    - org: United Nations Centre for Trade Facilitation and Electronic Business (UN/CEFACT)
+    date: September 2022
+
+  TraceabilityVocab:
+    target: https://w3c-ccg.github.io/traceability-vocab/
+    title: "Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains"
+    author:
+      -
+        ins: N. Jespersen
+        name: Nis Jespersen
+      -
+        ins: M. Alkhraishi
+        name: Mahmoud Alkhraishi
+      -
+        ins: B. Zundel
+        name: Brent Zundel
+    date: December 2024
 ---
 
 --- abstract
@@ -97,6 +125,13 @@ the movement of goods in supply chains,
 thereby supporting regulatory compliance and operational efficiency.
 These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
 and JSON Web Tokens (JWTs) [RFC7519].
+
+These claims are informed by the following documents,
+among others:
+ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR],
+Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
+and
+Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [TraceabilityVocab].
 
 # Conventions and Definitions
 
@@ -749,6 +784,7 @@ contributed to this specification.
 * Fixed IANA Considerations header, as suggested by A.J. Stein.
 * Added references for ISO specs.
 * Specified the use of [ISO.3166] alpha-2 country code strings and [ISO.4217] alpha-3 currency code strings.
+* Added references to sources of traceability claims.
 * Added Michael B. Jones as an author.
 
 -00
