@@ -1,6 +1,6 @@
-# SPICE Traceability CWT Claims
+# Traceability Claims
 
-This is the working area for the individual Internet-Draft, "SPICE Traceability CWT Claims".
+This is the working area for the individual Internet-Draft, "Traceability Claims".
 
 * [Editor's Copy](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/#go.draft-prorock-spice-cwt-traceability-claims.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-prorock-spice-cwt-traceability-claims)
@@ -27,4 +27,3 @@ $ make
 
 Command line usage requires that you have the necessary software installed.  See
 [the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
-
