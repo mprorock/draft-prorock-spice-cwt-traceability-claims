@@ -780,6 +780,7 @@ contributed to this specification.
 
 -01
 
+* Added registrations of JWT claims corresponding to the CWT claims.
 * Updated CWT Claims registrations to supply all fields in the registration template.
 * Fixed IANA Considerations header, as suggested by A.J. Stein.
 * Added references for ISO specs.
