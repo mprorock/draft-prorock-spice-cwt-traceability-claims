@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 18 October 2025                          Self-Issued Consulting
-                                                           16 April 2025
+Expires: 20 October 2025                          Self-Issued Consulting
+                                                           18 April 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2025.
+   This Internet-Draft will expire on 20 October 2025.
 
 Copyright Notice
 
@@ -1286,6 +1286,8 @@ Acknowledgments
 Document History
 
    -01
+
+   *  Added registrations of JWT claims corresponding to the CWT claims.
 
    *  Updated CWT Claims registrations to supply all fields in the
       registration template.
