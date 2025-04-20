@@ -403,7 +403,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### International Commercial Terms {#incoterms}
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * JWT Claim Name: incoterms
 * Claim Key: TBD (requested assignment 345)
 * Claim Value Type: text string
@@ -693,7 +693,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### International Commercial Terms
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * Change Controller: IETF
 * Reference: {{incoterms}} of this specification
 
