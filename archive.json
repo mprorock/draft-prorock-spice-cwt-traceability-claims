@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-08T00:29:32.467061+00:00",
+  "timestamp": "2025-04-20T00:33:21.894999+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -190,6 +190,82 @@
       "body": "The [Legal Jurisdiction](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#section-4.1.23) is currently defined as:\n\n> Claim Name: legal_jurisdiction\n> Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.\n> JWT Claim Name: legal_jurisdiction\n> Claim Key: TBD (requested assignment 342)\n> Claim Value Type: text string\n> Change Controller: IETF\n> Reference: [Section 4.1.23](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#legal_jurisdiction) of this specification\n\nIs it intended that claim may contain multiple values?  It's currently defined as a single text string.\n\nHow, for instance, would one represent that the jurisdiction is Delaware, United States or Ciudad de M\u00e9xico?\n\nA single [ISO.3166] alpha-2 country code string won't always work.",
       "createdAt": "2025-04-04T18:28:42Z",
       "updatedAt": "2025-04-04T18:28:42Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "I_kwDONKsocc6zNqb_",
+      "title": "Representations of Locations",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/12",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "The contents of the [Origin Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-origin-location) are also somewhat ambiguous, being defined as:\n> Claim Description: Geographical origin of the goods, represented as an [[ISO.3166](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#ISO.3166)] alpha-2 country code string or specific address\n> Claim Value Type: text string\n\nThe [Destination Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-destination-location) is less specified than that:\n> Claim Description: Final destination of the goods in the shipment.\n> Claim Value Type: text string\n\n[Last Known Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-last-known-location), [Place of Loading](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-place-of-loading), and [Place of Discharge](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-place-of-discharge) are similar.\n\nDo we practically want these to be sufficiently specified such that different participants will put the same values in these fields?  Or are these primiarly or only for human consumption, in which case the ambiguity is acceptable?",
+      "createdAt": "2025-04-19T23:25:10Z",
+      "updatedAt": "2025-04-19T23:25:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDONKsocc6zNrWS",
+      "title": "Representations of Numbers",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/13",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "The [Gross Weight](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-gross-weight) number is specified as:\n> Claim Description: Gross weight of the shipment, in kilograms.\n> Claim Value Type: integer\n\nThe [Temperature Min Requirement](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-temperature-min-requirement) is specified as:\n> Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.\n> Claim Value Type: float\n\nFive other claims also use \"float\".\n\nIn CBOR, it's common to allow either integer or floating point representations for numbers.  You'll see a number of claims in the [CBOR Web Token (CWT) Claims](https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry) registry using:\n> Claim Value Type: integer or floating-point number\n\nThere's an argument for doing the same for all of our numeric claims, when in CBOR.\n\nOf course, in JavaScript, all numbers are floating point, so the issue is moot for JWT claims.  Numbers are numbers there.",
+      "createdAt": "2025-04-19T23:39:27Z",
+      "updatedAt": "2025-04-19T23:39:27Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDONKsocc6zNr5a",
+      "title": "Representations of Consignee and Consignor Information",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/14",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "[Consignee Information](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-consignee-information) is defined as:\n> Claim Description: Information about the consignee, including name, address, and contact details.\n> Claim Value Type: map\n\n[Consignor Information](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-consignor-information) parallels it.\n\nFor starters, are these maps with string-valued human-readable labels, or is there a schema we want people to use that would lend itself to a standard set of numeric labels?  If so, we could create a registry for them, with initial proposed assignments.\n\nAre the values following the labels strings or can they be of other CBOR types?\n\nAgain, is this information primarily for human consumption, in which case the ambiguity may be OK, or do we aspire to have different participants use the fields in the same way?\n",
+      "createdAt": "2025-04-19T23:47:49Z",
+      "updatedAt": "2025-04-19T23:47:49Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDONKsocc6zNuUw",
+      "title": "Reference for Harmonized System (HS) Codes",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/16",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "The Web is full of information about Harmonized System Codes, such as https://www.trade.gov/harmonized-system-hs-codes, but I can't be sure what the authoritative reference for them is.",
+      "createdAt": "2025-04-20T00:20:01Z",
+      "updatedAt": "2025-04-20T00:20:01Z",
       "closedAt": null,
       "comments": []
     }
@@ -425,6 +501,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDONKsocc6TNlqr",
+      "title": "Move recommended values to claim description",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/15",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Inquiring minds also want to know what value(s) would be used for multi-modal transportation, such a container going by rail and then truck.",
+      "createdAt": "2025-04-20T00:05:13Z",
+      "updatedAt": "2025-04-20T00:05:14Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "e43ddc2ca3f70df55a869d98ac76fca17aa041b2",
+      "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-recommended-values",
+      "headRefOid": "e0b3991dd9bd1fa7d60e3eb2cd7d4b0842ef83e7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
