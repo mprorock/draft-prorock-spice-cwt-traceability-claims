@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-20T00:33:21.894999+00:00",
+  "timestamp": "2025-04-22T00:30:45.251865+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -268,6 +268,82 @@
       "updatedAt": "2025-04-20T00:20:01Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDONKsocc6zNxgQ",
+      "title": "Could the Exporter Code be a GLUE identifier?",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/17",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "How does one tell now whether it's a VAT number or EORI number, for instance?",
+      "createdAt": "2025-04-20T00:53:49Z",
+      "updatedAt": "2025-04-20T00:53:49Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDONKsocc6zNxpy",
+      "title": "Reference for International Commercial Terms",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/18",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "What reference for [International Commercial Terms](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-international-commercial-te) should I use?  I ask because the example values \"FOB\" and \"CIF\" are defined somewhere.  Where is that?",
+      "createdAt": "2025-04-20T00:56:07Z",
+      "updatedAt": "2025-04-20T00:56:29Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "I_kwDONKsocc6zNx5j",
+      "title": "Distinguishing between Regulatory Compliance Codes",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/19",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "I can imagine a world of different [Regulatory Compliance Codes](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-regulatory-compliance-codes) (literally!).  How is it indicated in this field which codes are applicable and how is compliance indicated?",
+      "createdAt": "2025-04-20T01:00:05Z",
+      "updatedAt": "2025-04-20T01:00:05Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 20,
+      "id": "I_kwDONKsocc6zNyN4",
+      "title": "Create examples",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/20",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mprorock",
+        "brentzundel"
+      ],
+      "labels": [],
+      "body": "A few illustrative examples would make the specification much more approachable.  Showing values for some of these fields would help demystify how they are intended to be used in practice.\n\nFYI, I would do the examples as JWT claims rather than CWT claims, so readers won't have to deal with binary and we as authors won't have to deal with CDDL.\n",
+      "createdAt": "2025-04-20T01:04:06Z",
+      "updatedAt": "2025-04-20T01:04:06Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -514,13 +590,13 @@
       "labels": [],
       "body": "Inquiring minds also want to know what value(s) would be used for multi-modal transportation, such a container going by rail and then truck.",
       "createdAt": "2025-04-20T00:05:13Z",
-      "updatedAt": "2025-04-20T00:05:14Z",
+      "updatedAt": "2025-04-20T01:07:39Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
       "baseRefOid": "e43ddc2ca3f70df55a869d98ac76fca17aa041b2",
       "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "mbj-recommended-values",
-      "headRefOid": "e0b3991dd9bd1fa7d60e3eb2cd7d4b0842ef83e7",
+      "headRefOid": "f4c918af3e0f22bed4d638fcb94736e067dd457f",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
