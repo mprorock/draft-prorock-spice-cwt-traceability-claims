@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 20 October 2025                          Self-Issued Consulting
-                                                           18 April 2025
+Expires: 3 November 2025                          Self-Issued Consulting
+                                                              2 May 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 October 2025.
+   This Internet-Draft will expire on 3 November 2025.
 
 Copyright Notice
 
@@ -260,13 +260,13 @@ Table of Contents
    *  Claim Name: transport_mode
 
    *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
 
    *  JWT Claim Name: transport_mode
 
    *  Claim Key: TBD (requested assignment 323)
 
-   *  Claim Value Type: text string (recommended values: “air,” “sea,”
-      “rail,” “truck”)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -633,7 +633,7 @@ Table of Contents
    *  Claim Name: incoterms
 
    *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
 
    *  JWT Claim Name: incoterms
 
@@ -861,6 +861,7 @@ Table of Contents
    *  Claim Name: transport_mode
 
    *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
 
    *  Change Controller: IETF
 
@@ -1101,7 +1102,7 @@ Table of Contents
    *  Claim Name: incoterms
 
    *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
 
    *  Change Controller: IETF
 
