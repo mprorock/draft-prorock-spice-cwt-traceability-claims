@@ -183,10 +183,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Transport Mode {#transport_mode}
 
 * Claim Name: transport_mode
-* Claim Description: Mode of transport used for the shipment.
+* Claim Description: Mode of transport used for the shipment. (Recommended values: "air", "sea", "rail", "truck")
 * JWT Claim Name: transport_mode
 * Claim Key: TBD (requested assignment 323)
-* Claim Value Type: text string (recommended values: “air,” “sea,” “rail,” “truck”)
+* Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{transport_mode}} of this specification
 
@@ -403,7 +403,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### International Commercial Terms {#incoterms}
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * JWT Claim Name: incoterms
 * Claim Key: TBD (requested assignment 345)
 * Claim Value Type: text string
@@ -539,7 +539,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Transport Mode
 
 * Claim Name: transport_mode
-* Claim Description: Mode of transport used for the shipment.
+* Claim Description: Mode of transport used for the shipment. (Recommended values: "air", "sea", "rail", "truck")
 * Change Controller: IETF
 * Reference: {{transport_mode}} of this specification
 
@@ -693,7 +693,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### International Commercial Terms
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB," "CIF."
+* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * Change Controller: IETF
 * Reference: {{incoterms}} of this specification
 
