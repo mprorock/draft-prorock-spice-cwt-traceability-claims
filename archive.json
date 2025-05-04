@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-22T00:30:45.251865+00:00",
+  "timestamp": "2025-05-04T00:34:51.433321+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -583,26 +583,42 @@
       "id": "PR_kwDONKsocc6TNlqr",
       "title": "Move recommended values to claim description",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Inquiring minds also want to know what value(s) would be used for multi-modal transportation, such a container going by rail and then truck.",
       "createdAt": "2025-04-20T00:05:13Z",
-      "updatedAt": "2025-04-20T01:07:39Z",
+      "updatedAt": "2025-05-02T19:41:59Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
       "baseRefOid": "e43ddc2ca3f70df55a869d98ac76fca17aa041b2",
       "headRepository": "selfissued/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "mbj-recommended-values",
       "headRefOid": "f4c918af3e0f22bed4d638fcb94736e067dd457f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-02T19:41:59Z",
+      "mergedAt": "2025-05-02T19:41:59Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6npxnl",
+          "commit": {
+            "abbreviatedOid": "f4c918a"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-02T19:21:15Z",
+          "updatedAt": "2025-05-02T19:21:15Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
