@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-04T00:34:51.433321+00:00",
+  "timestamp": "2025-06-19T00:32:49.655388+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -185,11 +185,13 @@
       "state": "OPEN",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "brentzundel"
+      ],
       "labels": [],
       "body": "The [Legal Jurisdiction](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#section-4.1.23) is currently defined as:\n\n> Claim Name: legal_jurisdiction\n> Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.\n> JWT Claim Name: legal_jurisdiction\n> Claim Key: TBD (requested assignment 342)\n> Claim Value Type: text string\n> Change Controller: IETF\n> Reference: [Section 4.1.23](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#legal_jurisdiction) of this specification\n\nIs it intended that claim may contain multiple values?  It's currently defined as a single text string.\n\nHow, for instance, would one represent that the jurisdiction is Delaware, United States or Ciudad de M\u00e9xico?\n\nA single [ISO.3166] alpha-2 country code string won't always work.",
       "createdAt": "2025-04-04T18:28:42Z",
-      "updatedAt": "2025-04-04T18:28:42Z",
+      "updatedAt": "2025-06-17T16:14:22Z",
       "closedAt": null,
       "comments": []
     },
