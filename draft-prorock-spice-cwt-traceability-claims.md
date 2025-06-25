@@ -39,6 +39,12 @@ author:
     uri: https://self-issued.info/
     country: United States
 
+ -
+    fullname: Brent W. Zundel
+    organization: Tradeverifyd
+    email: brent.zundel@tradeverifyd.com
+    country: United States
+
 normative:
   RFC7519:
   RFC8392:
@@ -106,32 +112,29 @@ informative:
 
 --- abstract
 
-This document defines claims to support
-traceability of physical goods across supply chains,
-focusing on items such as bills of lading, transport modes, and container manifests.
-These claims standardize the encoding of essential logistics and transport metadata,
-facilitating enhanced transparency and accountability in global supply chains.
-These claims are registered for use in both CBOR Web Tokens (CWTs)
-and JSON Web Tokens (JWTs).
+This document defines claims to support traceability of physical goods across
+supply chains, focusing on items such as bills of lading, transport modes, and
+container manifests. These claims standardize the encoding of essential
+logistics and transport metadata, facilitating enhanced transparency and
+accountability in global supply chains. These claims are registered for use in
+both CBOR Web Tokens (CWTs) and JSON Web Tokens (JWTs).
 
 --- middle
 
 # Introduction
 
-This document defines a set of claims intended to enable the
-traceability of physical goods across various stages of transportation and storage.
-These claims capture critical information necessary for documenting
-the movement of goods in supply chains,
-thereby supporting regulatory compliance and operational efficiency.
-These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
+This document defines a set of claims intended to enable the traceability of
+physical goods across various stages of transportation and storage. These claims
+capture critical information necessary for documenting the movement of goods in
+supply chains, thereby supporting regulatory compliance and operational
+efficiency. These claims are defined for both CBOR Web Tokens (CWTs) [RFC8392]
 and JSON Web Tokens (JWTs) [RFC7519].
 
-These claims are informed by the following documents,
-among others:
-ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR],
-Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
-and
-Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [TraceabilityVocab].
+These claims are informed by the following documents, among others: ACE
+Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements
+(CATAIR) [CATAIR], Integrated Track and Trace for Multi-Modal Transportation
+[TrackTrace], and Traceability Vocabulary v1.0: A vocabulary for traceability in
+supply chains [TraceabilityVocab].
 
 # Conventions and Definitions
 
@@ -140,7 +143,12 @@ Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [Tr
 
 # Security Considerations
 
-These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements SHOULD be considered when using these claims.
+These claims are designed to enhance transparency in supply chain tracking but
+should be handled securely to prevent unauthorized access to sensitive data.
+Confidentiality and integrity of these claims must be considered, particularly
+when shared across untrusted or unsecured networks. Use of selective disclosure
+techniques and careful consideration of data minimization requirements SHOULD be
+considered when using these claims.
 
 
 # IANA Considerations
