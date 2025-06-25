@@ -81,6 +81,20 @@ informative:
     - org: U.S. Customs and Border Protection
     date: April 2025
 
+  INCOTERMS:
+    target: https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/
+    title: Incoterms 2020
+    author:
+    - org: International Chamber of Commerce
+    date: 2019
+
+  HSCodes:
+    target: https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
+    title: Harmonized System (HS) Nomenclature 2022 Edition
+    author:
+    - org: World Customs Organization
+    date: January 2022
+
   TrackTrace:
     target: https://unece.org/sites/default/files/2025-01/BRS-IntegratedTrackandTraceforMulti-ModalTransportationv0.1-Final.pdf
     title: Integrated Track and Trace for Multi-Modal Transportation
@@ -263,7 +277,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### HS Code {#hs_code}
 
 * Claim Name: hs_code
-* Claim Description: Harmonized System (HS) code for the goods.
+* Claim Description: Harmonized System (HS) code [HSCode] for the goods.
 * JWT Claim Name: hs_code
 * Claim Key: TBD (requested assignment 331)
 * Claim Value Type: text string
@@ -403,7 +417,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### International Commercial Terms {#incoterms}
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
+* Claim Description: International commercial terms [INCOTERMS] defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * JWT Claim Name: incoterms
 * Claim Key: TBD (requested assignment 345)
 * Claim Value Type: text string
@@ -595,7 +609,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### HS Code
 
 * Claim Name: hs_code
-* Claim Description: Harmonized System (HS) code for the goods.
+* Claim Description: Harmonized System (HS) code [HSCode] for the goods.
 * Change Controller: IETF
 * Reference: {{hs_code}} of this specification
 
@@ -693,7 +707,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### International Commercial Terms
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
+* Claim Description: International commercial terms [INCOTERMS] defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * Change Controller: IETF
 * Reference: {{incoterms}} of this specification
 
