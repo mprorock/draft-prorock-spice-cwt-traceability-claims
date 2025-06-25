@@ -327,7 +327,7 @@ Table of Contents
    *  Claim Name: carrier_id
 
    *  Claim Description: Identifier for the carrier or logistics
-      provider responsible for the shipment.
+      provider responsible for the shipment, such as a GLUE Identifier.
 
    *  JWT Claim Name: carrier_id
 
@@ -1079,8 +1079,8 @@ Table of Contents
 
    *  Claim Name: importer_code
 
-   *  Claim Description: Code identifying the importer, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the importer, such as a GLUE
+      Identifier, VAT number, or EORI number.
 
    *  Change Controller: IETF
 
@@ -1090,8 +1090,8 @@ Table of Contents
 
    *  Claim Name: exporter_code
 
-   *  Claim Description: Code identifying the exporter, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the exporter, such as a GLUE
+      Identifier, VAT number, or EORI number.
 
    *  Change Controller: IETF
 
@@ -1192,7 +1192,7 @@ Table of Contents
    *  Claim Name: consignee_information
 
    *  Claim Description: Information about the consignee, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  Change Controller: IETF
 
@@ -1203,7 +1203,7 @@ Table of Contents
    *  Claim Name: consignor_information
 
    *  Claim Description: Information about the consignor, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  Change Controller: IETF
 
