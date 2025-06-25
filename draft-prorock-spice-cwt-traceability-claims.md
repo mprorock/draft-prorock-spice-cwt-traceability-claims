@@ -609,7 +609,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### HS Code
 
 * Claim Name: hs_code
-* Claim Description: Harmonized System (HS) code for the goods.
+* Claim Description: Harmonized System (HS) code [HSCode] for the goods.
 * Change Controller: IETF
 * Reference: {{hs_code}} of this specification
 
@@ -707,7 +707,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### International Commercial Terms
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
+* Claim Description: International commercial terms [INCOTERMS] defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * Change Controller: IETF
 * Reference: {{incoterms}} of this specification
 
