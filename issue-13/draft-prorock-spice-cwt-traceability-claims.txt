@@ -3,10 +3,10 @@
 
 
 Secure Patterns for Internet CrEdentials                      M. Prorock
-Internet-Draft                                                  mesur.io
+Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 18 October 2025                          Self-Issued Consulting
-                                                           16 April 2025
+Expires: 27 December 2025                         Self-Issued Consulting
+                                                            25 June 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2025.
+   This Internet-Draft will expire on 27 December 2025.
 
 Copyright Notice
 
@@ -260,13 +260,13 @@ Table of Contents
    *  Claim Name: transport_mode
 
    *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
 
    *  JWT Claim Name: transport_mode
 
    *  Claim Key: TBD (requested assignment 323)
 
-   *  Claim Value Type: text string (recommended values: “air,” “sea,”
-      “rail,” “truck”)
+   *  Claim Value Type: text string
 
    *  Change Controller: IETF
 
@@ -416,7 +416,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 332)
 
-   *  Claim Value Type: integer
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -433,7 +433,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 333)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -450,7 +450,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 334)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -518,7 +518,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 338)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -633,7 +633,7 @@ Table of Contents
    *  Claim Name: incoterms
 
    *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
 
    *  JWT Claim Name: incoterms
 
@@ -692,7 +692,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 348)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -709,7 +709,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 349)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -726,7 +726,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 350)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -861,6 +861,7 @@ Table of Contents
    *  Claim Name: transport_mode
 
    *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
 
    *  Change Controller: IETF
 
@@ -1101,7 +1102,7 @@ Table of Contents
    *  Claim Name: incoterms
 
    *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB," "CIF."
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
 
    *  Change Controller: IETF
 
@@ -1287,6 +1288,8 @@ Document History
 
    -01
 
+   *  Added registrations of JWT claims corresponding to the CWT claims.
+
    *  Updated CWT Claims registrations to supply all fields in the
       registration template.
 
@@ -1308,9 +1311,9 @@ Document History
 Authors' Addresses
 
    Michael Prorock
-   mesur.io
+   Tradeverifyd
    United States
-   Email: mprorock@mesur.io
+   Email: m.prorock@tradeverifyd.com
 
 
    Michael B. Jones
