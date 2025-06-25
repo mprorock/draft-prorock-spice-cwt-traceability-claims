@@ -81,6 +81,20 @@ informative:
     - org: U.S. Customs and Border Protection
     date: April 2025
 
+  INCOTERMS:
+    target: https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/
+    title: Incoterms 2020
+    author:
+    - org: International Chamber of Commerce
+    date: 2019
+
+  INCOTERMS:
+    target: https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
+    title: Harmonized System (HS) Nomenclature 2022 Edition
+    author:
+    - org: World Customs Organization
+    date: January 2022
+
   TrackTrace:
     target: https://unece.org/sites/default/files/2025-01/BRS-IntegratedTrackandTraceforMulti-ModalTransportationv0.1-Final.pdf
     title: Integrated Track and Trace for Multi-Modal Transportation
@@ -128,7 +142,7 @@ and JSON Web Tokens (JWTs) [RFC7519].
 
 These claims are informed by the following documents,
 among others:
-ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR],
+ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR], Incoterms® 2020 [INCOTERMS],
 Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
 and
 Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [TraceabilityVocab].
