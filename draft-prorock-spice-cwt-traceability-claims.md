@@ -88,7 +88,7 @@ informative:
     - org: International Chamber of Commerce
     date: 2019
 
-  INCOTERMS:
+  HSCodes:
     target: https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
     title: Harmonized System (HS) Nomenclature 2022 Edition
     author:
@@ -142,8 +142,7 @@ and JSON Web Tokens (JWTs) [RFC7519].
 
 These claims are informed by the following documents,
 among others:
-ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR], Incoterms® 2020 [INCOTERMS],
-Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
+ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR], Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
 and
 Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [TraceabilityVocab].
 
@@ -277,7 +276,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### HS Code {#hs_code}
 
 * Claim Name: hs_code
-* Claim Description: Harmonized System (HS) code for the goods.
+* Claim Description: Harmonized System (HS) code [HSCode] for the goods.
 * JWT Claim Name: hs_code
 * Claim Key: TBD (requested assignment 331)
 * Claim Value Type: text string
@@ -417,7 +416,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### International Commercial Terms {#incoterms}
 
 * Claim Name: incoterms
-* Claim Description: International commercial terms defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
+* Claim Description: International commercial terms [INCOTERMS] defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * JWT Claim Name: incoterms
 * Claim Key: TBD (requested assignment 345)
 * Claim Value Type: text string
