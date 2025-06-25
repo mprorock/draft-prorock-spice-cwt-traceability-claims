@@ -6,6 +6,8 @@ Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
 Expires: 27 December 2025                         Self-Issued Consulting
+                                                            B. W. Zundel
+                                                            Tradeverifyd
                                                             25 June 2025
 
 
@@ -1336,3 +1338,9 @@ Authors' Addresses
    United States
    Email: michael_b_jones@hotmail.com
    URI:   https://self-issued.info/
+
+
+   Brent W. Zundel
+   Tradeverifyd
+   United States
+   Email: brent.zundel@tradeverifyd.com

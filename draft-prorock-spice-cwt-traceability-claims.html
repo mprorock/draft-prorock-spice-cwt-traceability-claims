@@ -7,14 +7,14 @@
 <title>Traceability Claims</title>
 <meta content="Michael Prorock" name="author">
 <meta content="Michael B. Jones" name="author">
+<meta content="Brent W. Zundel" name="author">
 <meta content="
-       This document defines claims to support
-traceability of physical goods across supply chains,
-focusing on items such as bills of lading, transport modes, and container manifests.
-These claims standardize the encoding of essential logistics and transport metadata,
-facilitating enhanced transparency and accountability in global supply chains.
-These claims are registered for use in both CBOR Web Tokens (CWTs)
-and JSON Web Tokens (JWTs). 
+       This document defines claims to support traceability of physical goods across
+supply chains, focusing on items such as bills of lading, transport modes, and
+container manifests. These claims standardize the encoding of essential
+logistics and transport metadata, facilitating enhanced transparency and
+accountability in global supply chains. These claims are registered for use in
+both CBOR Web Tokens (CWTs) and JSON Web Tokens (JWTs). 
     " name="description">
 <meta content="xml2rfc 3.29.0" name="generator">
 <meta content="COSE" name="keyword">
@@ -1058,7 +1058,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">June 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Prorock &amp; Jones</td>
+<td class="left">Prorock, et al.</td>
 <td class="center">Expires 27 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1088,19 +1088,22 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <div class="author-name">M. B. Jones</div>
 <div class="org">Self-Issued Consulting</div>
 </div>
+<div class="author">
+      <div class="author-name">B. W. Zundel</div>
+<div class="org">Tradeverifyd</div>
+</div>
 </dd>
 </dl>
 </div>
 <h1 id="title">Traceability Claims</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document defines claims to support
-traceability of physical goods across supply chains,
-focusing on items such as bills of lading, transport modes, and container manifests.
-These claims standardize the encoding of essential logistics and transport metadata,
-facilitating enhanced transparency and accountability in global supply chains.
-These claims are registered for use in both CBOR Web Tokens (CWTs)
-and JSON Web Tokens (JWTs).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document defines claims to support traceability of physical goods across
+supply chains, focusing on items such as bills of lading, transport modes, and
+container manifests. These claims standardize the encoding of essential
+logistics and transport metadata, facilitating enhanced transparency and
+accountability in global supply chains. These claims are registered for use in
+both CBOR Web Tokens (CWTs) and JSON Web Tokens (JWTs).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1435,19 +1438,17 @@ and JSON Web Tokens (JWTs).<a href="#section-abstract-1" class="pilcrow">¶</a><
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document defines a set of claims intended to enable the
-traceability of physical goods across various stages of transportation and storage.
-These claims capture critical information necessary for documenting
-the movement of goods in supply chains,
-thereby supporting regulatory compliance and operational efficiency.
-These claims are defined for both CBOR Web Tokens (CWTs) <span>[<a href="#RFC8392" class="cite xref">RFC8392</a>]</span>
+<p id="section-1-1">This document defines a set of claims intended to enable the traceability of
+physical goods across various stages of transportation and storage. These claims
+capture critical information necessary for documenting the movement of goods in
+supply chains, thereby supporting regulatory compliance and operational
+efficiency. These claims are defined for both CBOR Web Tokens (CWTs) <span>[<a href="#RFC8392" class="cite xref">RFC8392</a>]</span>
 and JSON Web Tokens (JWTs) <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">These claims are informed by the following documents,
-among others:
-ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) <span>[<a href="#CATAIR" class="cite xref">CATAIR</a>]</span>,
-Integrated Track and Trace for Multi-Modal Transportation <span>[<a href="#TrackTrace" class="cite xref">TrackTrace</a>]</span>,
-and
-Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains <span>[<a href="#TraceabilityVocab" class="cite xref">TraceabilityVocab</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-2">These claims are informed by the following documents, among others: ACE
+Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements
+(CATAIR) <span>[<a href="#CATAIR" class="cite xref">CATAIR</a>]</span>, Integrated Track and Trace for Multi-Modal Transportation
+<span>[<a href="#TrackTrace" class="cite xref">TrackTrace</a>]</span>, and Traceability Vocabulary v1.0: A vocabulary for traceability in
+supply chains <span>[<a href="#TraceabilityVocab" class="cite xref">TraceabilityVocab</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1466,7 +1467,12 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-security-considerations">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-3-1">These claims are designed to enhance transparency in supply chain tracking but should be handled securely to prevent unauthorized access to sensitive data. Confidentiality and integrity of these claims must be considered, particularly when shared across untrusted or unsecured networks. Use of selective disclosure techniques and careful consideration of data minimization requirements <span class="bcp14">SHOULD</span> be considered when using these claims.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">These claims are designed to enhance transparency in supply chain tracking but
+should be handled securely to prevent unauthorized access to sensitive data.
+Confidentiality and integrity of these claims must be considered, particularly
+when shared across untrusted or unsecured networks. Use of selective disclosure
+techniques and careful consideration of data minimization requirements <span class="bcp14">SHOULD</span> be
+considered when using these claims.<a href="#section-3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -3482,6 +3488,15 @@ contributed to this specification.<a href="#appendix-A-1" class="pilcrow">¶</a>
 <div class="url">
 <span>URI:</span>
 <a href="https://self-issued.info/" class="url">https://self-issued.info/</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Brent W. Zundel</span></div>
+<div dir="auto" class="left"><span class="org">Tradeverifyd</span></div>
+<div dir="auto" class="left"><span class="country-name">United States</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:brent.zundel@tradeverifyd.com" class="email">brent.zundel@tradeverifyd.com</a>
 </div>
 </address>
 </section>
