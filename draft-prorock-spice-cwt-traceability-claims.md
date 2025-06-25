@@ -276,7 +276,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Gross weight of the shipment, in kilograms.
 * JWT Claim Name: gross_weight
 * Claim Key: TBD (requested assignment 332)
-* Claim Value Type: integer
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{gross_weight}} of this specification
 
@@ -286,7 +286,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
 * JWT Claim Name: temperature_requirement_min
 * Claim Key: TBD (requested assignment 333)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{temperature_requirement_min}} of this specification
 
@@ -296,7 +296,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
 * JWT Claim Name: temperature_requirement_max
 * Claim Key: TBD (requested assignment 334)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{temperature_requirement_max}} of this specification
 
@@ -336,7 +336,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
 * JWT Claim Name: customs_value
 * Claim Key: TBD (requested assignment 338)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{customs_value}} of this specification
 
@@ -436,7 +436,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Transportation costs associated with the shipment, used for customs valuation.
 * JWT Claim Name: freight_charges
 * Claim Key: TBD (requested assignment 348)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{freight_charges}} of this specification
 
@@ -446,7 +446,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Insurance costs for the shipment, used in determining customs value.
 * JWT Claim Name: insurance_charges
 * Claim Key: TBD (requested assignment 349)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{insurance_charges}} of this specification
 
@@ -456,7 +456,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Description: Costs associated with packing the goods, relevant for customs valuation.
 * JWT Claim Name: packing_costs
 * Claim Key: TBD (requested assignment 350)
-* Claim Value Type: float
+* Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{packing_costs}} of this specification
 
