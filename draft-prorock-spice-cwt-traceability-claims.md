@@ -142,7 +142,8 @@ and JSON Web Tokens (JWTs) [RFC7519].
 
 These claims are informed by the following documents,
 among others:
-ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR], Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
+ACE Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements (CATAIR) [CATAIR],
+Integrated Track and Trace for Multi-Modal Transportation [TrackTrace],
 and
 Traceability Vocabulary v1.0: A vocabulary for traceability in supply chains [TraceabilityVocab].
 
