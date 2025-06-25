@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 3 November 2025                          Self-Issued Consulting
-                                                              2 May 2025
+Expires: 27 December 2025                         Self-Issued Consulting
+                                                            25 June 2025
 
 
                           Traceability Claims
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 November 2025.
+   This Internet-Draft will expire on 27 December 2025.
 
 Copyright Notice
 
@@ -416,7 +416,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 332)
 
-   *  Claim Value Type: integer
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -433,7 +433,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 333)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -450,7 +450,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 334)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -518,7 +518,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 338)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -692,7 +692,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 348)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -709,7 +709,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 349)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -726,7 +726,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 350)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
