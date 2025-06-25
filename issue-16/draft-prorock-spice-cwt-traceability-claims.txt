@@ -949,7 +949,8 @@ Table of Contents
 
    *  Claim Name: hs_code
 
-   *  Claim Description: Harmonized System (HS) code for the goods.
+   *  Claim Description: Harmonized System (HS) code [HSCode] for the
+      goods.
 
    *  Change Controller: IETF
 
@@ -1103,8 +1104,9 @@ Table of Contents
 
    *  Claim Name: incoterms
 
-   *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB", "CIF".
+   *  Claim Description: International commercial terms [INCOTERMS]
+      defining responsibilities between buyer and seller, e.g., "FOB",
+      "CIF".
 
    *  Change Controller: IETF
 
