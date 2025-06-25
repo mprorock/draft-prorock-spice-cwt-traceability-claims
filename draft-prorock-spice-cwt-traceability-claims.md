@@ -405,7 +405,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Importer Code {#importer_code}
 
 * Claim Name: importer_code
-* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* Claim Description: Code identifying the importer, such as a GLUE Identifier, VAT number, or EORI number.
 * JWT Claim Name: importer_code
 * Claim Key: TBD (requested assignment 343)
 * Claim Value Type: text string
@@ -415,7 +415,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Exporter Code {#exporter_code}
 
 * Claim Name: exporter_code
-* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* Claim Description: Code identifying the exporter, such as a GLUE Identifier, VAT number, or EORI number.
 * JWT Claim Name: exporter_code
 * Claim Key: TBD (requested assignment 344)
 * Claim Value Type: text string
@@ -505,7 +505,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Consignee Information {#consignee_information}
 
 * Claim Name: consignee_information
-* Claim Description: Information about the consignee, including name, address, and contact details.
+* Claim Description: Information about the consignee, including identifier, name, address, and contact details.
 * JWT Claim Name: consignee_information
 * Claim Key: TBD (requested assignment 353)
 * Claim Value Type: map
@@ -515,7 +515,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Consignor Information {#consignor_information}
 
 * Claim Name: consignor_information
-* Claim Description: Information about the consignor, including name, address, and contact details.
+* Claim Description: Information about the consignor, including identifier, name, address, and contact details.
 * JWT Claim Name: consignor_information
 * Claim Key: TBD (requested assignment 354)
 * Claim Value Type: map
@@ -589,7 +589,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Carrier ID
 
 * Claim Name: carrier_id
-* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment, such as a GLUE Identifier.
 * Change Controller: IETF
 * Reference: {{carrier_id}} of this specification
 
