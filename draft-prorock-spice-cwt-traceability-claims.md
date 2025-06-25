@@ -245,7 +245,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Carrier ID {#carrier_id}
 
 * Claim Name: carrier_id
-* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
+* Claim Description: Identifier for the carrier or logistics provider responsible for the shipment, such as a GLUE Identifier.
 * JWT Claim Name: carrier_id
 * Claim Key: TBD (requested assignment 327)
 * Claim Value Type: text string
@@ -701,14 +701,14 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Importer Code
 
 * Claim Name: importer_code
-* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* Claim Description: Code identifying the importer, such as a GLUE Identifier, VAT number, or EORI number.
 * Change Controller: IETF
 * Reference: {{importer_code}} of this specification
 
 ### Exporter Code
 
 * Claim Name: exporter_code
-* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* Claim Description: Code identifying the exporter, such as a GLUE Identifier, VAT number, or EORI number.
 * Change Controller: IETF
 * Reference: {{exporter_code}} of this specification
 
@@ -771,14 +771,14 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Consignee Information
 
 * Claim Name: consignee_information
-* Claim Description: Information about the consignee, including name, address, and contact details.
+* Claim Description: Information about the consignee, including identifier, name, address, and contact details.
 * Change Controller: IETF
 * Reference: {{consignee_information}} of this specification
 
 ### Consignor Information
 
 * Claim Name: consignor_information
-* Claim Description: Information about the consignor, including name, address, and contact details.
+* Claim Description: Information about the consignor, including identifier, name, address, and contact details.
 * Change Controller: IETF
 * Reference: {{consignor_information}} of this specification
 
