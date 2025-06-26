@@ -6,6 +6,8 @@ Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
 Expires: 28 December 2025                         Self-Issued Consulting
+                                                            B. W. Zundel
+                                                            Tradeverifyd
                                                             26 June 2025
 
 
@@ -394,7 +396,8 @@ Table of Contents
 
    *  Claim Name: hs_code
 
-   *  Claim Description: Harmonized System (HS) code for the goods.
+   *  Claim Description: Harmonized System (HS) code [HSCode] for the
+      goods.
 
    *  JWT Claim Name: hs_code
 
@@ -416,7 +419,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 332)
 
-   *  Claim Value Type: integer
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -433,7 +436,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 333)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -450,7 +453,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 334)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -518,7 +521,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 338)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -632,8 +635,9 @@ Table of Contents
 
    *  Claim Name: incoterms
 
-   *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB", "CIF".
+   *  Claim Description: International commercial terms [INCOTERMS]
+      defining responsibilities between buyer and seller, e.g., "FOB",
+      "CIF".
 
    *  JWT Claim Name: incoterms
 
@@ -692,7 +696,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 348)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -709,7 +713,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 349)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -726,7 +730,7 @@ Table of Contents
 
    *  Claim Key: TBD (requested assignment 350)
 
-   *  Claim Value Type: float
+   *  Claim Value Type: integer or floating point number
 
    *  Change Controller: IETF
 
@@ -947,7 +951,8 @@ Table of Contents
 
    *  Claim Name: hs_code
 
-   *  Claim Description: Harmonized System (HS) code for the goods.
+   *  Claim Description: Harmonized System (HS) code [HSCode] for the
+      goods.
 
    *  Change Controller: IETF
 
@@ -1101,8 +1106,9 @@ Table of Contents
 
    *  Claim Name: incoterms
 
-   *  Claim Description: International commercial terms defining
-      responsibilities between buyer and seller, e.g., "FOB", "CIF".
+   *  Claim Description: International commercial terms [INCOTERMS]
+      defining responsibilities between buyer and seller, e.g., "FOB",
+      "CIF".
 
    *  Change Controller: IETF
 
@@ -1260,11 +1266,22 @@ Table of Contents
               Requirements (CATAIR)", April 2025,
               <https://www.cbp.gov/trade/ace/catair>.
 
+   [HSCodes]  World Customs Organization, "Harmonized System (HS)
+              Nomenclature 2022 Edition", January 2022,
+              <https://www.wcoomd.org/en/topics/nomenclature/instrument-
+              and-tools/hs-nomenclature-2022-edition/hs-nomenclature-
+              2022-edition.aspx>.
+
    [IANA.CWT] IANA, "CBOR Web Token (CWT) Claims", n.d.,
               <https://www.iana.org/assignments/cwt/>.
 
    [IANA.JWT] IANA, "JSON Web Token Claims", n.d.,
               <https://www.iana.org/assignments/jwt/>.
+
+   [INCOTERMS]
+              International Chamber of Commerce, "Incoterms 2020", 2019,
+              <https://iccwbo.org/business-solutions/incoterms-rules/
+              incoterms-2020/>.
 
    [TraceabilityVocab]
               Jespersen, N., Alkhraishi, M., and B. Zundel,
@@ -1321,3 +1338,9 @@ Authors' Addresses
    United States
    Email: michael_b_jones@hotmail.com
    URI:   https://self-issued.info/
+
+
+   Brent W. Zundel
+   Tradeverifyd
+   United States
+   Email: brent.zundel@tradeverifyd.com
