@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-19T00:32:49.655388+00:00",
+  "timestamp": "2025-06-26T00:32:28.760838+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -47,6 +47,16 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "has PR",
+      "description": "there is a PR that may address this issue",
+      "color": "573b5e"
+    },
+    {
+      "name": "pending close",
+      "description": "will likely be closed soon",
+      "color": "f31d66"
     }
   ],
   "issues": [
@@ -57,14 +67,31 @@
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/1",
       "state": "OPEN",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending close"
+      ],
       "body": "This draft proposes a notion of a shipment and container at a high level. I infer from this framing you may want a \"flat collection\" of items shipped together (but are not nested). Will the I-D and CWT data structure address this concern?",
       "createdAt": "2024-11-12T02:56:40Z",
-      "updatedAt": "2024-11-12T02:56:40Z",
+      "updatedAt": "2025-06-25T22:41:41Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The claims of this I-D are currently at the shipment/container level of granularity. If additional claims are desired that better support a \"flat collection\" of items shipped together, we would welcome a concrete suggestion.",
+          "createdAt": "2025-06-24T22:18:44Z",
+          "updatedAt": "2025-06-24T22:18:44Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not seeing a change called for in this issue and so I recommend closing it.",
+          "createdAt": "2025-06-25T22:37:44Z",
+          "updatedAt": "2025-06-25T22:37:44Z"
+        }
+      ]
     },
     {
       "number": 2,
@@ -73,14 +100,31 @@
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/2",
       "state": "OPEN",
       "author": "aj-stein",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending close"
+      ],
       "body": "Related to #1 but slightly different, I infer without further detail that certain types of containers or complex shipments could be \"nested\" (containers within containers within containers). Will this I-D and the resulting CWT data structure within address how this could be handled by implementers?",
       "createdAt": "2024-11-12T03:01:59Z",
-      "updatedAt": "2024-11-12T03:01:59Z",
+      "updatedAt": "2025-06-25T22:41:11Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The claims of this I-D are currently at the shipment/container level of granularity. If additional claims are desired that better support describing complex \"nested\" items shipped together, we would welcome a concrete suggestion.",
+          "createdAt": "2025-06-24T22:19:52Z",
+          "updatedAt": "2025-06-24T22:19:52Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not seeing a change called for in this issue and so I recommend closing it.",
+          "createdAt": "2025-06-25T22:37:54Z",
+          "updatedAt": "2025-06-25T22:37:54Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -191,85 +235,182 @@
       "labels": [],
       "body": "The [Legal Jurisdiction](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#section-4.1.23) is currently defined as:\n\n> Claim Name: legal_jurisdiction\n> Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.\n> JWT Claim Name: legal_jurisdiction\n> Claim Key: TBD (requested assignment 342)\n> Claim Value Type: text string\n> Change Controller: IETF\n> Reference: [Section 4.1.23](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#legal_jurisdiction) of this specification\n\nIs it intended that claim may contain multiple values?  It's currently defined as a single text string.\n\nHow, for instance, would one represent that the jurisdiction is Delaware, United States or Ciudad de M\u00e9xico?\n\nA single [ISO.3166] alpha-2 country code string won't always work.",
       "createdAt": "2025-04-04T18:28:42Z",
-      "updatedAt": "2025-06-17T16:14:22Z",
+      "updatedAt": "2025-06-25T22:59:30Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Claims about jurisdiction at the level of international trade are generally expected to be at the country level, so at this point I don't think we need to support finer granularity.",
+          "createdAt": "2025-06-24T22:24:20Z",
+          "updatedAt": "2025-06-24T22:24:20Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not seeing a need for changes, so I recommend closing this issue.",
+          "createdAt": "2025-06-25T22:36:41Z",
+          "updatedAt": "2025-06-25T22:36:41Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "A change is needed to deal with there possibly being more than one legal jurisdiction.  For instance, should the value be an array?\n\nIf only one value is supported, the description needs to be made singular.",
+          "createdAt": "2025-06-25T22:57:29Z",
+          "updatedAt": "2025-06-25T22:57:29Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also, say that country codes are represented as an [[ISO.3166](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#ISO.3166)] alpha-2 country code string",
+          "createdAt": "2025-06-25T22:59:30Z",
+          "updatedAt": "2025-06-25T22:59:30Z"
+        }
+      ]
     },
     {
       "number": 12,
       "id": "I_kwDONKsocc6zNqb_",
       "title": "Representations of Locations",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "pending close"
+      ],
       "body": "The contents of the [Origin Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-origin-location) are also somewhat ambiguous, being defined as:\n> Claim Description: Geographical origin of the goods, represented as an [[ISO.3166](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#ISO.3166)] alpha-2 country code string or specific address\n> Claim Value Type: text string\n\nThe [Destination Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-destination-location) is less specified than that:\n> Claim Description: Final destination of the goods in the shipment.\n> Claim Value Type: text string\n\n[Last Known Location](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-last-known-location), [Place of Loading](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-place-of-loading), and [Place of Discharge](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-place-of-discharge) are similar.\n\nDo we practically want these to be sufficiently specified such that different participants will put the same values in these fields?  Or are these primiarly or only for human consumption, in which case the ambiguity is acceptable?",
       "createdAt": "2025-04-19T23:25:10Z",
-      "updatedAt": "2025-04-19T23:25:10Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-25T23:17:29Z",
+      "closedAt": "2025-06-25T23:17:29Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For now, let's go with human consumable values.",
+          "createdAt": "2025-06-24T22:20:28Z",
+          "updatedAt": "2025-06-24T22:20:28Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not seeing a need for changes, so I recommend closing this issue.",
+          "createdAt": "2025-06-25T22:36:01Z",
+          "updatedAt": "2025-06-25T22:36:01Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing for the reasons described above",
+          "createdAt": "2025-06-25T23:17:29Z",
+          "updatedAt": "2025-06-25T23:17:29Z"
+        }
+      ]
     },
     {
       "number": 13,
       "id": "I_kwDONKsocc6zNrWS",
       "title": "Representations of Numbers",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "has PR"
+      ],
       "body": "The [Gross Weight](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-gross-weight) number is specified as:\n> Claim Description: Gross weight of the shipment, in kilograms.\n> Claim Value Type: integer\n\nThe [Temperature Min Requirement](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-temperature-min-requirement) is specified as:\n> Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.\n> Claim Value Type: float\n\nFive other claims also use \"float\".\n\nIn CBOR, it's common to allow either integer or floating point representations for numbers.  You'll see a number of claims in the [CBOR Web Token (CWT) Claims](https://www.iana.org/assignments/cwt/cwt.xhtml#claims-registry) registry using:\n> Claim Value Type: integer or floating-point number\n\nThere's an argument for doing the same for all of our numeric claims, when in CBOR.\n\nOf course, in JavaScript, all numbers are floating point, so the issue is moot for JWT claims.  Numbers are numbers there.",
       "createdAt": "2025-04-19T23:39:27Z",
-      "updatedAt": "2025-04-19T23:39:27Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-25T23:14:48Z",
+      "closedAt": "2025-06-25T23:14:48Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Let's go with \"integer or floating-point number\"",
+          "createdAt": "2025-06-24T22:21:14Z",
+          "updatedAt": "2025-06-24T22:21:14Z"
+        }
+      ]
     },
     {
       "number": 14,
       "id": "I_kwDONKsocc6zNr5a",
       "title": "Representations of Consignee and Consignor Information",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/14",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "pending close"
+      ],
       "body": "[Consignee Information](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-consignee-information) is defined as:\n> Claim Description: Information about the consignee, including name, address, and contact details.\n> Claim Value Type: map\n\n[Consignor Information](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-consignor-information) parallels it.\n\nFor starters, are these maps with string-valued human-readable labels, or is there a schema we want people to use that would lend itself to a standard set of numeric labels?  If so, we could create a registry for them, with initial proposed assignments.\n\nAre the values following the labels strings or can they be of other CBOR types?\n\nAgain, is this information primarily for human consumption, in which case the ambiguity may be OK, or do we aspire to have different participants use the fields in the same way?\n",
       "createdAt": "2025-04-19T23:47:49Z",
-      "updatedAt": "2025-04-19T23:47:49Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-25T23:18:16Z",
+      "closedAt": "2025-06-25T23:18:16Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For now, let's go with human consumable values.",
+          "createdAt": "2025-06-24T22:21:48Z",
+          "updatedAt": "2025-06-24T22:21:48Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am not seeing an action here, so I recommend closing this issue",
+          "createdAt": "2025-06-25T22:34:50Z",
+          "updatedAt": "2025-06-25T22:34:50Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing for the reasons described above",
+          "createdAt": "2025-06-25T23:18:16Z",
+          "updatedAt": "2025-06-25T23:18:16Z"
+        }
+      ]
     },
     {
       "number": 16,
       "id": "I_kwDONKsocc6zNuUw",
       "title": "Reference for Harmonized System (HS) Codes",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "has PR"
+      ],
       "body": "The Web is full of information about Harmonized System Codes, such as https://www.trade.gov/harmonized-system-hs-codes, but I can't be sure what the authoritative reference for them is.",
       "createdAt": "2025-04-20T00:20:01Z",
-      "updatedAt": "2025-04-20T00:20:01Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-25T23:15:04Z",
+      "closedAt": "2025-06-25T23:15:03Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://www.wcoomd.org/en/topics/nomenclature/overview.aspx",
+          "createdAt": "2025-06-24T22:02:49Z",
+          "updatedAt": "2025-06-24T22:02:49Z"
+        }
+      ]
     },
     {
       "number": 17,
@@ -283,31 +424,72 @@
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "has PR"
+      ],
       "body": "How does one tell now whether it's a VAT number or EORI number, for instance?",
       "createdAt": "2025-04-20T00:53:49Z",
-      "updatedAt": "2025-04-20T00:53:49Z",
+      "updatedAt": "2025-06-25T22:36:57Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, the importer_code, exporter_code, and carrier_id could all use GLUE identifiers.\nAlso, the consignee_information and consignor_information could contain GLUE identifiers.",
+          "createdAt": "2025-06-24T22:07:12Z",
+          "updatedAt": "2025-06-24T22:07:12Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@selfissued which text do you prefer:\n\n> Claim Description: Code identifying the exporter, such as a GLUE Identifier, VAT number, or EORI number.\n\nor\n\n> Claim Description: GLUE Identifier [GLUE] for the exporter.\n",
+          "createdAt": "2025-06-25T22:20:05Z",
+          "updatedAt": "2025-06-25T22:20:19Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I used option a in #24, but that can be easily changed.",
+          "createdAt": "2025-06-25T22:25:43Z",
+          "updatedAt": "2025-06-25T22:25:43Z"
+        }
+      ]
     },
     {
       "number": 18,
       "id": "I_kwDONKsocc6zNxpy",
       "title": "Reference for International Commercial Terms",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "mprorock",
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "has PR"
+      ],
       "body": "What reference for [International Commercial Terms](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-international-commercial-te) should I use?  I ask because the example values \"FOB\" and \"CIF\" are defined somewhere.  Where is that?",
       "createdAt": "2025-04-20T00:56:07Z",
-      "updatedAt": "2025-04-20T00:56:29Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-25T23:16:35Z",
+      "closedAt": "2025-06-25T23:16:35Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/",
+          "createdAt": "2025-06-24T21:07:37Z",
+          "updatedAt": "2025-06-24T21:07:37Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by #22",
+          "createdAt": "2025-06-25T23:16:35Z",
+          "updatedAt": "2025-06-25T23:16:35Z"
+        }
+      ]
     },
     {
       "number": 19,
@@ -324,9 +506,24 @@
       "labels": [],
       "body": "I can imagine a world of different [Regulatory Compliance Codes](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-regulatory-compliance-codes) (literally!).  How is it indicated in this field which codes are applicable and how is compliance indicated?",
       "createdAt": "2025-04-20T01:00:05Z",
-      "updatedAt": "2025-04-20T01:00:05Z",
+      "updatedAt": "2025-06-24T22:59:04Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "These claims are for use in representing information from trade documents in CWTs and JWTs. The only codes included in the value for regulatory_compliance_codes would be those the producer considers to be applicable, even if each recipient doesn't understand them all. For example, a credential sent to US Customs may include claims of compliance to Reg1, Reg2, and Reg3, but US Customs only cares about Reg1 and Reg3. the same credential could be sent to the US FDA, which only cares about Reg2.",
+          "createdAt": "2025-06-24T22:31:04Z",
+          "updatedAt": "2025-06-24T22:31:04Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I still worry about mixing codes from different jurisdictions and not being able to tell what they actually are.  For instance, when importing avocados from Costa Rica, there may be Costa Rican codes, codes from the countries transited, and US codes.\n\nAre we going to assume that the recipient has enough domain knowledge to figure out what is what?",
+          "createdAt": "2025-06-24T22:59:04Z",
+          "updatedAt": "2025-06-24T22:59:04Z"
+        }
+      ]
     },
     {
       "number": 20,
@@ -343,9 +540,17 @@
       "labels": [],
       "body": "A few illustrative examples would make the specification much more approachable.  Showing values for some of these fields would help demystify how they are intended to be used in practice.\n\nFYI, I would do the examples as JWT claims rather than CWT claims, so readers won't have to deal with binary and we as authors won't have to deal with CDDL.\n",
       "createdAt": "2025-04-20T01:04:06Z",
-      "updatedAt": "2025-04-20T01:04:06Z",
+      "updatedAt": "2025-06-24T22:31:58Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "agreed",
+          "createdAt": "2025-06-24T22:31:58Z",
+          "updatedAt": "2025-06-24T22:31:58Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -619,6 +824,179 @@
           "createdAt": "2025-05-02T19:21:15Z",
           "updatedAt": "2025-05-02T19:21:15Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDONKsocc6cIHsr",
+      "title": "make numbers integer or floating point",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/21",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #13 ",
+      "createdAt": "2025-06-25T21:12:39Z",
+      "updatedAt": "2025-06-25T23:14:47Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-13",
+      "headRefOid": "b9ff364dd954bc3b598a8e3625e5bc71d5d7f1ce",
+      "closedAt": "2025-06-25T23:14:47Z",
+      "mergedAt": "2025-06-25T23:14:47Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "da3c5fc6d8a4a69846138c7bedab88e2153f6e61"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wbDka",
+          "commit": {
+            "abbreviatedOid": "b9ff364"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-25T22:44:41Z",
+          "updatedAt": "2025-06-25T22:44:41Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDONKsocc6cId8e",
+      "title": "Add references for incoterms and hs codes",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/22",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #16 and #18\r\n",
+      "createdAt": "2025-06-25T22:02:36Z",
+      "updatedAt": "2025-06-25T23:15:03Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-16",
+      "headRefOid": "3778e1024a24c16b4fed6758c8d2cf5b6578e296",
+      "closedAt": "2025-06-25T23:15:03Z",
+      "mergedAt": "2025-06-25T23:15:02Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "7f73a4153291ec004e4e2e44a3a7fa04eba26e00"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wbD56",
+          "commit": {
+            "abbreviatedOid": "3778e10"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-25T22:45:48Z",
+          "updatedAt": "2025-06-25T22:45:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDONKsocc6cIiJr",
+      "title": "add myself as an author and fix line lengths",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/23",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-25T22:14:20Z",
+      "updatedAt": "2025-06-25T23:15:24Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "author",
+      "headRefOid": "4c926a13bd20b17989af815acafe66cd94a3fa27",
+      "closedAt": "2025-06-25T23:15:24Z",
+      "mergedAt": "2025-06-25T23:15:24Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "6220bd39ab22146334b5294dd4240917b30ac09f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wbErn",
+          "commit": {
+            "abbreviatedOid": "4c926a1"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-25T22:48:15Z",
+          "updatedAt": "2025-06-25T22:48:15Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDONKsocc6cIlxj",
+      "title": "add GLUE identifier for entities",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/24",
+      "state": "OPEN",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #17 ",
+      "createdAt": "2025-06-25T22:24:50Z",
+      "updatedAt": "2025-06-25T22:53:59Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-17",
+      "headRefOid": "fd986d5c362ca92ac79681d6ae9a9b5c256a6e5b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wbG1A",
+          "commit": {
+            "abbreviatedOid": "fd986d5"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-25T22:53:59Z",
+          "updatedAt": "2025-06-25T22:53:59Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "There should be a reference added to draft-ietf-spice-glue-id.  Rather than adding it each place it's used, such as the above, I'd suggest adding a sentence somewhere appropriate saying \"Some of the claims below utilize GLUE Identifiers [GLUE].\"",
+              "createdAt": "2025-06-25T22:53:59Z",
+              "updatedAt": "2025-06-25T22:53:59Z"
+            }
+          ]
         }
       ]
     }
