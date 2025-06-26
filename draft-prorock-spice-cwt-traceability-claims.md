@@ -395,10 +395,10 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Legal Jurisdiction {#legal_jurisdiction}
 
 * Claim Name: legal_jurisdiction
-* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or specific legal identifiers
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or other specific legal identifier.
 * JWT Claim Name: legal_jurisdiction
 * Claim Key: TBD (requested assignment 342)
-* Claim Value Type: text string
+* Claim Value Type: array of text strings
 * Change Controller: IETF
 * Reference: {{legal_jurisdiction}} of this specification
 
@@ -694,7 +694,7 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Legal Jurisdiction
 
 * Claim Name: legal_jurisdiction
-* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or specific legal identifiers
+* Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or other specific legal identifier.
 * Change Controller: IETF
 * Reference: {{legal_jurisdiction}} of this specification
 
