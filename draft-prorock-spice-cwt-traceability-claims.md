@@ -171,6 +171,27 @@ Some claims below utilize GLUE Identifiers [GLUE].
 
 {::boilerplate bcp14-tagged}
 
+# Examples
+Product Information Example:
+```JSON
+{
+    "commodity_description": "Organic Blueberries, 12 oz containers",
+    "product_id": "nb-blueberries-001",
+    "country_of_origin": "CA",
+    "hs_code": "0810.40.0026",
+    "gross_weight": 5050,
+    "min_temperature": 0,
+    "max_temperature": 2,
+    "customs_value": 83335.0,
+    "currency_code": "USD",
+    "legal_jurisdiction": ["US", "CA"],
+}
+```
+
+Bill of Lading Example:
+```JSON
+
+```
 
 # Security Considerations
 
