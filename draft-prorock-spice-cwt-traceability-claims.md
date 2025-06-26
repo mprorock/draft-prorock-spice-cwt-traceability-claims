@@ -172,7 +172,7 @@ Some claims below utilize GLUE Identifiers [GLUE].
 {::boilerplate bcp14-tagged}
 
 # Examples
-Product Information Example:
+Product Information Example JWT Claims Set:
 ```JSON
 {
     "commodity_description": "Organic Blueberries, 12 oz containers",
