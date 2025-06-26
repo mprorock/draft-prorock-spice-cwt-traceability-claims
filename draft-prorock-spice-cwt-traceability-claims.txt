@@ -180,6 +180,8 @@ Table of Contents
    Vocabulary v1.0: A vocabulary for traceability in supply chains
    [TraceabilityVocab].
 
+   Some claims below utilize GLUE Identifiers [GLUE].
+
 2.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -601,8 +603,7 @@ Table of Contents
 
    *  Claim Name: importer_code
 
-   *  Claim Description: Code identifying the importer, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the importer.
 
    *  JWT Claim Name: importer_code
 
@@ -618,8 +619,7 @@ Table of Contents
 
    *  Claim Name: exporter_code
 
-   *  Claim Description: Code identifying the exporter, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the exporter.
 
    *  JWT Claim Name: exporter_code
 
@@ -775,7 +775,7 @@ Table of Contents
    *  Claim Name: consignee_information
 
    *  Claim Description: Information about the consignee, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  JWT Claim Name: consignee_information
 
@@ -792,7 +792,7 @@ Table of Contents
    *  Claim Name: consignor_information
 
    *  Claim Description: Information about the consignor, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  JWT Claim Name: consignor_information
 
@@ -1084,8 +1084,7 @@ Table of Contents
 
    *  Claim Name: importer_code
 
-   *  Claim Description: Code identifying the importer, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the importer.
 
    *  Change Controller: IETF
 
@@ -1095,8 +1094,7 @@ Table of Contents
 
    *  Claim Name: exporter_code
 
-   *  Claim Description: Code identifying the exporter, such as a VAT
-      number or EORI number.
+   *  Claim Description: Code identifying the exporter.
 
    *  Change Controller: IETF
 
@@ -1198,7 +1196,7 @@ Table of Contents
    *  Claim Name: consignee_information
 
    *  Claim Description: Information about the consignee, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  Change Controller: IETF
 
@@ -1209,7 +1207,7 @@ Table of Contents
    *  Claim Name: consignor_information
 
    *  Claim Description: Information about the consignor, including
-      name, address, and contact details.
+      identifier, name, address, and contact details.
 
    *  Change Controller: IETF
 
@@ -1265,6 +1263,11 @@ Table of Contents
               Interface (ABI) CBP and Trade Automated Interface
               Requirements (CATAIR)", April 2025,
               <https://www.cbp.gov/trade/ace/catair>.
+
+   [GLUE]     Zundel, B., Dingle, P., and M. B. Jones, "GLobal Unique
+              Enterprise (GLUE) Identifiers", April 2025,
+              <https://datatracker.ietf.org/doc/draft-ietf-spice-glue-
+              id/>.
 
    [HSCodes]  World Customs Organization, "Harmonized System (HS)
               Nomenclature 2022 Edition", January 2022,
