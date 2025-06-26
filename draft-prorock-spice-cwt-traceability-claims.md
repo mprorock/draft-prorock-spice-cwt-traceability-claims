@@ -122,6 +122,21 @@ informative:
         ins: B. Zundel
         name: Brent Zundel
     date: December 2024
+
+  GLUE:
+    target: https://datatracker.ietf.org/doc/draft-ietf-spice-glue-id/
+    title: "GLobal Unique Enterprise (GLUE) Identifiers"
+    author:
+      -
+        ins: B. Zundel
+        name: Brent Zundel
+      -
+        ins: P. Dingle
+        name: Pam Dingle
+      -
+        ins: M. B. Jones
+        name: Michael B. Jones
+    date: April 2025
 ---
 
 --- abstract
@@ -149,6 +164,8 @@ Automated Broker Interface (ABI) CBP and Trade Automated Interface Requirements
 (CATAIR) [CATAIR], Integrated Track and Trace for Multi-Modal Transportation
 [TrackTrace], and Traceability Vocabulary v1.0: A vocabulary for traceability in
 supply chains [TraceabilityVocab].
+
+Some claims below utilize GLUE Identifiers [GLUE].
 
 # Conventions and Definitions
 
@@ -405,7 +422,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Importer Code {#importer_code}
 
 * Claim Name: importer_code
-* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* Claim Description: Code identifying the importer.
 * JWT Claim Name: importer_code
 * Claim Key: TBD (requested assignment 343)
 * Claim Value Type: text string
@@ -415,7 +432,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Exporter Code {#exporter_code}
 
 * Claim Name: exporter_code
-* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* Claim Description: Code identifying the exporter.
 * JWT Claim Name: exporter_code
 * Claim Key: TBD (requested assignment 344)
 * Claim Value Type: text string
@@ -505,7 +522,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Consignee Information {#consignee_information}
 
 * Claim Name: consignee_information
-* Claim Description: Information about the consignee, including name, address, and contact details.
+* Claim Description: Information about the consignee, including identifier, name, address, and contact details.
 * JWT Claim Name: consignee_information
 * Claim Key: TBD (requested assignment 353)
 * Claim Value Type: map
@@ -515,7 +532,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Consignor Information {#consignor_information}
 
 * Claim Name: consignor_information
-* Claim Description: Information about the consignor, including name, address, and contact details.
+* Claim Description: Information about the consignor, including identifier, name, address, and contact details.
 * JWT Claim Name: consignor_information
 * Claim Key: TBD (requested assignment 354)
 * Claim Value Type: map
@@ -701,14 +718,14 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Importer Code
 
 * Claim Name: importer_code
-* Claim Description: Code identifying the importer, such as a VAT number or EORI number.
+* Claim Description: Code identifying the importer.
 * Change Controller: IETF
 * Reference: {{importer_code}} of this specification
 
 ### Exporter Code
 
 * Claim Name: exporter_code
-* Claim Description: Code identifying the exporter, such as a VAT number or EORI number.
+* Claim Description: Code identifying the exporter.
 * Change Controller: IETF
 * Reference: {{exporter_code}} of this specification
 
@@ -771,14 +788,14 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 ### Consignee Information
 
 * Claim Name: consignee_information
-* Claim Description: Information about the consignee, including name, address, and contact details.
+* Claim Description: Information about the consignee, including identifier, name, address, and contact details.
 * Change Controller: IETF
 * Reference: {{consignee_information}} of this specification
 
 ### Consignor Information
 
 * Claim Name: consignor_information
-* Claim Description: Information about the consignor, including name, address, and contact details.
+* Claim Description: Information about the consignor, including identifier, name, address, and contact details.
 * Change Controller: IETF
 * Reference: {{consignor_information}} of this specification
 
