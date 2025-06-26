@@ -188,11 +188,6 @@ Product Information Example:
 }
 ```
 
-Bill of Lading Example:
-```JSON
-
-```
-
 # Security Considerations
 
 These claims are designed to enhance transparency in supply chain tracking but
