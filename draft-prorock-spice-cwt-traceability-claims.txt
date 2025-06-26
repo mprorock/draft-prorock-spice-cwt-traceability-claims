@@ -80,85 +80,86 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-     4.1.  CBOR Web Token (CWT) Claims
-       4.1.1.  Goods Identifier
-       4.1.2.  Shipment ID
-       4.1.3.  Bill of Lading Number
-       4.1.4.  Transport Mode
-       4.1.5.  Container ID
-       4.1.6.  Origin Location
-       4.1.7.  Destination Location
-       4.1.8.  Carrier ID
-       4.1.9.  Estimated Delivery Date
-       4.1.10. Customs Declaration Number
-       4.1.11. Commodity Description
-       4.1.12. HS Code
-       4.1.13. Gross Weight
-       4.1.14. Temperature Min Requirement
-       4.1.15. Temperature Max Requirement
-       4.1.16. Last Known Location
-       4.1.17. Tariff Code
-       4.1.18. Country of Origin
-       4.1.19. Customs Value
-       4.1.20. Currency Code
-       4.1.21. Import/Export License Number
-       4.1.22. Sanctions Reference
-       4.1.23. Legal Jurisdiction
-       4.1.24. Importer Code
-       4.1.25. Exporter Code
-       4.1.26. International Commercial Terms
-       4.1.27. Regulatory Compliance Codes
-       4.1.28. Additional Documents Required
-       4.1.29. Freight Charges
-       4.1.30. Insurance Charges
-       4.1.31. Packing Costs
-       4.1.32. Place of Loading
-       4.1.33. Place of Discharge
-       4.1.34. Consignee Information
-       4.1.35. Consignor Information
-       4.1.36. Customs Declaration Date
-     4.2.  JSON Web Token (JWT) Claims
-       4.2.1.  Goods Identifier
-       4.2.2.  Shipment ID
-       4.2.3.  Bill of Lading Number
-       4.2.4.  Transport Mode
-       4.2.5.  Container ID
-       4.2.6.  Origin Location
-       4.2.7.  Destination Location
-       4.2.8.  Carrier ID
-       4.2.9.  Estimated Delivery Date
-       4.2.10. Customs Declaration Number
-       4.2.11. Commodity Description
-       4.2.12. HS Code
-       4.2.13. Gross Weight
-       4.2.14. Temperature Min Requirement
-       4.2.15. Temperature Max Requirement
-       4.2.16. Last Known Location
-       4.2.17. Tariff Code
-       4.2.18. Country of Origin
-       4.2.19. Customs Value
-       4.2.20. Currency Code
-       4.2.21. Import/Export License Number
-       4.2.22. Sanctions Reference
-       4.2.23. Legal Jurisdiction
-       4.2.24. Importer Code
-       4.2.25. Exporter Code
-       4.2.26. International Commercial Terms
-       4.2.27. Regulatory Compliance Codes
-       4.2.28. Additional Documents Required
-       4.2.29. Freight Charges
-       4.2.30. Insurance Charges
-       4.2.31. Packing Costs
-       4.2.32. Place of Loading
-       4.2.33. Place of Discharge
-       4.2.34. Consignee Information
-       4.2.35. Consignor Information
-       4.2.36. Customs Declaration Date
-   5.  References
-     5.1.  Normative References
-     5.2.  Informative References
+   3.  Examples
+   4.  Security Considerations
+   5.  IANA Considerations
+     5.1.  CBOR Web Token (CWT) Claims
+       5.1.1.  Goods Identifier
+       5.1.2.  Shipment ID
+       5.1.3.  Bill of Lading Number
+       5.1.4.  Transport Mode
+       5.1.5.  Container ID
+       5.1.6.  Origin Location
+       5.1.7.  Destination Location
+       5.1.8.  Carrier ID
+       5.1.9.  Estimated Delivery Date
+       5.1.10. Customs Declaration Number
+       5.1.11. Commodity Description
+       5.1.12. HS Code
+       5.1.13. Gross Weight
+       5.1.14. Temperature Min Requirement
+       5.1.15. Temperature Max Requirement
+       5.1.16. Last Known Location
+       5.1.17. Tariff Code
+       5.1.18. Country of Origin
+       5.1.19. Customs Value
+       5.1.20. Currency Code
+       5.1.21. Import/Export License Number
+       5.1.22. Sanctions Reference
+       5.1.23. Legal Jurisdiction
+       5.1.24. Importer Code
+       5.1.25. Exporter Code
+       5.1.26. International Commercial Terms
+       5.1.27. Regulatory Compliance Codes
+       5.1.28. Additional Documents Required
+       5.1.29. Freight Charges
+       5.1.30. Insurance Charges
+       5.1.31. Packing Costs
+       5.1.32. Place of Loading
+       5.1.33. Place of Discharge
+       5.1.34. Consignee Information
+       5.1.35. Consignor Information
+       5.1.36. Customs Declaration Date
+     5.2.  JSON Web Token (JWT) Claims
+       5.2.1.  Goods Identifier
+       5.2.2.  Shipment ID
+       5.2.3.  Bill of Lading Number
+       5.2.4.  Transport Mode
+       5.2.5.  Container ID
+       5.2.6.  Origin Location
+       5.2.7.  Destination Location
+       5.2.8.  Carrier ID
+       5.2.9.  Estimated Delivery Date
+       5.2.10. Customs Declaration Number
+       5.2.11. Commodity Description
+       5.2.12. HS Code
+       5.2.13. Gross Weight
+       5.2.14. Temperature Min Requirement
+       5.2.15. Temperature Max Requirement
+       5.2.16. Last Known Location
+       5.2.17. Tariff Code
+       5.2.18. Country of Origin
+       5.2.19. Customs Value
+       5.2.20. Currency Code
+       5.2.21. Import/Export License Number
+       5.2.22. Sanctions Reference
+       5.2.23. Legal Jurisdiction
+       5.2.24. Importer Code
+       5.2.25. Exporter Code
+       5.2.26. International Commercial Terms
+       5.2.27. Regulatory Compliance Codes
+       5.2.28. Additional Documents Required
+       5.2.29. Freight Charges
+       5.2.30. Insurance Charges
+       5.2.31. Packing Costs
+       5.2.32. Place of Loading
+       5.2.33. Place of Discharge
+       5.2.34. Consignee Information
+       5.2.35. Consignor Information
+       5.2.36. Customs Declaration Date
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
    Acknowledgments
    Document History
    Authors' Addresses
@@ -190,7 +191,16 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Examples
+
+   Product Information Example JWT Claims Set: JSON {
+   "commodity_description": "Organic Blueberries, 12 oz containers",
+   "product_id": "nb-blueberries-001", "country_of_origin": "CA",
+   "hs_code": "0810.40.0026", "gross_weight": 5050, "min_temperature":
+   0, "max_temperature": 2, "customs_value": 83335.0, "currency_code":
+   "USD", "legal_jurisdiction": ["US", "CA"], }
+
+4.  Security Considerations
 
    These claims are designed to enhance transparency in supply chain
    tracking but should be handled securely to prevent unauthorized
@@ -200,14 +210,14 @@ Table of Contents
    careful consideration of data minimization requirements SHOULD be
    considered when using these claims.
 
-4.  IANA Considerations
+5.  IANA Considerations
 
-4.1.  CBOR Web Token (CWT) Claims
+5.1.  CBOR Web Token (CWT) Claims
 
    This specification registers the following claims in the IANA "CBOR
    Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 
-4.1.1.  Goods Identifier
+5.1.1.  Goods Identifier
 
    *  Claim Name: product_id
 
@@ -223,9 +233,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.1 of this specification
+   *  Reference: Section 5.1.1 of this specification
 
-4.1.2.  Shipment ID
+5.1.2.  Shipment ID
 
    *  Claim Name: shipment_id
 
@@ -240,9 +250,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.2 of this specification
+   *  Reference: Section 5.1.2 of this specification
 
-4.1.3.  Bill of Lading Number
+5.1.3.  Bill of Lading Number
 
    *  Claim Name: bill_of_lading_number
 
@@ -257,9 +267,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.3 of this specification
+   *  Reference: Section 5.1.3 of this specification
 
-4.1.4.  Transport Mode
+5.1.4.  Transport Mode
 
    *  Claim Name: transport_mode
 
@@ -274,9 +284,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.4 of this specification
+   *  Reference: Section 5.1.4 of this specification
 
-4.1.5.  Container ID
+5.1.5.  Container ID
 
    *  Claim Name: container_id
 
@@ -291,9 +301,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.5 of this specification
+   *  Reference: Section 5.1.5 of this specification
 
-4.1.6.  Origin Location
+5.1.6.  Origin Location
 
    *  Claim Name: origin_location
 
@@ -308,9 +318,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.6 of this specification
+   *  Reference: Section 5.1.6 of this specification
 
-4.1.7.  Destination Location
+5.1.7.  Destination Location
 
    *  Claim Name: destination_location
 
@@ -324,9 +334,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.7 of this specification
+   *  Reference: Section 5.1.7 of this specification
 
-4.1.8.  Carrier ID
+5.1.8.  Carrier ID
 
    *  Claim Name: carrier_id
 
@@ -341,9 +351,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.8 of this specification
+   *  Reference: Section 5.1.8 of this specification
 
-4.1.9.  Estimated Delivery Date
+5.1.9.  Estimated Delivery Date
 
    *  Claim Name: estimated_delivery_date
 
@@ -358,9 +368,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.9 of this specification
+   *  Reference: Section 5.1.9 of this specification
 
-4.1.10.  Customs Declaration Number
+5.1.10.  Customs Declaration Number
 
    *  Claim Name: customs_declaration_number
 
@@ -375,9 +385,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.10 of this specification
+   *  Reference: Section 5.1.10 of this specification
 
-4.1.11.  Commodity Description
+5.1.11.  Commodity Description
 
    *  Claim Name: commodity_description
 
@@ -392,9 +402,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.11 of this specification
+   *  Reference: Section 5.1.11 of this specification
 
-4.1.12.  HS Code
+5.1.12.  HS Code
 
    *  Claim Name: hs_code
 
@@ -409,9 +419,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.12 of this specification
+   *  Reference: Section 5.1.12 of this specification
 
-4.1.13.  Gross Weight
+5.1.13.  Gross Weight
 
    *  Claim Name: gross_weight
 
@@ -425,9 +435,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.13 of this specification
+   *  Reference: Section 5.1.13 of this specification
 
-4.1.14.  Temperature Min Requirement
+5.1.14.  Temperature Min Requirement
 
    *  Claim Name: temperature_requirement_min
 
@@ -442,9 +452,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.14 of this specification
+   *  Reference: Section 5.1.14 of this specification
 
-4.1.15.  Temperature Max Requirement
+5.1.15.  Temperature Max Requirement
 
    *  Claim Name: temperature_requirement_max
 
@@ -459,9 +469,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.15 of this specification
+   *  Reference: Section 5.1.15 of this specification
 
-4.1.16.  Last Known Location
+5.1.16.  Last Known Location
 
    *  Claim Name: last_known_location
 
@@ -475,9 +485,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.16 of this specification
+   *  Reference: Section 5.1.16 of this specification
 
-4.1.17.  Tariff Code
+5.1.17.  Tariff Code
 
    *  Claim Name: tariff_code
 
@@ -492,9 +502,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.17 of this specification
+   *  Reference: Section 5.1.17 of this specification
 
-4.1.18.  Country of Origin
+5.1.18.  Country of Origin
 
    *  Claim Name: country_of_origin
 
@@ -510,9 +520,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.18 of this specification
+   *  Reference: Section 5.1.18 of this specification
 
-4.1.19.  Customs Value
+5.1.19.  Customs Value
 
    *  Claim Name: customs_value
 
@@ -527,9 +537,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.19 of this specification
+   *  Reference: Section 5.1.19 of this specification
 
-4.1.20.  Currency Code
+5.1.20.  Currency Code
 
    *  Claim Name: currency_code
 
@@ -545,9 +555,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.20 of this specification
+   *  Reference: Section 5.1.20 of this specification
 
-4.1.21.  Import/Export License Number
+5.1.21.  Import/Export License Number
 
    *  Claim Name: license_number
 
@@ -562,9 +572,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.21 of this specification
+   *  Reference: Section 5.1.21 of this specification
 
-4.1.22.  Sanctions Reference
+5.1.22.  Sanctions Reference
 
    *  Claim Name: sanctions_reference
 
@@ -579,9 +589,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.22 of this specification
+   *  Reference: Section 5.1.22 of this specification
 
-4.1.23.  Legal Jurisdiction
+5.1.23.  Legal Jurisdiction
 
    *  Claim Name: legal_jurisdiction
 
@@ -597,9 +607,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.23 of this specification
+   *  Reference: Section 5.1.23 of this specification
 
-4.1.24.  Importer Code
+5.1.24.  Importer Code
 
    *  Claim Name: importer_code
 
@@ -613,9 +623,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.24 of this specification
+   *  Reference: Section 5.1.24 of this specification
 
-4.1.25.  Exporter Code
+5.1.25.  Exporter Code
 
    *  Claim Name: exporter_code
 
@@ -629,9 +639,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.25 of this specification
+   *  Reference: Section 5.1.25 of this specification
 
-4.1.26.  International Commercial Terms
+5.1.26.  International Commercial Terms
 
    *  Claim Name: incoterms
 
@@ -647,9 +657,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.26 of this specification
+   *  Reference: Section 5.1.26 of this specification
 
-4.1.27.  Regulatory Compliance Codes
+5.1.27.  Regulatory Compliance Codes
 
    *  Claim Name: regulatory_compliance_codes
 
@@ -665,9 +675,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.27 of this specification
+   *  Reference: Section 5.1.27 of this specification
 
-4.1.28.  Additional Documents Required
+5.1.28.  Additional Documents Required
 
    *  Claim Name: additional_documents_required
 
@@ -683,9 +693,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.28 of this specification
+   *  Reference: Section 5.1.28 of this specification
 
-4.1.29.  Freight Charges
+5.1.29.  Freight Charges
 
    *  Claim Name: freight_charges
 
@@ -700,9 +710,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.29 of this specification
+   *  Reference: Section 5.1.29 of this specification
 
-4.1.30.  Insurance Charges
+5.1.30.  Insurance Charges
 
    *  Claim Name: insurance_charges
 
@@ -717,9 +727,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.30 of this specification
+   *  Reference: Section 5.1.30 of this specification
 
-4.1.31.  Packing Costs
+5.1.31.  Packing Costs
 
    *  Claim Name: packing_costs
 
@@ -734,9 +744,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.31 of this specification
+   *  Reference: Section 5.1.31 of this specification
 
-4.1.32.  Place of Loading
+5.1.32.  Place of Loading
 
    *  Claim Name: place_of_loading
 
@@ -751,9 +761,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.32 of this specification
+   *  Reference: Section 5.1.32 of this specification
 
-4.1.33.  Place of Discharge
+5.1.33.  Place of Discharge
 
    *  Claim Name: place_of_discharge
 
@@ -768,9 +778,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.33 of this specification
+   *  Reference: Section 5.1.33 of this specification
 
-4.1.34.  Consignee Information
+5.1.34.  Consignee Information
 
    *  Claim Name: consignee_information
 
@@ -785,9 +795,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.34 of this specification
+   *  Reference: Section 5.1.34 of this specification
 
-4.1.35.  Consignor Information
+5.1.35.  Consignor Information
 
    *  Claim Name: consignor_information
 
@@ -802,9 +812,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.35 of this specification
+   *  Reference: Section 5.1.35 of this specification
 
-4.1.36.  Customs Declaration Date
+5.1.36.  Customs Declaration Date
 
    *  Claim Name: customs_declaration_date
 
@@ -819,14 +829,14 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.36 of this specification
+   *  Reference: Section 5.1.36 of this specification
 
-4.2.  JSON Web Token (JWT) Claims
+5.2.  JSON Web Token (JWT) Claims
 
    This specification registers the following claims in the IANA "JSON
    Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 
-4.2.1.  Goods Identifier
+5.2.1.  Goods Identifier
 
    *  Claim Name: product_id
 
@@ -836,9 +846,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.1 of this specification
+   *  Reference: Section 5.1.1 of this specification
 
-4.2.2.  Shipment ID
+5.2.2.  Shipment ID
 
    *  Claim Name: shipment_id
 
@@ -847,9 +857,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.2 of this specification
+   *  Reference: Section 5.1.2 of this specification
 
-4.2.3.  Bill of Lading Number
+5.2.3.  Bill of Lading Number
 
    *  Claim Name: bill_of_lading_number
 
@@ -858,9 +868,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.3 of this specification
+   *  Reference: Section 5.1.3 of this specification
 
-4.2.4.  Transport Mode
+5.2.4.  Transport Mode
 
    *  Claim Name: transport_mode
 
@@ -869,9 +879,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.4 of this specification
+   *  Reference: Section 5.1.4 of this specification
 
-4.2.5.  Container ID
+5.2.5.  Container ID
 
    *  Claim Name: container_id
 
@@ -880,9 +890,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.5 of this specification
+   *  Reference: Section 5.1.5 of this specification
 
-4.2.6.  Origin Location
+5.2.6.  Origin Location
 
    *  Claim Name: origin_location
 
@@ -891,9 +901,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.6 of this specification
+   *  Reference: Section 5.1.6 of this specification
 
-4.2.7.  Destination Location
+5.2.7.  Destination Location
 
    *  Claim Name: destination_location
 
@@ -901,9 +911,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.7 of this specification
+   *  Reference: Section 5.1.7 of this specification
 
-4.2.8.  Carrier ID
+5.2.8.  Carrier ID
 
    *  Claim Name: carrier_id
 
@@ -912,9 +922,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.8 of this specification
+   *  Reference: Section 5.1.8 of this specification
 
-4.2.9.  Estimated Delivery Date
+5.2.9.  Estimated Delivery Date
 
    *  Claim Name: estimated_delivery_date
 
@@ -923,9 +933,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.9 of this specification
+   *  Reference: Section 5.1.9 of this specification
 
-4.2.10.  Customs Declaration Number
+5.2.10.  Customs Declaration Number
 
    *  Claim Name: customs_declaration_number
 
@@ -934,9 +944,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.10 of this specification
+   *  Reference: Section 5.1.10 of this specification
 
-4.2.11.  Commodity Description
+5.2.11.  Commodity Description
 
    *  Claim Name: commodity_description
 
@@ -945,9 +955,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.11 of this specification
+   *  Reference: Section 5.1.11 of this specification
 
-4.2.12.  HS Code
+5.2.12.  HS Code
 
    *  Claim Name: hs_code
 
@@ -956,9 +966,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.12 of this specification
+   *  Reference: Section 5.1.12 of this specification
 
-4.2.13.  Gross Weight
+5.2.13.  Gross Weight
 
    *  Claim Name: gross_weight
 
@@ -966,9 +976,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.13 of this specification
+   *  Reference: Section 5.1.13 of this specification
 
-4.2.14.  Temperature Min Requirement
+5.2.14.  Temperature Min Requirement
 
    *  Claim Name: temperature_requirement_min
 
@@ -977,9 +987,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.14 of this specification
+   *  Reference: Section 5.1.14 of this specification
 
-4.2.15.  Temperature Max Requirement
+5.2.15.  Temperature Max Requirement
 
    *  Claim Name: temperature_requirement_max
 
@@ -988,9 +998,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.15 of this specification
+   *  Reference: Section 5.1.15 of this specification
 
-4.2.16.  Last Known Location
+5.2.16.  Last Known Location
 
    *  Claim Name: last_known_location
 
@@ -998,9 +1008,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.16 of this specification
+   *  Reference: Section 5.1.16 of this specification
 
-4.2.17.  Tariff Code
+5.2.17.  Tariff Code
 
    *  Claim Name: tariff_code
 
@@ -1009,9 +1019,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.17 of this specification
+   *  Reference: Section 5.1.17 of this specification
 
-4.2.18.  Country of Origin
+5.2.18.  Country of Origin
 
    *  Claim Name: country_of_origin
 
@@ -1021,9 +1031,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.18 of this specification
+   *  Reference: Section 5.1.18 of this specification
 
-4.2.19.  Customs Value
+5.2.19.  Customs Value
 
    *  Claim Name: customs_value
 
@@ -1032,9 +1042,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.19 of this specification
+   *  Reference: Section 5.1.19 of this specification
 
-4.2.20.  Currency Code
+5.2.20.  Currency Code
 
    *  Claim Name: currency_code
 
@@ -1044,9 +1054,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.20 of this specification
+   *  Reference: Section 5.1.20 of this specification
 
-4.2.21.  Import/Export License Number
+5.2.21.  Import/Export License Number
 
    *  Claim Name: license_number
 
@@ -1055,9 +1065,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.21 of this specification
+   *  Reference: Section 5.1.21 of this specification
 
-4.2.22.  Sanctions Reference
+5.2.22.  Sanctions Reference
 
    *  Claim Name: sanctions_reference
 
@@ -1066,9 +1076,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.22 of this specification
+   *  Reference: Section 5.1.22 of this specification
 
-4.2.23.  Legal Jurisdiction
+5.2.23.  Legal Jurisdiction
 
    *  Claim Name: legal_jurisdiction
 
@@ -1078,9 +1088,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.23 of this specification
+   *  Reference: Section 5.1.23 of this specification
 
-4.2.24.  Importer Code
+5.2.24.  Importer Code
 
    *  Claim Name: importer_code
 
@@ -1088,9 +1098,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.24 of this specification
+   *  Reference: Section 5.1.24 of this specification
 
-4.2.25.  Exporter Code
+5.2.25.  Exporter Code
 
    *  Claim Name: exporter_code
 
@@ -1098,9 +1108,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.25 of this specification
+   *  Reference: Section 5.1.25 of this specification
 
-4.2.26.  International Commercial Terms
+5.2.26.  International Commercial Terms
 
    *  Claim Name: incoterms
 
@@ -1110,9 +1120,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.26 of this specification
+   *  Reference: Section 5.1.26 of this specification
 
-4.2.27.  Regulatory Compliance Codes
+5.2.27.  Regulatory Compliance Codes
 
    *  Claim Name: regulatory_compliance_codes
 
@@ -1122,9 +1132,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.27 of this specification
+   *  Reference: Section 5.1.27 of this specification
 
-4.2.28.  Additional Documents Required
+5.2.28.  Additional Documents Required
 
    *  Claim Name: additional_documents_required
 
@@ -1134,9 +1144,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.28 of this specification
+   *  Reference: Section 5.1.28 of this specification
 
-4.2.29.  Freight Charges
+5.2.29.  Freight Charges
 
    *  Claim Name: freight_charges
 
@@ -1145,9 +1155,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.29 of this specification
+   *  Reference: Section 5.1.29 of this specification
 
-4.2.30.  Insurance Charges
+5.2.30.  Insurance Charges
 
    *  Claim Name: insurance_charges
 
@@ -1156,9 +1166,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.30 of this specification
+   *  Reference: Section 5.1.30 of this specification
 
-4.2.31.  Packing Costs
+5.2.31.  Packing Costs
 
    *  Claim Name: packing_costs
 
@@ -1167,9 +1177,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.31 of this specification
+   *  Reference: Section 5.1.31 of this specification
 
-4.2.32.  Place of Loading
+5.2.32.  Place of Loading
 
    *  Claim Name: place_of_loading
 
@@ -1178,9 +1188,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.32 of this specification
+   *  Reference: Section 5.1.32 of this specification
 
-4.2.33.  Place of Discharge
+5.2.33.  Place of Discharge
 
    *  Claim Name: place_of_discharge
 
@@ -1189,9 +1199,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.33 of this specification
+   *  Reference: Section 5.1.33 of this specification
 
-4.2.34.  Consignee Information
+5.2.34.  Consignee Information
 
    *  Claim Name: consignee_information
 
@@ -1200,9 +1210,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.34 of this specification
+   *  Reference: Section 5.1.34 of this specification
 
-4.2.35.  Consignor Information
+5.2.35.  Consignor Information
 
    *  Claim Name: consignor_information
 
@@ -1211,9 +1221,9 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.35 of this specification
+   *  Reference: Section 5.1.35 of this specification
 
-4.2.36.  Customs Declaration Date
+5.2.36.  Customs Declaration Date
 
    *  Claim Name: customs_declaration_date
 
@@ -1222,11 +1232,11 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Reference: Section 4.1.36 of this specification
+   *  Reference: Section 5.1.36 of this specification
 
-5.  References
+6.  References
 
-5.1.  Normative References
+6.1.  Normative References
 
    [ISO.3166] ISO, "ISO 3166-1:2020: Codes for the representation of
               names of countries and their subdivisions", 2020,
@@ -1257,7 +1267,7 @@ Table of Contents
               "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
               May 2018, <https://www.rfc-editor.org/rfc/rfc8392>.
 
-5.2.  Informative References
+6.2.  Informative References
 
    [CATAIR]   U.S. Customs and Border Protection, "ACE Automated Broker
               Interface (ABI) CBP and Trade Automated Interface
