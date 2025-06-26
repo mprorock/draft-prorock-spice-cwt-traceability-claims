@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 27 December 2025                         Self-Issued Consulting
+Expires: 28 December 2025                         Self-Issued Consulting
                                                             B. W. Zundel
                                                             Tradeverifyd
-                                                            25 June 2025
+                                                            26 June 2025
 
 
                           Traceability Claims
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 December 2025.
+   This Internet-Draft will expire on 28 December 2025.
 
 Copyright Notice
 
@@ -585,13 +585,13 @@ Table of Contents
 
    *  Claim Description: Legal jurisdiction(s) governing the
       transaction, represented as an [ISO.3166] alpha-2 country code
-      string or specific legal identifiers
+      string or other specific legal identifier.
 
    *  JWT Claim Name: legal_jurisdiction
 
    *  Claim Key: TBD (requested assignment 342)
 
-   *  Claim Value Type: text string
+   *  Claim Value Type: array of text strings
 
    *  Change Controller: IETF
 
@@ -1074,7 +1074,7 @@ Table of Contents
 
    *  Claim Description: Legal jurisdiction(s) governing the
       transaction, represented as an [ISO.3166] alpha-2 country code
-      string or specific legal identifiers
+      string or other specific legal identifier.
 
    *  Change Controller: IETF
 
