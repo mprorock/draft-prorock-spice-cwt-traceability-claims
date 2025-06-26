@@ -1,0 +1,1323 @@
+
+
+
+
+Secure Patterns for Internet CrEdentials                      M. Prorock
+Internet-Draft                                              Tradeverifyd
+Intended status: Standards Track                             M. B. Jones
+Expires: 28 December 2025                         Self-Issued Consulting
+                                                            26 June 2025
+
+
+                          Traceability Claims
+           draft-prorock-spice-cwt-traceability-claims-latest
+
+Abstract
+
+   This document defines claims to support traceability of physical
+   goods across supply chains, focusing on items such as bills of
+   lading, transport modes, and container manifests.  These claims
+   standardize the encoding of essential logistics and transport
+   metadata, facilitating enhanced transparency and accountability in
+   global supply chains.  These claims are registered for use in both
+   CBOR Web Tokens (CWTs) and JSON Web Tokens (JWTs).
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://mprorock.github.io/draft-prorock-spice-cwt-traceability-
+   claims/draft-prorock-spice-cwt-traceability-claims.html.  Status
+   information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-prorock-spice-cwt-
+   traceability-claims/.
+
+   Discussion of this document takes place on the Secure Patterns for
+   Internet CrEdentials Working Group mailing list
+   (mailto:spice@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/spice/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/spice/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/mprorock/draft-prorock-spice-cwt-traceability-
+   claims.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 28 December 2025.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Conventions and Definitions
+   3.  Security Considerations
+   4.  IANA Considerations
+     4.1.  CBOR Web Token (CWT) Claims
+       4.1.1.  Goods Identifier
+       4.1.2.  Shipment ID
+       4.1.3.  Bill of Lading Number
+       4.1.4.  Transport Mode
+       4.1.5.  Container ID
+       4.1.6.  Origin Location
+       4.1.7.  Destination Location
+       4.1.8.  Carrier ID
+       4.1.9.  Estimated Delivery Date
+       4.1.10. Customs Declaration Number
+       4.1.11. Commodity Description
+       4.1.12. HS Code
+       4.1.13. Gross Weight
+       4.1.14. Temperature Min Requirement
+       4.1.15. Temperature Max Requirement
+       4.1.16. Last Known Location
+       4.1.17. Tariff Code
+       4.1.18. Country of Origin
+       4.1.19. Customs Value
+       4.1.20. Currency Code
+       4.1.21. Import/Export License Number
+       4.1.22. Sanctions Reference
+       4.1.23. Legal Jurisdiction
+       4.1.24. Importer Code
+       4.1.25. Exporter Code
+       4.1.26. International Commercial Terms
+       4.1.27. Regulatory Compliance Codes
+       4.1.28. Additional Documents Required
+       4.1.29. Freight Charges
+       4.1.30. Insurance Charges
+       4.1.31. Packing Costs
+       4.1.32. Place of Loading
+       4.1.33. Place of Discharge
+       4.1.34. Consignee Information
+       4.1.35. Consignor Information
+       4.1.36. Customs Declaration Date
+     4.2.  JSON Web Token (JWT) Claims
+       4.2.1.  Goods Identifier
+       4.2.2.  Shipment ID
+       4.2.3.  Bill of Lading Number
+       4.2.4.  Transport Mode
+       4.2.5.  Container ID
+       4.2.6.  Origin Location
+       4.2.7.  Destination Location
+       4.2.8.  Carrier ID
+       4.2.9.  Estimated Delivery Date
+       4.2.10. Customs Declaration Number
+       4.2.11. Commodity Description
+       4.2.12. HS Code
+       4.2.13. Gross Weight
+       4.2.14. Temperature Min Requirement
+       4.2.15. Temperature Max Requirement
+       4.2.16. Last Known Location
+       4.2.17. Tariff Code
+       4.2.18. Country of Origin
+       4.2.19. Customs Value
+       4.2.20. Currency Code
+       4.2.21. Import/Export License Number
+       4.2.22. Sanctions Reference
+       4.2.23. Legal Jurisdiction
+       4.2.24. Importer Code
+       4.2.25. Exporter Code
+       4.2.26. International Commercial Terms
+       4.2.27. Regulatory Compliance Codes
+       4.2.28. Additional Documents Required
+       4.2.29. Freight Charges
+       4.2.30. Insurance Charges
+       4.2.31. Packing Costs
+       4.2.32. Place of Loading
+       4.2.33. Place of Discharge
+       4.2.34. Consignee Information
+       4.2.35. Consignor Information
+       4.2.36. Customs Declaration Date
+   5.  References
+     5.1.  Normative References
+     5.2.  Informative References
+   Acknowledgments
+   Document History
+   Authors' Addresses
+
+1.  Introduction
+
+   This document defines a set of claims intended to enable the
+   traceability of physical goods across various stages of
+   transportation and storage.  These claims capture critical
+   information necessary for documenting the movement of goods in supply
+   chains, thereby supporting regulatory compliance and operational
+   efficiency.  These claims are defined for both CBOR Web Tokens (CWTs)
+   [RFC8392] and JSON Web Tokens (JWTs) [RFC7519].
+
+   These claims are informed by the following documents, among others:
+   ACE Automated Broker Interface (ABI) CBP and Trade Automated
+   Interface Requirements (CATAIR) [CATAIR], Integrated Track and Trace
+   for Multi-Modal Transportation [TrackTrace], and Traceability
+   Vocabulary v1.0: A vocabulary for traceability in supply chains
+   [TraceabilityVocab].
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  Security Considerations
+
+   These claims are designed to enhance transparency in supply chain
+   tracking but should be handled securely to prevent unauthorized
+   access to sensitive data.  Confidentiality and integrity of these
+   claims must be considered, particularly when shared across untrusted
+   or unsecured networks.  Use of selective disclosure techniques and
+   careful consideration of data minimization requirements SHOULD be
+   considered when using these claims.
+
+4.  IANA Considerations
+
+4.1.  CBOR Web Token (CWT) Claims
+
+   This specification registers the following claims in the IANA "CBOR
+   Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
+
+4.1.1.  Goods Identifier
+
+   *  Claim Name: product_id
+
+   *  Claim Description: A unique identifier for the physical product(s)
+      or shipment being tracked.  May correspond to SKU, product ID, or
+      batch number.
+
+   *  JWT Claim Name: product_id
+
+   *  Claim Key: TBD (requested assignment 320)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.1 of this specification
+
+4.1.2.  Shipment ID
+
+   *  Claim Name: shipment_id
+
+   *  Claim Description: Unique identifier assigned to a specific
+      shipment.
+
+   *  JWT Claim Name: shipment_id
+
+   *  Claim Key: TBD (requested assignment 321)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.2 of this specification
+
+4.1.3.  Bill of Lading Number
+
+   *  Claim Name: bill_of_lading_number
+
+   *  Claim Description: Identifier for the bill of lading associated
+      with the goods.
+
+   *  JWT Claim Name: bill_of_lading_number
+
+   *  Claim Key: TBD (requested assignment 322)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.3 of this specification
+
+4.1.4.  Transport Mode
+
+   *  Claim Name: transport_mode
+
+   *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
+
+   *  JWT Claim Name: transport_mode
+
+   *  Claim Key: TBD (requested assignment 323)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.4 of this specification
+
+4.1.5.  Container ID
+
+   *  Claim Name: container_id
+
+   *  Claim Description: Unique identifier for the container used in the
+      shipment.
+
+   *  JWT Claim Name: container_id
+
+   *  Claim Key: TBD (requested assignment 324)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.5 of this specification
+
+4.1.6.  Origin Location
+
+   *  Claim Name: origin_location
+
+   *  Claim Description: Geographical origin of the goods, represented
+      as an [ISO.3166] alpha-2 country code string or specific address
+
+   *  JWT Claim Name: origin_location
+
+   *  Claim Key: TBD (requested assignment 325)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.6 of this specification
+
+4.1.7.  Destination Location
+
+   *  Claim Name: destination_location
+
+   *  Claim Description: Final destination of the goods in the shipment.
+
+   *  JWT Claim Name: destination_location
+
+   *  Claim Key: TBD (requested assignment 326)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.7 of this specification
+
+4.1.8.  Carrier ID
+
+   *  Claim Name: carrier_id
+
+   *  Claim Description: Identifier for the carrier or logistics
+      provider responsible for the shipment.
+
+   *  JWT Claim Name: carrier_id
+
+   *  Claim Key: TBD (requested assignment 327)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.8 of this specification
+
+4.1.9.  Estimated Delivery Date
+
+   *  Claim Name: estimated_delivery_date
+
+   *  Claim Description: Expected delivery date for the shipment,
+      represented as an [ISO.8601] date and time string
+
+   *  JWT Claim Name: estimated_delivery_date
+
+   *  Claim Key: TBD (requested assignment 328)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.9 of this specification
+
+4.1.10.  Customs Declaration Number
+
+   *  Claim Name: customs_declaration_number
+
+   *  Claim Description: Identifier for the customs declaration
+      associated with the shipment.
+
+   *  JWT Claim Name: customs_declaration_number
+
+   *  Claim Key: TBD (requested assignment 329)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.10 of this specification
+
+4.1.11.  Commodity Description
+
+   *  Claim Name: commodity_description
+
+   *  Claim Description: Description of the commodity or goods being
+      transported.
+
+   *  JWT Claim Name: commodity_description
+
+   *  Claim Key: TBD (requested assignment 330)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.11 of this specification
+
+4.1.12.  HS Code
+
+   *  Claim Name: hs_code
+
+   *  Claim Description: Harmonized System (HS) code for the goods.
+
+   *  JWT Claim Name: hs_code
+
+   *  Claim Key: TBD (requested assignment 331)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.12 of this specification
+
+4.1.13.  Gross Weight
+
+   *  Claim Name: gross_weight
+
+   *  Claim Description: Gross weight of the shipment, in kilograms.
+
+   *  JWT Claim Name: gross_weight
+
+   *  Claim Key: TBD (requested assignment 332)
+
+   *  Claim Value Type: integer
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.13 of this specification
+
+4.1.14.  Temperature Min Requirement
+
+   *  Claim Name: temperature_requirement_min
+
+   *  Claim Description: Minimum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  JWT Claim Name: temperature_requirement_min
+
+   *  Claim Key: TBD (requested assignment 333)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.14 of this specification
+
+4.1.15.  Temperature Max Requirement
+
+   *  Claim Name: temperature_requirement_max
+
+   *  Claim Description: Maximum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  JWT Claim Name: temperature_requirement_max
+
+   *  Claim Key: TBD (requested assignment 334)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.15 of this specification
+
+4.1.16.  Last Known Location
+
+   *  Claim Name: last_known_location
+
+   *  Claim Description: Most recent location update for the goods.
+
+   *  JWT Claim Name: last_known_location
+
+   *  Claim Key: TBD (requested assignment 335)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.16 of this specification
+
+4.1.17.  Tariff Code
+
+   *  Claim Name: tariff_code
+
+   *  Claim Description: Tariff code applicable to the goods, including
+      national tariff classifications or specific duty codes.
+
+   *  JWT Claim Name: tariff_code
+
+   *  Claim Key: TBD (requested assignment 336)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.17 of this specification
+
+4.1.18.  Country of Origin
+
+   *  Claim Name: country_of_origin
+
+   *  Claim Description: The country where the goods were produced or
+      manufactured, represented as an [ISO.3166] alpha-2 country code
+      string
+
+   *  JWT Claim Name: country_of_origin
+
+   *  Claim Key: TBD (requested assignment 337)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.18 of this specification
+
+4.1.19.  Customs Value
+
+   *  Claim Name: customs_value
+
+   *  Claim Description: Declared value of the goods for customs
+      purposes, typically in the transaction currency.
+
+   *  JWT Claim Name: customs_value
+
+   *  Claim Key: TBD (requested assignment 338)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.19 of this specification
+
+4.1.20.  Currency Code
+
+   *  Claim Name: currency_code
+
+   *  Claim Description: Currency code for the customs value and other
+      monetary amounts, represented as an [ISO.4217] alpha-3 currency
+      code string
+
+   *  JWT Claim Name: currency_code
+
+   *  Claim Key: TBD (requested assignment 339)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.20 of this specification
+
+4.1.21.  Import/Export License Number
+
+   *  Claim Name: license_number
+
+   *  Claim Description: License or permit number required for the
+      import or export of the goods.
+
+   *  JWT Claim Name: license_number
+
+   *  Claim Key: TBD (requested assignment 340)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.21 of this specification
+
+4.1.22.  Sanctions Reference
+
+   *  Claim Name: sanctions_reference
+
+   *  Claim Description: Reference to applicable sanctions lists or
+      regulations affecting the goods or involved parties.
+
+   *  JWT Claim Name: sanctions_reference
+
+   *  Claim Key: TBD (requested assignment 341)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.22 of this specification
+
+4.1.23.  Legal Jurisdiction
+
+   *  Claim Name: legal_jurisdiction
+
+   *  Claim Description: Legal jurisdiction(s) governing the
+      transaction, represented as an [ISO.3166] alpha-2 country code
+      string or other specific legal identifier.
+
+   *  JWT Claim Name: legal_jurisdiction
+
+   *  Claim Key: TBD (requested assignment 342)
+
+   *  Claim Value Type: array of text strings
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.23 of this specification
+
+4.1.24.  Importer Code
+
+   *  Claim Name: importer_code
+
+   *  Claim Description: Code identifying the importer, such as a VAT
+      number or EORI number.
+
+   *  JWT Claim Name: importer_code
+
+   *  Claim Key: TBD (requested assignment 343)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.24 of this specification
+
+4.1.25.  Exporter Code
+
+   *  Claim Name: exporter_code
+
+   *  Claim Description: Code identifying the exporter, such as a VAT
+      number or EORI number.
+
+   *  JWT Claim Name: exporter_code
+
+   *  Claim Key: TBD (requested assignment 344)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.25 of this specification
+
+4.1.26.  International Commercial Terms
+
+   *  Claim Name: incoterms
+
+   *  Claim Description: International commercial terms defining
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
+
+   *  JWT Claim Name: incoterms
+
+   *  Claim Key: TBD (requested assignment 345)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.26 of this specification
+
+4.1.27.  Regulatory Compliance Codes
+
+   *  Claim Name: regulatory_compliance_codes
+
+   *  Claim Description: Codes indicating compliance with specific
+      regulations or standards (e.g., safety certifications,
+      environmental standards).
+
+   *  JWT Claim Name: regulatory_compliance_codes
+
+   *  Claim Key: TBD (requested assignment 346)
+
+   *  Claim Value Type: array of text strings
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.27 of this specification
+
+4.1.28.  Additional Documents Required
+
+   *  Claim Name: additional_documents_required
+
+   *  Claim Description: List of additional documents required for
+      customs clearance, such as certificates of origin or inspection
+      reports.
+
+   *  JWT Claim Name: additional_documents_required
+
+   *  Claim Key: TBD (requested assignment 347)
+
+   *  Claim Value Type: array of text strings
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.28 of this specification
+
+4.1.29.  Freight Charges
+
+   *  Claim Name: freight_charges
+
+   *  Claim Description: Transportation costs associated with the
+      shipment, used for customs valuation.
+
+   *  JWT Claim Name: freight_charges
+
+   *  Claim Key: TBD (requested assignment 348)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.29 of this specification
+
+4.1.30.  Insurance Charges
+
+   *  Claim Name: insurance_charges
+
+   *  Claim Description: Insurance costs for the shipment, used in
+      determining customs value.
+
+   *  JWT Claim Name: insurance_charges
+
+   *  Claim Key: TBD (requested assignment 349)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.30 of this specification
+
+4.1.31.  Packing Costs
+
+   *  Claim Name: packing_costs
+
+   *  Claim Description: Costs associated with packing the goods,
+      relevant for customs valuation.
+
+   *  JWT Claim Name: packing_costs
+
+   *  Claim Key: TBD (requested assignment 350)
+
+   *  Claim Value Type: float
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.31 of this specification
+
+4.1.32.  Place of Loading
+
+   *  Claim Name: place_of_loading
+
+   *  Claim Description: Location where the goods were loaded for
+      shipment, often a port or warehouse.
+
+   *  JWT Claim Name: place_of_loading
+
+   *  Claim Key: TBD (requested assignment 351)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.32 of this specification
+
+4.1.33.  Place of Discharge
+
+   *  Claim Name: place_of_discharge
+
+   *  Claim Description: Location where the goods are scheduled to be
+      unloaded.
+
+   *  JWT Claim Name: place_of_discharge
+
+   *  Claim Key: TBD (requested assignment 352)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.33 of this specification
+
+4.1.34.  Consignee Information
+
+   *  Claim Name: consignee_information
+
+   *  Claim Description: Information about the consignee, including
+      name, address, and contact details.
+
+   *  JWT Claim Name: consignee_information
+
+   *  Claim Key: TBD (requested assignment 353)
+
+   *  Claim Value Type: map
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.34 of this specification
+
+4.1.35.  Consignor Information
+
+   *  Claim Name: consignor_information
+
+   *  Claim Description: Information about the consignor, including
+      name, address, and contact details.
+
+   *  JWT Claim Name: consignor_information
+
+   *  Claim Key: TBD (requested assignment 354)
+
+   *  Claim Value Type: map
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.35 of this specification
+
+4.1.36.  Customs Declaration Date
+
+   *  Claim Name: customs_declaration_date
+
+   *  Claim Description: Date when the customs declaration was made,
+      represented as an [ISO.8601] date and time string
+
+   *  JWT Claim Name: customs_declaration_date
+
+   *  Claim Key: TBD (requested assignment 355)
+
+   *  Claim Value Type: text string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.36 of this specification
+
+4.2.  JSON Web Token (JWT) Claims
+
+   This specification registers the following claims in the IANA "JSON
+   Web Token Claims" registry [IANA.JWT] established by [RFC7519].
+
+4.2.1.  Goods Identifier
+
+   *  Claim Name: product_id
+
+   *  Claim Description: A unique identifier for the physical product(s)
+      or shipment being tracked.  May correspond to SKU, product ID, or
+      batch number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.1 of this specification
+
+4.2.2.  Shipment ID
+
+   *  Claim Name: shipment_id
+
+   *  Claim Description: Unique identifier assigned to a specific
+      shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.2 of this specification
+
+4.2.3.  Bill of Lading Number
+
+   *  Claim Name: bill_of_lading_number
+
+   *  Claim Description: Identifier for the bill of lading associated
+      with the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.3 of this specification
+
+4.2.4.  Transport Mode
+
+   *  Claim Name: transport_mode
+
+   *  Claim Description: Mode of transport used for the shipment.
+      (Recommended values: "air", "sea", "rail", "truck")
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.4 of this specification
+
+4.2.5.  Container ID
+
+   *  Claim Name: container_id
+
+   *  Claim Description: Unique identifier for the container used in the
+      shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.5 of this specification
+
+4.2.6.  Origin Location
+
+   *  Claim Name: origin_location
+
+   *  Claim Description: Geographical origin of the goods, represented
+      as an [ISO.3166] alpha-2 country code string or specific address
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.6 of this specification
+
+4.2.7.  Destination Location
+
+   *  Claim Name: destination_location
+
+   *  Claim Description: Final destination of the goods in the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.7 of this specification
+
+4.2.8.  Carrier ID
+
+   *  Claim Name: carrier_id
+
+   *  Claim Description: Identifier for the carrier or logistics
+      provider responsible for the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.8 of this specification
+
+4.2.9.  Estimated Delivery Date
+
+   *  Claim Name: estimated_delivery_date
+
+   *  Claim Description: Expected delivery date for the shipment,
+      represented as an [ISO.8601] date and time string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.9 of this specification
+
+4.2.10.  Customs Declaration Number
+
+   *  Claim Name: customs_declaration_number
+
+   *  Claim Description: Identifier for the customs declaration
+      associated with the shipment.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.10 of this specification
+
+4.2.11.  Commodity Description
+
+   *  Claim Name: commodity_description
+
+   *  Claim Description: Description of the commodity or goods being
+      transported.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.11 of this specification
+
+4.2.12.  HS Code
+
+   *  Claim Name: hs_code
+
+   *  Claim Description: Harmonized System (HS) code for the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.12 of this specification
+
+4.2.13.  Gross Weight
+
+   *  Claim Name: gross_weight
+
+   *  Claim Description: Gross weight of the shipment, in kilograms.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.13 of this specification
+
+4.2.14.  Temperature Min Requirement
+
+   *  Claim Name: temperature_requirement_min
+
+   *  Claim Description: Minimum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.14 of this specification
+
+4.2.15.  Temperature Max Requirement
+
+   *  Claim Name: temperature_requirement_max
+
+   *  Claim Description: Maximum temperature (in Celsius) required for
+      transport or storage of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.15 of this specification
+
+4.2.16.  Last Known Location
+
+   *  Claim Name: last_known_location
+
+   *  Claim Description: Most recent location update for the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.16 of this specification
+
+4.2.17.  Tariff Code
+
+   *  Claim Name: tariff_code
+
+   *  Claim Description: Tariff code applicable to the goods, including
+      national tariff classifications or specific duty codes.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.17 of this specification
+
+4.2.18.  Country of Origin
+
+   *  Claim Name: country_of_origin
+
+   *  Claim Description: The country where the goods were produced or
+      manufactured, represented as an [ISO.3166] alpha-2 country code
+      string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.18 of this specification
+
+4.2.19.  Customs Value
+
+   *  Claim Name: customs_value
+
+   *  Claim Description: Declared value of the goods for customs
+      purposes, typically in the transaction currency.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.19 of this specification
+
+4.2.20.  Currency Code
+
+   *  Claim Name: currency_code
+
+   *  Claim Description: Currency code for the customs value and other
+      monetary amounts, represented as an [ISO.4217] alpha-3 currency
+      code string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.20 of this specification
+
+4.2.21.  Import/Export License Number
+
+   *  Claim Name: license_number
+
+   *  Claim Description: License or permit number required for the
+      import or export of the goods.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.21 of this specification
+
+4.2.22.  Sanctions Reference
+
+   *  Claim Name: sanctions_reference
+
+   *  Claim Description: Reference to applicable sanctions lists or
+      regulations affecting the goods or involved parties.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.22 of this specification
+
+4.2.23.  Legal Jurisdiction
+
+   *  Claim Name: legal_jurisdiction
+
+   *  Claim Description: Legal jurisdiction(s) governing the
+      transaction, represented as an [ISO.3166] alpha-2 country code
+      string or other specific legal identifier.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.23 of this specification
+
+4.2.24.  Importer Code
+
+   *  Claim Name: importer_code
+
+   *  Claim Description: Code identifying the importer, such as a VAT
+      number or EORI number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.24 of this specification
+
+4.2.25.  Exporter Code
+
+   *  Claim Name: exporter_code
+
+   *  Claim Description: Code identifying the exporter, such as a VAT
+      number or EORI number.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.25 of this specification
+
+4.2.26.  International Commercial Terms
+
+   *  Claim Name: incoterms
+
+   *  Claim Description: International commercial terms defining
+      responsibilities between buyer and seller, e.g., "FOB", "CIF".
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.26 of this specification
+
+4.2.27.  Regulatory Compliance Codes
+
+   *  Claim Name: regulatory_compliance_codes
+
+   *  Claim Description: Codes indicating compliance with specific
+      regulations or standards (e.g., safety certifications,
+      environmental standards).
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.27 of this specification
+
+4.2.28.  Additional Documents Required
+
+   *  Claim Name: additional_documents_required
+
+   *  Claim Description: List of additional documents required for
+      customs clearance, such as certificates of origin or inspection
+      reports.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.28 of this specification
+
+4.2.29.  Freight Charges
+
+   *  Claim Name: freight_charges
+
+   *  Claim Description: Transportation costs associated with the
+      shipment, used for customs valuation.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.29 of this specification
+
+4.2.30.  Insurance Charges
+
+   *  Claim Name: insurance_charges
+
+   *  Claim Description: Insurance costs for the shipment, used in
+      determining customs value.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.30 of this specification
+
+4.2.31.  Packing Costs
+
+   *  Claim Name: packing_costs
+
+   *  Claim Description: Costs associated with packing the goods,
+      relevant for customs valuation.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.31 of this specification
+
+4.2.32.  Place of Loading
+
+   *  Claim Name: place_of_loading
+
+   *  Claim Description: Location where the goods were loaded for
+      shipment, often a port or warehouse.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.32 of this specification
+
+4.2.33.  Place of Discharge
+
+   *  Claim Name: place_of_discharge
+
+   *  Claim Description: Location where the goods are scheduled to be
+      unloaded.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.33 of this specification
+
+4.2.34.  Consignee Information
+
+   *  Claim Name: consignee_information
+
+   *  Claim Description: Information about the consignee, including
+      name, address, and contact details.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.34 of this specification
+
+4.2.35.  Consignor Information
+
+   *  Claim Name: consignor_information
+
+   *  Claim Description: Information about the consignor, including
+      name, address, and contact details.
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.35 of this specification
+
+4.2.36.  Customs Declaration Date
+
+   *  Claim Name: customs_declaration_date
+
+   *  Claim Description: Date when the customs declaration was made,
+      represented as an [ISO.8601] date and time string
+
+   *  Change Controller: IETF
+
+   *  Reference: Section 4.1.36 of this specification
+
+5.  References
+
+5.1.  Normative References
+
+   [ISO.3166] ISO, "ISO 3166-1:2020: Codes for the representation of
+              names of countries and their subdivisions", 2020,
+              <https://www.iso.org/standard/72482.html>.
+
+   [ISO.4217] ISO, "ISO 4217:2015: Codes for the representation of
+              currencies", 2015,
+              <https://www.iso.org/standard/64758.html>.
+
+   [ISO.8601] ISO, "ISO 8601-1:2019: Date and time — Representations for
+              information interchange", 2019,
+              <https://www.iso.org/standard/70907.html>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
+              (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
+              <https://www.rfc-editor.org/rfc/rfc7519>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
+              "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
+              May 2018, <https://www.rfc-editor.org/rfc/rfc8392>.
+
+5.2.  Informative References
+
+   [CATAIR]   U.S. Customs and Border Protection, "ACE Automated Broker
+              Interface (ABI) CBP and Trade Automated Interface
+              Requirements (CATAIR)", April 2025,
+              <https://www.cbp.gov/trade/ace/catair>.
+
+   [IANA.CWT] IANA, "CBOR Web Token (CWT) Claims", n.d.,
+              <https://www.iana.org/assignments/cwt/>.
+
+   [IANA.JWT] IANA, "JSON Web Token Claims", n.d.,
+              <https://www.iana.org/assignments/jwt/>.
+
+   [TraceabilityVocab]
+              Jespersen, N., Alkhraishi, M., and B. Zundel,
+              "Traceability Vocabulary v1.0: A vocabulary for
+              traceability in supply chains", December 2024,
+              <https://w3c-ccg.github.io/traceability-vocab/>.
+
+   [TrackTrace]
+              United Nations Centre for Trade Facilitation and
+              Electronic Business (UN/CEFACT), "Integrated Track and
+              Trace for Multi-Modal Transportation", September 2022,
+              <https://unece.org/sites/default/files/2025-01/BRS-
+              IntegratedTrackandTraceforMulti-
+              ModalTransportationv0.1-Final.pdf>.
+
+Acknowledgments
+
+   A.J.  Stein contributed to this specification.
+
+Document History
+
+   -01
+
+   *  Added registrations of JWT claims corresponding to the CWT claims.
+
+   *  Updated CWT Claims registrations to supply all fields in the
+      registration template.
+
+   *  Fixed IANA Considerations header, as suggested by A.J.  Stein.
+
+   *  Added references for ISO specs.
+
+   *  Specified the use of [ISO.3166] alpha-2 country code strings and
+      [ISO.4217] alpha-3 currency code strings.
+
+   *  Added references to sources of traceability claims.
+
+   *  Added Michael B.  Jones as an author.
+
+   -00
+
+   *  Initial individual draft
+
+Authors' Addresses
+
+   Michael Prorock
+   Tradeverifyd
+   United States
+   Email: m.prorock@tradeverifyd.com
+
+
+   Michael B. Jones
+   Self-Issued Consulting
+   United States
+   Email: michael_b_jones@hotmail.com
+   URI:   https://self-issued.info/
