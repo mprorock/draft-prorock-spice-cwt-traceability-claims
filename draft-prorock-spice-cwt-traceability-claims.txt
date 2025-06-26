@@ -1346,4 +1346,4 @@ Authors' Addresses
    Brent W. Zundel
    Tradeverifyd
    United States
-   Email: brent.zundel@tradeverifyd.com
+   Email: brent.zundel@gmail.com
