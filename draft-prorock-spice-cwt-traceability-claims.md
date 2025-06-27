@@ -833,6 +833,15 @@ contributed to this specification.
 # Document History
 {: numbered="false"}
 
+-02
+
+* Enabled the use of GLUE identifiers.
+* Made `legal_jurisdiction` an array.
+* Added references for Incoterms and Harmonized System codes.
+* Defined that numbers can be integers or floats.
+* Added an example claims set.
+* Added Brent Zundel as an author.
+
 -01
 
 * Added registrations of JWT claims corresponding to the CWT claims.
