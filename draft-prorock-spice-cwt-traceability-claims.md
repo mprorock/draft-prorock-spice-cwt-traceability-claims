@@ -185,7 +185,7 @@ Product Information Example JWT Claims Set:
   "max_temperature": 3.5,
   "customs_value": 83335,
   "currency_code": "USD",
-  "legal_jurisdiction": ["US", "CA"],
+  "legal_jurisdictions": ["US", "CA"],
   "regulatory_compliance_codes": [
     "USCOEA",
     "CFIA-PhytoCert",
@@ -431,15 +431,15 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Change Controller: IETF
 * Reference: {{sanctions_reference}} of this specification
 
-### Legal Jurisdiction {#legal_jurisdiction}
+### Legal Jurisdictions {#legal_jurisdictions}
 
-* Claim Name: legal_jurisdiction
+* Claim Name: legal_jurisdictions
 * Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or other specific legal identifier.
-* JWT Claim Name: legal_jurisdiction
+* JWT Claim Name: legal_jurisdictions
 * Claim Key: TBD (requested assignment 342)
 * Claim Value Type: array of text strings
 * Change Controller: IETF
-* Reference: {{legal_jurisdiction}} of this specification
+* Reference: {{legal_jurisdictions}} of this specification
 
 ### Importer Code {#importer_code}
 
@@ -732,10 +732,10 @@ IANA "JSON Web Token Claims" registry [IANA.JWT] established by [RFC7519].
 
 ### Legal Jurisdiction
 
-* Claim Name: legal_jurisdiction
+* Claim Name: legal_jurisdictions
 * Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or other specific legal identifier.
 * Change Controller: IETF
-* Reference: {{legal_jurisdiction}} of this specification
+* Reference: {{legal_jurisdictions}} of this specification
 
 ### Importer Code
 
@@ -842,7 +842,7 @@ contributed to this specification.
 -02
 
 * Enabled the use of GLUE identifiers.
-* Made `legal_jurisdiction` an array.
+* Renamed `legal_jurisdiction` to `legal_jurisdictions` and made it an array.
 * Added references for Incoterms and Harmonized System codes.
 * Defined that numbers can be integers or floats.
 * Added an example claims set.
