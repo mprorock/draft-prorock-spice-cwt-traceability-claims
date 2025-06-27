@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 28 December 2025                         Self-Issued Consulting
+Expires: 29 December 2025                         Self-Issued Consulting
                                                             B. W. Zundel
                                                             Tradeverifyd
-                                                            26 June 2025
+                                                            27 June 2025
 
 
                           Traceability Claims
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2025.
+   This Internet-Draft will expire on 29 December 2025.
 
 Copyright Notice
 
@@ -1315,6 +1315,20 @@ Acknowledgments
    A.J.  Stein contributed to this specification.
 
 Document History
+
+   -02
+
+   *  Enabled the use of GLUE identifiers.
+
+   *  Made legal_jurisdiction an array.
+
+   *  Added references for Incoterms and Harmonized System codes.
+
+   *  Defined that numbers can be integers or floats.
+
+   *  Added an example claims set.
+
+   *  Added Brent Zundel as an author.
 
    -01
 
