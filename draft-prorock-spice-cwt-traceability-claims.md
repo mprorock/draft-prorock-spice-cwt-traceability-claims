@@ -174,7 +174,7 @@ Some claims below utilize GLUE Identifiers [GLUE].
 # Examples
 Product Information Example JWT Claims Set:
 
-```json
+~~~json
 {
   "commodity_description": "Organic Blueberries, 12 oz containers",
   "product_id": "nb-blueberries-001",
@@ -187,7 +187,7 @@ Product Information Example JWT Claims Set:
   "currency_code": "USD",
   "legal_jurisdiction": ["US", "CA"]
 }
-```
+~~~
 
 # Security Considerations
 
