@@ -106,7 +106,7 @@ Table of Contents
        5.1.20. Currency Code
        5.1.21. Import/Export License Number
        5.1.22. Sanctions Reference
-       5.1.23. Legal Jurisdiction
+       5.1.23. Legal Jurisdictions
        5.1.24. Importer Code
        5.1.25. Exporter Code
        5.1.26. International Commercial Terms
@@ -205,7 +205,7 @@ Table of Contents
      "max_temperature": 3.5,
      "customs_value": 83335,
      "currency_code": "USD",
-     "legal_jurisdiction": ["US", "CA"],
+     "legal_jurisdictions": ["US", "CA"],
      "regulatory_compliance_codes": [
        "USCOEA",
        "CFIA-PhytoCert",
@@ -604,15 +604,15 @@ Table of Contents
 
    *  Reference: Section 5.1.22 of this specification
 
-5.1.23.  Legal Jurisdiction
+5.1.23.  Legal Jurisdictions
 
-   *  Claim Name: legal_jurisdiction
+   *  Claim Name: legal_jurisdictions
 
    *  Claim Description: Legal jurisdiction(s) governing the
       transaction, represented as an [ISO.3166] alpha-2 country code
       string or other specific legal identifier.
 
-   *  JWT Claim Name: legal_jurisdiction
+   *  JWT Claim Name: legal_jurisdictions
 
    *  Claim Key: TBD (requested assignment 342)
 
@@ -1093,7 +1093,7 @@ Table of Contents
 
 5.2.23.  Legal Jurisdiction
 
-   *  Claim Name: legal_jurisdiction
+   *  Claim Name: legal_jurisdictions
 
    *  Claim Description: Legal jurisdiction(s) governing the
       transaction, represented as an [ISO.3166] alpha-2 country code
@@ -1333,7 +1333,8 @@ Document History
 
    *  Enabled the use of GLUE identifiers.
 
-   *  Made legal_jurisdiction an array.
+   *  Renamed legal_jurisdiction to legal_jurisdictions and made it an
+      array.
 
    *  Added references for Incoterms and Harmonized System codes.
 
