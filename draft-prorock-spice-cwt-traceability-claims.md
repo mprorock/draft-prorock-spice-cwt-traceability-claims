@@ -182,7 +182,7 @@ Product Information Example JWT Claims Set:
   "hs_code": "0810.40.0026",
   "gross_weight": 5050,
   "min_temperature": 1,
-  "max_temperature": 3,
+  "max_temperature": 3.5,
   "customs_value": 83335,
   "currency_code": "USD",
   "legal_jurisdiction": ["US", "CA"]
