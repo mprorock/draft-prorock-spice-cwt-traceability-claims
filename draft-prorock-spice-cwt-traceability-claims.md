@@ -171,7 +171,7 @@ Some claims below utilize GLUE Identifiers [GLUE].
 
 {::boilerplate bcp14-tagged}
 
-# Examples
+# Example
 Product Information Example JWT Claims Set:
 
 ~~~json-pretty
@@ -185,7 +185,12 @@ Product Information Example JWT Claims Set:
   "max_temperature": 3.5,
   "customs_value": 83335,
   "currency_code": "USD",
-  "legal_jurisdiction": ["US", "CA"]
+  "legal_jurisdiction": ["US", "CA"],
+  "regulatory_compliance_codes": [
+    "USCOEA",
+    "CFIA-PhytoCert",
+    "FDA-FSVP-Compliant"
+  ]
 }
 ~~~
 
