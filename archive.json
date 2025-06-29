@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-26T00:32:28.760838+00:00",
+  "timestamp": "2025-06-29T00:37:00.707969+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -226,17 +226,19 @@
       "id": "I_kwDONKsocc6xNfLE",
       "title": "Representation of legal jurisdictions",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "brentzundel"
       ],
-      "labels": [],
+      "labels": [
+        "has PR"
+      ],
       "body": "The [Legal Jurisdiction](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#section-4.1.23) is currently defined as:\n\n> Claim Name: legal_jurisdiction\n> Claim Description: Legal jurisdiction(s) governing the transaction, represented as country codes or specific legal identifiers.\n> JWT Claim Name: legal_jurisdiction\n> Claim Key: TBD (requested assignment 342)\n> Claim Value Type: text string\n> Change Controller: IETF\n> Reference: [Section 4.1.23](https://mprorock.github.io/draft-prorock-spice-cwt-traceability-claims/draft-prorock-spice-cwt-traceability-claims.html#legal_jurisdiction) of this specification\n\nIs it intended that claim may contain multiple values?  It's currently defined as a single text string.\n\nHow, for instance, would one represent that the jurisdiction is Delaware, United States or Ciudad de M\u00e9xico?\n\nA single [ISO.3166] alpha-2 country code string won't always work.",
       "createdAt": "2025-04-04T18:28:42Z",
-      "updatedAt": "2025-06-25T22:59:30Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-26T16:25:08Z",
+      "closedAt": "2025-06-26T16:25:08Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -417,7 +419,7 @@
       "id": "I_kwDONKsocc6zNxgQ",
       "title": "Could the Exporter Code be a GLUE identifier?",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/17",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -429,8 +431,8 @@
       ],
       "body": "How does one tell now whether it's a VAT number or EORI number, for instance?",
       "createdAt": "2025-04-20T00:53:49Z",
-      "updatedAt": "2025-06-25T22:36:57Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-26T16:27:53Z",
+      "closedAt": "2025-06-26T16:27:53Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -496,7 +498,7 @@
       "id": "I_kwDONKsocc6zNx5j",
       "title": "Distinguishing between Regulatory Compliance Codes",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/19",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -506,8 +508,8 @@
       "labels": [],
       "body": "I can imagine a world of different [Regulatory Compliance Codes](https://www.ietf.org/archive/id/draft-prorock-spice-cwt-traceability-claims-01.html#name-regulatory-compliance-codes) (literally!).  How is it indicated in this field which codes are applicable and how is compliance indicated?",
       "createdAt": "2025-04-20T01:00:05Z",
-      "updatedAt": "2025-06-24T22:59:04Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-27T17:19:35Z",
+      "closedAt": "2025-06-27T17:19:35Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -522,6 +524,34 @@
           "body": "I still worry about mixing codes from different jurisdictions and not being able to tell what they actually are.  For instance, when importing avocados from Costa Rica, there may be Costa Rican codes, codes from the countries transited, and US codes.\n\nAre we going to assume that the recipient has enough domain knowledge to figure out what is what?",
           "createdAt": "2025-06-24T22:59:04Z",
           "updatedAt": "2025-06-24T22:59:04Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Let's see if having examples clears this up sufficiently, and then we can modify if it doesn't.",
+          "createdAt": "2025-06-26T16:27:32Z",
+          "updatedAt": "2025-06-26T16:27:32Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The example doesn't use `regulatory_compliance_codes`, so I think we're still on hook to clarify this in the definition.",
+          "createdAt": "2025-06-27T01:16:15Z",
+          "updatedAt": "2025-06-27T01:16:15Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "added to example in #33 ",
+          "createdAt": "2025-06-27T17:08:13Z",
+          "updatedAt": "2025-06-27T17:08:13Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think the example is good enough for now.  We'll see what the working group and implementer feedback is once the spec is adopted by the working group.",
+          "createdAt": "2025-06-27T17:19:35Z",
+          "updatedAt": "2025-06-27T17:19:35Z"
         }
       ]
     },
@@ -530,7 +560,7 @@
       "id": "I_kwDONKsocc6zNyN4",
       "title": "Create examples",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/20",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "selfissued",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -540,8 +570,8 @@
       "labels": [],
       "body": "A few illustrative examples would make the specification much more approachable.  Showing values for some of these fields would help demystify how they are intended to be used in practice.\n\nFYI, I would do the examples as JWT claims rather than CWT claims, so readers won't have to deal with binary and we as authors won't have to deal with CDDL.\n",
       "createdAt": "2025-04-20T01:04:06Z",
-      "updatedAt": "2025-06-24T22:31:58Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-27T01:12:03Z",
+      "closedAt": "2025-06-27T01:12:03Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -549,6 +579,13 @@
           "body": "agreed",
           "createdAt": "2025-06-24T22:31:58Z",
           "updatedAt": "2025-06-24T22:31:58Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by #26 ",
+          "createdAt": "2025-06-27T01:12:03Z",
+          "updatedAt": "2025-06-27T01:12:03Z"
         }
       ]
     }
@@ -958,24 +995,26 @@
       "id": "PR_kwDONKsocc6cIlxj",
       "title": "add GLUE identifier for entities",
       "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #17 ",
       "createdAt": "2025-06-25T22:24:50Z",
-      "updatedAt": "2025-06-25T22:53:59Z",
+      "updatedAt": "2025-06-26T16:27:51Z",
       "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "baseRefName": "main",
-      "baseRefOid": "d24835b38bf7c5e2c0246a2b2a79ebf3b87924f8",
+      "baseRefOid": "6220bd39ab22146334b5294dd4240917b30ac09f",
       "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
       "headRefName": "issue-17",
-      "headRefOid": "fd986d5c362ca92ac79681d6ae9a9b5c256a6e5b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "efa401980d0dcdd6becd4a00303e2594b0972af8",
+      "closedAt": "2025-06-26T16:27:51Z",
+      "mergedAt": "2025-06-26T16:27:51Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "4a0fdacd9a3f99b08ad8c4230e2b38978624194d"
+      },
       "comments": [],
       "reviews": [
         {
@@ -997,6 +1036,403 @@
               "updatedAt": "2025-06-25T22:53:59Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDONKsocc6wl5za",
+          "commit": {
+            "abbreviatedOid": "efa4019"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-26T16:27:17Z",
+          "updatedAt": "2025-06-26T16:27:17Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDONKsocc6cQi5M",
+      "title": "make jurisdiction an array",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/25",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #10 ",
+      "createdAt": "2025-06-26T15:45:06Z",
+      "updatedAt": "2025-06-26T16:25:07Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "6220bd39ab22146334b5294dd4240917b30ac09f",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-10",
+      "headRefOid": "0672855605d242f6840281b4ffe7f67c981ef068",
+      "closedAt": "2025-06-26T16:25:07Z",
+      "mergedAt": "2025-06-26T16:25:07Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "24b6c744a925313db978137eb9c287ec8ad0e355"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wllp4",
+          "commit": {
+            "abbreviatedOid": "0672855"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-26T15:57:31Z",
+          "updatedAt": "2025-06-26T16:16:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDONKsocc6cTvfL",
+      "title": "First example",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/26",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "One example added which demonstrates how some of the CWT claims could be used to describe a product.",
+      "createdAt": "2025-06-26T21:43:50Z",
+      "updatedAt": "2025-06-26T23:32:45Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "559495cf2b9406c61d160ab0d933fb6859ecce3c",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-20",
+      "headRefOid": "11a14ce3b7ffc313164b3e1c1bcac63661c45118",
+      "closedAt": "2025-06-26T23:32:45Z",
+      "mergedAt": "2025-06-26T23:32:45Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "296a4690d362419854cbe2de75dc7c3711120eea"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wqnkx",
+          "commit": {
+            "abbreviatedOid": "28f7814"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T23:00:07Z",
+          "updatedAt": "2025-06-26T23:00:08Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nProduct Information Example JWT Claims Set:\r\n```",
+              "createdAt": "2025-06-26T23:00:07Z",
+              "updatedAt": "2025-06-26T23:00:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONKsocc6wqohS",
+          "commit": {
+            "abbreviatedOid": "28f7814"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved with one change suggestion",
+          "createdAt": "2025-06-26T23:01:45Z",
+          "updatedAt": "2025-06-26T23:01:45Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDONKsocc6cVH7Y",
+      "title": "Add -02 history entries",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/27",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T01:05:46Z",
+      "updatedAt": "2025-06-27T01:07:07Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "296a4690d362419854cbe2de75dc7c3711120eea",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-02-history",
+      "headRefOid": "2d8f2d27e3d11ec92377ac632d7b2f2269392fea",
+      "closedAt": "2025-06-27T01:07:07Z",
+      "mergedAt": "2025-06-27T01:07:07Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "1389984c9498842d493ca03f09c55befc7555284"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wr2O5",
+          "commit": {
+            "abbreviatedOid": "2d8f2d2"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-27T01:06:45Z",
+          "updatedAt": "2025-06-27T01:06:45Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDONKsocc6cVVtY",
+      "title": "Fix example formatting",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/28",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I *believe* the problem was the lack of a blank line before the example.  (Did I say that I *hate* Markdown?)\r\n\r\nAlso, use a floating point number in the example.",
+      "createdAt": "2025-06-27T01:36:27Z",
+      "updatedAt": "2025-06-27T01:38:26Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "1389984c9498842d493ca03f09c55befc7555284",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-example-formatting",
+      "headRefOid": "d02db980bb20fe8f95b51f49e0f5b03d160df76f",
+      "closedAt": "2025-06-27T01:38:26Z",
+      "mergedAt": "2025-06-27T01:38:26Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "e425e4ed2c5020d0f4a9799f60459b7ac6503b75"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6wsK37",
+          "commit": {
+            "abbreviatedOid": "d02db98"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-27T01:38:18Z",
+          "updatedAt": "2025-06-27T01:38:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDONKsocc6cb8kg",
+      "title": "attempt 1 to fix json example",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/29",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T14:22:27Z",
+      "updatedAt": "2025-06-27T14:23:00Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "e425e4ed2c5020d0f4a9799f60459b7ac6503b75",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "try-json",
+      "headRefOid": "d5af423ed3ae674101209410429fac80d4ec2b4f",
+      "closedAt": "2025-06-27T14:23:00Z",
+      "mergedAt": "2025-06-27T14:23:00Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "60467205e7eb2a6f0eb44251784b44730228677e"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDONKsocc6cb-Gg",
+      "title": "attempt 2 to fix json example",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/30",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T14:24:58Z",
+      "updatedAt": "2025-06-27T14:25:35Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "60467205e7eb2a6f0eb44251784b44730228677e",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "try-json",
+      "headRefOid": "5bb97d670497880b24d1a52a795b575a378f8d40",
+      "closedAt": "2025-06-27T14:25:35Z",
+      "mergedAt": "2025-06-27T14:25:35Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "ae5b51edd5268d6f49c85ea6da7d8f4b80ecfb04"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 31,
+      "id": "PR_kwDONKsocc6cb_-2",
+      "title": "attempt 3 to fix json example",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/31",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T14:28:02Z",
+      "updatedAt": "2025-06-27T14:28:51Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "ae5b51edd5268d6f49c85ea6da7d8f4b80ecfb04",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "try-json",
+      "headRefOid": "4a95413bf99af9e2076d08a6c64d3c71ac2b7fc9",
+      "closedAt": "2025-06-27T14:28:51Z",
+      "mergedAt": "2025-06-27T14:28:50Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "700d9c3a186c4eed4374f3e73c5de51bc0542463"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDONKsocc6ccBea",
+      "title": "Revert \"attempt 3 to fix json example\"",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/32",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Reverts mprorock/draft-prorock-spice-cwt-traceability-claims#31",
+      "createdAt": "2025-06-27T14:30:36Z",
+      "updatedAt": "2025-06-27T14:31:04Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "700d9c3a186c4eed4374f3e73c5de51bc0542463",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "revert-31-try-json",
+      "headRefOid": "a040b6036d4decd3be014d53651c77a35944f988",
+      "closedAt": "2025-06-27T14:31:04Z",
+      "mergedAt": "2025-06-27T14:31:04Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "32953e82baabba56621b62ed7477ffac6764088a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDONKsocc6cdY08",
+      "title": "add regulatory compliance to example",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/33",
+      "state": "MERGED",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T16:58:03Z",
+      "updatedAt": "2025-06-27T17:05:17Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "32953e82baabba56621b62ed7477ffac6764088a",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "issue-19",
+      "headRefOid": "a115352c1d426f39158339a54a34178c9bcbdcf8",
+      "closedAt": "2025-06-27T17:05:17Z",
+      "mergedAt": "2025-06-27T17:05:17Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "6cfd0631f823f5023857e4fe2444565ac6c36c6d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6w3YQS",
+          "commit": {
+            "abbreviatedOid": "a115352"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-27T17:04:39Z",
+          "updatedAt": "2025-06-27T17:04:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDONKsocc6cdi1d",
+      "title": "Rename legal_jurisdiction to legal_jurisdictions",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/pull/34",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-27T17:18:13Z",
+      "updatedAt": "2025-06-27T17:20:53Z",
+      "baseRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "baseRefName": "main",
+      "baseRefOid": "6cfd0631f823f5023857e4fe2444565ac6c36c6d",
+      "headRepository": "mprorock/draft-prorock-spice-cwt-traceability-claims",
+      "headRefName": "mbj-legal_jurisdictions",
+      "headRefOid": "3de9d25ab71d19a0a0c0054da9836d95adf4b7dd",
+      "closedAt": "2025-06-27T17:20:53Z",
+      "mergedAt": "2025-06-27T17:20:53Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "bf4473480861fce81ae9180a41a5e9326f7502c1"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONKsocc6w3iBE",
+          "commit": {
+            "abbreviatedOid": "3de9d25"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-27T17:20:46Z",
+          "updatedAt": "2025-06-27T17:20:46Z",
+          "comments": []
         }
       ]
     }
