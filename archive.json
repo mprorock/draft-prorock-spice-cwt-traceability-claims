@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T00:37:00.707969+00:00",
+  "timestamp": "2025-07-24T00:34:38.800359+00:00",
   "repo": "mprorock/draft-prorock-spice-cwt-traceability-claims",
   "labels": [
     {
@@ -588,6 +588,54 @@
           "updatedAt": "2025-06-27T01:12:03Z"
         }
       ]
+    },
+    {
+      "number": 35,
+      "id": "I_kwDONKsocc7B2N04",
+      "title": "Adding contexts of how to use these traceability claims",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/35",
+      "state": "OPEN",
+      "author": "liuchunchi",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "(1/3) A few issues following Madrid meeting:\n\nWe mentioned it should be nice if we add contexts or structures of how to use these traceability claims. What are the real world traceability project examplary traceability record? What are the structures? How should the contexts be sent/discovered?\n\nIt will be nice to see more examples in the document.",
+      "createdAt": "2025-07-22T11:02:58Z",
+      "updatedAt": "2025-07-22T11:02:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 36,
+      "id": "I_kwDONKsocc7B2Tqj",
+      "title": "Considerations of signing/endorsing the compliance codes",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/36",
+      "state": "OPEN",
+      "author": "liuchunchi",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "(2/3) A few issues following Madrid meeting:\n\nCompliance codes are signed and/or endorsed by certain authorities, and sometime are the most important factors that customers care about. \n\nSo, how to authenticate that these signatures or endorsements, where to find the public keys or addresses of the corresponding authority becomes an important consideration. Do we need PKI or similar mechanism to register and find these authority public keys or addresses? Is there an existing one we should reference? Should we add verifcation pointer link claim to make lookup process easier? Should there be automated process to do the lookup and verifications? These will be important considerations when operating and actually using them. \n",
+      "createdAt": "2025-07-22T11:10:33Z",
+      "updatedAt": "2025-07-22T11:10:33Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 37,
+      "id": "I_kwDONKsocc7B2YWk",
+      "title": "Distinguish static claims VS updateable/addable claims?",
+      "url": "https://github.com/mprorock/draft-prorock-spice-cwt-traceability-claims/issues/37",
+      "state": "OPEN",
+      "author": "liuchunchi",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "(3/3) A few issues following Madrid meeting:\n\nA trail of updated information is important for traceability. For example, a customer would find it credible if he can see a trail that a wine was produced by ITALY, then was ground transported to ANTWERP PORT, then was sea transported to NEW YORK and inspected there, finally arriving the whole foods at WASHINGTON DC.  Such trail would require updateable claims or addable claims. \n\nTo the contrary of issue #36 , compliance codes should be static. How should we separate the static claims versus updateable claims, do we need a \"static/updateable\" flag claim? If it is updateable, should we just put the \"history log\" in the credential, or should there be a link to the history? These are some considerations that i find could be helpful :)",
+      "createdAt": "2025-07-22T11:16:35Z",
+      "updatedAt": "2025-07-22T11:16:35Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
