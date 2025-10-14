@@ -244,7 +244,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Transport Mode {#transport_mode}
 
 * Claim Name: transport_mode
-* Claim Description: Mode of transport used for the shipment. (Recommended values: "air", "sea", "rail", "truck")
+* Claim Description: Mode of transport used for the shipment. (Recommended values: "air", "sea", "rail", "truck").
 * JWT Claim Name: transport_mode
 * Claim Key: TBD (requested assignment 323)
 * Claim Value Type: text string
@@ -264,7 +264,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Origin Location {#origin_location}
 
 * Claim Name: origin_location
-* Claim Description: Geographical origin of the goods, represented as an [ISO.3166] alpha-2 country code string or specific address
+* Claim Description: Geographical origin of the goods, represented as an [ISO.3166] alpha-2 country code string or specific address.
 * JWT Claim Name: origin_location
 * Claim Key: TBD (requested assignment 325)
 * Claim Value Type: text string
@@ -294,7 +294,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Estimated Delivery Date {#estimated_delivery_date}
 
 * Claim Name: estimated_delivery_date
-* Claim Description: Expected delivery date for the shipment, represented as an [ISO.8601] date and time string
+* Claim Description: Expected delivery date for the shipment, represented as an [ISO.8601] date and time string.
 * JWT Claim Name: estimated_delivery_date
 * Claim Key: TBD (requested assignment 328)
 * Claim Value Type: text string
@@ -384,7 +384,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Country of Origin {#country_of_origin}
 
 * Claim Name: country_of_origin
-* Claim Description: The country where the goods were produced or manufactured, represented as an [ISO.3166] alpha-2 country code string
+* Claim Description: The country where the goods were produced or manufactured, represented as an [ISO.3166] alpha-2 country code string.
 * JWT Claim Name: country_of_origin
 * Claim Key: TBD (requested assignment 337)
 * Claim Value Type: text string
@@ -394,7 +394,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Customs Value {#customs_value}
 
 * Claim Name: customs_value
-* Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
+* Claim Description: Declared value of the goods for customs purposes, in the currency desginated by the currency code.
 * JWT Claim Name: customs_value
 * Claim Key: TBD (requested assignment 338)
 * Claim Value Type: integer or floating point number
@@ -404,7 +404,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Currency Code {#currency_code}
 
 * Claim Name: currency_code
-* Claim Description: Currency code for the customs value and other monetary amounts, represented as an [ISO.4217] alpha-3 currency code string
+* Claim Description: Currency code for the customs value and other monetary amounts, represented as an [ISO.4217] alpha-3 currency code string.
 * JWT Claim Name: currency_code
 * Claim Key: TBD (requested assignment 339)
 * Claim Value Type: text string
@@ -494,7 +494,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Freight Charges {#freight_charges}
 
 * Claim Name: freight_charges
-* Claim Description: Transportation costs associated with the shipment, used for customs valuation.
+* Claim Description: Transportation costs associated with the shipment, in the currency desginated by the currency code. Used for customs valuation.
 * JWT Claim Name: freight_charges
 * Claim Key: TBD (requested assignment 348)
 * Claim Value Type: integer or floating point number
@@ -504,7 +504,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Insurance Charges {#insurance_charges}
 
 * Claim Name: insurance_charges
-* Claim Description: Insurance costs for the shipment, used in determining customs value.
+* Claim Description: Insurance costs for the shipment, in the currency desginated by the currency code. Used in determining customs value.
 * JWT Claim Name: insurance_charges
 * Claim Key: TBD (requested assignment 349)
 * Claim Value Type: integer or floating point number
@@ -514,7 +514,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Packing Costs {#packing_costs}
 
 * Claim Name: packing_costs
-* Claim Description: Costs associated with packing the goods, relevant for customs valuation.
+* Claim Description: Costs associated with packing the goods, in the currency desginated by the currency code. Used in determining customs value.
 * JWT Claim Name: packing_costs
 * Claim Key: TBD (requested assignment 350)
 * Claim Value Type: integer or floating point number
@@ -564,7 +564,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 ### Customs Declaration Date {#customs_declaration_date}
 
 * Claim Name: customs_declaration_date
-* Claim Description: Date when the customs declaration was made, represented as an [ISO.8601] date and time string
+* Claim Description: Date when the customs declaration was made, represented as an [ISO.8601] date and time string.
 * JWT Claim Name: customs_declaration_date
 * Claim Key: TBD (requested assignment 355)
 * Claim Value Type: text string
