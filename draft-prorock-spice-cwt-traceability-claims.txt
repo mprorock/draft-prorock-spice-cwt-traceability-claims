@@ -289,7 +289,7 @@ Table of Contents
    *  Claim Name: transport_mode
 
    *  Claim Description: Mode of transport used for the shipment.
-      (Recommended values: "air", "sea", "rail", "truck")
+      (Recommended values: "air", "sea", "rail", "truck").
 
    *  JWT Claim Name: transport_mode
 
@@ -323,7 +323,7 @@ Table of Contents
    *  Claim Name: origin_location
 
    *  Claim Description: Geographical origin of the goods, represented
-      as an [ISO.3166] alpha-2 country code string or specific address
+      as an [ISO.3166] alpha-2 country code string or specific address.
 
    *  JWT Claim Name: origin_location
 
@@ -373,7 +373,7 @@ Table of Contents
    *  Claim Name: estimated_delivery_date
 
    *  Claim Description: Expected delivery date for the shipment,
-      represented as an [ISO.8601] date and time string
+      represented as an [ISO.8601] date and time string.
 
    *  JWT Claim Name: estimated_delivery_date
 
@@ -525,7 +525,7 @@ Table of Contents
 
    *  Claim Description: The country where the goods were produced or
       manufactured, represented as an [ISO.3166] alpha-2 country code
-      string
+      string.
 
    *  JWT Claim Name: country_of_origin
 
@@ -542,7 +542,7 @@ Table of Contents
    *  Claim Name: customs_value
 
    *  Claim Description: Declared value of the goods for customs
-      purposes, typically in the transaction currency.
+      purposes, in the currency desginated by the currency code.
 
    *  JWT Claim Name: customs_value
 
@@ -560,7 +560,7 @@ Table of Contents
 
    *  Claim Description: Currency code for the customs value and other
       monetary amounts, represented as an [ISO.4217] alpha-3 currency
-      code string
+      code string.
 
    *  JWT Claim Name: currency_code
 
@@ -715,7 +715,8 @@ Table of Contents
    *  Claim Name: freight_charges
 
    *  Claim Description: Transportation costs associated with the
-      shipment, used for customs valuation.
+      shipment, in the currency desginated by the currency code.  Used
+      for customs valuation.
 
    *  JWT Claim Name: freight_charges
 
@@ -731,8 +732,9 @@ Table of Contents
 
    *  Claim Name: insurance_charges
 
-   *  Claim Description: Insurance costs for the shipment, used in
-      determining customs value.
+   *  Claim Description: Insurance costs for the shipment, in the
+      currency desginated by the currency code.  Used in determining
+      customs value.
 
    *  JWT Claim Name: insurance_charges
 
@@ -748,8 +750,9 @@ Table of Contents
 
    *  Claim Name: packing_costs
 
-   *  Claim Description: Costs associated with packing the goods,
-      relevant for customs valuation.
+   *  Claim Description: Costs associated with packing the goods, in the
+      currency desginated by the currency code.  Used in determining
+      customs value.
 
    *  JWT Claim Name: packing_costs
 
@@ -834,7 +837,7 @@ Table of Contents
    *  Claim Name: customs_declaration_date
 
    *  Claim Description: Date when the customs declaration was made,
-      represented as an [ISO.8601] date and time string
+      represented as an [ISO.8601] date and time string.
 
    *  JWT Claim Name: customs_declaration_date
 
