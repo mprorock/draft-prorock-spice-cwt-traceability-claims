@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 29 December 2025                         Self-Issued Consulting
+Expires: 20 April 2026                            Self-Issued Consulting
                                                             B. W. Zundel
                                                             Tradeverifyd
-                                                            27 June 2025
+                                                         17 October 2025
 
 
                           Traceability Claims
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 December 2025.
+   This Internet-Draft will expire on 20 April 2026.
 
 Copyright Notice
 
@@ -229,6 +229,8 @@ Table of Contents
 
    This specification registers the following claims in the IANA "CBOR
    Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
+   The claim keys are listed as TBD.  We request values in the 256 to
+   65535 range.
 
 5.1.1.  Goods Identifier
 
@@ -240,7 +242,7 @@ Table of Contents
 
    *  JWT Claim Name: product_id
 
-   *  Claim Key: TBD (requested assignment 320)
+   *  Claim Key: TBD1
 
    *  Claim Value Type: text string
 
@@ -257,7 +259,7 @@ Table of Contents
 
    *  JWT Claim Name: shipment_id
 
-   *  Claim Key: TBD (requested assignment 321)
+   *  Claim Key: TBD2
 
    *  Claim Value Type: text string
 
@@ -274,7 +276,7 @@ Table of Contents
 
    *  JWT Claim Name: bill_of_lading_number
 
-   *  Claim Key: TBD (requested assignment 322)
+   *  Claim Key: TBD3
 
    *  Claim Value Type: text string
 
@@ -291,7 +293,7 @@ Table of Contents
 
    *  JWT Claim Name: transport_mode
 
-   *  Claim Key: TBD (requested assignment 323)
+   *  Claim Key: TBD4
 
    *  Claim Value Type: text string
 
@@ -308,7 +310,7 @@ Table of Contents
 
    *  JWT Claim Name: container_id
 
-   *  Claim Key: TBD (requested assignment 324)
+   *  Claim Key: TBD5
 
    *  Claim Value Type: text string
 
@@ -325,7 +327,7 @@ Table of Contents
 
    *  JWT Claim Name: origin_location
 
-   *  Claim Key: TBD (requested assignment 325)
+   *  Claim Key: TBD6
 
    *  Claim Value Type: text string
 
@@ -341,7 +343,7 @@ Table of Contents
 
    *  JWT Claim Name: destination_location
 
-   *  Claim Key: TBD (requested assignment 326)
+   *  Claim Key: TBD7
 
    *  Claim Value Type: text string
 
@@ -358,7 +360,7 @@ Table of Contents
 
    *  JWT Claim Name: carrier_id
 
-   *  Claim Key: TBD (requested assignment 327)
+   *  Claim Key: TBD8
 
    *  Claim Value Type: text string
 
@@ -375,7 +377,7 @@ Table of Contents
 
    *  JWT Claim Name: estimated_delivery_date
 
-   *  Claim Key: TBD (requested assignment 328)
+   *  Claim Key: TBD9
 
    *  Claim Value Type: text string
 
@@ -392,7 +394,7 @@ Table of Contents
 
    *  JWT Claim Name: customs_declaration_number
 
-   *  Claim Key: TBD (requested assignment 329)
+   *  Claim Key: TBD10
 
    *  Claim Value Type: text string
 
@@ -409,7 +411,7 @@ Table of Contents
 
    *  JWT Claim Name: commodity_description
 
-   *  Claim Key: TBD (requested assignment 330)
+   *  Claim Key: TBD11
 
    *  Claim Value Type: text string
 
@@ -426,7 +428,7 @@ Table of Contents
 
    *  JWT Claim Name: hs_code
 
-   *  Claim Key: TBD (requested assignment 331)
+   *  Claim Key: TBD12
 
    *  Claim Value Type: text string
 
@@ -442,7 +444,7 @@ Table of Contents
 
    *  JWT Claim Name: gross_weight
 
-   *  Claim Key: TBD (requested assignment 332)
+   *  Claim Key: TBD13
 
    *  Claim Value Type: integer or floating point number
 
@@ -459,7 +461,7 @@ Table of Contents
 
    *  JWT Claim Name: temperature_requirement_min
 
-   *  Claim Key: TBD (requested assignment 333)
+   *  Claim Key: TBD14
 
    *  Claim Value Type: integer or floating point number
 
@@ -476,7 +478,7 @@ Table of Contents
 
    *  JWT Claim Name: temperature_requirement_max
 
-   *  Claim Key: TBD (requested assignment 334)
+   *  Claim Key: TBD15
 
    *  Claim Value Type: integer or floating point number
 
@@ -492,7 +494,7 @@ Table of Contents
 
    *  JWT Claim Name: last_known_location
 
-   *  Claim Key: TBD (requested assignment 335)
+   *  Claim Key: TBD16
 
    *  Claim Value Type: text string
 
@@ -509,7 +511,7 @@ Table of Contents
 
    *  JWT Claim Name: tariff_code
 
-   *  Claim Key: TBD (requested assignment 336)
+   *  Claim Key: TBD17
 
    *  Claim Value Type: text string
 
@@ -527,7 +529,7 @@ Table of Contents
 
    *  JWT Claim Name: country_of_origin
 
-   *  Claim Key: TBD (requested assignment 337)
+   *  Claim Key: TBD18
 
    *  Claim Value Type: text string
 
@@ -544,7 +546,7 @@ Table of Contents
 
    *  JWT Claim Name: customs_value
 
-   *  Claim Key: TBD (requested assignment 338)
+   *  Claim Key: TBD19
 
    *  Claim Value Type: integer or floating point number
 
@@ -562,7 +564,7 @@ Table of Contents
 
    *  JWT Claim Name: currency_code
 
-   *  Claim Key: TBD (requested assignment 339)
+   *  Claim Key: TBD20
 
    *  Claim Value Type: text string
 
@@ -579,7 +581,7 @@ Table of Contents
 
    *  JWT Claim Name: license_number
 
-   *  Claim Key: TBD (requested assignment 340)
+   *  Claim Key: TBD21
 
    *  Claim Value Type: text string
 
@@ -596,7 +598,7 @@ Table of Contents
 
    *  JWT Claim Name: sanctions_reference
 
-   *  Claim Key: TBD (requested assignment 341)
+   *  Claim Key: TBD22
 
    *  Claim Value Type: text string
 
@@ -614,7 +616,7 @@ Table of Contents
 
    *  JWT Claim Name: legal_jurisdictions
 
-   *  Claim Key: TBD (requested assignment 342)
+   *  Claim Key: TBD23
 
    *  Claim Value Type: array of text strings
 
@@ -630,7 +632,7 @@ Table of Contents
 
    *  JWT Claim Name: importer_code
 
-   *  Claim Key: TBD (requested assignment 343)
+   *  Claim Key: TBD24
 
    *  Claim Value Type: text string
 
@@ -646,7 +648,7 @@ Table of Contents
 
    *  JWT Claim Name: exporter_code
 
-   *  Claim Key: TBD (requested assignment 344)
+   *  Claim Key: TBD25
 
    *  Claim Value Type: text string
 
@@ -664,7 +666,7 @@ Table of Contents
 
    *  JWT Claim Name: incoterms
 
-   *  Claim Key: TBD (requested assignment 345)
+   *  Claim Key: TBD26
 
    *  Claim Value Type: text string
 
@@ -682,7 +684,7 @@ Table of Contents
 
    *  JWT Claim Name: regulatory_compliance_codes
 
-   *  Claim Key: TBD (requested assignment 346)
+   *  Claim Key: TBD27
 
    *  Claim Value Type: array of text strings
 
@@ -700,7 +702,7 @@ Table of Contents
 
    *  JWT Claim Name: additional_documents_required
 
-   *  Claim Key: TBD (requested assignment 347)
+   *  Claim Key: TBD28
 
    *  Claim Value Type: array of text strings
 
@@ -717,7 +719,7 @@ Table of Contents
 
    *  JWT Claim Name: freight_charges
 
-   *  Claim Key: TBD (requested assignment 348)
+   *  Claim Key: TBD29
 
    *  Claim Value Type: integer or floating point number
 
@@ -734,7 +736,7 @@ Table of Contents
 
    *  JWT Claim Name: insurance_charges
 
-   *  Claim Key: TBD (requested assignment 349)
+   *  Claim Key: TBD30
 
    *  Claim Value Type: integer or floating point number
 
@@ -751,7 +753,7 @@ Table of Contents
 
    *  JWT Claim Name: packing_costs
 
-   *  Claim Key: TBD (requested assignment 350)
+   *  Claim Key: TBD31
 
    *  Claim Value Type: integer or floating point number
 
@@ -768,7 +770,7 @@ Table of Contents
 
    *  JWT Claim Name: place_of_loading
 
-   *  Claim Key: TBD (requested assignment 351)
+   *  Claim Key: TBD32
 
    *  Claim Value Type: text string
 
@@ -785,7 +787,7 @@ Table of Contents
 
    *  JWT Claim Name: place_of_discharge
 
-   *  Claim Key: TBD (requested assignment 352)
+   *  Claim Key: TBD33
 
    *  Claim Value Type: text string
 
@@ -802,7 +804,7 @@ Table of Contents
 
    *  JWT Claim Name: consignee_information
 
-   *  Claim Key: TBD (requested assignment 353)
+   *  Claim Key: TBD34
 
    *  Claim Value Type: map
 
@@ -819,7 +821,7 @@ Table of Contents
 
    *  JWT Claim Name: consignor_information
 
-   *  Claim Key: TBD (requested assignment 354)
+   *  Claim Key: TBD35
 
    *  Claim Value Type: map
 
@@ -836,7 +838,7 @@ Table of Contents
 
    *  JWT Claim Name: customs_declaration_date
 
-   *  Claim Key: TBD (requested assignment 355)
+   *  Claim Key: TBD36
 
    *  Claim Value Type: text string
 
