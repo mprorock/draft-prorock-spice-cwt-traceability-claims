@@ -210,13 +210,14 @@ considered when using these claims.
 
 This specification registers the following claims in the
 IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
+The claim keys are listed as TBD. We request values in the 256 to 65535 range.
 
 ### Goods Identifier {#product_id}
 
 * Claim Name: product_id
 * Claim Description: A unique identifier for the physical product(s) or shipment being tracked. May correspond to SKU, product ID, or batch number.
 * JWT Claim Name: product_id
-* Claim Key: TBD (requested assignment 320)
+* Claim Key: TBD1
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{product_id}} of this specification
@@ -226,7 +227,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: shipment_id
 * Claim Description: Unique identifier assigned to a specific shipment.
 * JWT Claim Name: shipment_id
-* Claim Key: TBD (requested assignment 321)
+* Claim Key: TBD2
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{shipment_id}} of this specification
@@ -236,7 +237,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: bill_of_lading_number
 * Claim Description: Identifier for the bill of lading associated with the goods.
 * JWT Claim Name: bill_of_lading_number
-* Claim Key: TBD (requested assignment 322)
+* Claim Key: TBD3
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{bill_of_lading_number}} of this specification
@@ -246,7 +247,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: transport_mode
 * Claim Description: Mode of transport used for the shipment. (Recommended values: "air", "sea", "rail", "truck")
 * JWT Claim Name: transport_mode
-* Claim Key: TBD (requested assignment 323)
+* Claim Key: TBD4
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{transport_mode}} of this specification
@@ -256,7 +257,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: container_id
 * Claim Description: Unique identifier for the container used in the shipment.
 * JWT Claim Name: container_id
-* Claim Key: TBD (requested assignment 324)
+* Claim Key: TBD5
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{container_id}} of this specification
@@ -266,7 +267,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: origin_location
 * Claim Description: Geographical origin of the goods, represented as an [ISO.3166] alpha-2 country code string or specific address
 * JWT Claim Name: origin_location
-* Claim Key: TBD (requested assignment 325)
+* Claim Key: TBD6
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{origin_location}} of this specification
@@ -276,7 +277,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: destination_location
 * Claim Description: Final destination of the goods in the shipment.
 * JWT Claim Name: destination_location
-* Claim Key: TBD (requested assignment 326)
+* Claim Key: TBD7
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{destination_location}} of this specification
@@ -286,7 +287,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: carrier_id
 * Claim Description: Identifier for the carrier or logistics provider responsible for the shipment.
 * JWT Claim Name: carrier_id
-* Claim Key: TBD (requested assignment 327)
+* Claim Key: TBD8
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{carrier_id}} of this specification
@@ -296,7 +297,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: estimated_delivery_date
 * Claim Description: Expected delivery date for the shipment, represented as an [ISO.8601] date and time string
 * JWT Claim Name: estimated_delivery_date
-* Claim Key: TBD (requested assignment 328)
+* Claim Key: TBD9
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{estimated_delivery_date}} of this specification
@@ -306,7 +307,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: customs_declaration_number
 * Claim Description: Identifier for the customs declaration associated with the shipment.
 * JWT Claim Name: customs_declaration_number
-* Claim Key: TBD (requested assignment 329)
+* Claim Key: TBD10
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{customs_declaration_number}} of this specification
@@ -316,7 +317,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: commodity_description
 * Claim Description: Description of the commodity or goods being transported.
 * JWT Claim Name: commodity_description
-* Claim Key: TBD (requested assignment 330)
+* Claim Key: TBD11
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{commodity_description}} of this specification
@@ -326,7 +327,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: hs_code
 * Claim Description: Harmonized System (HS) code [HSCode] for the goods.
 * JWT Claim Name: hs_code
-* Claim Key: TBD (requested assignment 331)
+* Claim Key: TBD12
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{hs_code}} of this specification
@@ -336,7 +337,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: gross_weight
 * Claim Description: Gross weight of the shipment, in kilograms.
 * JWT Claim Name: gross_weight
-* Claim Key: TBD (requested assignment 332)
+* Claim Key: TBD13
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{gross_weight}} of this specification
@@ -346,7 +347,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: temperature_requirement_min
 * Claim Description: Minimum temperature (in Celsius) required for transport or storage of the goods.
 * JWT Claim Name: temperature_requirement_min
-* Claim Key: TBD (requested assignment 333)
+* Claim Key: TBD14
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{temperature_requirement_min}} of this specification
@@ -356,7 +357,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: temperature_requirement_max
 * Claim Description: Maximum temperature (in Celsius) required for transport or storage of the goods.
 * JWT Claim Name: temperature_requirement_max
-* Claim Key: TBD (requested assignment 334)
+* Claim Key: TBD15
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{temperature_requirement_max}} of this specification
@@ -366,7 +367,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: last_known_location
 * Claim Description: Most recent location update for the goods.
 * JWT Claim Name: last_known_location
-* Claim Key: TBD (requested assignment 335)
+* Claim Key: TBD16
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{last_known_location}} of this specification
@@ -376,7 +377,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: tariff_code
 * Claim Description: Tariff code applicable to the goods, including national tariff classifications or specific duty codes.
 * JWT Claim Name: tariff_code
-* Claim Key: TBD (requested assignment 336)
+* Claim Key: TBD17
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{tariff_code}} of this specification
@@ -386,7 +387,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: country_of_origin
 * Claim Description: The country where the goods were produced or manufactured, represented as an [ISO.3166] alpha-2 country code string
 * JWT Claim Name: country_of_origin
-* Claim Key: TBD (requested assignment 337)
+* Claim Key: TBD18
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{country_of_origin}} of this specification
@@ -396,7 +397,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: customs_value
 * Claim Description: Declared value of the goods for customs purposes, typically in the transaction currency.
 * JWT Claim Name: customs_value
-* Claim Key: TBD (requested assignment 338)
+* Claim Key: TBD19
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{customs_value}} of this specification
@@ -406,7 +407,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: currency_code
 * Claim Description: Currency code for the customs value and other monetary amounts, represented as an [ISO.4217] alpha-3 currency code string
 * JWT Claim Name: currency_code
-* Claim Key: TBD (requested assignment 339)
+* Claim Key: TBD20
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{currency_code}} of this specification
@@ -416,7 +417,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: license_number
 * Claim Description: License or permit number required for the import or export of the goods.
 * JWT Claim Name: license_number
-* Claim Key: TBD (requested assignment 340)
+* Claim Key: TBD21
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{license_number}} of this specification
@@ -426,7 +427,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: sanctions_reference
 * Claim Description: Reference to applicable sanctions lists or regulations affecting the goods or involved parties.
 * JWT Claim Name: sanctions_reference
-* Claim Key: TBD (requested assignment 341)
+* Claim Key: TBD22
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{sanctions_reference}} of this specification
@@ -436,7 +437,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: legal_jurisdictions
 * Claim Description: Legal jurisdiction(s) governing the transaction, represented as an [ISO.3166] alpha-2 country code string or other specific legal identifier.
 * JWT Claim Name: legal_jurisdictions
-* Claim Key: TBD (requested assignment 342)
+* Claim Key: TBD23
 * Claim Value Type: array of text strings
 * Change Controller: IETF
 * Reference: {{legal_jurisdictions}} of this specification
@@ -446,7 +447,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: importer_code
 * Claim Description: Code identifying the importer.
 * JWT Claim Name: importer_code
-* Claim Key: TBD (requested assignment 343)
+* Claim Key: TBD24
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{importer_code}} of this specification
@@ -456,7 +457,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: exporter_code
 * Claim Description: Code identifying the exporter.
 * JWT Claim Name: exporter_code
-* Claim Key: TBD (requested assignment 344)
+* Claim Key: TBD25
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{exporter_code}} of this specification
@@ -466,7 +467,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: incoterms
 * Claim Description: International commercial terms [INCOTERMS] defining responsibilities between buyer and seller, e.g., "FOB", "CIF".
 * JWT Claim Name: incoterms
-* Claim Key: TBD (requested assignment 345)
+* Claim Key: TBD26
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{incoterms}} of this specification
@@ -476,7 +477,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: regulatory_compliance_codes
 * Claim Description: Codes indicating compliance with specific regulations or standards (e.g., safety certifications, environmental standards).
 * JWT Claim Name: regulatory_compliance_codes
-* Claim Key: TBD (requested assignment 346)
+* Claim Key: TBD27
 * Claim Value Type: array of text strings
 * Change Controller: IETF
 * Reference: {{regulatory_compliance_codes}} of this specification
@@ -486,7 +487,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: additional_documents_required
 * Claim Description: List of additional documents required for customs clearance, such as certificates of origin or inspection reports.
 * JWT Claim Name: additional_documents_required
-* Claim Key: TBD (requested assignment 347)
+* Claim Key: TBD28
 * Claim Value Type: array of text strings
 * Change Controller: IETF
 * Reference: {{additional_documents_required}} of this specification
@@ -496,7 +497,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: freight_charges
 * Claim Description: Transportation costs associated with the shipment, used for customs valuation.
 * JWT Claim Name: freight_charges
-* Claim Key: TBD (requested assignment 348)
+* Claim Key: TBD29
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{freight_charges}} of this specification
@@ -506,7 +507,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: insurance_charges
 * Claim Description: Insurance costs for the shipment, used in determining customs value.
 * JWT Claim Name: insurance_charges
-* Claim Key: TBD (requested assignment 349)
+* Claim Key: TBD30
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{insurance_charges}} of this specification
@@ -516,7 +517,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: packing_costs
 * Claim Description: Costs associated with packing the goods, relevant for customs valuation.
 * JWT Claim Name: packing_costs
-* Claim Key: TBD (requested assignment 350)
+* Claim Key: TBD31
 * Claim Value Type: integer or floating point number
 * Change Controller: IETF
 * Reference: {{packing_costs}} of this specification
@@ -526,7 +527,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: place_of_loading
 * Claim Description: Location where the goods were loaded for shipment, often a port or warehouse.
 * JWT Claim Name: place_of_loading
-* Claim Key: TBD (requested assignment 351)
+* Claim Key: TBD32
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{place_of_loading}} of this specification
@@ -536,7 +537,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: place_of_discharge
 * Claim Description: Location where the goods are scheduled to be unloaded.
 * JWT Claim Name: place_of_discharge
-* Claim Key: TBD (requested assignment 352)
+* Claim Key: TBD33
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{place_of_discharge}} of this specification
@@ -546,7 +547,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: consignee_information
 * Claim Description: Information about the consignee, including identifier, name, address, and contact details.
 * JWT Claim Name: consignee_information
-* Claim Key: TBD (requested assignment 353)
+* Claim Key: TBD34
 * Claim Value Type: map
 * Change Controller: IETF
 * Reference: {{consignee_information}} of this specification
@@ -556,7 +557,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: consignor_information
 * Claim Description: Information about the consignor, including identifier, name, address, and contact details.
 * JWT Claim Name: consignor_information
-* Claim Key: TBD (requested assignment 354)
+* Claim Key: TBD35
 * Claim Value Type: map
 * Change Controller: IETF
 * Reference: {{consignor_information}} of this specification
@@ -566,7 +567,7 @@ IANA "CBOR Web Token (CWT) Claims" registry [IANA.CWT] established by [RFC8392].
 * Claim Name: customs_declaration_date
 * Claim Description: Date when the customs declaration was made, represented as an [ISO.8601] date and time string
 * JWT Claim Name: customs_declaration_date
-* Claim Key: TBD (requested assignment 355)
+* Claim Key: TBD36
 * Claim Value Type: text string
 * Change Controller: IETF
 * Reference: {{customs_declaration_date}} of this specification
