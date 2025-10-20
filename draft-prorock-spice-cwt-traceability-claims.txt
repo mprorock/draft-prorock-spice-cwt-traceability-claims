@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                      M. Prorock
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                             M. B. Jones
-Expires: 20 April 2026                            Self-Issued Consulting
+Expires: 23 April 2026                            Self-Issued Consulting
                                                             B. W. Zundel
                                                             Tradeverifyd
-                                                         17 October 2025
+                                                         20 October 2025
 
 
                           Traceability Claims
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -1333,6 +1333,14 @@ Acknowledgments
    A.J.  Stein contributed to this specification.
 
 Document History
+
+   -03
+
+   *  Made currency clarifications.
+
+   *  Suggested transport_mode values.
+
+   *  Use TBDn names for CWT requested claim numbers.
 
    -02
 
