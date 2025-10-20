@@ -840,6 +840,12 @@ contributed to this specification.
 # Document History
 {: numbered="false"}
 
+-03
+
+* Made currency clarifications.
+* Suggested transport_mode values.
+* Use TBDn names for CWT requested claim numbers.
+
 -02
 
 * Enabled the use of GLUE identifiers.
